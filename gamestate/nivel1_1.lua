@@ -22,6 +22,7 @@ local city=nil
 local timer=0
 local tmw,tmh=0,0
 local backgroundPosition=0
+local gh=0
 sprites={}
 
 local counter=0
@@ -29,7 +30,7 @@ function nivel1_1:init()
 	self:sprites()
 	background=love.graphics.newImage("assets/img/background.png")
 	city=love.graphics.newImage("assets/img/city.png")
-
+	gh=love.graphics.getWidth()
 end
 
 
@@ -562,13 +563,12 @@ end
 function nivel1_1:draw()
 	love.graphics.draw(background,0,0)
 
-	
 	xc,yc,hc,wc=self.cam:getVisible()
 	--print(self.cam:getWorld())
 	--self.cam:draw(function(l,t,w,h)
 		love.graphics.draw(city,(xc/wc)*320,0)
 		--print((xc/wc)*32)
-		love.graphics.draw(city,(xc/wc)*320 -1600,0)
+		love.graphics.draw(city,(xc/wc)*320 -gh,0)
 	--end)
 	self.map:draw(-xc,-yc,scale,scale)
 	--vida del jugador
