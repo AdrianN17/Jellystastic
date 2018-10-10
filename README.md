@@ -4,6 +4,8 @@ A original game platformer make with Love2d
 
 Jellystastic = Jelly + Fantastic
 
+At the moment only have 1-1 level (1-1-1 and 1-1-2)
+
 Libraries used in this game :
 
 * Gamera https://github.com/kikito/gamera
