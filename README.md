@@ -6,6 +6,15 @@ Jellystastic = Jelly + Fantastic
 
 At the moment only have 1-1 level (1-1-1 and 1-1-2)
 
+Controls
+
+- AD left and right
+- w jump
+- s ignore some collision (triangle steps, platformer and elevator)
+- E Change level (only if you collide the door)
+- Mouse shoot
+- 1-6 Weapons
+
 Libraries used in this game :
 
 * Gamera https://github.com/kikito/gamera
