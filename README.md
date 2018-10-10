@@ -8,12 +8,13 @@ At the moment only have 1-1 level (1-1-1 and 1-1-2)
 
 Controls
 
-- AD left and right
-- w jump
-- s ignore some collision (triangle steps, platformer and elevator)
-- E Change level (only if you collide the door)
+- "A" "D" : left and right
+- "W" : jump
+- "S" : ignore some collision (triangle steps, platformer and elevator)
+- "E" : Change level (only if you collide the door)
 - Mouse shoot
-- 1-6 Weapons
+- "1"-"6" Weapons
+- "X" : sword
 
 Libraries used in this game :
 
