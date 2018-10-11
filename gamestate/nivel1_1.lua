@@ -463,7 +463,6 @@ function nivel1_1:update(dt)
 				ene.jump=true
 				ene.move=false
 				ene.immunity=true
-				if ex>0 then ene.d=1 else ene.d=-1 end
 				ene.isjump=true
 				ene.hp=ene.hp-base.entidades.player.mdamage*ene.defense
 				ene.timea=0

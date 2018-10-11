@@ -34,7 +34,6 @@ function baba_1:init(x,y,w,h,change,hp)
 	self.timea=0
 	self.defense=1
 
-	self.d=1
 end
 
 function baba_1:draw()
@@ -80,7 +79,7 @@ function baba_1:update(dt)
 		end
 
 	elseif not self.move then
-		d=self.d
+		d=-1
 		if self.isjump then
 			y=y-0.5
 			self.ground=false
