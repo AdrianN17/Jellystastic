@@ -1,4 +1,4 @@
-# Jellystastic (Alpha-Ver 0.1)
+# Jellystastic (Alpha-Ver 0.2)
 
 A original game platformer make with Love2d
 
@@ -10,10 +10,10 @@ Controls
 
 - "A" "D" : left and right
 - "W" : jump
-- "S" : ignore some collision (triangle steps, platformer and elevator)
+- "S" : ignore some collision (triangle steps, platformer and elevator) when you collide with these
 - "E" : Change level (only if you collide the door)
-- Mouse shoot
-- "1"-"6" Weapons
+- Mouse : shoot
+- "1"-"6" Weapons (sword,pistol,revolver,shotgun,assault rifle,Grenade Launcher)
 - "X" : sword
 - "P" : Pause
 
