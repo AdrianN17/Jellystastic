@@ -12,6 +12,7 @@ local entidades = {
 	player=nil,
 	x=0,y=0,h=0,w=0,
 	maps={},
+	explosion={},
 	flags={}
 }
 
@@ -40,6 +41,7 @@ function entidades:clear()
 	self.enemies={}
 	self.point={}
 	self.bullete={}
+	self.explosion={}
 	self.l=1
 	self.player=nil
 	self.x=0
@@ -96,6 +98,12 @@ function entidades:draw_o()
 end
 
 function entidades:draw_e()
+	for i, e in ipairs(self.explosion) do
+		if e.l==self.l then
+			e:draw()
+		end
+	end
+
 	for i, e in ipairs(self.meteor) do
 		if e.l==self.l then
 			e:draw()
@@ -143,6 +151,12 @@ function entidades:update_o(dt)
 end
 
 function entidades:update_e(dt)
+	for i, e in ipairs(self.explosion) do
+		if e.l==self.l then
+			e:update(dt)
+		end
+	end
+	
 	for i, e in ipairs(self.meteor) do
 		if e.l==self.l then
 			e:update(dt)
@@ -208,6 +222,8 @@ function entidades:addextra(e,select)
 		table.insert(self.bullete,e)
 	elseif select=="flags" then
 		table.insert(self.flags,e)
+	elseif select=="explosion" then
+		table.insert(self.explosion,e)
 	end
 end
 
@@ -279,6 +295,13 @@ function entidades:removeextra(e,select)
 		for i, en in ipairs(self.flags) do
 			if en==e  then
 				table.remove(self.flags,i)
+				return
+			end
+		end
+	elseif select=="explosion" then
+		for i, en in ipairs(self.explosion) do
+			if en==e  then
+				table.remove(self.explosion,i)
 				return
 			end
 		end

@@ -10,7 +10,7 @@ end
 --[[
 -- controles
 -- asdw para moverse
--- e para entrar a las puertas[base.entidades.player.armaa]
+-- e para entrar a las puertas
 -- click balas 1 normal 2 destruye
 ]]
 
@@ -66,3 +66,5 @@ function love.run()
 	end
  
 end
+
+--hacer que los objetos desaparezcan al salir del visor

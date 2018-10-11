@@ -11,6 +11,7 @@ local Npc = require "entidades.npc"
 local HC = require "libs.HC"
 local Zombie = require "entidades.zombie"
 local pausa = require "gamestate.pausa"
+local Explosion = require "entidades.explosion"
 local nivel1_1 = Class{
 	__includes = base
 }
@@ -233,11 +234,14 @@ function nivel1_1:update(dt)
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=bu.body:collidesWith(col.body)--collision bala pared
 				if colli and col.type =="col" then
-					if bu.damage==5 then
-						pcall (self:deletetiled(col.x,col.y,col.gid,base.entidades.l,4),"error")
-						--table.remove(base.entidades.colli,c)
+					if bu.damage==4 then
+						
+
+						--pcall (self:deletetiled(col.x,col.y,col.gid,base.entidades.l,4),"error")
 						base.entidades:removeextra(col,"colli")
 						HC.remove(col.body)
+
+						base.entidades:addextra(Explosion(bu.ox,bu.oy,bu.l),"explosion")
 					end
 					bu.hp=bu.hp-1
 				end
@@ -281,6 +285,18 @@ function nivel1_1:update(dt)
 						ene.ground=true
 						ene.body:move(dx/5,dy/5)
 					end
+				end
+			end
+		end
+
+		for _, ex in pairs(base.entidades.explosion) do
+			if col.l==ex.l and ex.l==base.entidades.l and col.ox>x and col.ox<x+h and col.oy>y and col.oy<y+w then
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=ex.body:collidesWith(col.body)--collision pared explosion
+				if colli then
+					pcall (self:deletetiled(col.x,col.y,col.gid,base.entidades.l,4),"error2")
+					HC.remove(col.body)
+					base.entidades:removeextra(col,"colli")
 				end
 			end
 		end
@@ -454,6 +470,18 @@ function nivel1_1:update(dt)
 			end
 		end
 
+
+		for _, ex in pairs(base.entidades.explosion) do
+			if ene.l==base.entidades.l and ene.ox<x+h and ene.oy>y and ene.oy<y+w then
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=ex.body:collidesWith(ene.body)
+
+				if colli then
+					ene.hp=ene.hp-ex.damage*(ene.defense/2)
+				end
+			end
+		end
+
 		--[[for e, en in pairs(base.entidades.npcs) do
 			if ene.l==en.l and ene.l==base.entidades.l and en.ox>x and en.ox<x+h and en.oy>y and en.oy<y+w and ene.ox>x and ene.ox<x+h and ene.oy>y and ene.oy<y+w then
 				local dx,dy,colli=0,0,false
@@ -472,7 +500,7 @@ function nivel1_1:update(dt)
 			if bu.l==ene.l then
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=ene.body:collidesWith(bu.body)--collision enemigo bala
-				if colli then
+				if bu.damage~=4 and colli then
 					bu.hp=bu.hp-1
 					ene.hp=ene.hp-bu.damage
 				end
@@ -496,11 +524,21 @@ function nivel1_1:update(dt)
 	for _, en in pairs(base.entidades.npcs) do
 		if en.l==base.entidades.l and en.ox>x-1000 and en.ox<x+h+1000 and en.oy>y-1000 and en.oy<y+w then
 			local dx,dy,colli=0,0,false
-			colli,dx,dy=base.entidades.player.body:collidesWith(en.body)-- collision enemigo player
+			colli,dx,dy=base.entidades.player.body:collidesWith(en.body)-- collision aliado player
 			if colli then
 				base.entidades.player.friend=base.entidades.player.friend+en:save()
 				if base.entidades.player.hp<base.entidades.player.maxhp then
 					base.entidades.player.hp=base.entidades.player.hp+0.5
+				end
+			end
+		end
+
+		for _, ex in pairs(base.entidades.explosion) do
+			if en.l==base.entidades.l and en.ox>x-1000 and en.ox<x+h+1000 and en.oy>y-1000 and en.oy<y+w then
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=ex.body:collidesWith(en.body)-- collision aliado explosion
+				if colli then
+					en.hp=en.hp-ex.damage
 				end
 			end
 		end

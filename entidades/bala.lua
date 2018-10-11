@@ -8,6 +8,7 @@ local bala = Class{
 }
 
 function bala:init(x,y,angle,speed,change,damage)
+
 	self.body=HC.circle(x,y,5)
 	self.ox,self.oy=self.body:center()
 	self.angle=angle
