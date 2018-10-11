@@ -16,7 +16,6 @@ end
 function explosion:update(dt)
 	self.time=self.time+dt
 	if self.time>0.07 then 
-		print("a")
 		HC.remove(self.body)
 		base.entidades:removeextra(self,"explosion")
 	end
