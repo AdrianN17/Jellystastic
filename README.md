@@ -15,6 +15,7 @@ Controls
 - Mouse shoot
 - "1"-"6" Weapons
 - "X" : sword
+- "P" : Pause
 
 Libraries used in this game :
 
