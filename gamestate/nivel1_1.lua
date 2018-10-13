@@ -611,6 +611,7 @@ function nivel1_1:draw()
 	--vida del jugador
 	love.graphics.draw(sprites["heart"],sprites[base.entidades.player.h[base.entidades.player.hi]],10,25)
 	love.graphics.print(math.max(base.entidades.player.hp*10,0) .. " %",20,40,0,1.5,1.5)
+	love.graphics.setColor(0, 0, 0)
 	love.graphics.print("Npcs salvados : " .. base.entidades.player.friend,20,100)
 	if base.entidades.player.armaa>0 then
 		love.graphics.print("Arma : " .. base.entidades.player.narma[base.entidades.player.armaa] .. " Municion : " .. base.entidades.player.municion[base.entidades.player.armaa] .. " Stock : " .. base.entidades.player.stock[base.entidades.player.armaa],20,140)
@@ -630,7 +631,7 @@ function nivel1_1:draw()
 	love.graphics.print("arma 5 : " ..  tostring(base.entidades.player.arma[5]) .. " municion 5 : " .. base.entidades.player.municion[5] .. " stock 5 : " .. base.entidades.player.stock[5],20,200)
 	]]
 	--love.graphics.print(,20,250)
-	love.graphics.setColor(0, 0, 0)
+	
 		local stats = love.graphics.getStats()
 	 
 	    local str = string.format("Estimated amount of texture memory used: %.2f MB", stats.texturememory / 1024 / 1024)
