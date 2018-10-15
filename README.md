@@ -2,11 +2,11 @@
 
 A original game platformer make with Love2d
 
-Jellystastic = Jelly + Fantastic
+**Jellystastic = Jelly + Fantastic**
 
 At the moment only have 1-1 level (1-1-1 and 1-1-2)
 
-Controls
+## Controls
 
 - "A" "D" : left and right
 - "W" : jump
