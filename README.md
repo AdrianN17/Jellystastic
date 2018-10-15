@@ -3,7 +3,7 @@
 
 A original game platformer make with Love2d
 
-
+## Details
 
 **Jellystastic = Jelly + Fantastic**
 
