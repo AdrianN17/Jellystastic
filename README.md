@@ -1,4 +1,4 @@
-# Jellystastic (Alpha-Ver 0.2)
+# Jellystastic
 ![alt text](https://img.shields.io/badge/love-11.1-ff69b4.svg) ![alt text](https://img.shields.io/badge/status-alpha-orange.svg)
 
 A original game platformer make with Love2d
@@ -6,6 +6,8 @@ A original game platformer make with Love2d
 ## Details
 
 **Jellystastic = Jelly + Fantastic**
+
+Actual version is 0.2
 
 At the moment only have 1-1 level (1-1-1 and 1-1-2)
 
