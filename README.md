@@ -1,6 +1,9 @@
 # Jellystastic (Alpha-Ver 0.2)
+![alt text](https://img.shields.io/badge/love-11.1-ff69b4.svg)
 
 A original game platformer make with Love2d
+
+
 
 **Jellystastic = Jelly + Fantastic**
 
