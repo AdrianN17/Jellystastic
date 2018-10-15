@@ -32,6 +32,11 @@ Tools used in this game :
 * Sprite Cow http://www.spritecow.com/
 * Zerosprites http://zerosprites.com/
 
+Maps:
+
+![alt text](https://i.imgur.com/0ZvIxuK.png)
+![alt text](https://i.imgur.com/N26yhAt.png)
+
 Screenshot: 
 
 ![alt text](https://i.imgur.com/KcI7iSN.png)
