@@ -17,7 +17,7 @@ At the moment only have 1-1 level (1-1-1 and 1-1-2)
 - "X" : sword
 - "P" : Pause
 
-Libraries used in this game :
+## Libraries used in this game :
 
 * Gamera https://github.com/kikito/gamera
 * HC https://github.com/vrld/HC
@@ -26,18 +26,18 @@ Libraries used in this game :
 * Entity logic source code from http://www.osmstudios.com/page/tutorials (platformer tutorial)
 * STI https://github.com/karai17/Simple-Tiled-Implementation
 
-Tools used in this game :
+## Tools used in this game :
 
 * Tiled https://www.mapeditor.org/
 * Sprite Cow http://www.spritecow.com/
 * Zerosprites http://zerosprites.com/
 
-Maps:
+## Maps:
 
 ![alt text](https://i.imgur.com/0ZvIxuK.png)
 ![alt text](https://i.imgur.com/N26yhAt.png)
 
-Screenshot: 
+## Screenshot: 
 
 ![alt text](https://i.imgur.com/KcI7iSN.png)
 
