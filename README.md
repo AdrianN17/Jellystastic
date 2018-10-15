@@ -31,3 +31,18 @@ Tools used in this game :
 * Tiled https://www.mapeditor.org/
 * Sprite Cow http://www.spritecow.com/
 * Zerosprites http://zerosprites.com/
+
+Screenshot: 
+
+![alt text](https://i.imgur.com/KcI7iSN.png)
+
+![alt text](https://i.imgur.com/nXJ4aOe.png)
+
+![alt text](https://i.imgur.com/UW4mmSt.png)
+
+![alt text](https://i.imgur.com/oE9lSJ7.png)
+
+![alt text](https://i.imgur.com/3gTduA4.png)
+
+![alt text](https://i.imgur.com/qfQSzpr.png)
+
