@@ -20,10 +20,11 @@ local xc,yc,hc,wc=0,0,0,0
 local time=0
 local background=nil
 local city=nil
-local timer=0
+local time2=0
 local tmw,tmh=0,0
 local backgroundPosition=0
 local gh=0
+local intervalo=true
 sprites={}
 
 local counter=0
@@ -156,14 +157,23 @@ function nivel1_1:update(dt)
 	self.map:update(dt)
 	self.cam:setPosition(base.entidades.player.ox, base.entidades.player.oy)
 
-	time=time+dt
-	-- creacion de meteoros
-	if time>5 and not base.entidades.player.fin then
-		for i=1,love.math.random(4,7),1 do
-			local ex,ey,r,a,s=love.math.random(x,x+h),y-500,50,love.math.random(-15,15),400
-			base.entidades:addextra(Meteoro(ex,ey,r,a,s,base.entidades.l),"meteor")
-			--collectgarbage()
-			time=0
+	time2=time2+dt
+
+	if time2>5 and not base.entidades.player.fin then
+		intervalo=not intervalo
+		time2=0
+	end
+
+	if intervalo then
+		time=time+dt
+	    -- creacion de meteoros
+		if time>5 and not base.entidades.player.fin then
+			for i=1,love.math.random(4,7),1 do
+				local ex,ey,r,a,s=love.math.random(x,x+h),y-500,50,love.math.random(-15,15),400
+				base.entidades:addextra(Meteoro(ex,ey,r,a,s,base.entidades.l),"meteor")
+				--collectgarbage()
+				time=0
+			end
 		end
 	end
 
@@ -275,7 +285,7 @@ function nivel1_1:update(dt)
 		end
 
 		for _, ene in pairs(base.entidades.enemies) do
-			if col.l==ene.l and ene.l==base.entidades.l and ene.ox>x and ene.ox<x+h and ene.oy>y and ene.oy<y+w and col.ox>x and col.ox<x+h and col.oy>y and col.oy<y+w then
+			if col.l==ene.l and ene.l==base.entidades.l and ene.ox>x and ene.ox<x+h and ene.oy>y and ene.oy<y+w then
 				-- para cada enemigo
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=ene.body:collidesWith(col.body)--collision pared enemigo
@@ -290,7 +300,7 @@ function nivel1_1:update(dt)
 		end
 
 		for _, ex in pairs(base.entidades.explosion) do
-			if col.l==ex.l and ex.l==base.entidades.l and col.ox>x and col.ox<x+h and col.oy>y and col.oy<y+w then
+			if col.l==ex.l and col.ox>x and col.ox<x+h and col.oy>y and col.oy<y+w then
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=ex.body:collidesWith(col.body)--collision pared explosion
 				if colli then
@@ -382,6 +392,15 @@ function nivel1_1:update(dt)
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=me.body:collidesWith(bu.body)--collision bala meteoro
 				if colli then
+					if bu.damage==4 then
+						
+
+						--pcall (self:deletetiled(col.x,col.y,col.gid,base.entidades.l,4),"error")
+						base.entidades:removeextra(me,"meteor")
+						HC.remove(me.body)
+
+						base.entidades:addextra(Explosion(bu.ox,bu.oy,bu.l),"explosion")
+					end
 					bu.hp=bu.hp-1
 					me.hp=me.hp-1
 				end
@@ -394,6 +413,16 @@ function nivel1_1:update(dt)
 				colli,dx,dy=me.body:collidesWith(en.body)-- collision npc meteoro
 				if colli then
 					en.hp=en.hp-5
+				end
+			end
+		end
+
+		for _, ex in pairs(base.entidades.explosion) do
+			if ex.l==me.l then
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=me.body:collidesWith(ex.body)-- collision explosion meteoro
+				if colli then
+					me.hp=me.hp-ex.damage
 				end
 			end
 		end
@@ -582,8 +611,27 @@ function nivel1_1:update(dt)
 				end
 			end
 		end
+
+		for _, ex in pairs(base.entidades.explosion) do
+			if bue.l==ex.l then
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=ex.body:collidesWith(bue.body)
+				if colli then
+					bue.hp=bue.hp-1
+				end
+			end
+		end
 	end
 
+	--iterador explosion
+	for _, ex in pairs(base.entidades.explosion) do
+		if ex.body:collidesWith(base.entidades.player.body) and not base.entidades.player.immunity then
+			base.entidades.player.hp=base.entidades.player.hp-(ex.damage*2)/10
+			base.entidades.player.immunity=true
+		end
+	end
+
+	--iterador bandera
 	for _, f in pairs(base.entidades.flags) do
 		if base.entidades.l==f.l then
 			if f.body:collidesWith(base.entidades.player.body) then
@@ -639,7 +687,7 @@ function nivel1_1:draw()
 	    love.graphics.print(str, 1200, 30)
 		love.graphics.print('Memory actually used (in kB): ' .. counter, 1200,50)
 		love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 1200, 70)
-
+		--love.graphics.print(tostring( intervalo ),500,500)
 		
 		
 		--debug
@@ -681,7 +729,7 @@ function nivel1_1:keypressed(key)
 		self.map=self.maps[base.entidades.l]
 	end
 
-	if key=="p" then
+	if key=="p" and not base.entidades.player.fin then
 		Gamestate.push(pausa)
 	end
 

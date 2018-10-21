@@ -312,5 +312,8 @@ function entidades:setcamera(x,y,h,w)
 	self.x,self.y,self.h,self.w=x,y,h,w
 end
 
+function entidades:pos()
+	return self.x,self.y,self.h,self.w
+end
 
 return entidades

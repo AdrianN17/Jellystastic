@@ -13,12 +13,12 @@ function bala:init(x,y,angle,speed,change,damage)
 	self.ox,self.oy=self.body:center()
 	self.angle=angle
 	self.speed=speed
-	self.time=0
 	self.l=change
 	self.hp=1
-	self.time=0
 	self.damage=damage
 	self.type="good"
+
+	self.lx,self.ly,self.lh,self.lw=base.entidades:pos()
 end
 
 function bala:draw()
@@ -30,12 +30,14 @@ function bala:draw()
 end
 
 function bala:update(dt)
-	self.time=self.time+dt
+	self.lx,self.ly,self.lh,self.lw=base.entidades:pos()
+
 	local x,y=self.speed*dt*math.cos(self.angle),self.speed*dt*math.sin(self.angle)
 	self.body:move(x,y)
 	self.ox,self.oy=self.body:center()
 
-	if self.time>3 or self.hp<1 then 
+	if self.hp<1 or not (self.ox>self.lx and self.ox<self.lx+self.lh and self.oy>self.ly and self.oy<self.ly+self.lw) then
+		--print("b")
 		HC.remove(self.body)
 		base.entidades:removeextra(self,"bullet")
 	end

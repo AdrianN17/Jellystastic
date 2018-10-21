@@ -66,6 +66,3 @@ function love.run()
 	end
  
 end
-
---hacer que los objetos desaparezcan al salir del visor
---olvide collision bala enemigo explosion y meteoro explosion

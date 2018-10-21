@@ -7,7 +7,7 @@ local explosion = Class{
 }
 
 function explosion:init(x,y,change)
-	self.body=HC.circle(x,y,50)
+	self.body=HC.circle(x,y,75)
 	self.l=change
 	self.time=0
 	self.damage=10
@@ -15,7 +15,7 @@ end
 
 function explosion:update(dt)
 	self.time=self.time+dt
-	if self.time>0.07 then 
+	if self.time>0.1 then 
 		HC.remove(self.body)
 		base.entidades:removeextra(self,"explosion")
 	end
