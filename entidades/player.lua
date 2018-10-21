@@ -14,7 +14,6 @@ function player:init(x,y,w,h,change,hp)
 
 	self.g=-500
 	self.vx,self.vy=0,0
-	self.acc=100
 
 	self.ground=true
 	self.vym=300
