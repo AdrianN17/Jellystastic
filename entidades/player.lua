@@ -54,12 +54,12 @@ function player:init(x,y,w,h,change,hp)
 
 	--manejo de balas
 	self.narma={"Pistola","Revolver","Escopeta","Ametralladora","Launcher"}
-	self.municion={0,0,0,0,2}
-	self.stock={0,0,0,0,1}
+	self.municion={0,0,0,0,0}
+	self.stock={0,0,0,0,0}
 	self.maxstock={10,5,5,45,1}
 	self.maxmuni={50,40,25,90,5}
 
-	self.arma={false,false,false,false,true}
+	self.arma={false,false,false,false,false}
 	self.armaa=0
 
 	self.point=HC.point(self.ox+30,self.oy+30,10)
