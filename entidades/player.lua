@@ -11,11 +11,13 @@ function player:init(x,y,w,h,change,hp)
 	self.x,self.y=x,y
 	self.body= HC.rectangle(x,y,w,h)
 	self.ox,self.oy=self.body:center()
+
 	self.g=-500
 	self.vx,self.vy=0,0
+	self.acc=100
+
 	self.ground=true
 	self.vym=300
-	self.ac=0
 
 	self.isjump=false
 	self.escalar=false
