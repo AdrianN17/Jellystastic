@@ -3,6 +3,7 @@ local base = require "gamestate.base"
 local entidad = require "entidades.entidad"
 local HC = require "libs.HC"
 local Bala = require "entidades.bala"
+local Zombie = require "entidades.zombie"
 local player = Class{
 	__includes = entidad
 }
@@ -342,6 +343,10 @@ function player:mousepressed(x,y,button)
 		end
 	end
 	
+end
+
+function  player:fall()
+	base.entidades:addextra(Zombie(self.ox,self.oy,62,74,self.l),"enemies")
 end
 
 

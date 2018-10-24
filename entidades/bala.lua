@@ -2,7 +2,7 @@ local Class = require "libs.class"
 local base = require "gamestate.base"
 local entidad = require "entidades.entidad"
 local HC = require "libs.HC"
-
+local Explosion = require "entidades.explosion"
 local bala = Class{
 	__includes = entidad
 }
@@ -41,6 +41,10 @@ function bala:update(dt)
 		HC.remove(self.body)
 		base.entidades:removeextra(self,"bullet")
 	end
+end
+
+function bala:change()
+	base.entidades:addextra(Explosion(self.ox,self.oy,self.l),"explosion")
 end
 
 
