@@ -8,7 +8,6 @@ local Meteoro = require "entidades.meteoro"
 local Ascensor = require "entidades.ascensor"
 local Baba1 = require "entidades.baba_1"
 local Npc = require "entidades.npc"
---local HC = require "libs.HC"
 
 local pausa = require "gamestate.pausa"
 
@@ -147,32 +146,14 @@ function nivel1_1:update(dt)
 	
 	base.entidades.player.ax,base.entidades.player.ay=self.cam:toWorld(love.mouse.getPosition())
 
-	local x,y,h,w=0,0,0,0
-	x,y,h,w=xc-100,yc-100,hc+200,wc+200
+	local x,y,h,w=xc-100,yc-100,hc+200,wc+200
+	
 	--limitar los movimientos de los demas
 	base.entidades:setcamera(x,y,h,w)
 	self.map:update(dt)
 	self.cam:setPosition(base.entidades.player.ox, base.entidades.player.oy)
 
-	time2=time2+dt
-
-	if time2>1.5 and not base.entidades.player.fin then
-		intervalo=not intervalo
-		time2=0
-	end
-
-	if intervalo then
-		time=time+dt
-	    -- creacion de meteoros
-		if time>5 and not base.entidades.player.fin then
-			for i=1,love.math.random(4,7),1 do
-				local ex,ey,r,a,s=love.math.random(x,x+h),y-500,50,love.math.random(-15,15),300
-				base.entidades:addextra(Meteoro(ex,ey,r,a,s,base.entidades.l),"meteor")
-				--collectgarbage()
-				time=0
-			end
-		end
-	end
+	self:setmeteor(dt,x,y,h,w)
 
 	base.entidades:collisions()
 
@@ -295,6 +276,28 @@ function nivel1_1:mousepressed(x,y,button)
 	
 	end]]
 
+end
+
+function nivel1_1:setmeteor(dt,x,y,h,w)
+	time2=time2+dt
+
+	if time2>1.5 and not base.entidades.player.fin then
+		intervalo=not intervalo
+		time2=0
+	end
+
+	if intervalo then
+		time=time+dt
+	    -- creacion de meteoros
+		if time>5 and not base.entidades.player.fin then
+			for i=1,love.math.random(4,7),1 do
+				local ex,ey,r,a,s=love.math.random(x,x+h),y-500,50,love.math.random(-15,15),300
+				base.entidades:addextra(Meteoro(ex,ey,r,a,s,base.entidades.l),"meteor")
+				--collectgarbage()
+				time=0
+			end
+		end
+	end
 end
 
 function nivel1_1:inicializate_1()
