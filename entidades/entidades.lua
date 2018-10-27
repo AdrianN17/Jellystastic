@@ -375,7 +375,7 @@ function entidades:collisions()
 					self.player.melee:move(dx,dy)
 					self.player.point:move(dx,dy)
 					self.player.vy=0
-				elseif dy>0 and dx==0 then
+				elseif dy>0  then
 					self.player.vy=self.player.vy/2
 					self.player.body:move(0,dy*1.2)
 					self.player.melee:move(0,dy*1.2)
@@ -384,10 +384,14 @@ function entidades:collisions()
 			elseif col.type=="liso" and colli then
 				if dy<0 then
 					self.player.ground=true
-					self.player.body:move(dx*4,dy)
-					self.player.melee:move(dx*4,dy)
-					self.player.point:move(dx*4,dy)
-				elseif dy>0 and dx==0 then
+					self.player.body:move(dx*7,dy/2)
+					self.player.melee:move(dx*7,dy/2)
+					self.player.point:move(dx*7,dy/2)
+
+					self.player.moveleft=false
+					self.player.moveright=false
+
+				elseif dy>0  then
 					self.player.vy=self.player.vy/2
 					self.player.body:move(0,dy*1.2)
 					self.player.melee:move(0,dy*1.2)
