@@ -332,7 +332,28 @@ function nivel1_2:inicializate_1()
 			    		end
 	      			end
 
-	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="col",l=1},"colli")
+	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1},"colli")
+	      		end
+
+	      		if tile.properties.liso or tile.properties.liso=="true" then
+	      			local tx,ty=0,0
+	      			local og=tile.objectGroup.objects
+
+	      			local t={}
+
+	      			for _, o in pairs(og) do
+	      				if o.name=="3" then
+	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+	      				else
+	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+	      				end
+	      				for _, p in pairs(o.polygon) do
+	      					table.insert(t,tx+p.x)
+    						table.insert(t,ty+p.y)
+			    		end
+	      			end
+
+	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1},"colli")
 	      		end
 
 	      		if tile.properties.plataforma or tile.properties.plataforma=="true" then
@@ -346,13 +367,6 @@ function nivel1_2:inicializate_1()
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
 	        	end
 	      	end
-		      	--[[for k, v in pairs(tile.objectGroup.objects) do
-		      		print(v.properties["collidable2"])
-				    
-		    		for i, p in pairs(v.polygon) do
-		    			print(p["x"],p["y"])
-		    		end
-				end]]
 	   end
 	end
 	--layer 2
@@ -381,7 +395,28 @@ function nivel1_2:inicializate_1()
 			    		end
 	      			end
 
-	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="col",l=1},"colli")
+	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1},"colli")
+	      		end
+
+	      		if tile.properties.liso or tile.properties.liso=="true" then
+	      			local tx,ty=0,0
+	      			local og=tile.objectGroup.objects
+
+	      			local t={}
+
+	      			for _, o in pairs(og) do
+	      				if o.name=="3" then
+	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+	      				else
+	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+	      				end
+	      				for _, p in pairs(o.polygon) do
+	      					table.insert(t,tx+p.x)
+    						table.insert(t,ty+p.y)
+			    		end
+	      			end
+
+	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1},"colli")
 	      		end
 
 	      		if tile.properties.plataforma or tile.properties.plataforma=="true" then
@@ -395,13 +430,6 @@ function nivel1_2:inicializate_1()
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
 	        	end
 	      	end
-		      	--[[for k, v in pairs(tile.objectGroup.objects) do
-		      		print(v.properties["collidable2"])
-				    
-		    		for i, p in pairs(v.polygon) do
-		    			print(p["x"],p["y"])
-		    		end
-				end]]
 	   end
 	end
 

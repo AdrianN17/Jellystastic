@@ -65,11 +65,11 @@ function entidades:draw_p()
 		end
 	end
 
-	for i, e in ipairs(self.colli) do
+	--[[for i, e in ipairs(self.colli) do
 		if e.l==self.l then
 			e.body:draw("fill")
 		end
-	end
+	end]]
 
 	for i, e in ipairs(self.npcs)  do
 		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
@@ -367,6 +367,31 @@ function entidades:collisions()
 					self.player.body:move(dx,dy/10)
 					self.player.melee:move(dx,dy/10)
 					self.player.point:move(dx,dy/10)
+				end
+			elseif col.type=="inc" and colli then
+				if dy<0 then
+					self.player.ground=true
+					self.player.body:move(dx,dy)
+					self.player.melee:move(dx,dy)
+					self.player.point:move(dx,dy)
+					self.player.vy=0
+				elseif dy>0 and dx==0 then
+					self.player.vy=self.player.vy/2
+					self.player.body:move(0,dy*1.2)
+					self.player.melee:move(0,dy*1.2)
+					self.player.point:move(0,dy*1.2)
+				end
+			elseif col.type=="liso" and colli then
+				if dy<0 then
+					self.player.ground=true
+					self.player.body:move(dx*4,dy)
+					self.player.melee:move(dx*4,dy)
+					self.player.point:move(dx*4,dy)
+				elseif dy>0 and dx==0 then
+					self.player.vy=self.player.vy/2
+					self.player.body:move(0,dy*1.2)
+					self.player.melee:move(0,dy*1.2)
+					self.player.point:move(0,dy*1.2)
 				end
 			end
 		end
