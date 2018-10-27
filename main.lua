@@ -5,7 +5,7 @@ local nivel1_2= require "gamestate.nivel1_2"
 function love.load()
 	
 	Gamestate.registerEvents()
-	Gamestate.switch(nivel1_1)
+	Gamestate.switch(nivel1_2)
 end
 
 --[[

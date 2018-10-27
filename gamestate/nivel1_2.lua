@@ -157,39 +157,8 @@ function nivel1_2:update(dt)
 	self.map:update(dt)
 	self.cam:setPosition(base.entidades.player.ox, base.entidades.player.oy)
 
-	for _, col in pairs(base.entidades.colli) do
-		if col.l==base.entidades.l and col.ox>x and col.ox<x+h and col.oy>y and col.oy<y+w then
-			local dx,dy,colli=0,0,false
-			colli,dx,dy=base.entidades.player.body:collidesWith(col.body)
-			if col.type=="col" and colli then
-				if dy<0 and dx==0 then
-					base.entidades.player.ground=true
-					base.entidades.player.body:move(0,dy/2)
-					base.entidades.player.melee:move(0,dy/2)
-					base.entidades.player.point:move(0,dy/2)
-					base.entidades.player.vy=0
-				elseif dy>0 and dx==0 then
-						base.entidades.player.vy=base.entidades.player.vy/2
-						base.entidades.player.body:move(0,dy*1.2)
-						base.entidades.player.melee:move(0,dy*1.2)
-						base.entidades.player.point:move(0,dy*1.2)
-				elseif dx~=0 then 
-					if dx<0 then
-						base.entidades.player.moveleft=false
-						base.entidades.player.body:move(math.min(dx*1.2,5),0)
-						base.entidades.player.melee:move(math.min(dx*1.2,5),0)
-						base.entidades.player.point:move(math.min(dx*1.2,5),0)
-					elseif dx>0 then
-						base.entidades.player.moveright=false
-						base.entidades.player.body:move(math.max(dx*1.2,-5),0)
-						base.entidades.player.melee:move(math.max(dx*1.2,-5),0)
-						base.entidades.player.point:move(math.max(dx*1.2,-5),0)
-					end
-				end
-			end
-		end
-	end
-
+	
+	base.entidades:collisions()
 end
 --1600	900
 function nivel1_2:draw()
@@ -337,21 +306,75 @@ function nivel1_2:inicializate_1()
         end
     end
 
+    --layer 1
     local layer = self.maps[1].layers[1]
 
-    for y=1, 220,1 do
-	   for x=1,251,1 do
+    for y=1, self.map.height,1 do
+	   for x=1,self.map.width,1 do
 	      	local tile = layer.data[y][x]
 	      	if tile then
 	      		
 	      		if tile.properties.col or tile.properties.col=="true" then
-	      			local tx,ty=(x)*self.map.tilewidth,(y-1)*self.map.tileheight
+	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
 
 	      			local t={}
 
 	      			for _, o in pairs(og) do
-	      				--print(o.x,o.y)
+	      				if o.name=="3" then
+	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+	      				else
+	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+	      				end
+	      				for _, p in pairs(o.polygon) do
+	      					table.insert(t,tx+p.x)
+    						table.insert(t,ty+p.y)
+			    		end
+	      			end
+
+	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="col",l=1},"colli")
+	      		end
+
+	      		if tile.properties.plataforma or tile.properties.plataforma=="true" then
+	      			
+	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
+	        	end
+	      		
+
+	      		if tile.properties.collidable or tile.properties.collidable =="true" then
+	      			--print("a")
+	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
+	        	end
+	      	end
+		      	--[[for k, v in pairs(tile.objectGroup.objects) do
+		      		print(v.properties["collidable2"])
+				    
+		    		for i, p in pairs(v.polygon) do
+		    			print(p["x"],p["y"])
+		    		end
+				end]]
+	   end
+	end
+	--layer 2
+	local layer2 = self.maps[1].layers[3]
+
+    for y=1, self.map.height,1 do
+	   for x=1,self.map.width,1 do
+	      	local tile = layer2.data[y][x]
+	      	if tile then
+	      		
+	      		if tile.properties.col or tile.properties.col=="true" then
+	      			local tx,ty=0,0
+	      			local og=tile.objectGroup.objects
+
+	      			local t={}
+
+	      			for _, o in pairs(og) do
+	      				if o.name=="3" then
+	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+	      				else
+	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+	      				end
 	      				for _, p in pairs(o.polygon) do
 	      					table.insert(t,tx+p.x)
     						table.insert(t,ty+p.y)

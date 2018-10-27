@@ -65,11 +65,11 @@ function entidades:draw_p()
 		end
 	end
 
-	--[[for i, e in ipairs(self.colli) do
+	for i, e in ipairs(self.colli) do
 		if e.l==self.l then
 			e.body:draw("fill")
 		end
-	end]]
+	end
 
 	for i, e in ipairs(self.npcs)  do
 		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
