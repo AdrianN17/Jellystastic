@@ -12,6 +12,7 @@ function ascensor:init(x,y,w,h,change)
 	self.type="ascensor"
 	self.l=change
 	self.vy=-1
+	self.ox,self.oy=self.body:center()
 end
 
 function ascensor:draw()
@@ -19,6 +20,7 @@ function ascensor:draw()
 end
 
 function ascensor:update(dt)
+	self.ox,self.oy=self.body:center()
 	self.body:move(0,self.vy)
 end
 

@@ -1,17 +1,16 @@
 local Gamestate = require "libs.gamestate"
 local base = require "gamestate.base"
 local Class = require "libs.class"
-local sti= require "libs.sti"
+
 local gamera = require "libs.gamera"
 local Player= require "entidades.player"
 local Meteoro = require "entidades.meteoro"
 local Ascensor = require "entidades.ascensor"
 local Baba1 = require "entidades.baba_1"
 local Npc = require "entidades.npc"
-local HC = require "libs.HC"
-local Zombie = require "entidades.zombie"
+
 local pausa = require "gamestate.pausa"
-local Explosion = require "entidades.explosion"
+
 local nivel1_2 = Class{
 	__includes = base
 }
@@ -333,9 +332,7 @@ function nivel1_2:inicializate_1()
 	      			end
 
 	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1},"colli")
-	      		end
-
-	      		if tile.properties.liso or tile.properties.liso=="true" then
+	      		elseif tile.properties.liso or tile.properties.liso=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
 
@@ -354,23 +351,17 @@ function nivel1_2:inicializate_1()
 	      			end
 
 	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1},"colli")
-	      		end
-
-	      		if tile.properties.plataforma or tile.properties.plataforma=="true" then
+	      		elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
 	      			
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
-	        	end
-	      		
-
-	      		if tile.properties.collidable or tile.properties.collidable =="true" then
-	      			--print("a")
+	        	elseif tile.properties.collidable or tile.properties.collidable =="true" then
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
 	        	end
 	      	end
 	   end
 	end
 	--layer 2
-	local layer2 = self.maps[1].layers[3]
+	local layer2 = self.maps[1].layers[2]
 
     for y=1, self.map.height,1 do
 	   for x=1,self.map.width,1 do
@@ -396,9 +387,7 @@ function nivel1_2:inicializate_1()
 	      			end
 
 	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1},"colli")
-	      		end
-
-	      		if tile.properties.liso or tile.properties.liso=="true" then
+	      		elseif tile.properties.liso or tile.properties.liso=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
 
@@ -417,30 +406,23 @@ function nivel1_2:inicializate_1()
 	      			end
 
 	      			base.entidades:addextra({body=HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1},"colli")
-	      		end
-
-	      		if tile.properties.plataforma or tile.properties.plataforma=="true" then
-	      			
+	      		elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
-	        	end
-	      		
-
-	      		if tile.properties.collidable or tile.properties.collidable =="true" then
-	      			--print("a")
+	        	elseif tile.properties.collidable or tile.properties.collidable =="true" then
 	      			base.entidades:addextra({body=HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
 	        	end
 	      	end
 	   end
 	end
 
-	self.maps[1]:removeLayer(2)
+	self.maps[1]:removeLayer("Borrador")
 end
 
 function nivel1_2:inicializate_2()
 	self.maps[2]:resize(love.graphics.getWidth()*2,love.graphics.getHeight()*2)
 
 
-	self.maps[2]:removeLayer(2)
+	self.maps[2]:removeLayer("Borrador")
 
 end
 

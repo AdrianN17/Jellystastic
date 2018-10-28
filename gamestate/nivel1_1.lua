@@ -281,7 +281,7 @@ end
 function nivel1_1:setmeteor(dt,x,y,h,w)
 	time2=time2+dt
 
-	if time2>1.5 and not base.entidades.player.fin then
+	if time2>3.5 and not base.entidades.player.fin then
 		intervalo=not intervalo
 		time2=0
 	end
@@ -289,7 +289,7 @@ function nivel1_1:setmeteor(dt,x,y,h,w)
 	if intervalo then
 		time=time+dt
 	    -- creacion de meteoros
-		if time>5 and not base.entidades.player.fin then
+		if time>2 and not base.entidades.player.fin then
 			for i=1,love.math.random(4,7),1 do
 				local ex,ey,r,a,s=love.math.random(x,x+h),y-500,50,love.math.random(-15,15),300
 				base.entidades:addextra(Meteoro(ex,ey,r,a,s,base.entidades.l),"meteor")
@@ -314,7 +314,7 @@ function nivel1_1:inicializate_1()
     for k, object in pairs(self.maps[1].objects) do
     	if object.name == "Puerta" then
     		--aqui se coje el id de la puerta
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,type="puerta",l=1},"object")
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,l=1},"door")
     	elseif object.name == "baba1" then
     		--enemigo baba1
     		base.entidades:addextra(Baba1(object.x,object.y,object.width,object.height,1,object.properties.hp),"enemies")
@@ -331,7 +331,45 @@ function nivel1_1:inicializate_1()
 	   for x=1,self.map.width,1 do
 	      local tile = layer.data[y][x]
 	      if tile then
-	      	if tile.properties.collidable or tile.properties.collidable=="true" then
+	      	if tile.properties.col or tile.properties.col=="true" then
+      			local tx,ty=0,0
+      			local og=tile.objectGroup.objects
+
+      			local t={}
+
+      			for _, o in pairs(og) do
+      				if o.name=="3" then
+      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+      				else
+      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+      				end
+      				for _, p in pairs(o.polygon) do
+      					table.insert(t,tx+p.x)
+						table.insert(t,ty+p.y)
+		    		end
+      			end
+
+      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1,gid=tile.gid},"colli")
+      		elseif tile.properties.liso or tile.properties.liso=="true" then
+      			local tx,ty=0,0
+      			local og=tile.objectGroup.objects
+
+      			local t={}
+
+      			for _, o in pairs(og) do
+      				if o.name=="3" then
+      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
+      				else
+      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
+      				end
+      				for _, p in pairs(o.polygon) do
+      					table.insert(t,tx+p.x)
+						table.insert(t,ty+p.y)
+		    		end
+      			end
+
+	      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1,gid=tile.gid},"colli")
+	      	elseif tile.properties.collidable or tile.properties.collidable=="true" then
 	      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1},"colli")
 	        elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
 	        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=1},"colli")
@@ -340,7 +378,7 @@ function nivel1_1:inicializate_1()
 	   end
 	end
 
-	self.maps[1]:removeLayer(2)
+	self.maps[1]:removeLayer("Borrador")
 end
 
 function nivel1_1:inicializate_2()
@@ -366,7 +404,7 @@ function nivel1_1:inicializate_2()
 
     	elseif object.name == "Puerta" then
     		--aqui se coje el id de la puerta
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,type="puerta",l=2},"object")
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,l=2},"door")
     	elseif object.name == "punto" then
     		base.entidades:addextra({body=self.HC.point(object.x,object.y),l=2},"point")
     	elseif object.name == "Aliados" then
@@ -411,7 +449,7 @@ function nivel1_1:inicializate_2()
 	   end
 	end
 
-	self.maps[2]:removeLayer(2)
+	self.maps[2]:removeLayer("Borrador")
 
 end
 

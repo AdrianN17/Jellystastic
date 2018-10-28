@@ -5,7 +5,7 @@ local nivel1_2= require "gamestate.nivel1_2"
 function love.load()
 	
 	Gamestate.registerEvents()
-	Gamestate.switch(nivel1_2)
+	Gamestate.switch(nivel1_1)
 end
 
 --[[
@@ -67,3 +67,12 @@ while true do
 end
  
 end
+
+--[[
+
+falta colision en laterial, destruccion y ademas que cambie
+crear ruta alterna en el 1_1
+
+encapsular en una funcion el proceso de lectura de datos para entidades
+
+]]

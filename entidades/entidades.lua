@@ -16,7 +16,8 @@ local entidades = {
 	maps={},
 	explosion={},
 	flags={},
-	HC={}
+	HC={},
+	door={}
 }
 
 function entidades:enter(maps,HC)
@@ -53,7 +54,133 @@ function entidades:clear()
 	self.w=0
 	self.maps={}
 	self.flags={}
+	self.door={}
+	
+end
 
+function entidades:addextra(e,select)
+	if select=="colli" then
+		local x,y=e.body:center()
+		e.ox=x
+		e.oy=y
+		table.insert(self.colli,e)
+	elseif select=="object" then
+		local x,y=e.body:center()
+		e.ox=x
+		e.oy=y
+		table.insert(self.object,e)
+	elseif select=="meteor" then
+		table.insert(self.meteor,e)
+	elseif select=="dinamic" then
+		table.insert(self.dinamic,e)
+	elseif select=="bullet" then
+		table.insert(self.bullet,e)
+	elseif select=="enemies" then
+		table.insert(self.enemies,e)
+	elseif select=="point" then
+		table.insert(self.point,e)
+	elseif select=="npcs" then
+		table.insert(self.npcs,e)
+	elseif select=="bullete" then
+		table.insert(self.bullete,e)
+	elseif select=="flags" then
+		table.insert(self.flags,e)
+	elseif select=="explosion" then
+		table.insert(self.explosion,e)
+	elseif select=="door" then
+		local x,y=e.body:center()
+		e.ox=x
+		e.oy=y
+		table.insert(self.door,e)
+	end
+end
+
+function entidades:removeextra(e,select)
+	if select=="colli" then
+		for i , en in ipairs(self.colli) do
+			if en==e then
+				table.remove(self.colli,i)
+				return
+			end
+		end
+	elseif select=="object" then
+		for i , en in ipairs(self.object) do
+			if en==e then
+				table.remove(self.object,i)
+				return
+			end
+		end
+	elseif select=="meteor" then
+		for i , en in ipairs(self.meteor) do
+			if en==e then
+				table.remove(self.meteor,i)
+				return
+			end
+		end
+	elseif select=="dinamic" then
+		for i, en in ipairs(self.dinamic) do
+			if en==e then
+				table.remove(self.dinamic,i)
+				return
+			end
+		end
+	elseif select=="bullet" then
+		for i, en in ipairs(self.bullet) do
+			if en==e then
+				table.remove(self.bullet,i)
+				return
+			end
+		end
+	elseif select=="enemies" then
+		for i, en in ipairs(self.enemies) do
+			if en==e then
+				table.remove(self.enemies,i)
+				return
+			end
+		end
+	elseif select=="point" then
+		for i, en in ipairs(self.point) do
+			if en==e then
+				table.remove(self.point,i)
+				return
+			end
+		end
+	elseif select=="npcs" then
+		for i, en in ipairs(self.npcs) do
+			if en==e  then
+				table.remove(self.npcs,i)
+				return
+			end
+		end
+	elseif select=="bullete" then
+		for i, en in ipairs(self.bullete) do
+			if en==e  then
+				table.remove(self.bullete,i)
+				return
+			end
+		end
+	elseif select=="flags" then
+		for i, en in ipairs(self.flags) do
+			if en==e  then
+				table.remove(self.flags,i)
+				return
+			end
+		end
+	elseif select=="explosion" then
+		for i, en in ipairs(self.explosion) do
+			if en==e  then
+				table.remove(self.explosion,i)
+				return
+			end
+		end
+	elseif select=="door" then
+		for i, en in ipairs(self.door) do
+			if en==e  then
+				table.remove(self.door,i)
+				return
+			end
+		end
+	end
 end
 
 --draw()
@@ -81,7 +208,15 @@ function entidades:draw_p()
 end
 
 function entidades:draw_o()
-	
+	love.graphics.setColor(0.5, 0.6, 0.6)
+
+	for i, e in ipairs(self.door) do
+		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
+			e.body:draw("fill")
+		end
+	end
+
+	love.graphics.setColor(1, 1, 1)
 	
 	for i, e in ipairs(self.object) do
 		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
@@ -202,121 +337,7 @@ function entidades:mousereleased(x, y, button)
 	self.player:mousereleased(x, y, button)
 end
 
-function entidades:addextra(e,select)
-	if select=="colli" then
-		local x,y=e.body:center()
-		e.ox=x
-		e.oy=y
-		table.insert(self.colli,e)
-	elseif select=="object" then
-		local x,y=e.body:center()
-		e.ox=x
-		e.oy=y
-		table.insert(self.object,e)
-	elseif select=="meteor" then
-		table.insert(self.meteor,e)
-	elseif select=="dinamic" then
-		local x,y=e.body:center()
-		e.ox=x
-		e.oy=y
-		table.insert(self.dinamic,e)
-	elseif select=="bullet" then
-		table.insert(self.bullet,e)
-	elseif select=="enemies" then
-		table.insert(self.enemies,e)
-	elseif select=="point" then
-		table.insert(self.point,e)
-	elseif select=="npcs" then
-		table.insert(self.npcs,e)
-	elseif select=="bullete" then
-		table.insert(self.bullete,e)
-	elseif select=="flags" then
-		table.insert(self.flags,e)
-	elseif select=="explosion" then
-		table.insert(self.explosion,e)
-	end
-end
 
-function entidades:removeextra(e,select)
-	if select=="colli" then
-		for i , en in ipairs(self.colli) do
-			if en==e then
-				table.remove(self.colli,i)
-				return
-			end
-		end
-	elseif select=="object" then
-		for i , en in ipairs(self.object) do
-			if en==e then
-				table.remove(self.object,i)
-				return
-			end
-		end
-	elseif select=="meteor" then
-		for i , en in ipairs(self.meteor) do
-			if en==e then
-				table.remove(self.meteor,i)
-				return
-			end
-		end
-	elseif select=="dinamic" then
-		for i, en in ipairs(self.dinamic) do
-			if en==e then
-				table.remove(self.dinamic,i)
-				return
-			end
-		end
-	elseif select=="bullet" then
-		for i, en in ipairs(self.bullet) do
-			if en==e then
-				table.remove(self.bullet,i)
-				return
-			end
-		end
-	elseif select=="enemies" then
-		for i, en in ipairs(self.enemies) do
-			if en==e then
-				table.remove(self.enemies,i)
-				return
-			end
-		end
-	elseif select=="point" then
-		for i, en in ipairs(self.point) do
-			if en==e then
-				table.remove(self.point,i)
-				return
-			end
-		end
-	elseif select=="npcs" then
-		for i, en in ipairs(self.npcs) do
-			if en==e  then
-				table.remove(self.npcs,i)
-				return
-			end
-		end
-	elseif select=="bullete" then
-		for i, en in ipairs(self.bullete) do
-			if en==e  then
-				table.remove(self.bullete,i)
-				return
-			end
-		end
-	elseif select=="flags" then
-		for i, en in ipairs(self.flags) do
-			if en==e  then
-				table.remove(self.flags,i)
-				return
-			end
-		end
-	elseif select=="explosion" then
-		for i, en in ipairs(self.explosion) do
-			if en==e  then
-				table.remove(self.explosion,i)
-				return
-			end
-		end
-	end
-end
 
 function entidades:setcamera(x,y,h,w)
 	self.x,self.y,self.h,self.w=x,y,x+h,y+w
@@ -490,6 +511,33 @@ function entidades:collisions()
 		end
 	end
 
+	--iterador de puertas
+
+	for _, d in ipairs(self.door) do
+		
+		if d.l==self.l and d.ox>self.x and d.ox<self.h and d.oy>self.y and d.oy<self.w then
+			local dx,dy,colli=0,0,false
+			colli,dx,dy=self.player.body:collidesWith(d.body)--collision puerta player
+			if colli then
+				self.player.ischange=true
+				self.player.rx,self.player.ry=d.body:center()
+			end
+		end
+
+		for _, me in ipairs(self.meteor) do
+				local dx,dy,colli=0,0,false
+				colli,dx,dy=me.body:collidesWith(d.body)
+
+				if colli then
+					self.HC.remove(d.body)
+					self:removeextra(d,"door")	
+
+					
+					me.hp=me.hp-0.5
+				end		
+			end
+	end
+
 	-- iterador de objetos
 
 	for _,obj in ipairs(self.object) do
@@ -507,9 +555,6 @@ function entidades:collisions()
 				end
 			elseif obj.type=="escalera" and colli then
 				self.player.escalar=true
-			elseif obj.type=="puerta" and colli then
-				self.player.ischange=true
-				self.player.rx,self.player.ry=obj.body:center()
 			elseif obj.type=="municion" and colli and self.player.arma[obj.tipo] then
 				-- si la municion actual + municion agregada es menor al max de municion
 				if self.player.municion[obj.tipo]+obj.stock< self.player.maxmuni[obj.tipo] then
@@ -542,21 +587,9 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=me.body:collidesWith(obj.body)--collision objetos meteoro
 				if colli then
-					if obj.id==nil then
-						self.HC.remove(obj.body)
-						--table.remove(self.object,o)
-						self:removeextra(obj,"object")
-					else
-						--para borrar ambas puertas, lado 1 y 2
-						for _, de in ipairs(self.object) do
-							if de.id==obj.id then
-								self.HC.remove(de.body)
-								self:removeextra(de,"object")
-								--table.remove(self.object,d)
-							end
-						end
-					end
-					me.hp=me.hp-1
+					self.HC.remove(obj.body)
+					--table.remove(self.object,o)
+					self:removeextra(obj,"object")
 				end
 			end
 		end
@@ -820,6 +853,7 @@ function entidades:collisions()
 		end
 	end
 end
+
 
 
 function entidades:deletetiled(tx,ty,gid,c,id)
