@@ -389,6 +389,15 @@ function entidades:collisions()
 					self.player.melee:move(dx,dy/10)
 					self.player.point:move(dx,dy/10)
 				end
+			elseif not self.player.ignore2 and col.type=="plate" and colli then
+				if dy<0 then
+					self.player.ground=true
+					self.player.isplatformer=true
+					self.player.vy=0
+					self.player.body:move(dx,dy)
+					self.player.melee:move(dx,dy)
+					self.player.point:move(dx,dy)
+				end
 			elseif col.type=="inc" and colli then
 				if dy<0 then
 					self.player.ground=true
@@ -444,9 +453,6 @@ function entidades:collisions()
 				colli,dx,dy=bu.body:collidesWith(col.body)--collision bala pared
 				if colli and col.type =="col" then
 					if bu.damage==4 then
-						
-
-						--pcall (self:deletetiled(col.x,col.y,col.gid,self.l,4),"error")
 						self:removeextra(col,"colli")
 						self.HC.remove(col.body)
 
@@ -474,7 +480,7 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=me.body:collidesWith(col.body)--collision meteoro pared
 				if colli then
-					pcall (self:deletetiled(col.x,col.y,col.gid,self.l,4),"error2")
+					pcall (self:deletetiled(col.x,col.y,col.gid,col.l,col.to),"error2")
 					self.HC.remove(col.body)
 					--table.remove(self.colli,c)
 					self:removeextra(col,"colli")
@@ -503,7 +509,7 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=ex.body:collidesWith(col.body)--collision pared explosion
 				if colli then
-					pcall (self:deletetiled(col.x,col.y,col.gid,self.l,4),"error2")
+					pcall (self:deletetiled(col.x,col.y,col.gid,self.l,col.to),"error2")
 					self.HC.remove(col.body)
 					self:removeextra(col,"colli")
 				end
@@ -604,9 +610,6 @@ function entidades:collisions()
 				colli,dx,dy=me.body:collidesWith(bu.body)--collision bala meteoro
 				if colli then
 					if bu.damage==4 then
-						
-
-						--pcall (self:deletetiled(col.x,col.y,col.gid,self.l,4),"error")
 						self:removeextra(me,"meteor")
 						self.HC.remove(me.body)
 

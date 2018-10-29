@@ -53,6 +53,582 @@ return {
           properties = {
             ["plataforma"] = true
           }
+        },
+        {
+          id = 16,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "1",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 0, y = 32.0039 },
+                  { x = 31.9961, y = 0.0078125 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 17,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "2",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = -0.00390625, y = 0.00390625 },
+                  { x = 0.00720486, y = 31.9889 },
+                  { x = 31.994, y = 31.9994 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 18,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "3",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 32,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 31.9922, y = -0.00390625 },
+                  { x = 32, y = -32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 19,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "4",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0.00390625, y = -0.00390625 },
+                  { x = 32, y = 0.00390625 },
+                  { x = 32.0078, y = 32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 48,
+          properties = {
+            ["plat"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "1",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 0, y = 32.0039 },
+                  { x = 31.9961, y = 0.0078125 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 49,
+          properties = {
+            ["plat"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "2",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = -0.00390625, y = 0.00390625 },
+                  { x = 0.00720486, y = 31.9889 },
+                  { x = 31.994, y = 31.9994 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 50,
+          properties = {
+            ["plat"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "3",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 32,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 31.9922, y = -0.00390625 },
+                  { x = 32, y = -32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 51,
+          properties = {
+            ["plat"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "4",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0.00390625, y = -0.00390625 },
+                  { x = 32, y = 0.00390625 },
+                  { x = 32.0078, y = 32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 56,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "1",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 0, y = 32.0039 },
+                  { x = 31.9961, y = 0.0078125 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 57,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "2",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = -0.00390625, y = 0.00390625 },
+                  { x = 0.00720486, y = 31.9889 },
+                  { x = 31.994, y = 31.9994 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 58,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "3",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 32,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 31.9922, y = -0.00390625 },
+                  { x = 32, y = -32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 59,
+          properties = {
+            ["col"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "4",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0.00390625, y = -0.00390625 },
+                  { x = 32, y = 0.00390625 },
+                  { x = 32.0078, y = 32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 64,
+          properties = {
+            ["liso"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "1",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 0, y = 32.0039 },
+                  { x = 31.9961, y = 0.0078125 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 65,
+          properties = {
+            ["liso"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "2",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = -0.00390625, y = 0.00390625 },
+                  { x = 0.00720486, y = 31.9889 },
+                  { x = 31.994, y = 31.9994 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 66,
+          properties = {
+            ["liso"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "3",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 32,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = 31.9922, y = -0.00390625 },
+                  { x = 32, y = -32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 67,
+          properties = {
+            ["liso"] = true
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "4",
+                type = "",
+                shape = "polygon",
+                x = 0,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0.00390625, y = -0.00390625 },
+                  { x = 32, y = 0.00390625 },
+                  { x = 32.0078, y = 32.0039 }
+                },
+                properties = {}
+              }
+            }
+          }
         }
       }
     }
@@ -746,7 +1322,9 @@ return {
           height = 8.66667,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["val"] = false
+          }
         },
         {
           id = 46,
@@ -759,7 +1337,9 @@ return {
           height = 8.66667,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["val"] = false
+          }
         },
         {
           id = 47,

@@ -17,6 +17,166 @@
     <property name="plataforma" type="bool" value="true"/>
    </properties>
   </tile>
+  <tile id="16">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="1" x="0" y="0">
+     <polygon points="0,0 0,32.0039 31.9961,0.0078125"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="2" x="0" y="0">
+     <polygon points="-0.00390625,0.00390625 0.00720486,31.9889 31.994,31.9994"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="3" x="0" y="32">
+     <polygon points="0,0 31.9922,-0.00390625 32,-32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="4" x="0" y="0">
+     <polygon points="0.00390625,-0.00390625 32,0.00390625 32.0078,32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="plat" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="1" x="0" y="0">
+     <polygon points="0,0 0,32.0039 31.9961,0.0078125"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="plat" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="2" x="0" y="0">
+     <polygon points="-0.00390625,0.00390625 0.00720486,31.9889 31.994,31.9994"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="plat" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="3" x="0" y="32">
+     <polygon points="0,0 31.9922,-0.00390625 32,-32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="plat" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="4" x="0" y="0">
+     <polygon points="0.00390625,-0.00390625 32,0.00390625 32.0078,32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="1" x="0" y="0">
+     <polygon points="0,0 0,32.0039 31.9961,0.0078125"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="2" x="0" y="0">
+     <polygon points="-0.00390625,0.00390625 0.00720486,31.9889 31.994,31.9994"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="3" x="0" y="32">
+     <polygon points="0,0 31.9922,-0.00390625 32,-32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="col" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="4" x="0" y="0">
+     <polygon points="0.00390625,-0.00390625 32,0.00390625 32.0078,32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="liso" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="1" x="0" y="0">
+     <polygon points="0,0 0,32.0039 31.9961,0.0078125"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="65">
+   <properties>
+    <property name="liso" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="2" x="0" y="0">
+     <polygon points="-0.00390625,0.00390625 0.00720486,31.9889 31.994,31.9994"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="liso" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="3" x="0" y="32">
+     <polygon points="0,0 31.9922,-0.00390625 32,-32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="liso" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="1" name="4" x="0" y="0">
+     <polygon points="0.00390625,-0.00390625 32,0.00390625 32.0078,32.0039"/>
+    </object>
+   </objectgroup>
+  </tile>
  </tileset>
  <layer id="1" name="B1" width="251" height="220">
   <data encoding="csv">
@@ -513,8 +673,16 @@
    </properties>
    <polygon points="0,0 -1,188 128,189"/>
   </object>
-  <object id="44" name="ascensor" x="4486.33" y="6742" width="83" height="8.66667"/>
-  <object id="46" name="ascensor" x="6893.5" y="4564.67" width="83" height="8.66667"/>
+  <object id="44" name="ascensor" x="4486.33" y="6742" width="83" height="8.66667">
+   <properties>
+    <property name="val" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="46" name="ascensor" x="6893.5" y="4564.67" width="83" height="8.66667">
+   <properties>
+    <property name="val" type="bool" value="false"/>
+   </properties>
+  </object>
   <object id="47" name="escalera2" x="7519.5" y="6432.67" width="65" height="286.667"/>
   <object id="48" name="escalera" x="3423" y="6209">
    <properties>

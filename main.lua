@@ -70,9 +70,5 @@ end
 
 --[[
 
-falta colision en laterial, destruccion y ademas que cambie
-crear ruta alterna en el 1_1
-
-encapsular en una funcion el proceso de lectura de datos para entidades
-
+crear el nivel 1-2-2
 ]]
