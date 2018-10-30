@@ -13,15 +13,15 @@ local entidades = {
 	l=1,
 	player=nil,
 	x=0,y=0,h=0,w=0,
-	maps={},
+	map=nil,
 	explosion={},
 	flags={},
 	HC={},
 	door={}
 }
 
-function entidades:enter(maps,HC)
-	self.maps=maps
+function entidades:enter(map,HC)
+	self.map=map
 	self.HC=HC
 end
 
@@ -52,7 +52,7 @@ function entidades:clear()
 	self.y=0
 	self.h=0
 	self.w=0
-	self.maps={}
+	self.map=nil
 	self.flags={}
 	self.door={}
 	
@@ -208,16 +208,6 @@ function entidades:draw_p()
 end
 
 function entidades:draw_o()
-	love.graphics.setColor(0.5, 0.6, 0.6)
-
-	for i, e in ipairs(self.door) do
-		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
-			e.body:draw("fill")
-		end
-	end
-
-	love.graphics.setColor(1, 1, 1)
-	
 	for i, e in ipairs(self.object) do
 		if e.l==self.l and e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
 			if e.type=="arma" then
@@ -240,6 +230,18 @@ function entidades:draw_o()
 			e:draw()
 		end
 	end
+end
+
+function entidades:draw_pu()
+	love.graphics.setColor(0.5, 0.6, 0.6)
+
+	for i, e in ipairs(self.door) do
+		if e.ox>self.x and e.ox<self.h and e.oy>self.y and e.oy<self.w then
+			e.body:draw("fill")
+		end
+	end
+
+	love.graphics.setColor(1, 1, 1)
 end
 
 function entidades:draw_e()
@@ -475,7 +477,7 @@ function entidades:collisions()
 
 
 		for _, me in ipairs(self.meteor) do
-			if me.l==col.l then
+			if me.l==col.l  then
 				--para cada meteoro
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=me.body:collidesWith(col.body)--collision meteoro pared
@@ -521,7 +523,7 @@ function entidades:collisions()
 
 	for _, d in ipairs(self.door) do
 		
-		if d.l==self.l and d.ox>self.x and d.ox<self.h and d.oy>self.y and d.oy<self.w then
+		if  d.ox>self.x and d.ox<self.h and d.oy>self.y and d.oy<self.w then
 			local dx,dy,colli=0,0,false
 			colli,dx,dy=self.player.body:collidesWith(d.body)--collision puerta player
 			if colli then
@@ -531,17 +533,17 @@ function entidades:collisions()
 		end
 
 		for _, me in ipairs(self.meteor) do
-				local dx,dy,colli=0,0,false
-				colli,dx,dy=me.body:collidesWith(d.body)
+			local dx,dy,colli=0,0,false
+			colli,dx,dy=me.body:collidesWith(d.body)
 
-				if colli then
-					self.HC.remove(d.body)
-					self:removeextra(d,"door")	
+			if me.l==self.l and colli then
+				self.HC.remove(d.body)
+				self:removeextra(d,"door")	
 
-					
-					me.hp=me.hp-0.5
-				end		
-			end
+				
+				me.hp=me.hp-0.5
+			end		
+		end
 	end
 
 	-- iterador de objetos
@@ -858,14 +860,12 @@ function entidades:collisions()
 end
 
 
-
+-- no elige que cambiar de color
 function entidades:deletetiled(tx,ty,gid,c,id)
-	for i, ti in ipairs(self.maps[c].tileInstances[gid]) do
-		if ti ~=nil then
-			if ti.x == tx and ti.y==ty then
-				ti.batch:set(ti.id, self.maps[c].tiles[id].quad,tx,ty)
-				break
-			end
+	for i, ti in ipairs(self.map.tileInstances[gid]) do
+		if ti.x == tx and ti.y==ty then
+			ti.batch:set(ti.id, self.map.tiles[id].quad,tx,ty)
+			break
 		end
 	end
 end

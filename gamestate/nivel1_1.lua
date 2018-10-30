@@ -39,94 +39,50 @@ function nivel1_1:enter()
 	base.entidades:clear()
 
 	timer=0
-	base.init(self,"assets/level/nivel_1_1_1.lua","assets/level/nivel_1_1_2.lua")
+	base.init(self,"assets/level/nivel_1_1.lua")
 	tmw,tmh=self.map.width*self.map.tilewidth,self.map.height*self.map.tileheight
 	--mapeados
 	self:inicializate_1()
-	self:inicializate_2()	
 
-	local layerplayer_1 = self.maps[1].layers["Jugadores"]
-	local layerenemigo_1 = self.maps[1].layers["Enemigos"]
-	local layerobjetos_1 = self.maps[1].layers["Objetos"]
-
-	local layerplayer_2 = self.maps[2].layers["Jugadores"]
-	local layerenemigo_2 = self.maps[2].layers["Enemigos"]
-	local layerobjetos_2 = self.maps[2].layers["Objetos"]
+	local layerplayer = self.map.layers["Jugadores"]
+	local layerenemigo = self.map.layers["Enemigos"]
+	local layerobjetos = self.map.layers["Objetos"]
+	local layerpuertas = self.map.layers["Puertas"]
 
 	--update
 
-	function layerplayer_1:update(dt)
-		if base.entidades.l==1 then
-			base.entidades:update_p(dt)
-		end
+	function layerplayer:update(dt)
+		base.entidades:update_p(dt)
 	end
 
-	function layerenemigo_1:update(dt)
-		if base.entidades.l==1 then
-			base.entidades:update_e(dt)
-		end
+	function layerenemigo:update(dt)
+		base.entidades:update_e(dt)
 	end
 
-	function layerobjetos_1:update(dt)
-		if base.entidades.l==1 then
-			base.entidades:update_o(dt)
-		end
+	function layerobjetos:update(dt)
+		base.entidades:update_o(dt)
 	end
 
-	function layerplayer_2:update(dt)
-		if base.entidades.l==2 then
-			base.entidades:update_p(dt)
-		end
-	end
-
-	function layerenemigo_2:update(dt)
-		if base.entidades.l==2 then
-			base.entidades:update_e(dt)
-		end
-	end
-
-	function layerobjetos_2:update(dt)
-		if base.entidades.l==2 then
-			base.entidades:update_o(dt)
-		end
+	function layerpuertas:update(dt)
+		--base.entidades:update_pu(dt)
 	end
 
 	--draw
 
-	function layerplayer_1:draw()
-		if base.entidades.l==1 then
-			base.entidades:draw_p()
-		end
+	function layerplayer:draw()
+		base.entidades:draw_p()
 	end
 
-	function layerenemigo_1:draw()
-		if base.entidades.l==1 then
-			base.entidades:draw_e()
-		end
+	function layerenemigo:draw()
+		base.entidades:draw_e()
 	end
 
-	function layerobjetos_1:draw()
-		if base.entidades.l==1 then
-			base.entidades:draw_o()
-		end
+	function layerobjetos:draw()
+		base.entidades:draw_o()
 	end
 
-	function layerplayer_2:draw()
-		if base.entidades.l==2 then
-			base.entidades:draw_p()
-		end
-	end
-
-	function layerenemigo_2:draw()
-		if base.entidades.l==2 then
-			base.entidades:draw_e()
-		end
-	end
-
-	function layerobjetos_2:draw()
-		if base.entidades.l==2 then
-			base.entidades:draw_o()
-		end
+	function layerpuertas:draw()
+		base.entidades:draw_pu()
 	end
 
 end
@@ -201,11 +157,18 @@ function nivel1_1:keypressed(key)
 
 	if key=="e" and base.entidades.player.ischange then
 		--cambio de fase
+		
+
 		if base.entidades.l==1 then
 			base.entidades.l=2
+			self:changemap(false,true)
+
 		else
 			base.entidades.l=1
+			self:changemap(true,false)
 		end
+
+
 		--limpiar balas
 		base.entidades.bullet={}
 		--limpiar balas enemigos
@@ -220,8 +183,6 @@ function nivel1_1:keypressed(key)
 		base.entidades.player.l=base.entidades.l
 
 		collectgarbage()
-
-		self.map=self.maps[base.entidades.l]
 	end
 
 	if key=="p" and not base.entidades.player.fin then
@@ -235,6 +196,7 @@ function nivel1_1:keypressed(key)
 		self:enter()
 	end
 
+	
 end
 
 function nivel1_1:keyreleased(key)
@@ -246,7 +208,7 @@ function nivel1_1:mousepressed(x,y,button)
 	local cx,cy=self.cam:toWorld(x,y)
 	base.entidades:mousepressed(cx,cy,button)
 
-	--[[if button==2 then
+	if button==2 then
 
 		local ux,uy=base.entidades.player.body:center()
 		local ix,iy=self.cam:toWorld(x,y)
@@ -254,7 +216,7 @@ function nivel1_1:mousepressed(x,y,button)
 		base.entidades.player.melee:move(ix-ux,iy-uy)
 		base.entidades.player.point:move(ix-ux,iy-uy)
 	
-	end]]
+	end
 
 end
 
@@ -281,137 +243,17 @@ function nivel1_1:setmeteor(dt,x,y,h,w)
 end
 
 function nivel1_1:inicializate_1()
-	self.maps[1]:resize(love.graphics.getWidth()*2,love.graphics.getHeight()*2)
+	self.map:resize(love.graphics.getWidth()*2,love.graphics.getHeight()*2)
 
-	for k, object in pairs(self.maps[1].objects) do
+	for k, object in pairs(self.map.objects) do
         if object.name == "player" then
         	--objeto player
-            base.entidades:addactor(Player(object.x,object.y,object.width,object.height,1,object.properties.hp))
+            base.entidades:addactor(Player(object.x,object.y,object.width,object.height,object.properties.l,object.properties.hp))
             break
         end
     end
 
-    for k, object in pairs(self.maps[1].objects) do
-    	if object.name == "escalera2" then
-    		--escalera rectangular
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),type="escalera",l=1},"object")
-    	elseif object.name == "ascensor" then
-    		--objeto ascensor
-    		base.entidades:addextra(Ascensor(object.x,object.y,object.width,object.height,1,object.properties.val),"dinamic")
-    	elseif object.name == "Puerta" then
-    		--aqui se coje el id de la puerta
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,l=1},"door")
-    	elseif object.name == "baba1" then
-    		--enemigo baba1
-    		base.entidades:addextra(Baba1(object.x,object.y,object.width,object.height,1,object.properties.hp),"enemies")
-    	elseif object.name == "punto" then
-    		base.entidades:addextra({body=self.HC.point(object.x,object.y),l=1},"point")
-    	elseif object.name == "fin" then
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),l=1},"flags")
-    	elseif object.name == "municion" then
-    		local mun=0
-
-    		if object.properties.tipo==1 then
-    			mun=love.math.random(5,10)
-    		elseif object.properties.tipo==2 then
-    			mun=love.math.random(5,10)
-    		elseif object.properties.tipo==3 then 
-    			mun=love.math.random(5,10)
-    		elseif object.properties.tipo==4 then
-    			mun=love.math.random(25,40)
-    		elseif object.properties.tipo==5 then
-    			mun=love.math.random(1,2)
-    		end
-
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),stock=mun,tipo=object.properties.tipo,l=1,type="municion"},"object")
-    	end
-    end
-
-    local mp=1
-    for i=1,2,1 do
-		for y=1, self.map.height,1 do
-		   for x=1,self.map.width,1 do
-		      local tile = self.maps[mp].layers[i].data[y][x]
-		      if tile then
-		      	if tile.properties.col or tile.properties.col=="true" then
-	      			local tx,ty=0,0
-	      			local og=tile.objectGroup.objects
-
-	      			local t={}
-	      			local id=0
-	      			for _, o in pairs(og) do
-	      				id=o.name
-	      				if o.name=="3" then
-	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
-	      				else
-	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
-	      				end
-	      				for _, p in pairs(o.polygon) do
-	      					table.insert(t,tx+p.x)
-							table.insert(t,ty+p.y)
-			    		end
-	      			end
-
-	      			--35 34 36 33
-
-	      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=1,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
-	      		elseif tile.properties.liso or tile.properties.liso=="true" then
-	      			local tx,ty=0,0
-	      			local og=tile.objectGroup.objects
-
-	      			local t={}
-	      			local id=0
-	      			for _, o in pairs(og) do
-	      				id=o.name
-	      				if o.name=="3" then
-	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
-	      				else
-	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
-	      				end
-	      				for _, p in pairs(o.polygon) do
-	      					table.insert(t,tx+p.x)
-							table.insert(t,ty+p.y)
-			    		end
-	      			end
-
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=1,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
-		      	elseif tile.properties.plat or tile.properties.plat=="true" then
-	      			local tx,ty=0,0
-	      			local og=tile.objectGroup.objects
-
-	      			local t={}
-	      			local id=0
-	      			for _, o in pairs(og) do
-	      				id=o.name
-	      				if o.name=="3" then
-	      					tx,ty=(x-1)*self.map.tilewidth,(y)*self.map.tileheight
-	      				else
-	      					tx,ty=(x-1)*self.map.tilewidth,(y-1)*self.map.tileheight
-	      				end
-	      				for _, p in pairs(o.polygon) do
-	      					table.insert(t,tx+p.x)
-							table.insert(t,ty+p.y)
-			    		end
-	      			end
-
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="plate",l=1,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
-		      	
-		      	elseif tile.properties.collidable or tile.properties.collidable=="true" then
-		      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=1,to=4},"colli")
-		        elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
-		        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=1,to=4},"colli")
-		        end
-		      end
-		   end
-		end
-	end
-	self.maps[1]:removeLayer("Borrador")
-end
-
-function nivel1_1:inicializate_2()
-	self.maps[2]:resize(love.graphics.getWidth()*2,love.graphics.getHeight()*2)
-
-    for k, object in pairs(self.maps[2].objects) do
+    for k, object in pairs(self.map.objects) do
     	if object.name == "escalera" then
     		--escalera triangular
     		local x,y=object.x,object.y
@@ -421,21 +263,29 @@ function nivel1_1:inicializate_2()
     			table.insert(t,p.y)
     		end
     		--escaleras triangulares
-    		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),d=object.properties.direccion,type="subida",l=2},"object")
+    		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),d=object.properties.direccion,type="subida",l=object.properties.l},"object")
     	elseif object.name == "escalera2" then
     		--escalera rectangular
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),type="escalera",l=2},"object")
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),type="escalera",l=object.properties.l},"object")
     	elseif object.name == "ascensor" then
     		--objeto ascensor
-    		base.entidades:addextra(Ascensor(object.x,object.y,object.width,object.height,2,object.properties.val),"dinamic")
-
+    		base.entidades:addextra(Ascensor(object.x,object.y,object.width,object.height,object.properties.l,object.properties.val),"dinamic")
     	elseif object.name == "Puerta" then
     		--aqui se coje el id de la puerta
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,l=2},"door")
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),id=object.properties.numero,l=object.properties.l},"door")
+    	elseif object.name == "baba1" then
+    		--enemigo baba1
+    		base.entidades:addextra(Baba1(object.x,object.y,object.width,object.height,object.properties.l,object.properties.hp),"enemies")
     	elseif object.name == "punto" then
-    		base.entidades:addextra({body=self.HC.point(object.x,object.y),l=2},"point")
+    		base.entidades:addextra({body=self.HC.point(object.x,object.y),l=object.properties.l},"point")
     	elseif object.name == "Aliados" then
-    		base.entidades:addextra(Npc(object.x,object.y,object.width,object.height,2),"npcs")
+    		base.entidades:addextra(Npc(object.x,object.y,object.width,object.height,object.properties.l),"npcs")
+    	elseif object.name == "arma" then
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),tipo=object.properties.tipo,l=object.properties.l,type="arma"},"object")
+    	elseif object.name == "vida" then
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),l=object.properties.l,type="vida"},"object")
+    	elseif object.name == "fin" then
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),l=object.properties.l},"flags")
     	elseif object.name == "municion" then
     		local mun=0
 
@@ -451,21 +301,34 @@ function nivel1_1:inicializate_2()
     			mun=love.math.random(1,2)
     		end
 
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),stock=mun,tipo=object.properties.tipo,l=2,type="municion"},"object")
-    	elseif object.name == "arma" then
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),tipo=object.properties.tipo,l=2,type="arma"},"object")
-    	elseif object.name == "vida" then
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),l=2,type="vida"},"object")
-    	elseif object.name == "fin" then
-    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),l=2},"flags")
+    		base.entidades:addextra({body=self.HC.rectangle(object.x,object.y,object.width,object.height),stock=mun,tipo=object.properties.tipo,l=object.properties.l,type="municion"},"object")
     	end
     end
 
-   local mp=2
-    for i=1,2,1 do
-		for y=1, self.map.height,1 do
+    self:gettiles(1,1)
+	self:gettiles(2,1)
+	self:gettiles(3,2)
+	self:gettiles(4,2)
+
+	self.map:removeLayer("Borrador")
+
+	self:changemap(true,false)
+end
+
+function nivel1_1:changemap(v1,v2)
+	for i, layer in ipairs(self.map.layers) do
+		if i==1 or i==2  then
+			layer.visible=v1
+		elseif i==3 or i==4  then
+			layer.visible=v2
+		end
+	end
+end
+
+function nivel1_1:gettiles(i,s)
+	for y=1, self.map.height,1 do
 		   for x=1,self.map.width,1 do
-		      local tile = self.maps[mp].layers[i].data[y][x]
+		      local tile = self.map.layers[i].data[y][x]
 		      if tile then
 		      	if tile.properties.col or tile.properties.col=="true" then
 	      			local tx,ty=0,0
@@ -488,7 +351,7 @@ function nivel1_1:inicializate_2()
 
 	      			--35 34 36 33
 
-	      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=2,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+	      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
 	      		elseif tile.properties.liso or tile.properties.liso=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
@@ -508,7 +371,7 @@ function nivel1_1:inicializate_2()
 			    		end
 	      			end
 
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=2,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
 		      	elseif tile.properties.plat or tile.properties.plat=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
@@ -528,21 +391,18 @@ function nivel1_1:inicializate_2()
 			    		end
 	      			end
 
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="plate",l=2,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="plate",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
 		      	
 		      	elseif tile.properties.collidable or tile.properties.collidable=="true" then
-		      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=2,to=4},"colli")
+		      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=s,to=4},"colli")
 		        elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
-		        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=2,to=4},"colli")
+		        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=s,to=4},"colli")
 		        end
-		      end
-		   end
+		    end
 		end
 	end
-
-	self.maps[2]:removeLayer("Borrador")
-
 end
+
 
 function nivel1_1:sprites()
 	sprites["img"]=love.graphics.newImage("assets/img/player.png")
