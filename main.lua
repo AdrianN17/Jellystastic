@@ -15,8 +15,8 @@ end
 -- click balas 1 normal 2 destruye
 ]]
 
--- hacer que cuando suelte no se mueve
-function love.run()
+-- comentado love run 60 fps
+--[[function love.run()
 if love.math then
 	love.math.setRandomSeed(os.time())
 end
@@ -66,7 +66,7 @@ while true do
 	end
 end
  
-end
+end]]
 
 --[[
 

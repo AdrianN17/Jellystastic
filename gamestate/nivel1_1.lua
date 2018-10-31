@@ -351,7 +351,7 @@ function nivel1_1:gettiles(i,s)
 
 	      			--35 34 36 33
 
-	      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+	      			base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="inc",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id,layer=i},"colli")
 	      		elseif tile.properties.liso or tile.properties.liso=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
@@ -371,7 +371,7 @@ function nivel1_1:gettiles(i,s)
 			    		end
 	      			end
 
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="liso",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id,layer=i},"colli")
 		      	elseif tile.properties.plat or tile.properties.plat=="true" then
 	      			local tx,ty=0,0
 	      			local og=tile.objectGroup.objects
@@ -391,12 +391,12 @@ function nivel1_1:gettiles(i,s)
 			    		end
 	      			end
 
-		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="plate",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id},"colli")
+		      		base.entidades:addextra({body=self.HC.polygon(t[1],t[2],t[3],t[4],t[5],t[6]),type="plate",l=s,gid=tile.gid,x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,to=32+id,layer=i},"colli")
 		      	
 		      	elseif tile.properties.collidable or tile.properties.collidable=="true" then
-		      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=s,to=4},"colli")
+		      		base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="col",l=s,to=4,layer=i},"colli")
 		        elseif tile.properties.plataforma or tile.properties.plataforma=="true" then
-		        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=s,to=4},"colli")
+		        	base.entidades:addextra({body=self.HC.rectangle((x-1)*self.map.tilewidth,(y-1)*self.map.tileheight,self.map.tilewidth,self.map.tileheight),x=(x-1)*self.map.tilewidth,y=(y-1)*self.map.tileheight,gid=tile.gid,type="plat",l=s,to=4,layer=i},"colli")
 		        end
 		    end
 		end

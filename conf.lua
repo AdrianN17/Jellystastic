@@ -7,7 +7,7 @@ function love.conf(t)
   	t.title="Jellystastic"
   	t.window.fullscreen = true 
   	t.window.fullscreentype = "desktop"
-  	t.window.vsync = 0 
+  	t.window.vsync = 1 
 
     t.modules.audio = true              -- Enable the audio module (boolean)
     t.modules.data = true               -- Enable the data module (boolean)

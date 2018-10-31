@@ -482,7 +482,7 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=me.body:collidesWith(col.body)--collision meteoro pared
 				if colli then
-					pcall (self:deletetiled(col.x,col.y,col.gid,col.l,col.to),"error2")
+					self:replace_tile(col.layer,col.x,col.y,col.to)
 					self.HC.remove(col.body)
 					--table.remove(self.colli,c)
 					self:removeextra(col,"colli")
@@ -511,7 +511,7 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=ex.body:collidesWith(col.body)--collision pared explosion
 				if colli then
-					pcall (self:deletetiled(col.x,col.y,col.gid,self.l,col.to),"error2")
+					self:replace_tile(col.layer,col.x,col.y,col.to)
 					self.HC.remove(col.body)
 					self:removeextra(col,"colli")
 				end
@@ -859,13 +859,15 @@ function entidades:collisions()
 	end
 end
 
+function entidades:replace_tile(layer, tilex, tiley, newTileGid)
+	local x=(tilex/self.map.tilewidth)+1
+	local y=(tiley/self.map.tileheight)+1
 
--- no elige que cambiar de color
-function entidades:deletetiled(tx,ty,gid,c,id)
-	for i, ti in ipairs(self.map.tileInstances[gid]) do
-		if ti.x == tx and ti.y==ty then
-			ti.batch:set(ti.id, self.map.tiles[id].quad,tx,ty)
-			break
+	layer = self.map.layers[layer]
+	for i, instance in ipairs(self.map.tileInstances[layer.data[y][x].gid]) do
+		if instance.layer == layer and instance.x == tilex and instance.y == tiley then
+		  instance.batch:set(instance.id, self.map.tiles[newTileGid].quad, instance.x, instance.y)
+		  break
 		end
 	end
 end
