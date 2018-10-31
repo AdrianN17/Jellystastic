@@ -680,8 +680,9 @@ function entidades:collisions()
 				local dx,dy,colli=0,0,false
 				colli,dx,dy=di.body:collidesWith(po.body) --collsion punto dinamico
 				if colli then
-					di.body:move(dx,dy*2)
+					di.body:move(dx*2,dy*2)
 					di.vy=di.vy*-1
+					di.vx=di.vx*-1
 				end
 			end
 		end

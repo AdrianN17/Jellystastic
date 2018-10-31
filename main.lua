@@ -47,7 +47,7 @@ while true do
 	-- Update dt, as we'll be passing it to update
 	if love.timer then
 		love.timer.step()
-		dt = love.timer.getDelta()
+		dt = love.timer.getDeddwddddadlta()
 	end
 
 	-- Call update and draw
