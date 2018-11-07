@@ -17,7 +17,7 @@ function player:init(x,y,w,h,change,hp)
 	self.vx,self.vy=0,0
 
 	self.ground=true
-	self.vym=300
+	self.vym=800
 
 	self.isjump=false
 	self.escalar=false
@@ -77,16 +77,10 @@ function player:init(x,y,w,h,change,hp)
 
 	self.acc=5000
 	self.fri=5
-	self.vxm=600
+	self.vxm=500
 end
 
 function player:draw()
-	--love.graphics.setColor(0.5, 0.5, 0.5)
-	--self.body:draw("fill")
-	--love.graphics.setColor(0, 0, 1)
-	--love.graphics.setColor(1, 1, 1)
-	--self.melee:draw("fill")
-
 	if not self.dead then
 
 		love.graphics.draw(sprites["img"],sprites["player"],self.ox,self.oy,0,1,1,31,37)
@@ -94,16 +88,15 @@ function player:draw()
 		if self.attack and self.armaa==0 then
 			love.graphics.draw(sprites["img"],sprites["espada"],self.mx,self.my,self.mr-math.pi,1,1,40,5)--,-70,-10)
 		end
-
-		--self.point:draw("fill")
 	end
-
 
 end
 
 function player:update(dt)
 	local x,y=0,0
 	local dx=0
+
+	-- vx movimiento
 
 	if self.moveleft and not self.dead then
 		dx=-1
@@ -115,11 +108,12 @@ function player:update(dt)
 
 	self.vx= self.vx+dx*self.acc*dt
 
+
 	if math.abs(self.vx)> self.vxm then
 		self.vx=self.vxm*dx
 	end
 
-
+	--escaleras
 	if self.up and not self.ground then
 		x,y=x+0,y+-4
 	end
@@ -128,10 +122,15 @@ function player:update(dt)
 		x,y=x+0,y+4
 	end
 
+	--salto
+
 	if not self.ground and not self.isjump and not self.escalar and not self.subida and not self.dead then
+		
+
 		if self.vy > 50 then
 			self.g=-2000
 		end
+
 		self.vy=self.vy-self.g*dt
 		y=y+self.vy*dt
 	end
@@ -151,6 +150,7 @@ function player:update(dt)
 
 	x=x+self.vx*dt
 
+	--mover
 
 	self.body:move(x,y)
 
@@ -159,6 +159,8 @@ function player:update(dt)
 
 
 	self.mr=self.mr+dt
+
+	--espada
 	
 	self.melee:move(x,y)
 
@@ -199,6 +201,8 @@ function player:update(dt)
 	self.isascensor=false
 	self.g=-500
 
+	--inmunidad
+
 	if self.immunity then
 		self.time=self.time+dt
 		if self.time>1 then
@@ -207,15 +211,13 @@ function player:update(dt)
 		end
 	end
 	
+
 	self.point:move(x,y)
 
 	self.angle=math.atan2(self.ay-self.oy,self.ax-self.ox)
 	self.point:setRotation(math.rad(-45)+self.angle,self.ox,self.oy)
 
 	if self.hp<1 or self.oy>7240 then
-		--error nil
-		--HC.remove(self.body)
-		--base.entidades:removeactor(self)
 		self.dead=true
 	end
 
@@ -298,12 +300,10 @@ end
 
 function player:keyreleased(key)
 	if key=="a" then
-		--self.vx=0
 		self.moveleft=false
 	end
 
 	if key=="d" then
-		--self.vx=0
 		self.moveright=false
 	end
 
@@ -359,7 +359,6 @@ end
 function  player:fall()
 	base.entidades:addextra(Zombie(self.ox,self.oy,62,74,self.l),"enemies")
 end
-
 
 return player
 
