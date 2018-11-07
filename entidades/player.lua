@@ -74,6 +74,10 @@ function player:init(x,y,w,h,change,hp)
 	self.hi=1
 
 	self.fin=false
+
+	self.acc=5000
+	self.fri=5
+	self.vxm=600
 end
 
 function player:draw()
@@ -99,13 +103,20 @@ end
 
 function player:update(dt)
 	local x,y=0,0
+	local dx=0
 
 	if self.moveleft and not self.dead then
-		self.vx=-500
+		dx=-1
 	elseif self.moveright and not self.dead then
-		self.vx=500
-	else
-		self.vx=0
+		dx=1
+	end
+
+	self.vx=self.vx*(1 - math.min(dt * self.fri, 1))
+
+	self.vx= self.vx+dx*self.acc*dt
+
+	if math.abs(self.vx)> self.vxm then
+		self.vx=self.vxm*dx
 	end
 
 
