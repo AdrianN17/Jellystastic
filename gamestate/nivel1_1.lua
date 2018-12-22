@@ -207,6 +207,7 @@ end
 function nivel1_1:mousepressed(x,y,button)
 	local cx,cy=self.cam:toWorld(x,y)
 	base.entidades:mousepressed(cx,cy,button)
+	--[[
 
 	if button==2 then
 
@@ -216,7 +217,7 @@ function nivel1_1:mousepressed(x,y,button)
 		base.entidades.player.melee:move(ix-ux,iy-uy)
 		base.entidades.player.point:move(ix-ux,iy-uy)
 	
-	end
+	end]]
 
 end
 

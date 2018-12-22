@@ -75,9 +75,7 @@ function player:init(x,y,w,h,change,hp)
 
 	self.fin=false
 
-	self.acc=5000
-	self.fri=5
-	self.vxm=500
+
 end
 
 function player:draw()
@@ -94,24 +92,19 @@ end
 
 function player:update(dt)
 	local x,y=0,0
-	local dx=0
+	self.vx=0
+	--local dx=0
 
 	-- vx movimiento
 
 	if self.moveleft and not self.dead then
-		dx=-1
+		self.vx=-500
 	elseif self.moveright and not self.dead then
-		dx=1
+		self.vx=500
 	end
 
-	self.vx=self.vx*(1 - math.min(dt * self.fri, 1))
 
-	self.vx= self.vx+dx*self.acc*dt
-
-
-	if math.abs(self.vx)> self.vxm then
-		self.vx=self.vxm*dx
-	end
+	
 
 	--escaleras
 	if self.up and not self.ground then
@@ -128,7 +121,7 @@ function player:update(dt)
 		
 
 		if self.vy > 50 then
-			self.g=-2000
+			self.g=-1200
 		end
 
 		self.vy=self.vy-self.g*dt

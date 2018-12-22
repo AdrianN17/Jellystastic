@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="251" height="220" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="1009">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="251" height="220" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="1009">
  <tileset firstgid="1" name="Sin título-1" tilewidth="32" tileheight="32" tilecount="80" columns="8">
   <image source="tile1.png" width="256" height="333"/>
   <tile id="0">
@@ -632,7 +632,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="7" name="B1" width="251" height="220" locked="1">
+ <layer id="7" name="B1" width="251" height="220" visible="0" locked="1">
   <properties>
    <property name="l" value="2"/>
   </properties>
@@ -859,7 +859,7 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
- <layer id="8" name="B2" width="251" height="220" locked="1">
+ <layer id="8" name="B2" width="251" height="220" visible="0" locked="1">
   <properties>
    <property name="l" value="2"/>
   </properties>
@@ -2210,7 +2210,7 @@
   </object>
  </objectgroup>
  <objectgroup id="10" name="Puertas"/>
- <objectgroup id="3" name="Objetos"/>
- <objectgroup id="4" name="Enemigos"/>
- <objectgroup id="5" name="Jugadores"/>
+ <objectgroup id="3" name="Objetos" visible="0"/>
+ <objectgroup id="4" name="Enemigos" visible="0"/>
+ <objectgroup id="5" name="Jugadores" visible="0"/>
 </map>

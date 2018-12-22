@@ -1,6 +1,6 @@
 local Gamestate = require "libs.gamestate"
 local nivel1_1= require "gamestate.nivel1_1"
-local nivel1_2= require "gamestate.nivel1_2"
+
 
 function love.load()
 	
@@ -68,7 +68,3 @@ end
  
 end]]
 
---[[
-
-crear el nivel 1-2-2
-]]
