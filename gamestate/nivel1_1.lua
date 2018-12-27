@@ -14,6 +14,7 @@ local pausa = require "gamestate.pausa"
 local nivel1_1 = Class{
 	__includes = base
 }
+
 local xc,yc,hc,wc=0,0,0,0
 local time=0
 local background=nil
