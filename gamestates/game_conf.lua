@@ -57,9 +57,15 @@ function game_conf:get_objects(objectlayer)
           end
           
           data_pos = polygon
+        elseif obj.shape == "rectangle" then
+          data_pos = {obj.x,obj.y,obj.width,obj.height}
+        elseif obj.shape == "ellipse" then
+          data_pos = {obj.x,obj.y,obj.width,obj.height}
         end
         
         if data_pos ~= nil then
+        
+        else
         
         end
         

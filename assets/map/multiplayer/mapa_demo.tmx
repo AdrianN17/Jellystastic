@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="17">
+ <editorsettings>
+  <export target="mapa_demo.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup id="3" name="Borrador">
+  <object id="7" name="Personaje" x="126" y="278">
+   <point/>
+  </object>
+  <object id="8" name="Terreno" x="1.33" y="469.333">
+   <polygon points="0,0 354,6 536,-83 835,-85 1104,28 1201,163 -1,163"/>
+  </object>
+  <object id="9" name="Terreno" x="1446" y="636">
+   <polygon points="0,0 138.667,-129.333 310.667,-133.333 397.333,-177.333 500,-124 592,-208 790.667,-220 793.333,-4"/>
+  </object>
+ </objectgroup>
+</map>
