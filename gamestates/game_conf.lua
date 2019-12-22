@@ -2,6 +2,11 @@ local Class = require "libs.hump.class"
 local sti = require "libs.sti"
 local gamera = require "libs.gamera.gamera"
 
+local index_entidades = require "entities.index"
+local img_index = require "assets/img/index"
+
+
+
 local game_conf = Class{}
 
 function game_conf:init(nombreMapa)
@@ -13,7 +18,16 @@ function game_conf:init(nombreMapa)
   self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
   self.cam:setWindow(0,0,x,y)
   
-  self:map_read();
+  self.gameobject = {}
+  self.gameobject.player = {}
+  self.gameobject.enemy = {}
+  self.gameobject.object = {}
+  self.gameobject.npc = {}
+  self.gameobject.map_object = {}
+  
+  self:map_read()
+  self:map_create()
+  
 end
 
 function game_conf:update_conf(dt)
@@ -21,7 +35,19 @@ function game_conf:update_conf(dt)
 end
 
 function game_conf:draw_conf()
-  self.map:draw()
+  local cx,cy,cw,ch=self.cam:getVisible()
+
+  self.map:draw(-cx,-cy,1,1)
+  
+  self.cam:draw(function(l,t,w,h)
+    for _, e in pairs(self.gameobject) do
+      for i,o in pairs(e) do
+        o:draw()
+      end
+    end
+  end)
+  
+  
 end
 
 
@@ -35,7 +61,7 @@ function game_conf:map_read()
     end
   end
   
-  --self.map:removeLayer("Borrador")
+  self.map:removeLayer("Borrador")
   
 end
 
@@ -63,14 +89,98 @@ function game_conf:get_objects(objectlayer)
           data_pos = {obj.x,obj.y,obj.width,obj.height}
         end
         
-        if data_pos ~= nil then
-        
-        else
-        
+        if data_pos ~= nil and index_entidades[obj.name] ~= nil then 
+          index_entidades[obj.name](self,data_pos,img_index)
         end
         
       end
     end
+end
+
+function game_conf:map_create()
+  local player = self.map:addCustomLayer ("player", 0)
+  local enemy = self.map:addCustomLayer ("enemy", 1)
+  local npc = self.map:addCustomLayer ("npc", 2)
+  local object = self.map:addCustomLayer ("object",3 )
+  local map_object = self.map:addCustomLayer ("map_object",4 )
+  
+  player.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.player) do
+      obj_data:draw()
+    end
+  end
+  
+  player.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.player) do
+      obj_data:update(dt)
+    end
+  end
+  
+  enemy.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.enemy) do
+      obj_data:draw()
+    end
+  end
+  
+  enemy.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.enemy) do
+      obj_data:update(dt)
+    end
+  end
+  
+  npc.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.npc) do
+      obj_data:draw()
+    end
+  end
+  
+  npc.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.npc) do
+      obj_data:update(dt)
+    end
+  end
+  
+  object.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.object) do
+      obj_data:draw()
+    end
+  end
+  
+  object.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.object) do
+      obj_data:update(dt)
+    end
+  end
+  
+  map_object.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.map_object) do
+      obj_data:draw()
+    end
+  end
+  
+  map_object.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.map_object) do
+      obj_data:update(dt)
+    end
+  end
+  
+  
+end
+
+function game_conf:add_obj(name,obj)
+	table.insert(self.gameobject[name],obj)
+end
+
+function game_conf:remove_obj(name,obj)
+  for i = #self.gameobject[name],1,-1 do
+    
+    e = self.gameobject[name][i]
+    
+		if e==obj then
+			table.remove(self.gameobject[name],i)
+			return
+		end
+	end
 end
 
 

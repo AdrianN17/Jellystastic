@@ -3,6 +3,7 @@ local game_conf = require "gamestates.game_conf"
 
 local map_index = require "assets/map/index"
 
+
 local game = Class{
     __includes = {game_conf}
 }
@@ -21,15 +22,17 @@ function game:draw()
 end
 
 function game:keypressed(key)
-  
+  self.gameobject.player[1]:keypressed(key)
 end
 
 function game:keyreleased(key)
-  
+  self.gameobject.player[1]:keyreleased(key)
 end
 
 function game:mousepressed(x,y,button)
   
+  local cx,cy = self.cam:toWorld(x,y)
+  --self.cam:setPosition(cx, cy)
 end
 
 function game:mousereleased(x,y,button)

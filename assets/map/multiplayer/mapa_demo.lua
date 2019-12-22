@@ -39,7 +39,7 @@ return {
         },
         {
           id = 8,
-          name = "Terreno",
+          name = "Gelatina",
           type = "",
           shape = "polygon",
           x = 1.33,
@@ -61,7 +61,7 @@ return {
         },
         {
           id = 9,
-          name = "Terreno",
+          name = "Gelatina",
           type = "",
           shape = "polygon",
           x = 1446,
