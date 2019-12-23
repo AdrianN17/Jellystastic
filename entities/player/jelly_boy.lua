@@ -16,8 +16,8 @@ function jelly_boy:init(entidad,posicion,img)
   self.ground = true
   
   self.hp = 10
-  self.vel = 100
-  self.jump = 25
+  self.vel = 175
+  self.jump = 30
   
   
   
@@ -47,11 +47,6 @@ function jelly_boy:init(entidad,posicion,img)
   
   self.fixture:setUserData( {data="player",obj=self, pos=1} )
   
-  --raycast
-  
-  --[[self.shape_raycast = love.physics.newEdgeShape(0,50,0,40)
-  self.fixture_raycast=love.physics.newFixture(self.body,self.shape_raycast)]]
-  
   self.body:setMass(20)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
@@ -76,22 +71,31 @@ function jelly_boy:init(entidad,posicion,img)
     end
   end)
 
+  --raycast
+  
+  self.raycast_ground = true
+
   local raycast_funcion = function (fixture, x, y, xn, yn, fraction)
       
       local tipo_obj=fixture:getUserData().data
   
-      self.ground = false
+      
   
       if tipo_obj=="map_object" then
         self.ground = true
         self.acciones.saltando=false
       end
   
-      return -1
+      return 1
   end
 
   self.timer:every(0.1, function()
-    self.entidad.world:rayCast(self.ox,self.oy,self.ox,self.oy+60, raycast_funcion)
+      
+    if self.raycast_ground then
+      self.entidad.world:rayCast(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50, raycast_funcion)
+      self.entidad.world:rayCast(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50, raycast_funcion)
+    end
+    
   end)
   
 end
@@ -105,13 +109,14 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox,self.oy,self.ox,self.oy+60)
+  love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
+  love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
   
   love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
+  love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
 end
 
 function jelly_boy:update(dt)
-  
   
   self.timer:update(dt)
   
@@ -159,11 +164,17 @@ function jelly_boy:keypressed(key)
     self.body:applyLinearImpulse( 0, -self.jump*self.mass )
     
     self.acciones.saltando=true
+    self.raycast_ground=false
     
-    self.timer:after(0.1,function()
+    self.timer:after(0.2,function()
       self.ground = false
-      
+      self.raycast_ground=true
+
     end)
+  end
+  
+  if key == "1" then
+    self.body:setY(0)
   end
 end
 
@@ -175,6 +186,7 @@ function jelly_boy:keyreleased(key)
   if key == "d" then
     self.movimiento.d = false
   end
+  
   
 end
 
