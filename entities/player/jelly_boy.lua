@@ -91,7 +91,7 @@ function jelly_boy:init(entidad,posicion,img)
   end
 
   self.timer:every(0.1, function()
-    self.entidad.world:rayCast(self.ox,self.oy,self.ox,self.oy+100, raycast_funcion)
+    self.entidad.world:rayCast(self.ox,self.oy,self.ox,self.oy+60, raycast_funcion)
   end)
   
 end
@@ -105,7 +105,7 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox,self.oy+40,self.ox,self.oy+50)
+  love.graphics.line(self.ox,self.oy,self.ox,self.oy+60)
   
   love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
 end
@@ -155,13 +155,14 @@ function jelly_boy:keypressed(key)
     self.movimiento.d = true
   end
   
-  if key == "w" and self.ground then
+  if key == "w" and self.ground and not self.acciones.saltando then
     self.body:applyLinearImpulse( 0, -self.jump*self.mass )
     
+    self.acciones.saltando=true
     
-    self.timer:after(0.2,function()
+    self.timer:after(0.1,function()
       self.ground = false
-      self.acciones.saltando=true
+      
     end)
   end
 end
