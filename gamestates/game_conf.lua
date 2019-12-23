@@ -28,6 +28,7 @@ function game_conf:init(nombreMapa)
   self.gameobject.object = {}
   self.gameobject.npc = {}
   self.gameobject.map_object = {}
+  self.gameobject.holes = {}
   
   self:map_read()
   self:map_create()
@@ -46,7 +47,15 @@ function game_conf:draw_conf()
   self.map:draw(-cx,-cy,1,1)
   
   self.cam:draw(function(l,t,w,h)
-    for _, body in pairs(self.world:getBodies()) do
+    --[[  red = 115/255
+    green = 27/255
+    blue = 135/255
+    alpha = 50/100
+    
+    love.graphics.setBackgroundColor( red, green, blue, alpha)]]
+    
+      
+    --[[for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
@@ -59,9 +68,9 @@ function game_conf:draw_conf()
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end
+    end]]
+
   end)
-  
   
 end
 
@@ -119,6 +128,13 @@ function game_conf:map_create()
   local object = self.map:addCustomLayer ("object",4 )
   local map_object = self.map:addCustomLayer ("map_object",5 )
   
+  local function stencil()
+    for _, obj_data in pairs(self.gameobject.holes) do
+      love.graphics.circle("fill", obj_data.x, obj_data.y, 50)
+    end
+  end
+  
+  
   player.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.player) do
       obj_data:draw()
@@ -168,9 +184,18 @@ function game_conf:map_create()
   end
   
   map_object.draw = function(obj)
+
+    love.graphics.stencil(stencil, "replace", 1)
+   
+
+    love.graphics.setStencilTest("equal", 0)
+     
     for _, obj_data in ipairs(self.gameobject.map_object) do
       obj_data:draw()
     end
+    
+    love.graphics.setStencilTest()
+    
   end
   
   map_object.update = function(obj,dt)

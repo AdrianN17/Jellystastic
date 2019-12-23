@@ -32,6 +32,8 @@ end
 function game:mousepressed(x,y,button)
   
   local cx,cy = self.cam:toWorld(x,y)
+  
+  table.insert(self.gameobject.holes,{x=cx,y=cy})
   --self.cam:setPosition(cx, cy)
 end
 

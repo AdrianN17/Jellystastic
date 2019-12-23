@@ -109,11 +109,11 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
-  love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
+  --love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
+  --love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
   
-  love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
-  love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
+  --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
+  --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
 end
 
 function jelly_boy:update(dt)
