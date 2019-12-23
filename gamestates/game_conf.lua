@@ -18,6 +18,9 @@ function game_conf:init(nombreMapa)
   self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
   self.cam:setWindow(0,0,x,y)
   
+  love.physics.setMeter(64)
+  self.world = love.physics.newWorld(0,9.81*64, true)
+  
   self.gameobject = {}
   self.gameobject.player = {}
   self.gameobject.enemy = {}
@@ -31,7 +34,9 @@ function game_conf:init(nombreMapa)
 end
 
 function game_conf:update_conf(dt)
+  self.world:update(dt)
   self.map:update(dt)
+  
 end
 
 function game_conf:draw_conf()
@@ -40,9 +45,18 @@ function game_conf:draw_conf()
   self.map:draw(-cx,-cy,1,1)
   
   self.cam:draw(function(l,t,w,h)
-    for _, e in pairs(self.gameobject) do
-      for i,o in pairs(e) do
-        o:draw()
+    for _, body in pairs(self.world:getBodies()) do
+      for _, fixture in pairs(body:getFixtures()) do
+        local shape = fixture:getShape()
+     
+        if shape:typeOf("CircleShape") then
+            local cx, cy = body:getWorldPoints(shape:getPoint())
+            love.graphics.circle("line", cx, cy, shape:getRadius())
+        elseif shape:typeOf("PolygonShape") then
+            love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
+        else
+            love.graphics.line(body:getWorldPoints(shape:getPoints()))
+        end
       end
     end
   end)
@@ -98,11 +112,11 @@ function game_conf:get_objects(objectlayer)
 end
 
 function game_conf:map_create()
-  local player = self.map:addCustomLayer ("player", 0)
-  local enemy = self.map:addCustomLayer ("enemy", 1)
-  local npc = self.map:addCustomLayer ("npc", 2)
-  local object = self.map:addCustomLayer ("object",3 )
-  local map_object = self.map:addCustomLayer ("map_object",4 )
+  local player = self.map:addCustomLayer ("player", 1)
+  local enemy = self.map:addCustomLayer ("enemy", 2)
+  local npc = self.map:addCustomLayer ("npc", 3)
+  local object = self.map:addCustomLayer ("object",4 )
+  local map_object = self.map:addCustomLayer ("map_object",5 )
   
   player.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.player) do
