@@ -7,6 +7,7 @@ local destructive_terrain = Class{
 function destructive_terrain:init(poligono,img)
   self.mesh = self:poly2mesh(poligono)
   self.mesh:setTexture(img)
+  
 end
 
 function destructive_terrain:draw_obj()

@@ -21,6 +21,7 @@ function game_conf:init(nombreMapa)
   love.physics.setMeter(64)
   self.world = love.physics.newWorld(0,9.81*64, true)
   
+  
   self.gameobject = {}
   self.gameobject.player = {}
   self.gameobject.enemy = {}
