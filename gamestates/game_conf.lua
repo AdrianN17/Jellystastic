@@ -33,6 +33,24 @@ function game_conf:init(nombreMapa)
   self:map_read()
   self:map_create()
   
+  
+  self.poligono_explosion = {50 , 0,
+43 , 25,
+25 , 43,
+0 , 50,
+-25 , 43,
+-43 , 25,
+-50 , 0,
+-43 , -25,
+-25 , -43,
+0 , -50,
+25 , -43,
+43 , -25,
+50 , 0}
+  
+  
+  
+  
 end
 
 function game_conf:update_conf(dt)

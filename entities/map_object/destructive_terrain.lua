@@ -1,5 +1,6 @@
 local Class = require "libs.hump.class"
 
+
 local destructive_terrain = Class{
     __includes = {}
 }
@@ -18,7 +19,23 @@ function destructive_terrain:update_obj(dt)
   
 end
 
+function destructive_terrain:hacer_hueco(x,y)
+  
+  local nuevo_poligono={}
+  
+  local poligono_explosion = self.entidad.poligono_explosion
+  
+  for i=1,#poligono_explosion,2 do
+    nuevo_poligono[i] = poligono_explosion[i]+x
+    nuevo_poligono[i+1] = poligono_explosion[i+1]+y
+  end
+  
+  local poligono = polybool(self.poligono, poligono_enemigo, "not")
 
+  
+  
+  
+end
 
 function destructive_terrain:poly2mesh(points)
   local polypts = love.math.triangulate(points)
