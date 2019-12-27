@@ -45,8 +45,8 @@ function game_conf:init(nombreMapa)
 -25 , -43,
 0 , -50,
 25 , -43,
-43 , -25,
-50 , 0}
+43 , -25}
+--50 , 0}
   
   
   
@@ -73,7 +73,7 @@ function game_conf:draw_conf()
     love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
-    --[[for _, body in pairs(self.world:getBodies()) do
+    for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
@@ -86,7 +86,7 @@ function game_conf:draw_conf()
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end]]
+    end
 
   end)
   
@@ -239,6 +239,17 @@ function game_conf:remove_obj(name,obj)
 			return
 		end
 	end
+end
+
+function game_conf:poligono_para_destruir(x,y)
+  local poligono_explosion = {}
+  
+  for i=1,#self.poligono_explosion,2 do
+    poligono_explosion[i] = self.poligono_explosion[i]+x
+    poligono_explosion[i+1] = self.poligono_explosion[i+1]+y
+  end
+  
+  return poligono_explosion
 end
 
 
