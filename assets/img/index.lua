@@ -48,6 +48,22 @@ index.personajes[1].quad[6][3] = love.graphics.newQuad(839,1699,233,97,index.per
 
 index.personajes[1].scale = {x = 0.25,y=0.25}
 
+index.baba = {}
+index.baba.img = love.graphics.newImage("assets/img/enemigo1.png")
+
+index.baba.quad = {}
+index.baba.quad[1]=love.graphics.newQuad(21,97,329,378,index.baba.img:getDimensions())
+index.baba.quad[2]=love.graphics.newQuad(395,97,313,383,index.baba.img:getDimensions())
+index.baba.quad[3]=love.graphics.newQuad(736,101,311,374,index.baba.img:getDimensions())
+index.baba.quad[4]=love.graphics.newQuad(21,558,309,377,index.baba.img:getDimensions())
+index.baba.quad[5]=love.graphics.newQuad(381,558,323,377,index.baba.img:getDimensions())
+index.baba.quad[6]=love.graphics.newQuad(756,838,263,103,index.baba.img:getDimensions())
+  
+index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimensions())
+
+index.baba.scale = {x = 0.25,y=0.25}
+  
+
 
 index.texturas = {}
     

@@ -36,8 +36,8 @@ function jelly_boy:init(entidad,posicion,img)
   self.shape = love.physics.newRectangleShape(0,0,54.75, 84)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
-  --self.fixture:setFriction(0)
-  --self.fixture:setDensity(0)
+  self.fixture:setFriction(0.1)
+  self.fixture:setDensity(0)
 	self.body:setInertia( 0 )
   self.body:setLinearDamping( 1 )
   
@@ -46,6 +46,8 @@ function jelly_boy:init(entidad,posicion,img)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.fixture:setUserData( {data="player",obj=self, pos=1} )
+  
+  
   
   self.body:setMass(20)
   self.mass = self.body:getMass( )

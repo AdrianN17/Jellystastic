@@ -30,9 +30,9 @@ function destructive_terrain:update_obj(dt)
   
 end
 
-function destructive_terrain:hacer_hueco(index,poligono_destruir)
+function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
 
-
+  table.insert(self.entidad.gameobject.holes,{x=cx,y=cy})
   
   
   local poligono_generado = polybool(self.poligonos_tabla[1].poligono, poligono_destruir, "not")
@@ -135,8 +135,9 @@ function destructive_terrain:crear_poligonos_fisica(poligono)
   
   t.poligono = poligono
   t.id_poligono = self.id_poligonos
+  
    
-  t.fixture:setUserData( {data="map_object",obj=self, pos=2, id_poligono =   self.id_poligonos} )
+  t.fixture:setUserData( {data="map_object",obj=self, pos=3, id_poligono =  self.id_poligonos} )
   
   table.insert(self.poligonos_tabla,t)
   

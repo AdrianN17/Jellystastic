@@ -33,11 +33,9 @@ function game:mousepressed(x,y,button)
   
   local cx,cy = self.cam:toWorld(x,y)
   
-  self.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy)) 
+  --self.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy),cx,cy) 
   
   
-  
-  table.insert(self.gameobject.holes,{x=cx,y=cy})
   
   --self.cam:setPosition(cx, cy)
 end

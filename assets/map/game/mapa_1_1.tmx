@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="125" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="28">
+ <editorsettings>
+  <export target="mapa_1_1.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup id="3" name="Borrador">
+  <object id="7" name="Personaje" x="204" y="872">
+   <point/>
+  </object>
+  <object id="22" name="Gelatina" x="2" y="1055.93">
+   <polygon points="-1.5,-21 738.67,-26.4494 1024.16,-26.032 995.386,19.8349 1034.47,40.5634 1022.6,108.168 1108.31,224.417 -1,224.567"/>
+  </object>
+  <object id="23" name="Gelatina" x="1321.21" y="1278.79">
+   <polygon points="0,0 -18.0513,-16.2262 1.70882,-31.028 303.03,-33.3333 306.061,-269.697 833.333,-266.667 1874.73,-630.242 2676.46,-636.724 2672.12,-5.09515"/>
+  </object>
+  <object id="24" name="Baba" x="672" y="978">
+   <point/>
+  </object>
+  <object id="25" name="Baba" x="856" y="972">
+   <point/>
+  </object>
+  <object id="27" name="Baba" x="436" y="962">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
