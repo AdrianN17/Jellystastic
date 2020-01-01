@@ -11,14 +11,6 @@ function gelatina:init(entidad,poligono,img)
   
   destructive_terrain.init(self,poligono,img.texturas.gelatina)
   
-  --fisicas
-  
-  --[[self.body = love.physics.newBody(entidad.world,0,0,"kinematic")
-  self.shape = love.physics.newChainShape(true,poligono)
-  self.fixture = love.physics.newFixture(self.body,self.shape)
-  self.fixture:setUserData( {data="map_object",obj=self, pos=2} )]]
-  
-  
 end
 
 function gelatina:draw()

@@ -15,11 +15,12 @@ function game_conf:init(nombreMapa)
   
   self.map = sti(nombreMapa)
   self.map:resize(x,y)
-  self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
+  self.cam = gamera.new(-100,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
   self.cam:setWindow(0,0,x,y)
   
   love.physics.setMeter(64)
   self.world = love.physics.newWorld(0,9.81*64, true)
+  self.world:setCallbacks(self:callbacks())
   
   
   self.gameobject = {}
@@ -73,7 +74,7 @@ function game_conf:draw_conf()
     love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
-    for _, body in pairs(self.world:getBodies()) do
+    --[[for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
@@ -86,7 +87,7 @@ function game_conf:draw_conf()
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end
+    end]]
 
   end)
   
@@ -250,6 +251,42 @@ function game_conf:poligono_para_destruir(x,y)
   end
   
   return poligono_explosion
+end
+
+function game_conf:callbacks()
+  local beginContact =  function(a, b, coll)
+    
+  end
+  
+  local endContact =  function(a, b, coll)
+    
+  end
+  
+  local preSolve =  function(a, b, coll)
+    local obj1, obj2 = self:validar_pos(a,b)
+    
+    
+    if obj1.data == "player" and obj2.data == "enemy" then
+      coll:setEnabled( false )
+    end
+  end
+  
+  local postSolve =  function(a, b, coll, normalimpulse, tangentimpulse)
+
+	end
+
+	return beginContact,endContact,preSolve,postSolve
+end
+
+function game_conf:validar_pos(a,b)
+  local o1,o2=a:getUserData(),b:getUserData()
+  local min = math.min(o1.pos,o2.pos)
+  
+  if min == o1.pos then
+    return o1,o2
+  else
+    return o2,o1
+  end
 end
 
 

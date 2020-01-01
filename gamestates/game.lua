@@ -14,6 +14,7 @@ function game:init()
 end
 
 function game:update(dt)
+  dt = math.min (dt, 1/30)
   self:update_conf(dt)
 end
 

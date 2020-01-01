@@ -4,7 +4,7 @@
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="3" name="Borrador">
-  <object id="7" name="Personaje" x="204" y="872">
+  <object id="7" name="Personaje" x="204" y="978">
    <point/>
   </object>
   <object id="22" name="Gelatina" x="2" y="1055.93">
@@ -16,10 +16,10 @@
   <object id="24" name="Baba" x="672" y="978">
    <point/>
   </object>
-  <object id="25" name="Baba" x="856" y="972">
+  <object id="25" name="Baba" x="856" y="978">
    <point/>
   </object>
-  <object id="27" name="Baba" x="436" y="962">
+  <object id="27" name="Baba" x="436" y="978">
    <point/>
   </object>
  </objectgroup>

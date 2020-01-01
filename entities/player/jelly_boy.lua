@@ -81,7 +81,6 @@ function jelly_boy:init(entidad,posicion,img)
       
       local tipo_obj=fixture:getUserData().data
   
-      
   
       if tipo_obj=="map_object" then
         self.ground = true
@@ -92,12 +91,9 @@ function jelly_boy:init(entidad,posicion,img)
   end
 
   self.timer:every(0.1, function()
-      
-    if self.raycast_ground then
-      self.entidad.world:rayCast(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50, raycast_funcion)
-      self.entidad.world:rayCast(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50, raycast_funcion)
-    end
-    
+    self.ground = false
+    self.entidad.world:rayCast(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50, raycast_funcion)
+    self.entidad.world:rayCast(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50, raycast_funcion)
   end)
   
 end
@@ -111,8 +107,8 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  --love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
-  --love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
+  love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
+  love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
   
   --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
   --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
