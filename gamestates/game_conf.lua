@@ -5,7 +5,7 @@ local gamera = require "libs.gamera.gamera"
 local index_entidades = require "entities.index"
 local img_index = require "assets/img/index"
 
-
+local Timer = require "libs.chrono.Timer"
 
 local game_conf = Class{}
 
@@ -15,7 +15,7 @@ function game_conf:init(nombreMapa)
   
   self.map = sti(nombreMapa)
   self.map:resize(x,y)
-  self.cam = gamera.new(-100,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
+  self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
   self.cam:setWindow(0,0,x,y)
   
   love.physics.setMeter(64)
@@ -26,6 +26,7 @@ function game_conf:init(nombreMapa)
   self.gameobject = {}
   self.gameobject.player = {}
   self.gameobject.enemy = {}
+  self.gameobject.bullet={}
   self.gameobject.object = {}
   self.gameobject.npc = {}
   self.gameobject.map_object = {}
@@ -50,13 +51,16 @@ function game_conf:init(nombreMapa)
 --50 , 0}
   
   
-  
+  self.timer = Timer()
   
 end
 
 function game_conf:update_conf(dt)
+  
   self.world:update(dt)
+  self.timer:update(dt)
   self.map:update(dt)
+  
   
 end
 
@@ -74,7 +78,7 @@ function game_conf:draw_conf()
     love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
-    --[[for _, body in pairs(self.world:getBodies()) do
+    for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
@@ -87,7 +91,7 @@ function game_conf:draw_conf()
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end]]
+    end
 
   end)
   
@@ -144,8 +148,9 @@ function game_conf:map_create()
   local player = self.map:addCustomLayer ("player", 1)
   local enemy = self.map:addCustomLayer ("enemy", 2)
   local npc = self.map:addCustomLayer ("npc", 3)
-  local object = self.map:addCustomLayer ("object",4 )
-  local map_object = self.map:addCustomLayer ("map_object",5 )
+  local bullet = self.map:addCustomLayer ("object",4 )
+  local object = self.map:addCustomLayer ("object",5 )
+  local map_object = self.map:addCustomLayer ("map_object",6 )
   
   local function stencil()
     for _, obj_data in pairs(self.gameobject.holes) do
@@ -186,6 +191,18 @@ function game_conf:map_create()
   
   npc.update = function(obj,dt)
     for _, obj_data in ipairs(self.gameobject.npc) do
+      obj_data:update(dt)
+    end
+  end
+  
+  bullet.draw = function(obj)
+    for _, obj_data in ipairs(self.gameobject.bullet) do
+      obj_data:draw()
+    end
+  end
+  
+  bullet.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.bullet) do
       obj_data:update(dt)
     end
   end
@@ -256,6 +273,22 @@ end
 function game_conf:callbacks()
   local beginContact =  function(a, b, coll)
     
+    local obj1, obj2 = self:validar_pos(a,b)
+   
+    if (obj1.data == "player" or obj1.data == "enemy") and obj2.data == "map_object" then
+      local x,y = coll:getNormal()
+      
+      local r = self:round(math.deg(math.atan2(y,x)))
+      local r_abs = math.abs(r) 
+      
+      if(r_abs < 115 and r_abs > 65) then
+        r = math.rad(r)
+      
+      
+        self.timer:after(0.25, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
+      end
+        
+    end
   end
   
   local endContact =  function(a, b, coll)
@@ -265,10 +298,13 @@ function game_conf:callbacks()
   local preSolve =  function(a, b, coll)
     local obj1, obj2 = self:validar_pos(a,b)
     
+
     
     if obj1.data == "player" and obj2.data == "enemy" then
+      
       coll:setEnabled( false )
     end
+      
   end
   
   local postSolve =  function(a, b, coll, normalimpulse, tangentimpulse)
@@ -289,5 +325,8 @@ function game_conf:validar_pos(a,b)
   end
 end
 
+function game_conf:round(x)
+  return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
+end
 
 return game_conf

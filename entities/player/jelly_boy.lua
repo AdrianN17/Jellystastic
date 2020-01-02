@@ -1,6 +1,7 @@
 local Class = require "libs.hump.class"
 local Timer = require "libs.chrono.Timer"
 
+
 local jelly_boy = Class{
     __includes = {}
 }
@@ -37,9 +38,10 @@ function jelly_boy:init(entidad,posicion,img)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
   self.fixture:setFriction(0.1)
-  self.fixture:setDensity(0)
-	self.body:setInertia( 0 )
+  self.fixture:setDensity(1)
+	--self.body:setInertia( 1)
   self.body:setLinearDamping( 1 )
+  self.body: setFixedRotation (true)
   
 
   
@@ -48,7 +50,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.fixture:setUserData( {data="player",obj=self, pos=1} )
   
   
-  
+  self.body:resetMassData ()
   self.body:setMass(20)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
@@ -107,8 +109,8 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
-  love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
+  --love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
+  --love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
   
   --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
   --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
@@ -144,7 +146,7 @@ function jelly_boy:update(dt)
 		end
 	end
   
-  
+  self.radio = self.body:getAngle()
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
 end

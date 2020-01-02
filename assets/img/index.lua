@@ -60,20 +60,15 @@ index.baba.quad[5]=love.graphics.newQuad(381,558,323,377,index.baba.img:getDimen
 index.baba.quad[6]=love.graphics.newQuad(756,838,263,103,index.baba.img:getDimensions())
   
 index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimensions())
+    
 
 index.baba.scale = {x = 0.25,y=0.25}
-  
-
 
 index.texturas = {}
     
 index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo.png")
 index.texturas["gelatina"]:setWrap("repeat")
-    
+
+
 
 return  index
-
-
-
-
-
