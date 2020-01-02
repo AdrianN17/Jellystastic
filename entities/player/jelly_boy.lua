@@ -37,18 +37,25 @@ function jelly_boy:init(entidad,posicion,img)
   self.shape = love.physics.newRectangleShape(0,0,54.75, 84)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
+  self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  --extremidades
+  
+  self.lineas_fisica = {}
+  self.lineas_fisica.shape_suelo1 = love.physics.newEdgeShape(-27.375,0,-27.375,50)
+  self.lineas_fisica.shape_suelo2 = love.physics.newEdgeShape(27.375,0,27.375,50)
+  self.lineas_fisica.fixture_suelo1 = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo1)
+  self.lineas_fisica.fixture_suelo2 = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo2)
+  self.lineas_fisica.fixture_suelo1:setSensor( true )
+  self.lineas_fisica.fixture_suelo2:setSensor( true )
+  
   self.fixture:setFriction(0.1)
   self.fixture:setDensity(1)
 	--self.body:setInertia( 1)
   self.body:setLinearDamping( 1 )
   self.body: setFixedRotation (true)
   
-
-  
-  self.ox,self.oy = self.body:getX(),self.body:getY()
-  
   self.fixture:setUserData( {data="player",obj=self, pos=1} )
-  
   
   self.body:resetMassData ()
   self.body:setMass(20)
@@ -81,10 +88,10 @@ function jelly_boy:init(entidad,posicion,img)
 
   local raycast_funcion = function (fixture, x, y, xn, yn, fraction)
       
-      local tipo_obj=fixture:getUserData().data
+      local tipo_obj=fixture:getUserData()
   
   
-      if tipo_obj=="map_object" then
+      if tipo_obj and tipo_obj.data=="map_object" then
         self.ground = true
         self.acciones.saltando=false
       end
@@ -94,9 +101,15 @@ function jelly_boy:init(entidad,posicion,img)
 
   self.timer:every(0.1, function()
     self.ground = false
-    self.entidad.world:rayCast(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50, raycast_funcion)
-    self.entidad.world:rayCast(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50, raycast_funcion)
+    
+    local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_suelo1:getPoints())
+    self.entidad.world:rayCast(x1,y1,w1,h1, raycast_funcion)
+    
+    local x2,y2,w2,h2 = self.body:getWorldPoints(self.lineas_fisica.shape_suelo2:getPoints())
+    self.entidad.world:rayCast(x2,y2,w2,h2, raycast_funcion)
   end)
+
+  
   
 end
 
@@ -109,8 +122,8 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  --love.graphics.line(self.ox-54.75/2,self.oy,self.ox-54.75/2,self.oy+50)
-  --love.graphics.line(self.ox+54.75/2,self.oy,self.ox+54.75/2,self.oy+50)
+  --love.graphics.line(self.ox-27.375,self.oy,self.ox-27.375,self.oy+50)
+  --love.graphics.line(self.ox+27.375,self.oy,self.ox+27.375,self.oy+50)
   
   --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
   --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)

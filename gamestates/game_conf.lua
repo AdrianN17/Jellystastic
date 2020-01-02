@@ -78,20 +78,20 @@ function game_conf:draw_conf()
     love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
-    for _, body in pairs(self.world:getBodies()) do
+    --[[for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
         if shape:typeOf("CircleShape") then
             local cx, cy = body:getWorldPoints(shape:getPoint())
-            love.graphics.circle("line", cx, cy, shape:getRadius())
+            --love.graphics.circle("line", cx, cy, shape:getRadius())
         elseif shape:typeOf("PolygonShape") then
-            love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
+            --love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
         else
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end
+    end]]
 
   end)
   
@@ -275,40 +275,50 @@ function game_conf:callbacks()
     
     local obj1, obj2 = self:validar_pos(a,b)
    
-    if (obj1.data == "player" or obj1.data == "enemy") and obj2.data == "map_object" then
-      local x,y = coll:getNormal()
-      
-      local r = self:round(math.deg(math.atan2(y,x)))
-      local r_abs = math.abs(r) 
-      
-      if(r_abs < 115 and r_abs > 65) then
-        r = math.rad(r)
-      
-      
-        self.timer:after(0.25, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
-      end
+    if obj1 and obj2 then
+      if (obj1.data == "player" or obj1.data == "enemy") and obj2.data == "map_object" then
+        local x,y = coll:getNormal()
         
+        local r = self:round(math.deg(math.atan2(y,x)))
+        local r_abs = math.abs(r) 
+        
+        if(r_abs < 115 and r_abs > 65) then
+          r = math.rad(r)
+        
+        
+          self.timer:after(0.25, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
+        end
+          
+      end
     end
   end
   
   local endContact =  function(a, b, coll)
+    local obj1, obj2 = self:validar_pos(a,b)
     
+    if obj1 and obj2 then
+      
+    end
   end
   
   local preSolve =  function(a, b, coll)
     local obj1, obj2 = self:validar_pos(a,b)
     
+    if obj1 and obj2 then
 
-    
-    if obj1.data == "player" and obj2.data == "enemy" then
-      
-      coll:setEnabled( false )
+      if obj1.data == "player" and obj2.data == "enemy" then
+        
+        coll:setEnabled( false )
+      end
     end
-      
   end
   
   local postSolve =  function(a, b, coll, normalimpulse, tangentimpulse)
-
+    local obj1, obj2 = self:validar_pos(a,b)
+    
+    if obj1 and obj2 then
+      
+    end
 	end
 
 	return beginContact,endContact,preSolve,postSolve
@@ -316,6 +326,12 @@ end
 
 function game_conf:validar_pos(a,b)
   local o1,o2=a:getUserData(),b:getUserData()
+  
+  
+  if not o1 or not o2 then
+    return nil,nil
+  end
+  
   local min = math.min(o1.pos,o2.pos)
   
   if min == o1.pos then
