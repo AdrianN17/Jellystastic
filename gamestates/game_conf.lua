@@ -280,19 +280,21 @@ function game_conf:callbacks()
         local x,y = coll:getNormal()
         
         local r = self:round(math.deg(math.atan2(y,x)))
+        
+        
+        
         local r_abs = math.abs(r) 
         
-        if(r_abs < 115 and r_abs > 65) then
+        if(r_abs < 115 and r_abs > 65 and r<0) then
           r = math.rad(r)
-        
-        
-          self.timer:after(0.25, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
+
+          self.timer:after(0.01, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
         end
           
       elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
         local x,y = coll:getPositions()
         self.timer:after(0.01,function()
-          print(obj2.id_poligono)
+          --print(obj2.id_poligono)
           obj2.obj:hacer_hueco(obj2.id_poligono,self:poligono_para_destruir(x,y),x,y) 
           obj1.obj.vida=false
         end)

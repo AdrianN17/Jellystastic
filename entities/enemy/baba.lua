@@ -82,9 +82,6 @@ function baba:init(entidad,posicion,img)
   self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
   self.fixture : setGroupIndex ( - 2 )
   
-  
-  
-  
   --timer
   
   self.timer = Timer()

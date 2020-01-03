@@ -31,14 +31,14 @@ end
 
 function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
 
-  table.insert(self.entidad.gameobject.holes,{x=cx,y=cy})
+  
   
   local index_buscar=self:buscar(index)
   
   if index_buscar ==-1 then
     return
   end
-  
+  table.insert(self.entidad.gameobject.holes,{x=cx,y=cy})
   
   local poligono_generado = polybool(self.poligonos_tabla[index_buscar].poligono, poligono_destruir, "not")
   
