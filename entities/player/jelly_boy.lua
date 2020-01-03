@@ -62,6 +62,8 @@ function jelly_boy:init(entidad,posicion,img)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
   
+  self.fixture : setGroupIndex ( - 1 )
+  
   --timer
   
   self.timer = Timer()

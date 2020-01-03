@@ -12,10 +12,9 @@ function destructive_terrain:init(poligono,img)
   
   self.poligonos_tabla={}
   
-  self.id_poligonos = 1
   
   --self.body = love.physics.newBody(self.entidad.world,0,0,"kinematic")
-  
+  self.poligono_main_index=1
   self:crear_poligonos_fisica(poligono)
   
   
@@ -34,10 +33,20 @@ function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
 
   table.insert(self.entidad.gameobject.holes,{x=cx,y=cy})
   
+  local index_buscar=self:buscar(index)
   
-  local poligono_generado = polybool(self.poligonos_tabla[1].poligono, poligono_destruir, "not")
+  if index_buscar ==-1 then
+    return
+  end
   
-
+  
+  local poligono_generado = polybool(self.poligonos_tabla[index_buscar].poligono, poligono_destruir, "not")
+  
+  
+  local t = self.poligonos_tabla[index_buscar]
+  t.body:destroy()
+  table.remove(self.poligonos_tabla,index_buscar)
+  
   
   if #poligono_generado<4 then
     
@@ -61,20 +70,7 @@ function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
     
   end
   
-  local t = self.poligonos_tabla[index]
   
-  t.body:destroy()
-  
-  table.remove(self.poligonos_tabla,index)
-  --[[t.fixture:destroy( )
-  t.shape:destroy( )
-  
-  t.fixture:release( )
-  t.shape:release( )]]
-  
-  
-
-
   
   
 end
@@ -134,14 +130,14 @@ function destructive_terrain:crear_poligonos_fisica(poligono)
   t.fixture = love.physics.newFixture(t.body,t.shape)
   
   t.poligono = poligono
-  t.id_poligono = self.id_poligonos
+  t.id_poligono = self.poligono_main_index
   
    
-  t.fixture:setUserData( {data="map_object",obj=self, pos=3, id_poligono =  self.id_poligonos} )
+  t.fixture:setUserData( {data="map_object",obj=self, pos=5, id_poligono =  self.poligono_main_index} )
   
   table.insert(self.poligonos_tabla,t)
   
-  self.id_poligonos=  self.id_poligonos+1
+  self.poligono_main_index=self.poligono_main_index + 1
 
 end
 
@@ -256,16 +252,17 @@ function destructive_terrain:dot(a,b)
   return a.x * b.x + a.y * b.y
 end
 
-function buscar_mis_poligonos(id)
-  for i, poli in ipairs(self.poligonos_tabla) do
-    if(poli.id_poligono == id) then
+function destructive_terrain:buscar(index)
+  for i,e in ipairs(self.poligonos_tabla) do
+    if e.id_poligono == index then
       return i
     end
   end
-  
-    return 0
 
+  return -1
 end
+
+
 
 
 return destructive_terrain

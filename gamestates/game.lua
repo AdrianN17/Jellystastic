@@ -2,7 +2,7 @@ local Class = require "libs.hump.class"
 local game_conf = require "gamestates.game_conf"
 
 local map_index = require "assets/map/index"
-
+local Saliva = require "entities.bullet.saliva"
 
 local game = Class{
     __includes = {game_conf}
@@ -33,6 +33,8 @@ end
 function game:mousepressed(x,y,button)
   
   local cx,cy = self.cam:toWorld(x,y)
+  
+  --Saliva(self,img_index.baba,cx,cy,cx,cy,1)
   
   --self.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy),cx,cy) 
   

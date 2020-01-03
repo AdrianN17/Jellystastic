@@ -102,7 +102,7 @@ function baba:init(entidad,posicion,img)
         
         if self.iterador == 5 and self.obj_presa then
           --lanzar saliva
-          Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy)
+          Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy,self.direccion)
         end
         
         if self.iterador>5 then
@@ -198,8 +198,8 @@ function baba:draw()
   
   --love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
   
-  local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
-  love.graphics.line(x1,y1,w1,h1)
+  --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
+  --love.graphics.line(x1,y1,w1,h1)
   
   --love.graphics.print(self.iterador,self.ox,self.oy-100)
 end
@@ -212,7 +212,7 @@ function baba:update(dt)
   if self.acciones.atacando and self.obj_presa then
     local ox,oy = self.obj_presa.ox,self.obj_presa.oy
     
-    local distancia = self:distance(self.ox,self.oy,ox,oy)
+    local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
     
     local direccion = ox - self.ox
     --print(direccion)
@@ -242,10 +242,5 @@ function baba:update(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
 end
 
-function baba:distance ( x1, y1, x2, y2 )
-  local dx = x1 - x2
-  local dy = y1 - y2
-  return math.sqrt ( dx * dx + dy * dy )
-end
 
 return baba

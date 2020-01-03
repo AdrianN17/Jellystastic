@@ -3,7 +3,7 @@ local sti = require "libs.sti"
 local gamera = require "libs.gamera.gamera"
 
 local index_entidades = require "entities.index"
-local img_index = require "assets/img/index"
+ img_index = require "assets/img/index"
 
 local Timer = require "libs.chrono.Timer"
 
@@ -78,20 +78,20 @@ function game_conf:draw_conf()
     love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
-    --[[for _, body in pairs(self.world:getBodies()) do
+    for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
      
         if shape:typeOf("CircleShape") then
             local cx, cy = body:getWorldPoints(shape:getPoint())
-            --love.graphics.circle("line", cx, cy, shape:getRadius())
+            love.graphics.circle("line", cx, cy, shape:getRadius())
         elseif shape:typeOf("PolygonShape") then
-            --love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
+            love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
         else
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
       end
-    end]]
+    end
 
   end)
   
@@ -289,6 +289,13 @@ function game_conf:callbacks()
           self.timer:after(0.25, function()  obj1.obj.body:setAngle(r+math.pi/2) end)
         end
           
+      elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
+        local x,y = coll:getPositions()
+        self.timer:after(0.01,function()
+          print(obj2.id_poligono)
+          obj2.obj:hacer_hueco(obj2.id_poligono,self:poligono_para_destruir(x,y),x,y) 
+          obj1.obj.vida=false
+        end)
       end
     end
   end
@@ -343,6 +350,12 @@ end
 
 function game_conf:round(x)
   return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
+end
+
+function game_conf:distance ( x1, y1, x2, y2 )
+  local dx = x1 - x2
+  local dy = y1 - y2
+  return math.sqrt ( dx * dx + dy * dy )
 end
 
 return game_conf
