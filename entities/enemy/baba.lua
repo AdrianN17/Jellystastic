@@ -28,7 +28,7 @@ function baba:init(entidad,posicion,img)
   self.acciones = {moviendo = true, atacando = false}
   self.posicion_ataque=false
   
-  self.limite_vision=200
+  self.limite_vision=2
   
   --fisicas
   

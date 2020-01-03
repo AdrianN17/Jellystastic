@@ -298,6 +298,16 @@ function game_conf:callbacks()
           obj2.obj:hacer_hueco(obj2.id_poligono,self:poligono_para_destruir(x,y),x,y) 
           obj1.obj.vida=false
         end)
+      elseif obj1.data == "player" and obj2.data == "enemy" then
+        local x,y = coll:getNormal()
+        
+        local r = self:round(math.deg(math.atan2(y,x)))
+        r = math.rad(r)
+        
+        local player = obj1.obj
+        player.body:applyLinearImpulse(math.cos(r)*player.mass*25,0)
+        
+        coll:setEnabled( false )
       end
     end
   end
