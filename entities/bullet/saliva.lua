@@ -4,7 +4,7 @@ local saliva = Class{
     __includes = {}
 }
 
-function saliva:init(entidad,img,x,y,ex,ey,direccion)
+function saliva:init(entidad,img,x,y,ex,ey)
   self.entidad = entidad
   self.entidad:add_obj("bullet",self)
   
@@ -21,7 +21,7 @@ function saliva:init(entidad,img,x,y,ex,ey,direccion)
   
   self.body:setMass(0)
   self.body:setLinearDamping( 1 )
-  self.fixture:setFriction(0)
+  self.fixture:setFriction(1)
   self.fixture:setDensity(1)
   self.body: setFixedRotation (true)
   --self.fixture:setSensor( true )
@@ -32,24 +32,30 @@ function saliva:init(entidad,img,x,y,ex,ey,direccion)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  local angle = self.entidad:round(math.deg(math.atan2(self.oy - ey,self.oy - ex)))
-  --print(angle)
-  local angle = math.rad(angle)
+  local angle = self.entidad:round(math.deg(math.atan2(math.abs(self.oy - ey),math.abs(self.oy - ex))))
+  
+  local angle = math.abs(math.rad(angle))
   local cx,cy  = math.cos(angle),math.sin(angle)
-  self.vel = 175
+  self.vel = 100
   
-  self.body:applyLinearImpulse(cx*self.vel*-direccion, cy*self.vel)
+  local direccion = self.ox-ex
+  local dir = -1
+  if direccion<0 then
+    dir = 1
+  end
   
-  self.vida=true
+  self.existe = true
+  
+  self.body:applyLinearImpulse(cx*self.vel*dir, cy*self.vel)
+  
+
 end
 
 function saliva:update(dt)
+
   self.radio = self.body:getAngle()
-  self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  if not self.vida then
-    self:remove()
-  end
+  self.ox,self.oy = self.body:getX(),self.body:getY()
 end
 
 function saliva:draw()
@@ -61,8 +67,16 @@ function saliva:draw()
 end
 
 function saliva:remove()
-  self.body:destroy()
-  self.entidad:remove_obj("bullet",self)
+  
+    if self.existe then
+      self.body:destroy()
+      self.existe=false
+    end
+      
+      
+    self.entidad:remove_obj("bullet",self)
+    
+    
 
 end
 

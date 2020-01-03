@@ -293,12 +293,18 @@ function game_conf:callbacks()
           
       elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
         local x,y = coll:getPositions()
-        self.timer:after(0.01,function()
+        
+        self.timer:after(2.5,function()
+            
+          obj1.obj:remove()
+        end)
+        
+        --[[self.timer:after(0.01,function()
           --print(obj2.id_poligono)
           obj2.obj:hacer_hueco(obj2.id_poligono,self:poligono_para_destruir(x,y),x,y) 
           obj1.obj.vida=false
-        end)
-      elseif obj1.data == "player" and obj2.data == "enemy" then
+        end)]]
+      --[[elseif obj1.data == "player" and obj2.data == "enemy" then
         local x,y = coll:getNormal()
         
         local r = self:round(math.deg(math.atan2(y,x)))
@@ -308,6 +314,7 @@ function game_conf:callbacks()
         player.body:applyLinearImpulse(math.cos(r)*player.mass*25,0)
         
         coll:setEnabled( false )
+        ]]
       end
     end
   end

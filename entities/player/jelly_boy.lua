@@ -42,8 +42,8 @@ function jelly_boy:init(entidad,posicion,img)
   --extremidades
   
   self.lineas_fisica = {}
-  self.lineas_fisica.shape_suelo1 = love.physics.newEdgeShape(-27.375,0,-27.375,50)
-  self.lineas_fisica.shape_suelo2 = love.physics.newEdgeShape(27.375,0,27.375,50)
+  self.lineas_fisica.shape_suelo1 = love.physics.newEdgeShape(-27.375/2,0,-27.375/2,50)
+  self.lineas_fisica.shape_suelo2 = love.physics.newEdgeShape(27.375/2,0,27.375/2,50)
   self.lineas_fisica.fixture_suelo1 = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo1)
   self.lineas_fisica.fixture_suelo2 = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo2)
   self.lineas_fisica.fixture_suelo1:setSensor( true )
@@ -98,7 +98,7 @@ function jelly_boy:init(entidad,posicion,img)
         self.acciones.saltando=false
       end
   
-      return 1
+      return -1
   end
 
   self.timer:every(0.1, function()

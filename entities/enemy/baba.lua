@@ -28,7 +28,7 @@ function baba:init(entidad,posicion,img)
   self.acciones = {moviendo = true, atacando = false}
   self.posicion_ataque=false
   
-  self.limite_vision=2
+  self.limite_vision=200
   
   --fisicas
   
@@ -40,8 +40,8 @@ function baba:init(entidad,posicion,img)
   
   self.lineas_fisica = {}
   self.lineas_fisica.shape_suelo = {}
-  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/2)*self.direccion,0,(82.25/2)*self.direccion,80)
-  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/2)*self.direccion,0,-(82.25/2)*self.direccion,80)
+  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,80)
+  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/4)*self.direccion,0,-(82.25/4)*self.direccion,80)
   self.lineas_fisica.shape_pared = {}
   self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,50*self.direccion,0)
   self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,-50*self.direccion,0)
@@ -99,7 +99,7 @@ function baba:init(entidad,posicion,img)
         
         if self.iterador == 5 and self.obj_presa then
           --lanzar saliva
-          Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy,self.direccion)
+          Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy)
         end
         
         if self.iterador>5 then
@@ -198,7 +198,7 @@ function baba:draw()
   --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
   --love.graphics.line(x1,y1,w1,h1)
   
-  --love.graphics.print(self.iterador,self.ox,self.oy-100)
+  --love.graphics.print(self.d,self.ox,self.oy-100)
 end
 
 function baba:update(dt)
