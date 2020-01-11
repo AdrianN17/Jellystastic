@@ -1,6 +1,7 @@
 local Class = require "libs.hump.class"
 local Timer = require "libs.chrono.Timer"
 local Saliva = require "entities.bullet.saliva"
+local LSM = require "libs.statemachine.statemachine"
 
 local baba = Class{
     __includes = {}
@@ -25,7 +26,17 @@ function baba:init(entidad,posicion,img)
   self.cambiar_direccion=false
   self.direccion=-1
   
-  self.acciones = {moviendo = true, atacando = false}
+  --self.acciones = {moviendo = true, atacando = false}
+  self.acciones = LSM.create({
+   initial = 'mover',
+    events ={
+      {name = "a_atacar", from = "mover", to = "atacar"},
+      {name = "a_mover", from = "atacar", to = "mover"}
+    }
+  })
+  
+  
+  
   self.posicion_ataque=false
   
   self.limite_vision=200
@@ -87,25 +98,25 @@ function baba:init(entidad,posicion,img)
   self.timer = Timer()
   
   self.timer:every(0.5,function () 
-    if self.acciones.moviendo and not self.acciones.atacando then
+    if self.acciones.current == "mover" then
       self.iterador = self.iterador +1
       
       if self.iterador>3 then
         self.iterador=1
       end
-    else
-      if self.acciones.atacando then
-        self.iterador = self.iterador +1
-        
-        if self.iterador == 5 and self.obj_presa then
-          --lanzar saliva
-          Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy)
-        end
-        
-        if self.iterador>5 then
-          self.iterador=4
-        end
+    elseif self.acciones.current == "atacar" then
+      
+      self.iterador = self.iterador +1
+      
+      if self.iterador == 5 and self.obj_presa then
+        --lanzar saliva
+        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy)
       end
+      
+      if self.iterador>5 then
+        self.iterador=4
+      end
+
     end
   end)
   
@@ -170,9 +181,8 @@ function baba:init(entidad,posicion,img)
     local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
     self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_atacar)
     
-    if self.posicion_ataque and not self.acciones.atacando then
-      self.acciones.atacando=true
-      self.acciones.moviendo=false
+    if self.posicion_ataque and self.acciones.current == "mover" then
+      self.acciones:a_atacar()
       self.iterador = 4
       self.posicion_ataque=false
     end
@@ -206,7 +216,7 @@ function baba:update(dt)
   self.timer:update(dt)
   
   
-  if self.acciones.atacando and self.obj_presa then
+  if self.acciones.current == "atacar" and self.obj_presa then
     local ox,oy = self.obj_presa.ox,self.obj_presa.oy
     
     local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
@@ -215,16 +225,15 @@ function baba:update(dt)
     --print(direccion)
     
     if distancia > self.limite_vision or direccion>0 and self.direccion == -1 or direccion<0 and self.direccion == 1 then
-      self.acciones.atacando=false
       self.obj_presa=nil
-      self.acciones.moviendo = true
+      self.acciones:a_mover()
     end
     
   end
   
 
   
-  if self.acciones.moviendo then
+  if self.acciones.current == "mover" then
   
     local mx=self.direccion*self.mass*self.vel*dt
     
