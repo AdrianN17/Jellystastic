@@ -198,7 +198,7 @@ function baba:draw()
   --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
   --love.graphics.line(x1,y1,w1,h1)
   
-  --love.graphics.print(self.d,self.ox,self.oy-100)
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function baba:update(dt)

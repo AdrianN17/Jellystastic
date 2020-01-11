@@ -75,9 +75,6 @@ function saliva:remove()
       
       
     self.entidad:remove_obj("bullet",self)
-    
-    
-
 end
 
 

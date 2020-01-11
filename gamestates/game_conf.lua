@@ -19,7 +19,7 @@ function game_conf:init(nombreMapa)
   self.cam:setWindow(0,0,x,y)
   
   love.physics.setMeter(64)
-  self.world = love.physics.newWorld(0,9.81*64, true)
+  self.world = love.physics.newWorld(0,9.81*64, false)
   self.world:setCallbacks(self:callbacks())
   
   
@@ -60,6 +60,8 @@ function game_conf:update_conf(dt)
   self.world:update(dt)
   self.timer:update(dt)
   self.map:update(dt)
+  
+  
   
   
 end
@@ -294,15 +296,14 @@ function game_conf:callbacks()
       elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
         local x,y = coll:getPositions()
         
-        self.timer:after(2.5,function()
-            
+        self.timer:after(2.5,function()    
           obj1.obj:remove()
         end)
         
         --[[self.timer:after(0.01,function()
           --print(obj2.id_poligono)
           obj2.obj:hacer_hueco(obj2.id_poligono,self:poligono_para_destruir(x,y),x,y) 
-          obj1.obj.vida=false
+          obj1.obj:remove()
         end)]]
       --[[elseif obj1.data == "player" and obj2.data == "enemy" then
         local x,y = coll:getNormal()

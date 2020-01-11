@@ -1,9 +1,9 @@
 local Class = require "libs.hump.class"
 local Timer = require "libs.chrono.Timer"
-
+local Bala = require "entities.bullet.bala"
 
 local jelly_boy = Class{
-    __includes = {}
+    __includes = {Bala}
 }
 
 function jelly_boy:init(entidad,posicion,img)
@@ -21,7 +21,6 @@ function jelly_boy:init(entidad,posicion,img)
   self.jump = 30
   
   
-  
   self.iterador=1
   self.iterador2=1
   self.arma_index = 0
@@ -29,7 +28,6 @@ function jelly_boy:init(entidad,posicion,img)
   self.acciones = {moviendo = false, saltando = false}
   
   self.spritesheet = img.personajes[1]
-  
   
   --fisicas
   
@@ -92,7 +90,6 @@ function jelly_boy:init(entidad,posicion,img)
       
       local tipo_obj=fixture:getUserData()
   
-  
       if tipo_obj and tipo_obj.data=="map_object" then
         self.ground = true
         self.acciones.saltando=false
@@ -111,7 +108,7 @@ function jelly_boy:init(entidad,posicion,img)
     self.entidad.world:rayCast(x2,y2,w2,h2, raycast_funcion)
   end)
 
-  
+  Bala.init(self,"enemy")
   
 end
 
@@ -124,14 +121,18 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  --love.graphics.line(self.ox-27.375,self.oy,self.ox-27.375,self.oy+50)
-  --love.graphics.line(self.ox+27.375,self.oy,self.ox+27.375,self.oy+50)
+  love.graphics.line(self.ox-27.375,self.oy,self.ox-27.375,self.oy+50)
+  love.graphics.line(self.ox+27.375,self.oy,self.ox+27.375,self.oy+50)
   
   --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
   --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
+  
+  self:draw_bala()
 end
 
 function jelly_boy:update(dt)
+  
+  self:update_bala()
   
   self.timer:update(dt)
   
@@ -201,13 +202,19 @@ function jelly_boy:keyreleased(key)
   if key == "d" then
     self.movimiento.d = false
   end
-  
-  
 end
 
+function jelly_boy:mousepressed(x,y,button)
+  self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+  
+  self:unico_target()
+  
+  self.bala_objetivos = {}
+end
 
-
-
+function jelly_boy:mousereleased(x,y,button)
+  
+end
 
 return jelly_boy
 

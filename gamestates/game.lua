@@ -31,8 +31,8 @@ function game:keyreleased(key)
 end
 
 function game:mousepressed(x,y,button)
-  
-  local cx,cy = self.cam:toWorld(x,y)
+  self.gameobject.player[1]:mousepressed(x,y,button)
+  --local cx,cy = self.cam:toWorld(x,y)
   
   --Saliva(self,img_index.baba,cx,cy,cx,cy,1)
   
@@ -44,7 +44,7 @@ function game:mousepressed(x,y,button)
 end
 
 function game:mousereleased(x,y,button)
-  
+  self.gameobject.player[1]:mousereleased(x,y,button)
 end
 
 return game
