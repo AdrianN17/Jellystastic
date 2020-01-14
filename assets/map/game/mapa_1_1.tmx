@@ -1,43 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="125" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="34">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="77">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="3" name="Borrador">
-  <object id="7" name="Personaje" x="98" y="997.333">
+  <object id="7" name="Personaje" x="142.667" y="1118.67">
    <point/>
   </object>
-  <object id="22" name="Gelatina" x="2" y="1055.93">
-   <polygon points="-1.5,-21 738.67,-26.4494 1024.16,-26.032 1006.05,15.1682 1034.47,40.5634 1022.6,108.168 1059.83,223.902 -1,224.567"/>
-  </object>
-  <object id="23" name="Gelatina" x="1321.21" y="1278.79">
-   <polygon points="0,0 -18.0513,-16.2262 1.70882,-31.028 303.03,-33.3333 306.061,-269.697 833.333,-266.667 1874.73,-630.242 2676.46,-636.724 2672.12,-5.09515"/>
-  </object>
-  <object id="24" name="Baba" x="672" y="978">
+  <object id="27" name="Baba" x="457.333" y="1126">
    <point/>
   </object>
-  <object id="25" name="Baba" x="856" y="978">
+  <object id="35" name="Gelatina" x="14" y="1192">
+   <polygon points="-11.3333,0.666667 1836,-8 1757,146 1737.93,218 1704.63,402 -12.6093,407.333"/>
+  </object>
+  <object id="36" x="2" y="930" width="228" height="260"/>
+  <object id="40" name="Gelatina" x="1986.67" y="1596">
+   <polygon points="0,0 25.3333,-106.667 75,-200 400.667,-201.333 443,-247.667 508,-266.333 510.667,-477.333 1201.33,-468.138 1329.27,-302.815 1932.86,-302.602 1941.34,-562.474 3562.67,-892 3699.33,-891.987 3767.33,-833.981 3863.19,-887.543 4409.79,-891.92 4408.98,7.52266"/>
+  </object>
+  <object id="44" x="234" y="1014.67" width="322.667" height="173.334"/>
+  <object id="45" x="556.667" y="928.667" width="228" height="260"/>
+  <object id="46" x="786" y="758" width="288" height="429.333"/>
+  <object id="47" x="1076" y="1010.67" width="468" height="173.334"/>
+  <object id="48" x="2152.33" y="1132" width="228" height="260"/>
+  <object id="49" x="2573.33" y="1114.67">
+   <polygon points="0,0 2.66667,-77.3333 40,-41.3333 70.6667,-81.3333 96,-40 168,-86.6667 213.333,-38.6667 236,2.66667"/>
+  </object>
+  <object id="51" x="2976" y="1120">
+   <polygon points="0,0 -552,-224 -488,-368 174,-82 108,-60 136,-24 80,2"/>
+  </object>
+  <object id="52" x="3338" y="1290">
+   <polygon points="0,0 -8,-168 30,-130 70,-166 96,-122 146,-160 150,-6"/>
+  </object>
+  <object id="53" x="3624" y="1028" width="228" height="260"/>
+  <object id="54" x="3946.43" y="762.388" width="228" height="260" rotation="-11.1036"/>
+  <object id="55" x="4126.67" y="474.907" width="228" height="505.137" rotation="-11.1036"/>
+  <object id="56" x="4418.02" y="769.406" width="465.708" height="158.864" rotation="-11.1036"/>
+  <object id="58" x="4823.43" y="415.993" width="228" height="419.242" rotation="-11.1036"/>
+  <object id="59" x="5073.67" y="485.185" width="228" height="300.902" rotation="-11.1036"/>
+  <object id="60" name="Baba" x="1184" y="1138.67">
    <point/>
   </object>
-  <object id="27" name="Baba" x="436" y="978">
+  <object id="61" name="Baba" x="878" y="1139.33">
    <point/>
   </object>
-  <object id="28" name="Baba" x="1559.33" y="1208.67">
+  <object id="62" name="Baba" x="690.667" y="1151.33">
    <point/>
   </object>
-  <object id="29" name="Baba" x="2084" y="982.667">
+  <object id="63" name="Baba" x="1481" y="1140">
    <point/>
   </object>
-  <object id="30" name="Baba" x="3234" y="632">
+  <object id="64" name="Baba" x="1773" y="1127">
    <point/>
   </object>
-  <object id="31" name="Baba" x="2428" y="856">
+  <object id="65" name="Baba" x="2116" y="1363">
    <point/>
   </object>
-  <object id="32" name="Baba" x="1788" y="972">
+  <object id="66" name="Baba" x="2332" y="1359">
    <point/>
   </object>
-  <object id="33" name="Baba" x="2706" y="758">
+  <object id="67" name="Baba" x="3598" y="1265">
+   <point/>
+  </object>
+  <object id="68" name="Baba" x="3531" y="1267">
+   <point/>
+  </object>
+  <object id="69" name="Baba" x="3873" y="1260">
+   <point/>
+  </object>
+  <object id="70" name="Baba" x="5609" y="674">
+   <point/>
+  </object>
+  <object id="71" name="Baba" x="5283" y="735">
+   <point/>
+  </object>
+  <object id="72" name="Baba" x="5031" y="775">
+   <point/>
+  </object>
+  <object id="73" name="Baba" x="4846" y="834">
+   <point/>
+  </object>
+  <object id="74" name="Baba" x="4512" y="876">
+   <point/>
+  </object>
+  <object id="75" name="Baba" x="4250" y="928">
+   <point/>
+  </object>
+  <object id="76" name="Baba" x="6114" y="663">
    <point/>
   </object>
  </objectgroup>
