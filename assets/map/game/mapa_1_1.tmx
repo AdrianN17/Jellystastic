@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="77">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="79">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -86,6 +86,12 @@
    <point/>
   </object>
   <object id="76" name="Baba" x="6114" y="663">
+   <point/>
+  </object>
+  <object id="77" name="Baba" x="2830.67" y="1085.33">
+   <point/>
+  </object>
+  <object id="78" name="Baba" x="3145.33" y="1094.67">
    <point/>
   </object>
  </objectgroup>
