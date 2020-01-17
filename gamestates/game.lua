@@ -33,11 +33,11 @@ end
 
 function game:mousepressed(x,y,button)
   self.gameobject.player[1]:mousepressed(x,y,button)
-  --local cx,cy = self.cam:toWorld(x,y)
+  local cx,cy = self.cam:toWorld(x,y)
   
   --Saliva(self,img_index.baba,cx,cy,cx,cy,1)
   
-  --self.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy),cx,cy) 
+  --dwdwself.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy),cx,cy) 
   
   
   

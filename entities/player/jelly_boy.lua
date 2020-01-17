@@ -28,6 +28,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.acciones = {moviendo = false, saltando = false}
   
   self.spritesheet = img.personajes[1]
+  self.spritesheet_arma = img.armas
   
   --fisicas
   

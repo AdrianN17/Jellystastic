@@ -10,6 +10,14 @@ function bala:init(target)
   self.bala_radio = 0
   self.bala_objetivos = {}
   
+  --armas
+  
+  self.arma_index = 1
+  
+  self.armas_values = {}
+  self.armas_values[1] = {stock = 30, max_stock = 30, municion = 90, max_municion = 90, enable = true}
+  
+  
   self.raycast_bala_disparo = function (fixture, x, y, xn, yn, fraction)
     local tipo_obj=fixture:getUserData()
   
@@ -25,10 +33,22 @@ function bala:update_bala()
   self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
   
   self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
+
 end
 
 function bala:draw_bala()
-  love.graphics.line(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(self.bala_radio)*self.max_distancia_bala)
+  --love.graphics.line(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(self.bala_radio)*self.max_distancia_bala)
+  
+  if self.arma_index > 0 and self.armas_values[self.arma_index].enable then
+
+    local quad = self.spritesheet_arma.quad[self.arma_index]
+    local scale = self.spritesheet.scale
+    local x,y,w,h = quad:getViewport()
+  
+    
+    love.graphics.draw(self.spritesheet_arma["img"],quad,self.ox,self.oy,self.bala_radio,scale.x,scale.y,w/2,h/2)
+  end
+  
 end
 
 function bala:unico_target()

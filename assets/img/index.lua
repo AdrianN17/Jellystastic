@@ -70,6 +70,16 @@ index.texturas = {}
 index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
+index.armas = {}
+
+index.armas.img = love.graphics.newImage("assets/img/armas.png")
+
+index.armas.quad={}
+index.armas.quad[1] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDimensions())
+
+
+index.armas.scale = {x = 0.15,y=0.15}
+
 
 
 return  index
