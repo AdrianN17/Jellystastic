@@ -17,7 +17,7 @@ function bala:init(target)
   self.armas_values = {}
   self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0}--pistola
   self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0}--pistola
-  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 90, max_municion = 90, enable = true, dano = 1, tiempo = 0.15}--ametralladora
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05}--ametralladora
   
   --timer
   
@@ -51,7 +51,7 @@ function bala:draw_bala()
   if self.arma_index > 0 and self.armas_values[self.arma_index].enable then
 
     local quad = self.spritesheet_arma.quad[self.arma_index]
-    local scale = self.spritesheet.scale
+    local scale = self.spritesheet_arma.scale
     local x,y,w,h = quad:getViewport()
     
     

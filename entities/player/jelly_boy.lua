@@ -231,7 +231,7 @@ function jelly_boy:mousepressed(x,y,button)
   
   if button == 1 and self.arma_index > 0 then
     self:disparo()
-  elseif button == 2 then
+  elseif button == 2 and self.arma_index > 0 then
     self:recarga()
   end
   
@@ -274,7 +274,7 @@ function jelly_boy:generar_bala()
 end
 
 function jelly_boy:recarga()
-  local arma = self.armas_values[self.arma_index]
+    local arma = self.armas_values[self.arma_index]
     
     if arma.max_stock>arma.stock and arma.municion>0 then
       if arma.municion + arma.stock < arma.max_stock then
