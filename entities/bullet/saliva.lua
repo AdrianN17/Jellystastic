@@ -12,6 +12,8 @@ function saliva:init(entidad,img,x,y,ex,ey)
   
   self.radio = 0
   
+  self.dano = 2
+  
   --fisicas
   
   self.body = love.physics.newBody(entidad.world,x,y,"dynamic")

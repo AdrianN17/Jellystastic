@@ -12,11 +12,16 @@ function bala:init(target)
   
   --armas
   
-  self.arma_index = 1
+  self.arma_index = 0
   
   self.armas_values = {}
-  self.armas_values[1] = {stock = 30, max_stock = 30, municion = 90, max_municion = 90, enable = true}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0}--pistola
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0}--pistola
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 90, max_municion = 90, enable = true, dano = 1, tiempo = 0.15}--ametralladora
   
+  --timer
+  
+  self.timer_balas = nil
   
   self.raycast_bala_disparo = function (fixture, x, y, xn, yn, fraction)
     local tipo_obj=fixture:getUserData()
@@ -37,16 +42,29 @@ function bala:update_bala()
 end
 
 function bala:draw_bala()
-  --love.graphics.line(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(self.bala_radio)*self.max_distancia_bala)
+  
+  local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+  
+  
+  love.graphics.line(cx, cy,cx + math.cos(self.bala_radio)*self.max_distancia_bala,cy + math.sin(self.bala_radio)*self.max_distancia_bala)
   
   if self.arma_index > 0 and self.armas_values[self.arma_index].enable then
 
     local quad = self.spritesheet_arma.quad[self.arma_index]
     local scale = self.spritesheet.scale
     local x,y,w,h = quad:getViewport()
+    
+    
+    love.graphics.print(math.deg(self.bala_radio),self.ox,self.oy-200)
+    
+    local rf = 1
+    local rad = math.deg(self.bala_radio)
+    if rad<270 and rad>90 then
+      rf = -1
+    end
   
     
-    love.graphics.draw(self.spritesheet_arma["img"],quad,self.ox,self.oy,self.bala_radio,scale.x,scale.y,w/2,h/2)
+    love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*rf,w/2,h/2)
   end
   
 end
@@ -68,8 +86,8 @@ function bala:unico_target()
       obj_target = obj
     end
   end
-  
-  obj_target.hp = obj_target.hp -1
+  local arma = self.armas_values[self.arma_index]
+  obj_target.hp = obj_target.hp -arma.dano
   
 end
   

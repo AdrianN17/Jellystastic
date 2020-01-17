@@ -16,7 +16,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.movimiento = {a=false,d=false}
   self.ground = true
   
-  self.hp = 10
+  self.hp = 100
   self.vel = 175
   self.jump = 30
   
@@ -25,7 +25,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.iterador2=1
   self.arma_index = 0
   
-  self.acciones = {moviendo = false, saltando = false}
+  self.acciones = {moviendo = false, saltando = false, invulnerable = false}
   
   self.spritesheet = img.personajes[1]
   self.spritesheet_arma = img.armas
@@ -47,6 +47,11 @@ function jelly_boy:init(entidad,posicion,img)
   self.lineas_fisica.fixture_suelo2 = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo2)
   self.lineas_fisica.fixture_suelo1:setSensor( true )
   self.lineas_fisica.fixture_suelo2:setSensor( true )
+  
+  self.mano_fisica = {}
+  self.mano_fisica.shape_mano = love.physics.newCircleShape(20,0,1)
+  self.mano_fisica.fixture_mano = love.physics.newFixture(self.body,self.mano_fisica.shape_mano)
+  self.mano_fisica.fixture_mano:setSensor( true )
   
   self.fixture:setFriction(0.1)
   self.fixture:setDensity(1)
@@ -122,11 +127,12 @@ function jelly_boy:draw()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox-27.375,self.oy,self.ox-27.375,self.oy+50)
-  love.graphics.line(self.ox+27.375,self.oy,self.ox+27.375,self.oy+50)
   
-  --love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
-  --love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-200)
+  love.graphics.print(self.hp,self.ox,self.oy-100)
+  
+  local arma = self.armas_values[self.arma_index]
+  
+  love.graphics.print(Inspect(arma),self.ox,self.oy-200)
   
   self:draw_bala()
 end
@@ -166,6 +172,11 @@ function jelly_boy:update(dt)
   self.radio = self.body:getAngle()
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  if self.hp < 1 then
+    self.body:destroy()
+    self.entidad:remove_obj("player",self)
+  end
 end
 
 function jelly_boy:keypressed(key)
@@ -190,8 +201,19 @@ function jelly_boy:keypressed(key)
     end)
   end
   
-  if key == "1" then
-    self.body:setY(0)
+  if key == "1" or key == "2" or key == "3" then
+    
+    local index = tonumber(key)
+    
+    if self.armas_values[index].enable then
+      if self.timer_balas then
+        self.timer_balas=nil
+      end
+      
+      
+      
+      self.arma_index = index
+    end
   end
 end
 
@@ -206,17 +228,80 @@ function jelly_boy:keyreleased(key)
 end
 
 function jelly_boy:mousepressed(x,y,button)
-  self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
   
-  self:unico_target()
+  if button == 1 and self.arma_index > 0 then
+    self:disparo()
+  elseif button == 2 then
+    self:recarga()
+  end
   
-  self.bala_objetivos = {}
 end
 
 function jelly_boy:mousereleased(x,y,button)
-  
+
+  if button == 1 and self.arma_index > 0 and self.timer_balas then
+    self.timer:cancel(self.timer_balas)
+    self.timer_balas = nil
+  end
+end
+
+function jelly_boy:disparo()
+  local arma = self.armas_values[self.arma_index]
+    
+    if arma.stock>=1 then
+      self:generar_bala()
+      arma.stock = arma.stock-1
+    end
+    
+    if arma.tiempo ~= 0 then
+      self.timer_balas = nil
+      self.timer_balas = self.timer:every(arma.tiempo,
+        function()
+          if arma.stock>=1 then
+            self:generar_bala()
+            arma.stock = arma.stock-1
+          end
+        end)
+    end
+end
+
+function jelly_boy:generar_bala()
+    self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+    
+    self:unico_target()
+    
+    self.bala_objetivos = {}
+end
+
+function jelly_boy:recarga()
+  local arma = self.armas_values[self.arma_index]
+    
+    if arma.max_stock>arma.stock and arma.municion>0 then
+      if arma.municion + arma.stock < arma.max_stock then
+        arma.stock=arma.municion+arma.stock
+        arma.municion=0
+      else
+        local carga=arma.max_stock-arma.stock
+        arma.stock=arma.stock+carga
+        arma.municion=arma.municion-carga
+      end
+    end
 end
 
 return jelly_boy
+
+
+--[[
+
+if tabla.municion[self.tipo]+self.cantidad< tabla.max_municion[self.tipo] then
+		tabla.municion[self.tipo]=tabla.municion[self.tipo]+self.cantidad
+		self.cantidad=0
+		be:remove(self,"objetos")
+	else
+		local muni=tabla.max_municion[self.tipo]-tabla.municion[self.tipo]
+		tabla.municion[self.tipo]=tabla.municion[self.tipo]+muni
+		self.cantidad=self.cantidad-muni
+	end
+]]
 
 

@@ -24,16 +24,24 @@ function game:draw()
 end
 
 function game:keypressed(key)
-  self.gameobject.player[1]:keypressed(key)
+  if self.gameobject.player[1] then
+    self.gameobject.player[1]:keypressed(key)
+  end
 end
 
 function game:keyreleased(key)
-  self.gameobject.player[1]:keyreleased(key)
+  if self.gameobject.player[1] then
+    self.gameobject.player[1]:keyreleased(key)
+  end
 end
 
 function game:mousepressed(x,y,button)
-  self.gameobject.player[1]:mousepressed(x,y,button)
   local cx,cy = self.cam:toWorld(x,y)
+  if self.gameobject.player[1] then
+    
+    self.gameobject.player[1]:mousepressed(cx,cy,button)
+  end
+  
   
   --Saliva(self,img_index.baba,cx,cy,cx,cy,1)
   
@@ -45,7 +53,9 @@ function game:mousepressed(x,y,button)
 end
 
 function game:mousereleased(x,y,button)
-  self.gameobject.player[1]:mousereleased(x,y,button)
+  if self.gameobject.player[1] then
+    self.gameobject.player[1]:mousereleased(x,y,button)
+  end
 end
 
 return game

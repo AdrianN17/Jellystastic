@@ -246,6 +246,13 @@ function baba:update(dt)
 
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  if self.hp < 1 then
+    self.body:destroy()
+    self.entidad:remove_obj("enemy",self)
+  end
+  
+  
 end
 
 
