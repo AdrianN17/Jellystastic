@@ -201,7 +201,7 @@ function jelly_boy:keypressed(key)
     end)
   end
   
-  if key == "1" or key == "2" or key == "3" then
+  if key == "1" or key == "2" or key == "3" or key == "6" then
     
     local index = tonumber(key)
     
@@ -250,7 +250,13 @@ function jelly_boy:disparo()
   local arma = self.armas_values[self.arma_index]
     
     if arma.stock>=1 then
-      self:generar_bala()
+      
+      if arma.raycast then
+        self:generar_bala_raycast()
+      else
+        
+      end
+      
       arma.stock = arma.stock-1
     end
     
@@ -259,14 +265,20 @@ function jelly_boy:disparo()
       self.timer_balas = self.timer:every(arma.tiempo,
         function()
           if arma.stock>=1 then
-            self:generar_bala()
+            
+            if arma.raycast then
+              self:generar_bala_raycast()
+            else
+              
+            end
+            
             arma.stock = arma.stock-1
           end
         end)
     end
 end
 
-function jelly_boy:generar_bala()
+function jelly_boy:generar_bala_raycast()
     self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
     
     self:unico_target()
