@@ -75,7 +75,9 @@ index.armas = {}
 index.armas.img = love.graphics.newImage("assets/img/armas.png")
 
 index.armas.quad={}
+index.armas.quad[1] = love.graphics.newQuad(402,43,157,111,index.armas.img:getDimensions())
 index.armas.quad[3] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDimensions())
+index.armas.quad[6] = love.graphics.newQuad(598,23,503,156,index.armas.img:getDimensions())
 
 
 index.armas.scale = {x = 0.20,y=0.20}

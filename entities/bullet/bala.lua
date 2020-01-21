@@ -9,6 +9,7 @@ function bala:init(target)
   self.max_distancia_bala = 1000
   self.bala_radio = 0
   self.bala_objetivos = {}
+  self.target = target
   
   --armas
   
@@ -16,7 +17,7 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0}
   --desert eagle
   self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0}
   --uzi
@@ -30,14 +31,7 @@ function bala:init(target)
     local tipo_obj=fixture:getUserData()
     
     if tipo_obj then
-      if tipo_obj.data==target then
-        table.insert(self.bala_objetivos,tipo_obj.obj)
-        
-      else
-        return 0
-      end
-    else
-      
+        table.insert(self.bala_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
     end
     
     return 1
@@ -88,17 +82,24 @@ function bala:unico_target()
   
   local distance = 9999
   local obj_target = nil
+  local obj_name = ""
   
   for _,obj in ipairs(self.bala_objetivos) do
-    local d = self.entidad:distance(self.ox,self.oy,obj.ox,obj.oy) 
+    local d = self.entidad:distance(self.ox,self.oy,obj.x,obj.y) 
     
     if distance>d then
       distance = d 
-      obj_target = obj
+      obj_target = obj.obj
+      obj_name = obj.name
     end
   end
-  local arma = self.armas_values[self.arma_index]
-  obj_target.hp = obj_target.hp -arma.dano
+  
+  print(self.target,obj_name)
+  
+  if obj_target and obj_name == self.target then
+    local arma = self.armas_values[self.arma_index]
+    obj_target.hp = obj_target.hp -arma.dano
+  end
   
 end
   
