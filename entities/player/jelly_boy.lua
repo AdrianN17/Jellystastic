@@ -157,7 +157,7 @@ function jelly_boy:update(dt)
     self.acciones.moviendo = true
   end
   
-  if x~=0 then
+  --if x~=0 then
 
 		local mx=x*self.mass*self.vel*dt
     
@@ -167,7 +167,7 @@ function jelly_boy:update(dt)
 		if math.abs(vx)<self.vel then
 			self.body:applyLinearImpulse(mx,0)
 		end
-	end
+	--end
   
   self.radio = self.body:getAngle()
   
@@ -215,6 +215,7 @@ function jelly_boy:keypressed(key)
       self.arma_index = index
     end
   end
+  
 end
 
 function jelly_boy:keyreleased(key)

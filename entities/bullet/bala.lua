@@ -15,9 +15,12 @@ function bala:init(target)
   self.arma_index = 0
   
   self.armas_values = {}
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0}--pistola
-  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0}--pistola
-  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05}--ametralladora
+  --pistola
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0}
+  --desert eagle
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0}
+  --uzi
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05}
   
   --timer
   
@@ -25,12 +28,20 @@ function bala:init(target)
   
   self.raycast_bala_disparo = function (fixture, x, y, xn, yn, fraction)
     local tipo_obj=fixture:getUserData()
-  
-    if tipo_obj and tipo_obj.data==target then
-      table.insert(self.bala_objetivos,tipo_obj.obj)
+    
+    if tipo_obj then
+      if tipo_obj.data==target then
+        table.insert(self.bala_objetivos,tipo_obj.obj)
+        
+      else
+        return 0
+      end
+    else
+      
     end
-
-    return -1
+    
+    return 1
+    
   end
 end
 
