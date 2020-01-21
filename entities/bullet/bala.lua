@@ -59,7 +59,7 @@ function bala:draw_bala()
   if self.arma_index > 0 and self.armas_values[self.arma_index].enable then
 
     local quad = self.spritesheet_arma.quad[self.arma_index]
-    local scale = self.spritesheet_arma.scale
+    local scale = self.spritesheet_arma.scale[self.arma_index]
     local x,y,w,h = quad:getViewport()
     
     
@@ -96,8 +96,6 @@ function bala:unico_target()
       obj_name = obj.name
     end
   end
-  
-  print(self.target,obj_name)
   
   if obj_target and obj_name == self.target then
     local arma = self.armas_values[self.arma_index]

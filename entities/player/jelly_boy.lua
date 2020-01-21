@@ -49,7 +49,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.lineas_fisica.fixture_suelo2:setSensor( true )
   
   self.mano_fisica = {}
-  self.mano_fisica.shape_mano = love.physics.newCircleShape(20,0,1)
+  self.mano_fisica.shape_mano = love.physics.newCircleShape(20,5,1)
   self.mano_fisica.fixture_mano = love.physics.newFixture(self.body,self.mano_fisica.shape_mano)
   self.mano_fisica.fixture_mano:setSensor( true )
   

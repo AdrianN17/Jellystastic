@@ -80,7 +80,10 @@ index.armas.quad[3] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDim
 index.armas.quad[6] = love.graphics.newQuad(598,23,503,156,index.armas.img:getDimensions())
 
 
-index.armas.scale = {x = 0.20,y=0.20}
+index.armas.scale ={}
+index.armas.scale[1] = {x = 0.25,y=0.25}
+index.armas.scale[3] = {x = 0.20,y=0.20}
+index.armas.scale[6] = {x = 0.25,y=0.25}
 
 
 
