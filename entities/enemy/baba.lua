@@ -235,12 +235,13 @@ function baba:update(dt)
   
   if self.acciones.current == "mover" then
   
-    local mx=self.direccion*self.mass*self.vel*dt
+    local mx=self.direccion*self.mass*self.vel
     
     local vx,vy=self.body:getLinearVelocity()
     
     if math.abs(vx)<self.vel then
-      self.body:applyLinearImpulse(mx,0)
+      --self.body:applyLinearImpulse(mx,0)
+      self.body:applyForce(mx,0)
     end
   end
 

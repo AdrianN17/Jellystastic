@@ -159,13 +159,14 @@ function jelly_boy:update(dt)
   
   --if x~=0 then
 
-		local mx=x*self.mass*self.vel*dt
+		local mx=x*self.mass*self.vel
     
 		local vx,vy=self.body:getLinearVelocity()
     
 
 		if math.abs(vx)<self.vel then
-			self.body:applyLinearImpulse(mx,0)
+			--self.body:applyLinearImpulse(mx,0)
+      self.body:applyForce(mx,0)
 		end
 	--end
   
