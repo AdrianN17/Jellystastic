@@ -17,18 +17,19 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0, raycast = true}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0, tiempo_recarga = 0.7, raycast = true}
   --desert eagle
-  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0, raycast = true}
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0, tiempo_recarga = 0.9, raycast = true}
   --uzi
-  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05, raycast = true}
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 0.5, tiempo = 0, raycast = false}
+  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 0.5, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false}
   
   --timer
   
   self.timer_balas = nil
+  self.timer_recarga = nil
   
   self.raycast_bala_disparo = function (fixture, x, y, xn, yn, fraction)
     local tipo_obj=fixture:getUserData()
@@ -102,6 +103,62 @@ function bala:unico_target()
     obj_target.hp = obj_target.hp -arma.dano
   end
   
+end
+
+function bala:generar_bala_raycast()
+    self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+    
+    self:unico_target()
+    
+    self.bala_objetivos = {}
+end
+
+
+function bala:recarga(arma_index)
+  local arma = self.armas_values[arma_index]
+    
+    if arma.max_stock>arma.stock and arma.municion>0 then
+      if arma.municion + arma.stock < arma.max_stock then
+        arma.stock=arma.municion+arma.stock
+        arma.municion=0
+      else
+        local carga=arma.max_stock-arma.stock
+        arma.stock=arma.stock+carga
+        arma.municion=arma.municion-carga
+      end
+    end
+end
+
+function bala:disparo(arma_index)
+  local arma = self.armas_values[arma_index]
+    
+    if arma.stock>=1 then
+      
+      if arma.raycast then
+        self:generar_bala_raycast()
+      else
+        
+      end
+      
+      arma.stock = arma.stock-1
+    end
+    
+    if arma.tiempo ~= 0 then
+      self.timer_balas = nil
+      self.timer_balas = self.timer:every(arma.tiempo,
+        function()
+          if arma.stock>=1 then
+            
+            if arma.raycast then
+              self:generar_bala_raycast()
+            else
+              
+            end
+            
+            arma.stock = arma.stock-1
+          end
+        end)
+    end
 end
   
 return bala

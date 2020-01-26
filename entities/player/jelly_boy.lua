@@ -208,7 +208,13 @@ function jelly_boy:keypressed(key)
     
     if self.armas_values[index].enable then
       if self.timer_balas then
+        self.timer:cancel(self.timer_balas)
         self.timer_balas=nil
+      end
+      
+      if self.timer_recarga then
+        self.timer:cancel(self.timer_recarga)
+        self.timer_recarga=nil
       end
       
       
@@ -231,10 +237,15 @@ end
 
 function jelly_boy:mousepressed(x,y,button)
   
-  if button == 1 and self.arma_index > 0 then
-    self:disparo()
-  elseif button == 2 and self.arma_index > 0 then
-    self:recarga()
+  if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self:disparo(self.arma_index)
+  elseif button == 2 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self.timer_recarga = nil
+    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+      self:recarga(self.arma_index)
+      self.timer:cancel(self.timer_recarga)
+      self.timer_recarga = nil
+    end)
   end
   
 end
@@ -247,75 +258,11 @@ function jelly_boy:mousereleased(x,y,button)
   end
 end
 
-function jelly_boy:disparo()
-  local arma = self.armas_values[self.arma_index]
-    
-    if arma.stock>=1 then
-      
-      if arma.raycast then
-        self:generar_bala_raycast()
-      else
-        
-      end
-      
-      arma.stock = arma.stock-1
-    end
-    
-    if arma.tiempo ~= 0 then
-      self.timer_balas = nil
-      self.timer_balas = self.timer:every(arma.tiempo,
-        function()
-          if arma.stock>=1 then
-            
-            if arma.raycast then
-              self:generar_bala_raycast()
-            else
-              
-            end
-            
-            arma.stock = arma.stock-1
-          end
-        end)
-    end
-end
 
-function jelly_boy:generar_bala_raycast()
-    self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
-    
-    self:unico_target()
-    
-    self.bala_objetivos = {}
-end
 
-function jelly_boy:recarga()
-    local arma = self.armas_values[self.arma_index]
-    
-    if arma.max_stock>arma.stock and arma.municion>0 then
-      if arma.municion + arma.stock < arma.max_stock then
-        arma.stock=arma.municion+arma.stock
-        arma.municion=0
-      else
-        local carga=arma.max_stock-arma.stock
-        arma.stock=arma.stock+carga
-        arma.municion=arma.municion-carga
-      end
-    end
-end
+
 
 return jelly_boy
 
-
---[[
-
-if tabla.municion[self.tipo]+self.cantidad< tabla.max_municion[self.tipo] then
-		tabla.municion[self.tipo]=tabla.municion[self.tipo]+self.cantidad
-		self.cantidad=0
-		be:remove(self,"objetos")
-	else
-		local muni=tabla.max_municion[self.tipo]-tabla.municion[self.tipo]
-		tabla.municion[self.tipo]=tabla.municion[self.tipo]+muni
-		self.cantidad=self.cantidad-muni
-	end
-]]
 
 
