@@ -118,6 +118,8 @@ function jelly_boy:init(entidad,posicion,img)
   
   
   self.touch_inicial={x=0,y=0}
+  self.touch_inicial2={x=0,y=0}
+  self.touch_list={nil,nil}
   
 end
 
@@ -266,41 +268,50 @@ function jelly_boy:mousereleased(x,y,button)
 end
 
 function jelly_boy:touchpressed( id, x, y, dx, dy, pressure )
-  --print("touchpressed , " .. id  .. " , " .. dx .. " , " .. dy)
   
-  if id == love.touch.getTouches()[1] then
+  self:add_touch(id)
+  
+  if id == self.touch_list[1] then
+    
     self.touch_inicial.x = x
     self.touch_inicial.y = y
-  elseif id==love.touch.getTouches( )[2] and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self:disparo(self.arma_index)
+    
+  elseif id==self.touch_list[2] then
+    
+    self.touch_inicial2.x = x
+    self.touch_inicial2.y = y
+    
+    if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+      self:disparo(self.arma_index)
+    end
   end
 end
 
 function jelly_boy:touchreleased( id, x, y, dx, dy, pressure )
-  --print("touchreleased , " .. id  .. " , " .. dx .. " , " .. dy)
+
   
-  print(#love.touch.getTouches( ))
   
-  if #love.touch.getTouches( ) == 0 then --id==love.touch.getTouches( )[1] then
+  if id==self.touch_list[1] then
     self.movimiento.a = false
     self.movimiento.d = false
-  elseif #love.touch.getTouches( ) == 1 then --id==love.touch.getTouches( )[2]  then
+  elseif id==self.touch_list[2]  then
     if self.arma_index > 0 and self.timer_balas then
       self.timer:cancel(self.timer_balas)
       self.timer_balas = nil
     end
   end
+  
+  self:remove_touch(id)
+  
 end
 
 function jelly_boy:touchmoved( id, x, y, dx, dy, pressure )
-  print("touchmoved , " .. 1  .. " , " .. dx .. " , " .. dy)
+ 
   
-  if id==love.touch.getTouches( )[1] then
+  if id==self.touch_list[1] then
     
     local x_c = self.touch_inicial.x-x
     local y_c = self.touch_inicial.y-y
-    
-    
     
     if  x_c <= 50 then
       
@@ -315,10 +326,46 @@ function jelly_boy:touchmoved( id, x, y, dx, dy, pressure )
       self:saltar()
     end
     
-  elseif id==love.touch.getTouches( )[2] then
-    self:update_bala_android(x,y)
+  elseif id==self.touch_list[2] then
+    self:update_bala_android(self.touch_inicial2.x,self.touch_inicial2.y,x,y)
   end
   
+end
+
+function jelly_boy:add_touch(id)
+  
+  local validar=true
+  
+  for i=1,2,1 do
+    local k = self.touch_list[i]
+    
+    if k == id then
+      validar=false
+      break
+    end
+  end
+  
+
+  if validar then
+    for i=1,2,1 do
+      local k = self.touch_list[i]
+      
+      if k == nil then
+        self.touch_list[i] = id
+        break
+      end
+    end
+  end
+end
+
+function jelly_boy:remove_touch(id)
+  for i=1,2,1 do
+    local k = self.touch_list[i]
+    if k == id then
+      self.touch_list[i] = nil
+      break
+    end
+  end
 end
 
 return jelly_boy

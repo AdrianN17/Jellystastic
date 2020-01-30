@@ -52,10 +52,9 @@ function bala:update_bala()
 
 end
 
-function bala:update_bala_android(x,y)
-  self.bx,self.by = self.entidad.cam:toWorld(x,y)
-    
-    self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
+function bala:update_bala_android(ox,oy,x,y)
+
+    self.bala_radio = math.atan2(oy-y,ox-x)+math.pi
 end
 
 function bala:draw_bala()
