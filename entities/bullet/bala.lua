@@ -41,6 +41,7 @@ function bala:init(target)
     return 1
     
   end
+  
 end
 
 function bala:update_bala()
@@ -55,8 +56,8 @@ function bala:update_bala()
 end
 
 function bala:update_bala_android(ox,oy,x,y)
-
-    self.bala_radio = math.atan2(oy-y,ox-x)+math.pi
+    self.bx,self.by = self.entidad.cam:toWorld(x,y)
+    self.bala_radio = math.atan2(oy-self.by,ox-self.bx)+math.pi
 end
 
 function bala:draw_bala()
@@ -121,6 +122,8 @@ function bala:generar_bala_raycast()
     
     self.bala_objetivos = {}
 end
+
+
 
 
 function bala:recarga(arma_index)

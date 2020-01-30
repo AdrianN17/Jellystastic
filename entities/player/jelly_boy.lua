@@ -118,7 +118,7 @@ function jelly_boy:init(entidad,posicion,img)
   
   
   self.touch_inicial={x=0,y=0}
-  self.touch_inicial2={x=0,y=0}
+  --self.touch_inicial2={x=0,y=0}
   self.touch_list={nil,nil}
   
 end
@@ -278,12 +278,15 @@ function jelly_boy:touchpressed( id, x, y, dx, dy, pressure )
     
   elseif id==self.touch_list[2] then
     
-    self.touch_inicial2.x = x
-    self.touch_inicial2.y = y
+    --self.touch_inicial2.x = x
+    --self.touch_inicial2.y = y
+    
+    self:update_bala_android(self.ox,self.oy,x,y)
     
     if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
       self:disparo(self.arma_index)
     end
+    
   end
 end
 
@@ -327,7 +330,9 @@ function jelly_boy:touchmoved( id, x, y, dx, dy, pressure )
     end
     
   elseif id==self.touch_list[2] then
-    self:update_bala_android(self.touch_inicial2.x,self.touch_inicial2.y,x,y)
+    --self:update_bala_android(self.touch_inicial2.x,self.touch_inicial2.y,x,y)
+    self:update_bala_android(self.ox,self.oy,x,y)
+    
   end
   
 end
@@ -370,5 +375,5 @@ end
 
 return jelly_boy
 
-
+--disparo por presion
 
