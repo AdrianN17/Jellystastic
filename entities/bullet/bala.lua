@@ -44,10 +44,18 @@ function bala:init(target)
 end
 
 function bala:update_bala()
-  self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
-  
-  self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
+    
+    self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
+  end
 
+end
+
+function bala:update_bala_android(x,y)
+  self.bx,self.by = self.entidad.cam:toWorld(x,y)
+    
+    self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
 end
 
 function bala:draw_bala()

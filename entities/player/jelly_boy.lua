@@ -116,6 +116,9 @@ function jelly_boy:init(entidad,posicion,img)
 
   Bala.init(self,"enemy")
   
+  
+  self.touch_inicial={x=0,y=0}
+  
 end
 
 function jelly_boy:draw()
@@ -145,9 +148,9 @@ function jelly_boy:update(dt)
   
   self.entidad.cam:setPosition(self.ox, self.oy)
   
-  local x=0
-  
   self.acciones.moviendo = false
+  
+  local x=0
   
   if self.movimiento.a then
     x=-1
@@ -180,6 +183,19 @@ function jelly_boy:update(dt)
   end
 end
 
+function jelly_boy:saltar()
+  self.body:applyLinearImpulse( 0, -self.jump*self.mass )
+    
+    self.acciones.saltando=true
+    self.raycast_ground=false
+    
+    self.timer:after(0.2,function()
+      self.ground = false
+      self.raycast_ground=true
+
+  end)
+end
+
 function jelly_boy:keypressed(key)
   if key == "a" then
     self.movimiento.a = true
@@ -190,16 +206,7 @@ function jelly_boy:keypressed(key)
   end
   
   if key == "w" and self.ground and not self.acciones.saltando then
-    self.body:applyLinearImpulse( 0, -self.jump*self.mass )
-    
-    self.acciones.saltando=true
-    self.raycast_ground=false
-    
-    self.timer:after(0.2,function()
-      self.ground = false
-      self.raycast_ground=true
-
-    end)
+    self:saltar()
   end
   
   if key == "1" or key == "2" or key == "3" or key == "6" then
@@ -258,9 +265,61 @@ function jelly_boy:mousereleased(x,y,button)
   end
 end
 
+function jelly_boy:touchpressed( id, x, y, dx, dy, pressure )
+  --print("touchpressed , " .. id  .. " , " .. dx .. " , " .. dy)
+  
+  if id == love.touch.getTouches()[1] then
+    self.touch_inicial.x = x
+    self.touch_inicial.y = y
+  elseif id==love.touch.getTouches( )[2] and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self:disparo(self.arma_index)
+  end
+end
 
+function jelly_boy:touchreleased( id, x, y, dx, dy, pressure )
+  --print("touchreleased , " .. id  .. " , " .. dx .. " , " .. dy)
+  
+  print(#love.touch.getTouches( ))
+  
+  if #love.touch.getTouches( ) == 0 then --id==love.touch.getTouches( )[1] then
+    self.movimiento.a = false
+    self.movimiento.d = false
+  elseif #love.touch.getTouches( ) == 1 then --id==love.touch.getTouches( )[2]  then
+    if self.arma_index > 0 and self.timer_balas then
+      self.timer:cancel(self.timer_balas)
+      self.timer_balas = nil
+    end
+  end
+end
 
-
+function jelly_boy:touchmoved( id, x, y, dx, dy, pressure )
+  print("touchmoved , " .. 1  .. " , " .. dx .. " , " .. dy)
+  
+  if id==love.touch.getTouches( )[1] then
+    
+    local x_c = self.touch_inicial.x-x
+    local y_c = self.touch_inicial.y-y
+    
+    
+    
+    if  x_c <= 50 then
+      
+      self.movimiento.a = false
+      self.movimiento.d = true
+    elseif x_c >= -50 then
+      self.movimiento.a = true
+      self.movimiento.d = false
+    end
+    
+    if y_c >= 80 and self.ground and not self.acciones.saltando then
+      self:saltar()
+    end
+    
+  elseif id==love.touch.getTouches( )[2] then
+    self:update_bala_android(x,y)
+  end
+  
+end
 
 return jelly_boy
 

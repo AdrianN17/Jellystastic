@@ -11,7 +11,7 @@
    <point/>
   </object>
   <object id="35" name="Gelatina" x="14" y="1192">
-   <polygon points="-11.3333,0.666667 1836,-8 1757,146 1737.93,218 1704.63,402 -12.6093,407.333"/>
+   <polygon points="-11.3333,0.666667 -7.98816,-261.476 49.9971,0.378939 1836,-8 1757,146 1737.93,218 1704.63,402 -12.6093,407.333"/>
   </object>
   <object id="36" x="2" y="930" width="228" height="260"/>
   <object id="40" name="Gelatina" x="1986.67" y="1596">
@@ -40,25 +40,10 @@
   <object id="60" name="Baba" x="1184" y="1138.67">
    <point/>
   </object>
-  <object id="61" name="Baba" x="878" y="1139.33">
-   <point/>
-  </object>
-  <object id="62" name="Baba" x="690.667" y="1151.33">
-   <point/>
-  </object>
-  <object id="63" name="Baba" x="1481" y="1140">
-   <point/>
-  </object>
   <object id="64" name="Baba" x="1773" y="1127">
    <point/>
   </object>
-  <object id="65" name="Baba" x="2116" y="1363">
-   <point/>
-  </object>
   <object id="66" name="Baba" x="2332" y="1359">
-   <point/>
-  </object>
-  <object id="67" name="Baba" x="3598" y="1265">
    <point/>
   </object>
   <object id="68" name="Baba" x="3531" y="1267">
@@ -70,16 +55,7 @@
   <object id="70" name="Baba" x="5609" y="674">
    <point/>
   </object>
-  <object id="71" name="Baba" x="5283" y="735">
-   <point/>
-  </object>
-  <object id="72" name="Baba" x="5031" y="775">
-   <point/>
-  </object>
   <object id="73" name="Baba" x="4846" y="834">
-   <point/>
-  </object>
-  <object id="74" name="Baba" x="4512" y="876">
    <point/>
   </object>
   <object id="75" name="Baba" x="4250" y="928">
@@ -89,9 +65,6 @@
    <point/>
   </object>
   <object id="77" name="Baba" x="2830.67" y="1085.33">
-   <point/>
-  </object>
-  <object id="78" name="Baba" x="3145.33" y="1094.67">
    <point/>
   </object>
  </objectgroup>

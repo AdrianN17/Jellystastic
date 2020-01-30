@@ -24,38 +24,68 @@ function game:draw()
 end
 
 function game:keypressed(key)
-  if self.gameobject.player[1] then
-    self.gameobject.player[1]:keypressed(key)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:keypressed(key)
+    end
   end
 end
 
 function game:keyreleased(key)
-  if self.gameobject.player[1] then
-    self.gameobject.player[1]:keyreleased(key)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:keyreleased(key)
+    end
   end
 end
 
 function game:mousepressed(x,y,button)
-  local cx,cy = self.cam:toWorld(x,y)
-  if self.gameobject.player[1] then
-    
-    self.gameobject.player[1]:mousepressed(cx,cy,button)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    local cx,cy = self.cam:toWorld(x,y)
+    if self.gameobject.player[1] then
+      
+      self.gameobject.player[1]:mousepressed(cx,cy,button)
+    end
   end
-  
-  
-  --Saliva(self,img_index.baba,cx,cy,cx,cy,1)
-  
-  --dwdwself.gameobject.map_object[1]:hacer_hueco(1,self:poligono_para_destruir(cx,cy),cx,cy) 
-  
-  
-  
-  --self.cam:setPosition(cx, cy)
 end
 
+
+
 function game:mousereleased(x,y,button)
-  if self.gameobject.player[1] then
-    self.gameobject.player[1]:mousereleased(x,y,button)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:mousereleased(x,y,button)
+    end
   end
 end
+
+function game:touchpressed( id, x, y, dx, dy, pressure )
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+    
+    
+    
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:touchpressed( id, x, y, dx, dy, pressure )
+    end
+  end
+end
+
+function game:touchreleased( id, x, y, dx, dy, pressure )
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:touchreleased( id, x, y, dx, dy, pressure )
+    end
+  end
+end
+
+function game:touchmoved( id, x, y, dx, dy, pressure )
+  
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    if self.gameobject.player[1] then
+      self.gameobject.player[1]:touchmoved( id, x, y, dx, dy, pressure )
+    end
+  end
+end
+
 
 return game
