@@ -16,11 +16,13 @@ local game_conf = Class{
 function game_conf:init(nombreMapa)
   
   local x,y=love.graphics.getDimensions( )
+  self.scale = 0.6
   
   self.map = sti(nombreMapa)
-  self.map:resize(x,y)
+  self.map:resize(x/self.scale,y/self.scale)
   self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
-  self.cam:setWindow(0,0,x,y)
+  --self.cam:setWindow(0,0,x,y)
+  self.cam:setScale(self.scale)
   
   love.physics.setMeter(64)
   self.world = love.physics.newWorld(0,9.81*64, false)
@@ -64,24 +66,26 @@ function game_conf:update_conf(dt)
   self.world:update(dt)
   self.timer:update(dt)
   self.map:update(dt)
-  
-  
-  
-  
 end
 
 function game_conf:draw_conf()
-  local cx,cy,cw,ch=self.cam:getVisible()
-
-  self.map:draw(-cx,-cy,1,1)
   
+  
+ 
+  
+  local cx,cy,cw,ch=self.cam:getVisible()
+  self.map:draw(-cx,-cy,self.scale,self.scale)
+  --love.graphics.print("Scaled text", 100,100)
+  
+
+  --[[
   self.cam:draw(function(l,t,w,h)
-    --[[  red = 115/255
+      red = 115/255
     green = 27/255
     blue = 135/255
     alpha = 50/100
     
-    love.graphics.setBackgroundColor( red, green, blue, alpha)]]
+    love.graphics.setBackgroundColor( red, green, blue, alpha)¿
     
       
     for _, body in pairs(self.world:getBodies()) do
@@ -99,7 +103,7 @@ function game_conf:draw_conf()
       end
     end
 
-  end)
+  end)]]
   
 end
 

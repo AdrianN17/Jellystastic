@@ -45,9 +45,11 @@ end
 
 function bala:update_bala()
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
-    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     
-    self.bala_radio = math.atan2(self.oy-self.by,self.ox-self.bx)+math.pi
+    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
+    local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+    
+    self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
   end
 
 end
