@@ -79,11 +79,17 @@ index.armas.quad[1] = love.graphics.newQuad(402,43,157,111,index.armas.img:getDi
 index.armas.quad[3] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDimensions())
 index.armas.quad[6] = love.graphics.newQuad(598,23,503,156,index.armas.img:getDimensions())
 
+index.armas.balas={}
+index.armas.balas.quad={}
+index.armas.balas.quad[1] = love.graphics.newQuad(1110,49,118,55,index.armas.img:getDimensions())
 
 index.armas.scale ={}
 index.armas.scale[1] = {x = 0.25,y=0.25}
 index.armas.scale[3] = {x = 0.20,y=0.20}
 index.armas.scale[6] = {x = 0.25,y=0.25}
+
+index.armas.balas.scale ={}
+index.armas.balas.scale[1] = {x = 0.25,y=0.25}
 
 
 

@@ -16,7 +16,8 @@ local game_conf = Class{
 function game_conf:init(nombreMapa)
   
   local x,y=love.graphics.getDimensions( )
-  self.scale = 0.6
+  self.scale = 1
+  self.explosion_scale = 2
   
   self.map = sti(nombreMapa)
   self.map:resize(x/self.scale,y/self.scale)
@@ -55,6 +56,10 @@ function game_conf:init(nombreMapa)
 25 , -43,
 43 , -25}
 --50 , 0}
+
+  for i,k in ipairs(self.poligono_explosion) do
+    self.poligono_explosion[i] = k*self.explosion_scale 
+  end
   
   
   self.timer = Timer()
@@ -78,14 +83,14 @@ function game_conf:draw_conf()
   --love.graphics.print("Scaled text", 100,100)
   
 
-  --[[
+
   self.cam:draw(function(l,t,w,h)
-      red = 115/255
+    --[[  red = 115/255
     green = 27/255
     blue = 135/255
     alpha = 50/100
     
-    love.graphics.setBackgroundColor( red, green, blue, alpha)¿
+    love.graphics.setBackgroundColor( red, green, blue, alpha)]]
     
       
     for _, body in pairs(self.world:getBodies()) do
@@ -103,7 +108,7 @@ function game_conf:draw_conf()
       end
     end
 
-  end)]]
+  end)
   
 end
 
@@ -164,7 +169,7 @@ function game_conf:map_create()
   
   local function stencil()
     for _, obj_data in pairs(self.gameobject.holes) do
-      love.graphics.circle("fill", obj_data.x, obj_data.y, 50)
+      love.graphics.circle("fill", obj_data.x, obj_data.y, 50*self.explosion_scale)
     end
   end
   

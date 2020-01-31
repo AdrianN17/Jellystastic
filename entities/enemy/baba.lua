@@ -12,6 +12,8 @@ function baba:init(entidad,posicion,img)
   
   self.entidad:add_obj("enemy",self)
   
+  self.creador = -2
+  
   self.radio = 0
   
   self.hp = 10
@@ -91,7 +93,7 @@ function baba:init(entidad,posicion,img)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
-  self.fixture : setGroupIndex ( - 2 )
+  self.fixture : setGroupIndex ( self.creador)
   
   --timer
   
@@ -110,7 +112,7 @@ function baba:init(entidad,posicion,img)
       
       if self.iterador == 5 and self.obj_presa then
         --lanzar saliva
-        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy)
+        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy,self.creador)
       end
       
       if self.iterador>5 then

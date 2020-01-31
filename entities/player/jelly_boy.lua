@@ -11,6 +11,8 @@ function jelly_boy:init(entidad,posicion,img)
   
   self.entidad:add_obj("player",self)
   
+  self.creador = - 1
+  
   self.radio = 0
   
   self.movimiento = {a=false,d=false}
@@ -66,7 +68,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
   
-  self.fixture : setGroupIndex ( - 1 )
+  self.fixture : setGroupIndex ( self.creador )
   
   --timer
   

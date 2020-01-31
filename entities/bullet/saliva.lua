@@ -4,9 +4,11 @@ local saliva = Class{
     __includes = {}
 }
 
-function saliva:init(entidad,img,x,y,ex,ey)
+function saliva:init(entidad,img,x,y,ex,ey,creador)
   self.entidad = entidad
   self.entidad:add_obj("bullet",self)
+  
+  self.creador = creador
   
   self.spritesheet = img
   
@@ -50,7 +52,7 @@ function saliva:init(entidad,img,x,y,ex,ey)
   
   self.body:applyLinearImpulse(cx*self.vel*dir, cy*self.vel)
   
-
+  self.fixture : setGroupIndex ( self.creador )
 end
 
 function saliva:update(dt)

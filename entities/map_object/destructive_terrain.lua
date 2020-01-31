@@ -62,7 +62,6 @@ function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
       
       
       if #poligono_validado>=6 and #poligono_validado%2==0 then
-        --print(Inspect(poligono_validado))
         self:crear_poligonos_fisica(poligono_validado)
       end
       

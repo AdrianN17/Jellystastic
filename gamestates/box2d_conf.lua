@@ -40,7 +40,16 @@ function box2d_conf:callbacks()
       elseif obj1.data == "player" and obj2.data == "enemy_bullet" then
         self:dano(obj1.obj,obj2.obj.dano)
         obj2.obj:remove()
+      elseif (obj1.data == "enemy" or obj1.data == "map_object" or obj1.data == "enemy_bullet") and obj2.data == "destructive_bullet" then
+        local x,y = coll:getPositions()
+          self.timer:after(0.01,function()
+            obj2.obj:crear_circulo(x,y,self.explosion_scale)
+          end)
+      elseif (obj1.data == "enemy" or obj1.data == "player" or obj1.data == "map_object" or obj1.data == "enemy_bullet") and obj2.data == "explosion" then
+        obj2.obj:guardar(obj1)
       end
+      
+      
     end
   end
   
@@ -48,7 +57,7 @@ function box2d_conf:callbacks()
     local obj1, obj2 = self:validar_pos(a,b)
     
     if obj1 and obj2 then
-      
+
     end
   end
   

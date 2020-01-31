@@ -1,4 +1,5 @@
 local Class = require "libs.hump.class"
+local Misil = require "entities.bullet.misil"
 
 local bala = Class{
   __include = {}
@@ -24,7 +25,7 @@ function bala:init(target)
   self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 0.5, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false}
+  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
   
   --timer
   
@@ -116,7 +117,10 @@ function bala:unico_target()
 end
 
 function bala:generar_bala_raycast()
-    self.entidad.world:rayCast(self.ox,self.oy,self.ox + math.cos(self.bala_radio)*self.max_distancia_bala,self.oy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+  
+  local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+  
+    self.entidad.world:rayCast(cx,cy,cx + math.cos(self.bala_radio)*self.max_distancia_bala,cy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
     
     self:unico_target()
     
@@ -149,7 +153,9 @@ function bala:disparo(arma_index)
       if arma.raycast then
         self:generar_bala_raycast()
       else
-        
+        --arma fisica
+        local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+        Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
       end
       
       arma.stock = arma.stock-1
@@ -164,7 +170,9 @@ function bala:disparo(arma_index)
             if arma.raycast then
               self:generar_bala_raycast()
             else
-              
+              --arma fisica
+              local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+              Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
             end
             
             arma.stock = arma.stock-1
