@@ -39,6 +39,7 @@ function jelly_boy:init(entidad,posicion,img)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  self.w,self.h = 54.75, 84
   
   --extremidades
   

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="79">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="87">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -11,11 +11,11 @@
    <point/>
   </object>
   <object id="35" name="Gelatina" x="14" y="1192">
-   <polygon points="-11.3333,0.666667 1836,-8 1757,146 1737.93,218 1704.63,402 -12.6093,407.333"/>
+   <polygon points="-11.3333,0.666667 1836,-8 1757,146 1737.93,218 1704.63,407.667 -12.6093,407.333"/>
   </object>
   <object id="36" x="2" y="930" width="228" height="260"/>
-  <object id="40" name="Gelatina" x="1986.67" y="1596">
-   <polygon points="0,0 25.3333,-106.667 75,-200 400.667,-201.333 443,-247.667 508,-266.333 510.667,-477.333 1201.33,-468.138 1329.27,-302.815 1932.86,-302.602 1941.34,-562.474 3562.67,-892 3699.33,-891.987 3767.33,-833.981 3863.19,-887.543 4409.79,-891.92 4408.98,7.52266"/>
+  <object id="40" name="Gelatina" x="1987.67" y="1596">
+   <polygon points="74.6667,3.5 78.3333,-203.333 509.5,-203.083 507.991,3.31231"/>
   </object>
   <object id="44" x="234" y="1014.67" width="322.667" height="173.334"/>
   <object id="45" x="556.667" y="928.667" width="228" height="260"/>
@@ -29,7 +29,7 @@
    <polygon points="0,0 -552,-224 -488,-368 174,-82 108,-60 136,-24 80,2"/>
   </object>
   <object id="52" x="3338" y="1290">
-   <polygon points="0,0 -8,-168 30,-130 70,-166 96,-122 146,-160 150,-6"/>
+   <polygon points="0,0 -8,-168 30,-130 70,-166 96,-122 146,-160 149.333,-0.333333"/>
   </object>
   <object id="53" x="3624" y="1028" width="228" height="260"/>
   <object id="54" x="3946.43" y="762.388" width="228" height="260" rotation="-11.1036"/>
@@ -66,6 +66,21 @@
   </object>
   <object id="77" name="Baba" x="2830.67" y="1085.33">
    <point/>
+  </object>
+  <object id="79" name="Gelatina" x="3950" y="1070">
+   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2452,225.333 -34.5563,223.058"/>
+  </object>
+  <object id="80" name="Gelatina" x="2494.67" y="1596">
+   <polygon points="0,4 5.33333,-482 774.667,-470.667 820,-305.333 1421.33,-308.667 1420.85,4.54545"/>
+  </object>
+  <object id="84" name="Gelatina" x="2388" y="1395.33">
+   <polygon points="2.5,-2.75 42,-46 109.417,-66.8333 109.167,-2.25"/>
+  </object>
+  <object id="85" name="Gelatina" x="2065.5" y="1394">
+   <polygon points="0.515625,-1.33984 -53,97 -77,204.5 -3,204.5"/>
+  </object>
+  <object id="86" name="Gelatina" x="3917.33" y="1290.67">
+   <polygon points="-1.25,0.25 -2.66667,308 2482.67,306.667 2484,4"/>
   </object>
  </objectgroup>
 </map>

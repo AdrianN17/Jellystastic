@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 79,
+  nextobjectid = 87,
   properties = {},
   tilesets = {},
   layers = {
@@ -66,7 +66,7 @@ return {
             { x = 1836, y = -8 },
             { x = 1757, y = 146 },
             { x = 1737.93, y = 218 },
-            { x = 1704.63, y = 402 },
+            { x = 1704.63, y = 407.667 },
             { x = -12.6093, y = 407.333 }
           },
           properties = {}
@@ -89,30 +89,17 @@ return {
           name = "Gelatina",
           type = "",
           shape = "polygon",
-          x = 1986.67,
+          x = 1987.67,
           y = 1596,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = 0, y = 0 },
-            { x = 25.3333, y = -106.667 },
-            { x = 75, y = -200 },
-            { x = 400.667, y = -201.333 },
-            { x = 443, y = -247.667 },
-            { x = 508, y = -266.333 },
-            { x = 510.667, y = -477.333 },
-            { x = 1201.33, y = -468.138 },
-            { x = 1329.27, y = -302.815 },
-            { x = 1932.86, y = -302.602 },
-            { x = 1941.34, y = -562.474 },
-            { x = 3562.67, y = -892 },
-            { x = 3699.33, y = -891.987 },
-            { x = 3767.33, y = -833.981 },
-            { x = 3863.19, y = -887.543 },
-            { x = 4409.79, y = -891.92 },
-            { x = 4408.98, y = 7.52266 }
+            { x = 74.6667, y = 3.5 },
+            { x = 78.3333, y = -203.333 },
+            { x = 509.5, y = -203.083 },
+            { x = 507.991, y = 3.31231 }
           },
           properties = {}
         },
@@ -244,7 +231,7 @@ return {
             { x = 70, y = -166 },
             { x = 96, y = -122 },
             { x = 146, y = -160 },
-            { x = 150, y = -6 }
+            { x = 149.333, y = -0.333333 }
           },
           properties = {}
         },
@@ -454,6 +441,107 @@ return {
           height = 0,
           rotation = 0,
           visible = true,
+          properties = {}
+        },
+        {
+          id = 79,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 3950,
+          y = 1070,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 15, y = -44.5 },
+            { x = 1584, y = -368 },
+            { x = 1734, y = -366 },
+            { x = 1796, y = -318 },
+            { x = 1904, y = -364 },
+            { x = 2450, y = -362 },
+            { x = 2452, y = 225.333 },
+            { x = -34.5563, y = 223.058 }
+          },
+          properties = {}
+        },
+        {
+          id = 80,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 2494.67,
+          y = 1596,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 4 },
+            { x = 5.33333, y = -482 },
+            { x = 774.667, y = -470.667 },
+            { x = 820, y = -305.333 },
+            { x = 1421.33, y = -308.667 },
+            { x = 1420.85, y = 4.54545 }
+          },
+          properties = {}
+        },
+        {
+          id = 84,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 2388,
+          y = 1395.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 2.5, y = -2.75 },
+            { x = 42, y = -46 },
+            { x = 109.417, y = -66.8333 },
+            { x = 109.167, y = -2.25 }
+          },
+          properties = {}
+        },
+        {
+          id = 85,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 2065.5,
+          y = 1394,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0.515625, y = -1.33984 },
+            { x = -53, y = 97 },
+            { x = -77, y = 204.5 },
+            { x = -3, y = 204.5 }
+          },
+          properties = {}
+        },
+        {
+          id = 86,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 3917.33,
+          y = 1290.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = -1.25, y = 0.25 },
+            { x = -2.66667, y = 308 },
+            { x = 2482.67, y = 306.667 },
+            { x = 2484, y = 4 }
+          },
           properties = {}
         }
       }

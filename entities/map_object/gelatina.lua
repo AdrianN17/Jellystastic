@@ -11,13 +11,14 @@ function gelatina:init(entidad,poligono,img)
   
   destructive_terrain.init(self,poligono,img.texturas.gelatina)
   
+  self.ox,self.oy,self.w,self.h = self.poligonos_tabla[1].fixture:getBoundingBox(1)
+  
 end
 
 function gelatina:draw()
  
   self:draw_obj()
-  
-  
+
 end
 
 function gelatina:update(dt)

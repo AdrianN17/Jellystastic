@@ -25,6 +25,8 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.shape = love.physics.newRectangleShape(w*scale.x,h*scale.y)
   self.fixture = love.physics.newFixture(self.body,self.shape, 5)
   
+  
+  
   self.body:setAngle(self.radio)
   self.body:setBullet(true)
   
@@ -44,6 +46,7 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   
   local cx,cy = math.cos(angle), math.sin(angle)
   self.body:applyLinearImpulse( cx*self.mass*self.vel,cy*self.mass*self.vel)
+  
 
   
   
@@ -51,6 +54,7 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.fixture:setUserData( {data="destructive_bullet",obj=self, pos=5} )
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  self.w,self.h = w*scale.x,h*scale.y
   
   self.existe=true
   self.explosion={}

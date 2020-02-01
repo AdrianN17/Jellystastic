@@ -64,6 +64,8 @@ function game_conf:init(nombreMapa)
   
   self.timer = Timer()
   
+  self.vision={x=0,y=0,w=0,h=0}
+  
 end
 
 function game_conf:update_conf(dt)
@@ -81,18 +83,19 @@ function game_conf:draw_conf()
   local cx,cy,cw,ch=self.cam:getVisible()
   self.map:draw(-cx,-cy,self.scale,self.scale)
   --love.graphics.print("Scaled text", 100,100)
+  self.vision.x,self.vision.y,self.vision.w,self.vision.h = cx,cy,cw,ch
+  
+  self.vision.x = self.vision.x - self.vision.w/2
+  self.vision.y = self.vision.y - self.vision.h/2
+  
+ 
+  self.vision.w = self.vision.w + self.vision.w
+  self.vision.h = self.vision.h + self.vision.h
   
 
 
   self.cam:draw(function(l,t,w,h)
-    --[[  red = 115/255
-    green = 27/255
-    blue = 135/255
-    alpha = 50/100
-    
-    love.graphics.setBackgroundColor( red, green, blue, alpha)]]
-    
-      
+
     for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
@@ -176,7 +179,9 @@ function game_conf:map_create()
   
   player.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.player) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
   end
   
@@ -188,7 +193,9 @@ function game_conf:map_create()
   
   enemy.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.enemy) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
   end
   
@@ -200,7 +207,9 @@ function game_conf:map_create()
   
   npc.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.npc) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
   end
   
@@ -212,7 +221,9 @@ function game_conf:map_create()
   
   bullet.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.bullet) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
   end
   
@@ -224,7 +235,9 @@ function game_conf:map_create()
   
   object.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.object) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
   end
   
@@ -242,7 +255,9 @@ function game_conf:map_create()
     love.graphics.setStencilTest("equal", 0)
      
     for _, obj_data in ipairs(self.gameobject.map_object) do
-      obj_data:draw()
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
     end
     
     love.graphics.setStencilTest()
@@ -251,7 +266,7 @@ function game_conf:map_create()
   
   map_object.update = function(obj,dt)
     for _, obj_data in ipairs(self.gameobject.map_object) do
-      obj_data:update(dt)
+      obj_data:update()
     end
   end
   
@@ -316,6 +331,13 @@ end
 
 function game_conf:dano(obj1,dano)
   obj1.hp = obj1.hp - dano
+end
+
+function game_conf:CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
+  return x1 < x2+w2 and
+         x2 < x1+w1 and
+         y1 < y2+h2 and
+         y2 < y1+h1
 end
 
 return game_conf

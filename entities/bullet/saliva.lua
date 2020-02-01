@@ -35,6 +35,7 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   self.fixture:setUserData( {data="enemy_bullet",obj=self, pos=4} )
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  self.w,self.h = 18,18
   
   local angle = self.entidad:round(math.deg(math.atan2(math.abs(self.oy - ey),math.abs(self.oy - ex))))
   

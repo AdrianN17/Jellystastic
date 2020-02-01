@@ -49,6 +49,8 @@ function baba:init(entidad,posicion,img)
   self.shape = love.physics.newRectangleShape(0,0,82.25, 94.5)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
+  
+  
   --extremidades
   
   self.lineas_fisica = {}
@@ -91,6 +93,7 @@ function baba:init(entidad,posicion,img)
   self.mass=self.mass*self.mass
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  self.w,self.h =82.25, 94.5
   
   self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
   self.fixture : setGroupIndex ( self.creador)
