@@ -2,9 +2,10 @@ local Class = require "libs.hump.class"
 local Timer = require "libs.chrono.Timer"
 local Saliva = require "entities.bullet.saliva"
 local LSM = require "libs.statemachine.statemachine"
+local Acciones =  require "entities.enemy.acciones"
 
 local baba = Class{
-    __includes = {}
+    __includes = {Acciones}
 }
 
 function baba:init(entidad,posicion,img)
@@ -12,23 +13,23 @@ function baba:init(entidad,posicion,img)
   
   self.entidad:add_obj("enemy",self)
   
+  self.objetivos={"player"}
+  self.paredes_suelo={"map_object"}
+  
+  
   self.creador = -2
-  
-  self.radio = 0
-  
   self.hp = 10
   self.vel = 85
-  
-  self.iterador=1
+  self.limite_vision=200
+  self.posicion_ataque=false
   
   self.spritesheet = img.baba
   
-  self.iterador=1
+  self.timer = Timer()
   
-  self.cambiar_direccion=false
-  self.direccion=-1
   
-  --self.acciones = {moviendo = true, atacando = false}
+  --FSM
+  
   self.acciones = LSM.create({
    initial = 'mover',
     events ={
@@ -37,70 +38,53 @@ function baba:init(entidad,posicion,img)
     }
   })
   
-  
-  
-  self.posicion_ataque=false
-  
-  self.limite_vision=200
-  
-  --fisicas
-  
-  self.body = love.physics.newBody(entidad.world,posicion[1],posicion[2],"dynamic")
-  self.shape = love.physics.newRectangleShape(0,0,82.25, 94.5)
-  self.fixture = love.physics.newFixture(self.body,self.shape)
-  
-  
-  
-  --extremidades
-  
-  self.lineas_fisica = {}
-  self.lineas_fisica.shape_suelo = {}
-  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,80)
-  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/4)*self.direccion,0,-(82.25/4)*self.direccion,80)
-  self.lineas_fisica.shape_pared = {}
-  self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,75*self.direccion,0)
-  self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,-75*self.direccion,0)
-  self.lineas_fisica.shape_player = {}
-  self.lineas_fisica.shape_player[-1] = love.physics.newEdgeShape(0,0,self.limite_vision*self.direccion,0)
-  self.lineas_fisica.shape_player[1] = love.physics.newEdgeShape(0,0,-self.limite_vision*self.direccion,0)
-  
-  self.lineas_fisica.fixture_suelo = {}
-  self.lineas_fisica.fixture_suelo[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo[-1])
-  self.lineas_fisica.fixture_suelo[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo[1])
-  self.lineas_fisica.fixture_pared = {}
-  self.lineas_fisica.fixture_pared[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_pared[-1])
-  self.lineas_fisica.fixture_pared[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_pared[1])
-  self.lineas_fisica.fixture_player = {}
-  self.lineas_fisica.fixture_player[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_player[-1])
-  self.lineas_fisica.fixture_player[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_player[1])
-  
-  self.lineas_fisica.fixture_suelo[-1]:setSensor( true )
-  self.lineas_fisica.fixture_suelo[1]:setSensor( true )
-  self.lineas_fisica.fixture_pared[-1]:setSensor( true )
-  self.lineas_fisica.fixture_pared[1]:setSensor( true )
-  self.lineas_fisica.fixture_player[-1]:setSensor( true )
-  self.lineas_fisica.fixture_player[1]:setSensor( true )
-  
+  Acciones.init(self,posicion[1],posicion[2],82.25, 94.5)
 
-  self.fixture:setFriction(0.5)
-  self.fixture:setDensity(1)
-  --self.body:setInertia( 0 )
-  self.body:setLinearDamping( 1 )
-  self.body: setFixedRotation (true)
+  --Raycast
   
-  self.body:setMass(50)
-  self.mass = self.body:getMass( )
-  self.mass=self.mass*self.mass
+  local raycast_funcion_suelo = function (fixture, x, y, xn, yn, fraction)
+      
+      local tipo_obj=fixture:getUserData()
+      
+      for _,solido in ipairs(self.paredes_suelo) do
+        if tipo_obj and tipo_obj.data==solido then
+          self.cambiar_direccion=false
+        end
+      end
+
+      return 1
+  end
   
-  self.ox,self.oy = self.body:getX(),self.body:getY()
-  self.w,self.h =82.25, 94.5
+  local raycast_funcion_pared = function (fixture, x, y, xn, yn, fraction)
+      local tipo_obj=fixture:getUserData()
+      
+      for _,solido in ipairs(self.paredes_suelo) do
+        if tipo_obj and tipo_obj.data==solido then
+          self.cambiar_direccion=true
+        end
+      end
+
+    return 1
+  end
   
-  self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
-  self.fixture : setGroupIndex ( self.creador)
-  
-  --timer
-  
-  self.timer = Timer()
+  local raycast_funcion_atacar = function (fixture, x, y, xn, yn, fraction)
+      local tipo_obj=fixture:getUserData()
+      
+      for _,objetivo in ipairs(self.objetivos) do
+        if tipo_obj and tipo_obj.data==objetivo then
+          self.posicion_ataque=true
+          
+          if self.obj_presa == nil then
+            self.obj_presa = fixture:getUserData().obj
+          end
+          
+        end
+      end
+
+    return 1
+  end
+
+  --Timer
   
   self.timer:every(0.5,function () 
     if self.acciones.current == "mover" then
@@ -124,45 +108,6 @@ function baba:init(entidad,posicion,img)
 
     end
   end)
-  
-  
-  --raycast
-  
-  local raycast_funcion_suelo = function (fixture, x, y, xn, yn, fraction)
-      
-      local tipo_obj=fixture:getUserData()
-      
-      if tipo_obj and tipo_obj.data=="map_object" then
-        self.cambiar_direccion=false
-      end
-
-      return 1
-  end
-  
-  local raycast_funcion_pared = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
-      
-      if tipo_obj and tipo_obj.data=="map_object" then
-        self.cambiar_direccion=true
-      end
-
-    return 1
-  end
-  
-  local raycast_funcion_atacar = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
-      
-      if tipo_obj and tipo_obj.data=="player" then
-        self.posicion_ataque=true
-        
-        if self.obj_presa == nil then
-          self.obj_presa = fixture:getUserData().obj
-        end
-        
-      end
-
-    return 1
-  end
   
   self.timer:every(0.1,function() 
     self.cambiar_direccion=true
@@ -193,70 +138,17 @@ function baba:init(entidad,posicion,img)
     end
   end)
 
-  --presa
-  self.obj_presa = nil
-  
+
+
 end
 
 function baba:draw()
-  local quad = self.spritesheet.quad[self.iterador]
-  local scale = self.spritesheet.scale
-  local x,y,w,h = quad:getViewport()
-  
-    
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
-  
-  --love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
-  
-  --love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
-  
-  --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
-  --love.graphics.line(x1,y1,w1,h1)
-  
-  love.graphics.print(self.hp,self.ox,self.oy-100)
+  self:draw_enemy()
 end
 
 function baba:update(dt)
   
-  self.timer:update(dt)
-  
-  
-  if self.acciones.current == "atacar" and self.obj_presa then
-    local ox,oy = self.obj_presa.ox,self.obj_presa.oy
-    
-    local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
-    
-    local direccion = ox - self.ox
-    --print(direccion)
-    
-    if distancia > self.limite_vision or direccion>0 and self.direccion == -1 or direccion<0 and self.direccion == 1 then
-      self.obj_presa=nil
-      self.acciones:a_mover()
-    end
-    
-  end
-  
-
-  
-  if self.acciones.current == "mover" then
-  
-    local mx=self.direccion*self.mass*self.vel
-    
-    local vx,vy=self.body:getLinearVelocity()
-    
-    if math.abs(vx)<self.vel then
-      --self.body:applyLinearImpulse(mx,0)
-      self.body:applyForce(mx,0)
-    end
-  end
-
-  self.radio = self.body:getAngle()
-  self.ox,self.oy = self.body:getX(),self.body:getY()
-  
-  if self.hp < 1 then
-    self.body:destroy()
-    self.entidad:remove_obj("enemy",self)
-  end
+  self:update_enemy(dt)
   
   
 end

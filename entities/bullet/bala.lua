@@ -112,6 +112,16 @@ function bala:unico_target()
   if obj_target and obj_name == self.target then
     local arma = self.armas_values[self.arma_index]
     obj_target.hp = obj_target.hp -arma.dano
+    
+    if obj_name == "enemy" then
+      local x = obj_target.ox - self.ox
+      
+      if (x<0 and obj_target.direccion<0 ) or (x>0 and obj_target.direccion>0) then
+        obj_target.direccion = obj_target.direccion*-1
+      end
+      
+    end
+    
   end
   
 end

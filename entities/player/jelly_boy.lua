@@ -124,6 +124,8 @@ function jelly_boy:init(entidad,posicion,img)
   --self.touch_inicial2={x=0,y=0}
   self.touch_list={nil,nil}
   
+  self.direccion = 1
+  
 end
 
 function jelly_boy:draw()
@@ -133,14 +135,16 @@ function jelly_boy:draw()
   local x,y,w,h = quad:getViewport()
   
     
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
+  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
   local arma = self.armas_values[self.arma_index]
   
-  love.graphics.print(Inspect(arma),self.ox,self.oy-200)
+  love.graphics.print(self.direccion,self.ox,self.oy-200)
+  
+  
   
   self:draw_bala()
 end
@@ -204,10 +208,12 @@ end
 function jelly_boy:keypressed(key)
   if key == "a" then
     self.movimiento.a = true
+    self.direccion=-1
   end
   
   if key == "d" then
     self.movimiento.d = true
+    self.direccion=1
   end
   
   if key == "w" and self.ground and not self.acciones.saltando then
