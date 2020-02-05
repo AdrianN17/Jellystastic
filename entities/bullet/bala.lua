@@ -49,7 +49,7 @@ function bala:update_bala()
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
     
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
-    local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+    local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
     
     self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
   end
@@ -63,7 +63,7 @@ end
 
 function bala:draw_bala()
   
-  local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+  local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
   
   
   love.graphics.line(cx, cy,cx + math.cos(self.bala_radio)*self.max_distancia_bala,cy + math.sin(self.bala_radio)*self.max_distancia_bala)
@@ -128,7 +128,7 @@ end
 
 function bala:generar_bala_raycast()
   
-  local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+  local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
   
     self.entidad.world:rayCast(cx,cy,cx + math.cos(self.bala_radio)*self.max_distancia_bala,cy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
     
@@ -164,7 +164,7 @@ function bala:disparo(arma_index)
         self:generar_bala_raycast()
       else
         --arma fisica
-        local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+        local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
         Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
       end
       
@@ -181,7 +181,7 @@ function bala:disparo(arma_index)
               self:generar_bala_raycast()
             else
               --arma fisica
-              local cx, cy = self.body:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+              local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
               Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
             end
             

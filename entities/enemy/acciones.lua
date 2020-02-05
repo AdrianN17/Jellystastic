@@ -10,13 +10,15 @@ function acciones:init(x,y,w,h)
   self.cambiar_direccion=false
   self.direccion=-1
   
-  self.w,self.h =82.25, 94.5
+  self.w,self.h =w, h
   
   --fisicas
   
   self.body = love.physics.newBody(self.entidad.world,x,y,"dynamic")
   self.shape = love.physics.newRectangleShape(0,0,w,h)
   self.fixture = love.physics.newFixture(self.body,self.shape)
+  
+  self.body2 = love.physics.newBody(self.entidad.world,x,y,"dynamic")
   
   --extremidades
   
@@ -32,14 +34,14 @@ function acciones:init(x,y,w,h)
   self.lineas_fisica.shape_player[1] = love.physics.newEdgeShape(0,0,-self.limite_vision*self.direccion,0)
   
   self.lineas_fisica.fixture_suelo = {}
-  self.lineas_fisica.fixture_suelo[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo[-1])
-  self.lineas_fisica.fixture_suelo[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_suelo[1])
+  self.lineas_fisica.fixture_suelo[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_suelo[-1])
+  self.lineas_fisica.fixture_suelo[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_suelo[1])
   self.lineas_fisica.fixture_pared = {}
-  self.lineas_fisica.fixture_pared[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_pared[-1])
-  self.lineas_fisica.fixture_pared[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_pared[1])
+  self.lineas_fisica.fixture_pared[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_pared[-1])
+  self.lineas_fisica.fixture_pared[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_pared[1])
   self.lineas_fisica.fixture_player = {}
-  self.lineas_fisica.fixture_player[-1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_player[-1])
-  self.lineas_fisica.fixture_player[1] = love.physics.newFixture(self.body,self.lineas_fisica.shape_player[1])
+  self.lineas_fisica.fixture_player[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[-1])
+  self.lineas_fisica.fixture_player[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[1])
   
   self.lineas_fisica.fixture_suelo[-1]:setSensor( true )
   self.lineas_fisica.fixture_suelo[1]:setSensor( true )
@@ -47,21 +49,6 @@ function acciones:init(x,y,w,h)
   self.lineas_fisica.fixture_pared[1]:setSensor( true )
   self.lineas_fisica.fixture_player[-1]:setSensor( true )
   self.lineas_fisica.fixture_player[1]:setSensor( true )
-  
-  
-  self.fixture:setFriction(0.5)
-  self.fixture:setDensity(1)
-  self.body:setLinearDamping( 1 )
-  self.body: setFixedRotation (true)
-  
-  self.body:setMass(50)
-  self.mass = self.body:getMass( )
-  self.mass=self.mass*self.mass
-  
-  self.ox,self.oy = self.body:getX(),self.body:getY()
-  
-  self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
-  self.fixture : setGroupIndex ( self.creador)
 
   --presa
   self.obj_presa = nil
@@ -122,11 +109,30 @@ function acciones:update_enemy(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   if self.hp < 1 then
+    self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("enemy",self)
   end
 end
 
+
+function acciones:masa(x,y)
+  self.joint = love.physics.newRevoluteJoint(self.body,self.body2,x,y,false)
+  
+  self.fixture:setFriction(0.5)
+  self.fixture:setDensity(1)
+  self.body:setLinearDamping( 1 )
+  self.body: setFixedRotation (true)
+  
+  self.body:setMass(50)
+  self.mass = self.body:getMass( )
+  self.mass=self.mass*self.mass
+  
+  self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
+  self.fixture : setGroupIndex ( self.creador)
+end
 
 
 return acciones

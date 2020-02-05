@@ -39,6 +39,8 @@ function baba:init(entidad,posicion,img)
   })
   
   Acciones.init(self,posicion[1],posicion[2],82.25, 94.5)
+  
+  self:masa(posicion[1],posicion[2])
 
   --Raycast
   
@@ -112,10 +114,10 @@ function baba:init(entidad,posicion,img)
   self.timer:every(0.1,function() 
     self.cambiar_direccion=true
 
-    local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_suelo[self.direccion]:getPoints())
+    local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_suelo[self.direccion]:getPoints())
     self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_suelo)
     
-    local x2,y2,w2,h2 = self.body:getWorldPoints(self.lineas_fisica.shape_pared[self.direccion]:getPoints())
+    local x2,y2,w2,h2 = self.body2:getWorldPoints(self.lineas_fisica.shape_pared[self.direccion]:getPoints())
     self.entidad.world:rayCast(x2,y2,w2,h2,raycast_funcion_pared)
   
     if self.cambiar_direccion then
@@ -128,7 +130,7 @@ function baba:init(entidad,posicion,img)
   self.timer:every(0.05,function() 
     self.posicion_ataque=false
     
-    local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
+    local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
     self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_atacar)
     
     if self.posicion_ataque and self.acciones.current == "mover" then
