@@ -8,12 +8,11 @@ function ui_player:init()
   
   local player = self.gameobject.player[1]
   self.weapons = player.spritesheet_arma
+  
+  self.camera_x_ui = self.screen_x - self.espacio_x
 end
 
 function ui_player:draw_ui()
-  
-  
-    
     
     local counter = 0
     
@@ -24,10 +23,10 @@ function ui_player:draw_ui()
         local scale = self.weapons.scale_screen[i]
         local x,y,w,h = quad:getViewport()
                 
-        love.graphics.draw(self.weapons.img,quad,30, counter,0,scale.x/self.scale_dpi,scale.y/self.scale_dpi)
+        love.graphics.draw(self.weapons.img,quad,self.camera_x_ui, counter,0,scale.x/self.scale_dpi,scale.y/self.scale_dpi)
         
         if self.validar_aabb_armas then
-          table.insert(self.aabb_armas,{x = 30,y=counter,w=w*(scale.x/self.scale_dpi),h=h*(scale.y/self.scale_dpi),index=tostring(i)})
+          table.insert(self.aabb_armas,{x = self.camera_x_ui,y=counter,w=w*(scale.x/self.scale_dpi),h=h*(scale.y/self.scale_dpi),index=tostring(i)})
         end
         
         counter = counter + (h*scale.y)/self.scale_dpi+((h*scale.y)*0.5)/self.scale_dpi

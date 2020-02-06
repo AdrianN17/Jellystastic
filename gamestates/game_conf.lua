@@ -34,10 +34,10 @@ function game_conf:init(nombreMapa)
   self.explosion_scale = 2
   
   self.map = sti(nombreMapa)
-  self.map:resize((x/self.scale),(y/self.scale))
+  self.map:resize((x/self.scale)-self.espacio_x,(y/self.scale))
   
   self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
-  self.cam:setWindow(self.espacio_x,0,x,y)
+  self.cam:setWindow(0,0,x-self.espacio_x,y)
   self.cam:setScale(self.scale)
   
   love.physics.setMeter(64)
@@ -117,7 +117,7 @@ function game_conf:draw_conf()
   
   
   
- self.map:draw(180-cx,-cy,self.scale,self.scale)
+ self.map:draw(-cx,-cy,self.scale,self.scale)
  
   self.cam:draw(function(l,t,w,h)
      
@@ -139,7 +139,7 @@ function game_conf:draw_conf()
 end)
 
   love.graphics.setColor(0, 0, 0)
-	love.graphics.rectangle("fill",0,0,self.espacio_x,self.screen_y)
+	love.graphics.rectangle("fill",self.camera_x_ui,0,self.espacio_x,self.screen_y)
   love.graphics.setColor(1,1,1,1)
   self:draw_ui()
  

@@ -171,7 +171,7 @@ end
 
 function acciones:mousepressed(x,y,button)
   
-  if(love.mouse.getX()>self.entidad.espacio_x) then
+  if(love.mouse.getX()<self.entidad.camera_x_ui) then
     if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
       self:disparo(self.arma_index)
     elseif button == 2 then
@@ -196,7 +196,7 @@ end
 
 function acciones:touchpressed( id, x, y, dx, dy, pressure )
   
-  if(love.mouse.getX()>self.entidad.espacio_x) then
+  if(love.mouse.getX()<self.entidad.camera_x_ui) then
     self:add_touch(id)
     
     if id == self.touch_list[1] then
@@ -237,7 +237,7 @@ end
 
 function acciones:touchmoved( id, x, y, dx, dy, pressure )
  
-  if(love.mouse.getX()>self.entidad.espacio_x) then
+  if(love.mouse.getX()<self.entidad.camera_x_ui) then
   
     if id==self.touch_list[1] then
       
