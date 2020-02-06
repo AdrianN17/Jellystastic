@@ -88,6 +88,11 @@ index.armas.scale[1] = {x = 0.25,y=0.25}
 index.armas.scale[3] = {x = 0.20,y=0.20}
 index.armas.scale[6] = {x = 0.25,y=0.25}
 
+index.armas.scale_screen={}
+index.armas.scale_screen[1] = {x = 0.35,y=0.35}
+index.armas.scale_screen[3] = {x = 0.3,y=0.3}
+index.armas.scale_screen[6] = {x = 0.25,y=0.25}
+
 index.armas.balas.scale ={}
 index.armas.balas.scale[1] = {x = 0.25,y=0.25}
 

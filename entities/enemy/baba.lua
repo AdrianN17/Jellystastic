@@ -14,7 +14,7 @@ function baba:init(entidad,posicion,img)
   self.entidad:add_obj("enemy",self)
   
   self.objetivos={"player"}
-  self.paredes_suelo={"map_object"}
+  self.paredes_suelo={"map_object","bedrock"}
   
   
   self.creador = -2

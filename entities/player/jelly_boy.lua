@@ -4,7 +4,7 @@ local Bala = require "entities.bullet.bala"
 local Acciones =  require "entities.player.acciones"
 
 local jelly_boy = Class{
-    __includes = {Bala,Acciones}
+  __includes = {Bala,Acciones}
 }
 
 function jelly_boy:init(entidad,posicion,img)
@@ -83,6 +83,8 @@ end
 
 function jelly_boy:update(dt)
   self:update_player(dt)
+  
+  self.entidad.cam:setPosition(self.ox, self.oy)
 end
 
 

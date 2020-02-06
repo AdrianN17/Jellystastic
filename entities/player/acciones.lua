@@ -24,7 +24,7 @@ function acciones:init(x,y,w,h)
   --fisicas
   
   self.body = love.physics.newBody(self.entidad.world,x,y,"dynamic")
-  self.shape = love.physics.newRectangleShape(0,0,54.75, 84)
+  self.shape = love.physics.newRectangleShape(0,0,w,h)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
@@ -48,9 +48,6 @@ function acciones:init(x,y,w,h)
   
   self.fixture : setGroupIndex ( self.creador )
   
-  
-  
-  
 end
 
 function acciones:draw_player()
@@ -65,7 +62,10 @@ function acciones:draw_player()
   
   local arma = self.armas_values[self.arma_index]
   
-  love.graphics.print(self.direccion,self.ox,self.oy-200)
+  
+  if arma then
+    love.graphics.print(tostring(arma.stock),self.ox,self.oy-150)
+  end
   
   self:draw_bala()
 end
@@ -74,8 +74,6 @@ function acciones:update_player(dt)
   self:update_bala()
   
   self.timer:update(dt)
-  
-  self.entidad.cam:setPosition(self.ox, self.oy)
   
   self.acciones.moviendo = false
   
@@ -102,7 +100,7 @@ function acciones:update_player(dt)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  if self.hp < 1 then
+  if self.hp < 1 or self.oy > self.entidad.caida_y then
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)
@@ -173,45 +171,51 @@ end
 
 function acciones:mousepressed(x,y,button)
   
-  if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self:disparo(self.arma_index)
-  elseif button == 2 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self.timer_recarga = nil
-    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
-      self:recarga(self.arma_index)
-      self.timer:cancel(self.timer_recarga)
-      self.timer_recarga = nil
-    end)
+  if(love.mouse.getX()>self.entidad.espacio_x) then
+    if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+      self:disparo(self.arma_index)
+    elseif button == 2 then
+      self:recargar_arma()
+    end
+  else
+    --moviles
+    self.entidad:check_arma()
   end
   
 end
 
 function acciones:mousereleased(x,y,button)
 
+  
   if button == 1 and self.arma_index > 0 and self.timer_balas then
     self.timer:cancel(self.timer_balas)
     self.timer_balas = nil
   end
+
 end
 
 function acciones:touchpressed( id, x, y, dx, dy, pressure )
   
-  self:add_touch(id)
-  
-  if id == self.touch_list[1] then
+  if(love.mouse.getX()>self.entidad.espacio_x) then
+    self:add_touch(id)
     
-    self.touch_inicial.x = x
-    self.touch_inicial.y = y
-    
-  elseif id==self.touch_list[2] then
+    if id == self.touch_list[1] then
+      
+      self.touch_inicial.x = x
+      self.touch_inicial.y = y
+      
+    elseif id==self.touch_list[2] then
 
-    
-    self:update_bala_android(self.ox,self.oy,x,y)
-    
-    if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-      self:disparo(self.arma_index)
+      
+      self:update_bala_android(self.ox,self.oy,x,y)
+      
+      if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+        self:disparo(self.arma_index)
+      end
     end
-    
+  else
+    --moviles
+    self.entidad:check_arma()
   end
 end
 
@@ -233,28 +237,30 @@ end
 
 function acciones:touchmoved( id, x, y, dx, dy, pressure )
  
+  if(love.mouse.getX()>self.entidad.espacio_x) then
   
-  if id==self.touch_list[1] then
-    
-    local x_c = self.touch_inicial.x-x
-    local y_c = self.touch_inicial.y-y
-    
-    if  x_c <= 50 then
+    if id==self.touch_list[1] then
       
-      self.movimiento.a = false
-      self.movimiento.d = true
-    elseif x_c >= -50 then
-      self.movimiento.a = true
-      self.movimiento.d = false
+      local x_c = self.touch_inicial.x-x
+      local y_c = self.touch_inicial.y-y
+      
+      if  x_c <= 50 then
+        
+        self.movimiento.a = false
+        self.movimiento.d = true
+      elseif x_c >= -50 then
+        self.movimiento.a = true
+        self.movimiento.d = false
+      end
+      
+      if y_c >= 80 and self.ground and not self.acciones.saltando then
+        self:saltar()
+      end
+      
+    elseif id==self.touch_list[2] then
+      self:update_bala_android(self.ox,self.oy,x,y)
+      
     end
-    
-    if y_c >= 80 and self.ground and not self.acciones.saltando then
-      self:saltar()
-    end
-    
-  elseif id==self.touch_list[2] then
-    self:update_bala_android(self.ox,self.oy,x,y)
-    
   end
   
 end
@@ -312,6 +318,18 @@ function acciones:masa(x,y)
   self.body:setMass(20)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
+end
+
+function acciones:recargar_arma()
+  
+  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self.timer_recarga = nil
+    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+      self:recarga(self.arma_index)
+      self.timer:cancel(self.timer_recarga)
+      self.timer_recarga = nil
+    end)
+  end
 end
 
 return acciones

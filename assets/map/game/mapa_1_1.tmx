@@ -11,16 +11,16 @@
    <point/>
   </object>
   <object id="35" name="Gelatina" x="14" y="1192">
-   <polygon points="-11.3333,0.666667 1836,-8 1757,146 1737.93,218 1704.63,407.667 -12.6093,407.333"/>
+   <polygon points="-14.2083,-2.33333 1836,-8 1757,146 1737.93,218 1704.63,407.667 -14.2343,408.333"/>
   </object>
   <object id="36" x="2" y="930" width="228" height="260"/>
   <object id="40" name="Gelatina" x="1987.67" y="1596">
    <polygon points="74.6667,3.5 78.3333,-203.333 509.5,-203.083 507.991,3.31231"/>
   </object>
   <object id="44" x="234" y="1014.67" width="322.667" height="173.334"/>
-  <object id="45" x="556.667" y="928.667" width="228" height="260"/>
+  <object id="45" x="556.667" y="928.667" width="228" height="259"/>
   <object id="46" x="786" y="758" width="288" height="429.333"/>
-  <object id="47" x="1076" y="1010.67" width="468" height="173.334"/>
+  <object id="47" x="1076" y="1010.67" width="468" height="175.334"/>
   <object id="48" x="2152.33" y="1132" width="228" height="260"/>
   <object id="49" x="2573.33" y="1114.67">
    <polygon points="0,0 2.66667,-77.3333 40,-41.3333 70.6667,-81.3333 96,-40 168,-86.6667 213.333,-38.6667 236,2.66667"/>
@@ -40,7 +40,7 @@
   <object id="60" name="Baba" x="1184" y="1138.67">
    <point/>
   </object>
-  <object id="64" name="Baba" x="1773" y="1127">
+  <object id="64" name="Baba" x="1689" y="1143">
    <point/>
   </object>
   <object id="66" name="Baba" x="2332" y="1359">

@@ -6,7 +6,7 @@ local bala = Class{
 }
 
 function bala:init(target)
-  self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
+  self.bx,self.by = 0,0
   self.max_distancia_bala = 1000
   self.bala_radio = 0
   self.bala_objetivos = {}
@@ -22,7 +22,7 @@ function bala:init(target)
   --desert eagle
   self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0, tiempo_recarga = 0.9, raycast = true}
   --uzi
-  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.05, tiempo_recarga = 0.5, raycast = true}
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.1, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
   self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
@@ -48,10 +48,13 @@ end
 function bala:update_bala()
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
     
-    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
-    local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
-    
-    self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
+    if(love.mouse.getX()>self.entidad.espacio_x) and self.arma_index>0 then
+      self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
+      local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+      
+      self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
+    end
+      
   end
 
 end

@@ -19,10 +19,11 @@ function game:update(dt)
 end
 
 function game:draw()
-  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), self.espacio_x + 10, 10)
    
   self:draw_conf()
 
+ 
  
   
 end

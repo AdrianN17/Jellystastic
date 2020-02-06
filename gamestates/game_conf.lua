@@ -8,21 +8,36 @@ local index_entidades = require "entities.index"
 local Timer = require "libs.chrono.Timer"
 
 local Box2d_conf = require "gamestates.box2d_conf"
+local UI_player = require "gamestates.ui_player"
 
 local game_conf = Class{
-  __includes = {Box2d_conf}
+  __includes = {Box2d_conf,UI_player}
 }
 
 function game_conf:init(nombreMapa)
   
+  self.scale_dpi = love.window.getDPIScale()
+  
+  
   local x,y=love.graphics.getDimensions( )
-  self.scale = 1
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    y = y+100*self.scale_dpi
+  end
+  
+  self.screen_x,self.screen_y = x,y
+
+  self.scale = 1/self.scale_dpi
+  
+  self.espacio_x_no_escalado = 180
+  self.espacio_x = self.espacio_x_no_escalado*self.scale
+  
   self.explosion_scale = 2
   
   self.map = sti(nombreMapa)
-  self.map:resize(x/self.scale,y/self.scale)
+  self.map:resize((x/self.scale),(y/self.scale))
+  
   self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
-  --self.cam:setWindow(0,0,x,y)
+  self.cam:setWindow(self.espacio_x,0,x,y)
   self.cam:setScale(self.scale)
   
   love.physics.setMeter(64)
@@ -66,6 +81,17 @@ function game_conf:init(nombreMapa)
   
   self.vision={x=0,y=0,w=0,h=0}
   
+  UI_player.init(self)
+  
+  self.body = love.physics.newBody(self.world,0,0,"static")
+  local w_m=self.map.width*self.map.tilewidth
+  local h_m=self.map.height*self.map.tileheight
+  self.caida_y=h_m
+  
+  self.shape = love.physics.newChainShape(true,0,0,w_m,0,w_m,h_m+500,0,h_m+500)
+  self.fixture = love.physics.newFixture(self.body,self.shape)
+  self.fixture:setUserData({data="bedrock",obj=nil,pos=5})
+  
 end
 
 function game_conf:update_conf(dt)
@@ -77,11 +103,8 @@ end
 
 function game_conf:draw_conf()
   
-  
- 
-  
   local cx,cy,cw,ch=self.cam:getVisible()
-  self.map:draw(-cx,-cy,self.scale,self.scale)
+  
   --love.graphics.print("Scaled text", 100,100)
   self.vision.x,self.vision.y,self.vision.w,self.vision.h = cx,cy,cw,ch
   
@@ -92,10 +115,12 @@ function game_conf:draw_conf()
   self.vision.w = self.vision.w + self.vision.w
   self.vision.h = self.vision.h + self.vision.h
   
-
-
+  
+  
+ self.map:draw(180-cx,-cy,self.scale,self.scale)
+ 
   self.cam:draw(function(l,t,w,h)
-
+     
     for _, body in pairs(self.world:getBodies()) do
       for _, fixture in pairs(body:getFixtures()) do
         local shape = fixture:getShape()
@@ -111,8 +136,14 @@ function game_conf:draw_conf()
       end
     end
 
-  end)
-  
+end)
+
+  love.graphics.setColor(0, 0, 0)
+	love.graphics.rectangle("fill",0,0,self.espacio_x,self.screen_y)
+  love.graphics.setColor(1,1,1,1)
+  self:draw_ui()
+ 
+
 end
 
 

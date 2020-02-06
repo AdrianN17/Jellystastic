@@ -62,12 +62,12 @@ return {
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -11.3333, y = 0.666667 },
+            { x = -14.2083, y = -2.33333 },
             { x = 1836, y = -8 },
             { x = 1757, y = 146 },
             { x = 1737.93, y = 218 },
             { x = 1704.63, y = 407.667 },
-            { x = -12.6093, y = 407.333 }
+            { x = -14.2343, y = 408.333 }
           },
           properties = {}
         },
@@ -124,7 +124,7 @@ return {
           x = 556.667,
           y = 928.667,
           width = 228,
-          height = 260,
+          height = 259,
           rotation = 0,
           visible = true,
           properties = {}
@@ -150,7 +150,7 @@ return {
           x = 1076,
           y = 1010.67,
           width = 468,
-          height = 173.334,
+          height = 175.334,
           rotation = 0,
           visible = true,
           properties = {}
@@ -331,8 +331,8 @@ return {
           name = "Baba",
           type = "",
           shape = "point",
-          x = 1773,
-          y = 1127,
+          x = 1689,
+          y = 1143,
           width = 0,
           height = 0,
           rotation = 0,
