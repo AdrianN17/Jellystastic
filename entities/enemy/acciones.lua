@@ -108,7 +108,7 @@ function acciones:update_enemy(dt)
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  if self.hp < 1 then
+  if self.hp < 0.1 then
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("enemy",self)

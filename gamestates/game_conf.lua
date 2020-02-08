@@ -1,6 +1,6 @@
 local Class = require "libs.hump.class"
-local sti = require "libs.sti"
-local gamera = require "libs.gamera.gamera"
+local Sti = require "libs.sti"
+local Gamera = require "libs.gamera.gamera"
 
 local index_entidades = require "entities.index"
  img_index = require "assets/img/index"
@@ -33,10 +33,10 @@ function game_conf:init(nombreMapa)
   
   self.explosion_scale = 2
   
-  self.map = sti(nombreMapa)
+  self.map = Sti(nombreMapa)
   self.map:resize((x/self.scale)-self.espacio_x,(y/self.scale))
   
-  self.cam = gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
+  self.cam = Gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
   self.cam:setWindow(0,0,x-self.espacio_x,y)
   self.cam:setScale(self.scale)
   

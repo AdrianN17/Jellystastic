@@ -10,9 +10,6 @@ function acciones:init(x,y,w,h)
   self.ground = true
   self.acciones = {moviendo = false, saltando = false, invulnerable = false, quemadura = falses}
   
-  self.touch_inicial={x=0,y=0}
-  self.touch_list={nil,nil}
-  
   self.direccion = 1
   
   self.iterador=1
@@ -71,7 +68,7 @@ function acciones:draw_player()
 end
 
 function acciones:update_player(dt)
-  self:update_bala()
+  self:update_bala_player()
   
   self.timer:update(dt)
   
@@ -87,20 +84,20 @@ function acciones:update_player(dt)
     self.acciones.moviendo = true
   end
   
-		local mx=x*self.mass*self.vel
-    
-		local vx,vy=self.body:getLinearVelocity()
-    
+  local mx=x*self.mass*self.vel
+  
+  local vx,vy=self.body:getLinearVelocity()
+  
 
-		if math.abs(vx)<self.vel then
-      self.body:applyForce(mx,0)
-		end
+  if math.abs(vx)<self.vel then
+    self.body:applyForce(mx,0)
+  end
   
   self.radio = self.body:getAngle()
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  if self.hp < 1 or self.oy > self.entidad.caida_y then
+  if self.hp < 0.1 or self.oy > self.entidad.caida_y then
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)
@@ -193,6 +190,58 @@ function acciones:mousereleased(x,y,button)
   end
 
 end
+
+function acciones:joystick(dir)
+  
+  self.movimiento.a = false
+  self.movimiento.d = false
+  
+  if dir:match("l") then
+    self.movimiento.a = true
+  elseif dir:match("r") then
+    self.movimiento.d = true
+  end
+
+  if dir:match("t") and self.ground and not self.acciones.saltando then
+    self:saltar()
+  end
+end
+
+function acciones:masa(x,y)
+  self.body2:setMass(1)
+  
+  self.joint = love.physics.newRevoluteJoint(self.body,self.body2,x,y,false)
+  
+  self.fixture:setFriction(0.1)
+  self.fixture:setDensity(1)
+	--self.body:setInertia( 1)
+  self.body:setLinearDamping( 1 )
+  self.body: setFixedRotation (true)
+  
+  self.fixture:setUserData( {data="player",obj=self, pos=1} )
+  
+  self.body:resetMassData ()
+  self.body:setMass(20)
+  self.mass = self.body:getMass( )
+  self.mass=self.mass*self.mass
+end
+
+function acciones:recargar_arma()
+  
+  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self.timer_recarga = nil
+    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+      self:recarga(self.arma_index)
+      self.timer:cancel(self.timer_recarga)
+      self.timer_recarga = nil
+    end)
+  end
+end
+
+return acciones
+
+
+--[[
 
 function acciones:touchpressed( id, x, y, dx, dy, pressure )
   
@@ -299,37 +348,4 @@ function acciones:remove_touch(id)
       break
     end
   end
-end
-
-function acciones:masa(x,y)
-  self.body2:setMass(1)
-  
-  self.joint = love.physics.newRevoluteJoint(self.body,self.body2,x,y,false)
-  
-  self.fixture:setFriction(0.1)
-  self.fixture:setDensity(1)
-	--self.body:setInertia( 1)
-  self.body:setLinearDamping( 1 )
-  self.body: setFixedRotation (true)
-  
-  self.fixture:setUserData( {data="player",obj=self, pos=1} )
-  
-  self.body:resetMassData ()
-  self.body:setMass(20)
-  self.mass = self.body:getMass( )
-  self.mass=self.mass*self.mass
-end
-
-function acciones:recargar_arma()
-  
-  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self.timer_recarga = nil
-    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
-      self:recarga(self.arma_index)
-      self.timer:cancel(self.timer_recarga)
-      self.timer_recarga = nil
-    end)
-  end
-end
-
-return acciones
+end]]

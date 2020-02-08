@@ -40,28 +40,29 @@ function bala:init(target)
     end
     
     return 1
-    
   end
-  
 end
 
-function bala:update_bala()
+function bala:update_bala_player()
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
-    
-    if(love.mouse.getX()>self.entidad.espacio_x) and self.arma_index>0 then
-      self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
-      local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
-      
-      self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
-    end
-      
+    self:update_bala_desktop()
+  else
+    self:update_bala_android()
   end
-
 end
 
-function bala:update_bala_android(ox,oy,x,y)
-    self.bx,self.by = self.entidad.cam:toWorld(x,y)
-    self.bala_radio = math.atan2(oy-self.by,ox-self.bx)+math.pi
+function bala:update_bala_desktop()
+  if(love.mouse.getX()>self.entidad.espacio_x) and self.arma_index>0 then
+    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
+    local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+    
+    self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
+  end
+end
+
+function bala:update_bala_android()
+    self.bx,self.by = self.entidad:analogico()
+    self.bala_radio = math.atan2(self.by,self.bx)
 end
 
 function bala:draw_bala()
