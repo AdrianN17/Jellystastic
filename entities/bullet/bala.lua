@@ -52,7 +52,7 @@ function bala:update_bala_player()
 end
 
 function bala:update_bala_desktop()
-  if(love.mouse.getX()>self.entidad.espacio_x) and self.arma_index>0 then
+  if love.mouse.getX()<self.entidad.camera_x_ui and self.arma_index>0 then
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
     
@@ -62,7 +62,10 @@ end
 
 function bala:update_bala_android()
     self.bx,self.by = self.entidad:analogico()
-    self.bala_radio = math.atan2(self.by,self.bx)
+    
+    if self.bx == 0 and self.by == 0 then
+      self.bala_radio = math.atan2(self.by,self.bx)
+    end
 end
 
 function bala:draw_bala()

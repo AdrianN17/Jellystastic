@@ -9,6 +9,7 @@ local Timer = require "libs.chrono.Timer"
 
 local Box2d_conf = require "gamestates.box2d_conf"
 local UI_player = require "gamestates.ui_player"
+local max_decoration = require "entities.max_decoration"
 
 local game_conf = Class{
   __includes = {Box2d_conf,UI_player}
@@ -20,11 +21,18 @@ function game_conf:init(nombreMapa)
   
   
   local x,y=love.graphics.getDimensions( )
+  
+  self.screen_y_normal = y
+  
+  
   if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    
     y = y+100*self.scale_dpi
   end
   
   self.screen_x,self.screen_y = x,y
+  
+  
 
   self.scale = 1/self.scale_dpi
   
@@ -53,6 +61,8 @@ function game_conf:init(nombreMapa)
   self.gameobject.npc = {}
   self.gameobject.map_object = {}
   self.gameobject.holes = {}
+  
+  self.gameobject.decoration={}
   
   self:map_read()
   self:map_create()
@@ -169,7 +179,11 @@ function game_conf:get_objects(objectlayer)
         local data_pos = nil
         
         if obj.shape =="point" then
-          data_pos = {obj.x,obj.y}
+          if obj.name == "Decoration" then
+            table.insert(self.gameobject.decoration,{x=obj.x,y=obj.y,tipo = obj.type, propiedades = obj.properties})
+          else
+            data_pos = {obj.x,obj.y}
+          end
         elseif obj.shape == "polygon" then
           local polygon = {}
 
@@ -191,15 +205,18 @@ function game_conf:get_objects(objectlayer)
         
       end
     end
+    
+    self:dividir_decoraciones()
 end
 
 function game_conf:map_create()
-  local player = self.map:addCustomLayer ("player", 1)
-  local enemy = self.map:addCustomLayer ("enemy", 2)
-  local npc = self.map:addCustomLayer ("npc", 3)
-  local bullet = self.map:addCustomLayer ("object",4 )
-  local object = self.map:addCustomLayer ("object",5 )
-  local map_object = self.map:addCustomLayer ("map_object",6 )
+  local map_object = self.map:addCustomLayer ("map_object",1 )
+  local player = self.map:addCustomLayer ("player", 2)
+  local enemy = self.map:addCustomLayer ("enemy", 3)
+  local npc = self.map:addCustomLayer ("npc", 4)
+  local bullet = self.map:addCustomLayer ("object",5 )
+  local object = self.map:addCustomLayer ("object",6 )
+  
   
   local function stencil()
     for _, obj_data in pairs(self.gameobject.holes) do
@@ -291,6 +308,17 @@ function game_conf:map_create()
       end
     end
     
+    for _, obj_data in pairs(self.gameobject.decoration) do
+      for _, obj_data2 in ipairs(obj_data) do
+        local img = img_index.cosas[obj_data2.tipo][obj_data2.id]
+        local scale = img_index.cosas[obj_data2.tipo .. "_data"]
+        local w,h = img:getWidth()/2,img:getHeight()/2
+        if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data2.x,obj_data2.y,w,h)) then
+          love.graphics.draw(img,obj_data2.x,obj_data2.y,obj_data2.r,scale.x,scale.y,w,h)
+        end
+      end
+    end
+    
     love.graphics.setStencilTest()
     
   end
@@ -369,6 +397,29 @@ function game_conf:CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
          x2 < x1+w1 and
          y1 < y2+h2 and
          y2 < y1+h1
+end
+
+function game_conf:dividir_decoraciones()
+  local list = self.gameobject.decoration
+  self.gameobject.decoration = {}
+  
+  
+  for i,k in ipairs(list) do
+    if self.gameobject.decoration[k.tipo] == nil then
+      self.gameobject.decoration[k.tipo] = {}
+    end
+    
+    local t = {}
+    
+    t.tipo = k.tipo
+    t.id = math.random(1,max_decoration[k.tipo])
+    t.x,t.y = k.x,k.y
+    t.r = math.rad(k.propiedades.radio) 
+    
+    table.insert(self.gameobject.decoration[k.tipo],t)
+    
+  end
+  
 end
 
 return game_conf

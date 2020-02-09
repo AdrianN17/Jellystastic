@@ -54,8 +54,8 @@ function acciones:draw_player()
   
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   
-  love.graphics.print(self.hp,self.ox,self.oy-100)
-  
+  --love.graphics.print(self.hp,self.ox,self.oy-100)
+  love.graphics.print(tostring(self.timer_recarga),self.ox,self.oy-100)
   
   local arma = self.armas_values[self.arma_index]
   
@@ -148,8 +148,6 @@ function acciones:keypressed(key)
         self.timer_recarga=nil
       end
       
-      
-      
       self.arma_index = index
     end
   end
@@ -168,22 +166,20 @@ end
 
 function acciones:mousepressed(x,y,button)
   
-  if(love.mouse.getX()<self.entidad.camera_x_ui) then
+  if love.mouse.getX()<self.entidad.camera_x_ui then
     if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
       self:disparo(self.arma_index)
     elseif button == 2 then
       self:recargar_arma()
     end
   else
-    --moviles
-    self.entidad:check_arma()
+    self.entidad:check_arma(x,y)
   end
   
 end
 
 function acciones:mousereleased(x,y,button)
 
-  
   if button == 1 and self.arma_index > 0 and self.timer_balas then
     self.timer:cancel(self.timer_balas)
     self.timer_balas = nil
@@ -229,12 +225,22 @@ end
 function acciones:recargar_arma()
   
   if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self.timer_recarga = nil
-    self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
-      self:recarga(self.arma_index)
-      self.timer:cancel(self.timer_recarga)
+    local balas = self.armas_values[self.arma_index]
+  
+    if balas.stock<balas.max_stock and balas.municion>0 then
       self.timer_recarga = nil
-    end)
+      self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+        self:recarga(self.arma_index)
+        self.timer:cancel(self.timer_recarga)
+        self.timer_recarga = nil
+      end)
+    end
+  end
+end
+
+function acciones:disparo_balas()
+  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self:disparo(self.arma_index)
   end
 end
 

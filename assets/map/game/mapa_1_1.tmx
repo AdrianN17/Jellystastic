@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="87">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="170">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -11,32 +11,20 @@
    <point/>
   </object>
   <object id="35" name="Gelatina" x="14" y="1192">
-   <polygon points="-14.2083,-2.33333 1836,-8 1757,146 1737.93,218 1704.63,407.667 -14.2343,408.333"/>
+   <polygon points="-14.0052,-2.3177 1836,-8 1757,146 1737.93,218 1704.67,408.023 -14.0155,408.036"/>
   </object>
-  <object id="36" x="2" y="930" width="228" height="260"/>
   <object id="40" name="Gelatina" x="1987.67" y="1596">
-   <polygon points="74.6667,3.5 78.3333,-203.333 509.5,-203.083 507.991,3.31231"/>
+   <polygon points="74.6667,3.5 78.3333,-203.333 509.5,-203.083 507.616,4.18731"/>
   </object>
-  <object id="44" x="234" y="1014.67" width="322.667" height="173.334"/>
-  <object id="45" x="556.667" y="928.667" width="228" height="259"/>
-  <object id="46" x="786" y="758" width="288" height="429.333"/>
-  <object id="47" x="1076" y="1010.67" width="468" height="175.334"/>
-  <object id="48" x="2152.33" y="1132" width="228" height="260"/>
-  <object id="49" x="2573.33" y="1114.67">
+  <object id="49" name="Casa" x="2573.33" y="1114.67">
    <polygon points="0,0 2.66667,-77.3333 40,-41.3333 70.6667,-81.3333 96,-40 168,-86.6667 213.333,-38.6667 236,2.66667"/>
   </object>
   <object id="51" x="2976" y="1120">
    <polygon points="0,0 -552,-224 -488,-368 174,-82 108,-60 136,-24 80,2"/>
   </object>
-  <object id="52" x="3338" y="1290">
-   <polygon points="0,0 -8,-168 30,-130 70,-166 96,-122 146,-160 149.333,-0.333333"/>
+  <object id="52" name="Casa" x="3338" y="1290">
+   <polygon points="-22,2 -24,-169.333 30,-130 70,-166 96,-122 146,-160 149.333,-0.333333"/>
   </object>
-  <object id="53" x="3624" y="1028" width="228" height="260"/>
-  <object id="54" x="3946.43" y="762.388" width="228" height="260" rotation="-11.1036"/>
-  <object id="55" x="4126.67" y="474.907" width="228" height="505.137" rotation="-11.1036"/>
-  <object id="56" x="4418.02" y="769.406" width="465.708" height="158.864" rotation="-11.1036"/>
-  <object id="58" x="4823.43" y="415.993" width="228" height="419.242" rotation="-11.1036"/>
-  <object id="59" x="5073.67" y="485.185" width="228" height="300.902" rotation="-11.1036"/>
   <object id="60" name="Baba" x="1184" y="1138.67">
    <point/>
   </object>
@@ -49,7 +37,7 @@
   <object id="68" name="Baba" x="3531" y="1267">
    <point/>
   </object>
-  <object id="69" name="Baba" x="3873" y="1260">
+  <object id="69" name="Baba" x="3605" y="1268">
    <point/>
   </object>
   <object id="70" name="Baba" x="5609" y="674">
@@ -68,7 +56,7 @@
    <point/>
   </object>
   <object id="79" name="Gelatina" x="3950" y="1070">
-   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2452,225.333 -34.5563,223.058"/>
+   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2450.13,225.333 -287.89,219.058"/>
   </object>
   <object id="80" name="Gelatina" x="2494.67" y="1596">
    <polygon points="0,4 5.33333,-482 774.667,-470.667 820,-305.333 1421.33,-308.667 1420.85,4.54545"/>
@@ -77,10 +65,427 @@
    <polygon points="31.5,-3.41667 42,-46 109.417,-66.8333 109.167,-2.25"/>
   </object>
   <object id="85" name="Gelatina" x="2065.5" y="1394">
-   <polygon points="0.515625,-1.33984 -50.388,-1.27239 -53,97 -77,204.5 -3,204.5"/>
+   <polygon points="0.515625,-1.33984 -50.388,-1.27239 -53,97 -77.75,205.875 -3,205.75"/>
   </object>
   <object id="86" name="Gelatina" x="3917.33" y="1290.67">
-   <polygon points="-1.25,0.25 -2.66667,308 2482.67,306.667 2484,4"/>
+   <polygon points="-1.25,0.25 -1.91667,309.5 2483.05,309.417 2483.13,3.875"/>
+  </object>
+  <object id="89" name="Casa" x="2" y="1187.9">
+   <polygon points="-2,1.79072 -2,-273.896 227,-273.896 227.25,1.32702"/>
+  </object>
+  <object id="90" name="Casa" x="236" y="987.971">
+   <polygon points="-7.22464,3.56923 -6.75,201.029 318.75,200.173 319,3.28442"/>
+  </object>
+  <object id="91" name="Casa" x="557" y="928">
+   <polygon points="-2.25,0 230,-1 229,260 -2.5,260"/>
+  </object>
+  <object id="92" name="Casa" x="786" y="754">
+   <polygon points="0,0 290.5,1 290.75,432.25 -0.25,434"/>
+  </object>
+  <object id="93" name="Casa" x="1077" y="1012">
+   <polygon points="-0.429348,-0.375 469,0 469.273,173.273 -0.25,174.25"/>
+  </object>
+  <object id="94" name="Casa" x="2154" y="1389">
+   <polygon points="0,3.66667 -2,-261 227,-257 226.667,3"/>
+  </object>
+  <object id="97" name="Casa" x="3947" y="765">
+   <polygon points="0,0 230,-47.3333 280.333,206 51.6667,255"/>
+  </object>
+  <object id="98" name="Casa" x="4128" y="474">
+   <polygon points="0,0 222,-43 323,451 99,496"/>
+  </object>
+  <object id="99" name="Casa" x="4826" y="418">
+   <polygon points="-0.666667,0 224.333,-46.3333 302.667,367.667 81.3333,414"/>
+  </object>
+  <object id="100" name="Casa" x="5075" y="489">
+   <polygon points="-2,0 222,-46 283.333,249.667 53.6667,297"/>
+  </object>
+  <object id="101" name="Casa" x="4419" y="766">
+   <polygon points="0,0 457,-89 488,65 32,159"/>
+  </object>
+  <object id="102" name="Decoration" type="ventana" x="52" y="1018">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="104" name="Decoration" type="ventana" x="302" y="1070">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="105" name="Decoration" type="ventana" x="488" y="1062">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="106" name="Decoration" type="ventana" x="614" y="1006">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="107" name="Decoration" type="ventana" x="736" y="1002">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="108" name="Decoration" type="ventana" x="844" y="846">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="109" name="Decoration" type="ventana" x="1020" y="846">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="110" name="Decoration" type="ventana" x="1488" y="1096">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="111" name="Decoration" type="ventana" x="1132" y="1094">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="113" name="Decoration" type="ventana" x="836" y="1082">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="114" name="Decoration" type="ventana" x="1026" y="1080">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="115" name="Decoration" type="ventana" x="740" y="1120">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="116" name="Decoration" type="ventana" x="604" y="1110">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="118" name="Decoration" type="ventana" x="2340" y="1192">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="119" name="Decoration" type="ventana" x="2212" y="1308">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="120" name="Decoration" type="ventana" x="3364" y="1206">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="121" name="Decoration" type="ventana" x="4020" y="900">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="122" name="Decoration" type="ventana" x="4148" y="836">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="123" name="Decoration" type="ventana" x="4204" y="546">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="124" name="Decoration" type="ventana" x="4374" y="736">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="125" name="Decoration" type="ventana" x="4254" y="832">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="126" name="Decoration" type="ventana" x="4280" y="666">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="127" name="Decoration" type="ventana" x="4486" y="820">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="128" name="Decoration" type="ventana" x="4830" y="754">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="129" name="Decoration" type="ventana" x="4954" y="490">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="130" name="Decoration" type="ventana" x="5004" y="698">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="131" name="Decoration" type="ventana" x="4976" y="578">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="133" name="Decoration" type="ventana" x="5306" y="672">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="134" name="Decoration" type="ventana" x="5128" y="588">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="135" name="Decoration" type="confite" x="51" y="944">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="136" name="Decoration" type="confite" x="43.3333" y="1117.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="137" name="Decoration" type="confite" x="212" y="1142.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="138" name="Decoration" type="confite" x="263.333" y="1044.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="139" name="Decoration" type="confite" x="526" y="1167.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="140" name="Decoration" type="confite" x="409.333" y="1037.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="141" name="Decoration" type="confite" x="1048" y="952">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="142" name="Decoration" type="confite" x="944" y="833.333">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="143" name="Decoration" type="confite" x="846.667" y="960">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="144" name="Decoration" type="confite" x="1362.67" y="1096">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="145" name="Decoration" type="confite" x="1257.33" y="1056">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="146" name="Decoration" type="confite" x="1457.33" y="1154.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="147" name="Decoration" type="confite" x="748" y="1172">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="148" name="Decoration" type="confite" x="1040" y="1160">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="149" name="Decoration" type="confite" x="2321.33" y="1276">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="150" name="Decoration" type="confite" x="2265.33" y="1192">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="151" name="Decoration" type="confite" x="2185.33" y="1368">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="152" name="Decoration" type="confite" x="3462.67" y="1217.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="153" name="Decoration" type="confite" x="3362.67" y="1277.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="154" name="Decoration" type="confite" x="4032" y="986.667">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="155" name="Decoration" type="confite" x="4050.67" y="818.667">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="156" name="Decoration" type="confite" x="4170.67" y="945.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="157" name="Decoration" type="confite" x="4221.33" y="742.667">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="158" name="Decoration" type="confite" x="4326.67" y="513.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="159" name="Decoration" type="confite" x="4204" y="644">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="160" name="Decoration" type="confite" x="4349.33" y="633.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="161" name="Decoration" type="confite" x="4394.67" y="873.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="162" name="Decoration" type="confite" x="4597.33" y="792">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="163" name="Decoration" type="confite" x="4493.33" y="888">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="164" name="Decoration" type="confite" x="4729.33" y="765.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="165" name="Decoration" type="confite" x="5312" y="726.667">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="166" name="Decoration" type="confite" x="5282.67" y="501.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="167" name="Decoration" type="confite" x="4893.33" y="510.667">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="168" name="Decoration" type="confite" x="5074.67" y="692">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="169" name="Decoration" type="confite" x="4956" y="793.333">
+   <properties>
+    <property name="radio" type="int" value="-17"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

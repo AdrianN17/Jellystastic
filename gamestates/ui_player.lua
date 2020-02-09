@@ -41,8 +41,7 @@ function ui_player:draw_ui()
   end
 end
 
-function ui_player:check_arma()
-  local x,y = love.mouse.getPosition()
+function ui_player:check_arma(x,y)
   
   for i,k in pairs(self.aabb_armas) do
     
@@ -51,11 +50,7 @@ function ui_player:check_arma()
       local player = self.gameobject.player[1]
   
       if player then
-        if k.index == tostring(player.arma_index) then
-          player:recargar_arma()
-        else
-          player:keypressed(k.index)
-        end
+        player:keypressed(k.index)
       end
     end
   end
