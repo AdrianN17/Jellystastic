@@ -16,6 +16,14 @@ function game:init()
   game_conf.init(self,map_index.multiplayer[1])
   
   if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+  
+  local style = {
+    showBorder = true,
+    bgColor = {0, 0, 0,0.2}
+  }
+  gooi.setStyle(style)
+  
+  
     joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
     joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
   end
