@@ -73,6 +73,9 @@ index.texturas["gelatina"]:setWrap("repeat")
 index.texturas["casa"] = love.graphics.newImage("assets/img/ladrillo2.png")
 index.texturas["casa"]:setWrap("repeat")
 
+index.texturas["casa_interior"] = love.graphics.newImage("assets/img/ladrillo.png")
+index.texturas["casa_interior"]:setWrap("repeat")
+
 index.cosas = {}
 
 index.cosas["ventana"]={}
@@ -92,6 +95,13 @@ index.cosas["confite"][4] = love.graphics.newImage("assets/img/ladrilloEfecto4.p
 index.cosas["confite_data"] = {}
 index.cosas["confite_data"].x = 0.06
 index.cosas["confite_data"].y = 0.06
+
+index.cosas["puerta"] = {}
+index.cosas["puerta"][1] = love.graphics.newImage("assets/img/puertas.png")
+
+index.cosas["puerta_data"] = {}
+index.cosas["puerta_data"].x = 0.2
+index.cosas["puerta_data"].y = 0.2
 
 index.armas = {}
 

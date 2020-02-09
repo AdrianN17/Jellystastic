@@ -16,9 +16,15 @@ local game_conf = Class{
 }
 
 function game_conf:init(nombreMapa)
+  local dpi = 0
   
-  self.scale_dpi = love.window.getDPIScale()
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    dpi = 1.5
+  else
+    dpi = 1
+  end
   
+  self.scale_dpi = dpi
   
   local x,y=love.graphics.getDimensions( )
   
@@ -63,6 +69,8 @@ function game_conf:init(nombreMapa)
   self.gameobject.holes = {}
   
   self.gameobject.decoration={}
+  
+  self.gameobject.door = {}
   
   self:map_read()
   self:map_create()
@@ -194,7 +202,11 @@ function game_conf:get_objects(objectlayer)
           
           data_pos = polygon
         elseif obj.shape == "rectangle" then
-          data_pos = {obj.x,obj.y,obj.width,obj.height}
+          if obj.name == "Puerta" then
+            index_entidades[obj.name](self,obj.x+obj.width,obj.y+obj.height,img_index,obj.rotation)
+          else
+            data_pos = {obj.x,obj.y,obj.width,obj.height}
+          end
         elseif obj.shape == "ellipse" then
           data_pos = {obj.x,obj.y,obj.width,obj.height}
         end
@@ -316,6 +328,12 @@ function game_conf:map_create()
         if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data2.x,obj_data2.y,w,h)) then
           love.graphics.draw(img,obj_data2.x,obj_data2.y,obj_data2.r,scale.x,scale.y,w,h)
         end
+      end
+    end
+    
+    for _, obj_data in ipairs(self.gameobject.door) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
       end
     end
     

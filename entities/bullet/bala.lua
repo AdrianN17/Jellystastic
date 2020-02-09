@@ -134,8 +134,6 @@ function bala:unico_target()
         obj_target.direccion = obj_target.direccion*-1
       end
       
-      print("a")
-      
     end
     
   end

@@ -19,7 +19,7 @@ function baba:init(entidad,posicion,img)
   
   self.creador = -2
   self.hp = 10
-  self.vel = 85
+  self.vel = 100
   self.limite_vision=200
   self.posicion_ataque=false
   

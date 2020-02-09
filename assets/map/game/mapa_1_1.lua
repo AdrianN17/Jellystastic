@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 170,
+  nextobjectid = 300,
   properties = {},
   tilesets = {},
   layers = {
@@ -471,16 +471,16 @@ return {
           type = "",
           shape = "polygon",
           x = 1077,
-          y = 1012,
+          y = 917.204,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -0.429348, y = -0.375 },
+            { x = -0.429348, y = -0.579009 },
             { x = 469, y = 0 },
-            { x = 469.273, y = 173.273 },
-            { x = -0.25, y = 174.25 }
+            { x = 469.273, y = 267.537 },
+            { x = -0.25, y = 269.046 }
           },
           properties = {}
         },
@@ -708,8 +708,8 @@ return {
           name = "Decoration",
           type = "ventana",
           shape = "point",
-          x = 1488,
-          y = 1096,
+          x = 1486,
+          y = 1020,
           width = 0,
           height = 0,
           rotation = 0,
@@ -723,8 +723,8 @@ return {
           name = "Decoration",
           type = "ventana",
           shape = "point",
-          x = 1132,
-          y = 1094,
+          x = 1133,
+          y = 1008,
           width = 0,
           height = 0,
           rotation = 0,
@@ -813,8 +813,8 @@ return {
           name = "Decoration",
           type = "ventana",
           shape = "point",
-          x = 2212,
-          y = 1308,
+          x = 2191.33,
+          y = 1255.67,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1557,6 +1557,1643 @@ return {
           properties = {
             ["radio"] = -17
           }
+        },
+        {
+          id = 170,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 369.333,
+          y = 1353.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 171,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 440,
+          y = 1474.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 172,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 786.667,
+          y = 1416,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 173,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 686.667,
+          y = 1496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 174,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 657.333,
+          y = 1340,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 175,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 140,
+          y = 1405.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 176,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 122.667,
+          y = 1277.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 177,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1116,
+          y = 1470.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 178,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1253.33,
+          y = 1318.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 179,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1505.33,
+          y = 1464,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 180,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1661.33,
+          y = 1329.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 181,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1492,
+          y = 1312,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 182,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1330.67,
+          y = 1506.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 183,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 989.333,
+          y = 1305.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 184,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2161.33,
+          y = 1553.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 185,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2241.33,
+          y = 1458.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 186,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2046.67,
+          y = 1458.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 187,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2033.33,
+          y = 1554.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 188,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2392,
+          y = 1528,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 189,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2482.67,
+          y = 1448,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 190,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2304,
+          y = 1534.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 191,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2608,
+          y = 1188,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 192,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2906.67,
+          y = 1193.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 193,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3076,
+          y = 1193.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 194,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2942.67,
+          y = 1269.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 195,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2720,
+          y = 1296,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 196,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2912,
+          y = 1413.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 197,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3116,
+          y = 1328,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 198,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2874.67,
+          y = 1530.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 199,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2749.33,
+          y = 1510.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 200,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2601.33,
+          y = 1398.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 201,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2589.33,
+          y = 1266.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 202,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 2724,
+          y = 1356,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 203,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3188,
+          y = 1221.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 204,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3236,
+          y = 1417.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 205,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3129.33,
+          y = 1458.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 206,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3081.33,
+          y = 1524,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 207,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3269.33,
+          y = 1509.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 208,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3513.33,
+          y = 1366.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 209,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3716,
+          y = 1360,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 210,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3884,
+          y = 1437.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 211,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3730.67,
+          y = 1488,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 212,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3565.33,
+          y = 1496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 213,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3390.67,
+          y = 1384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 214,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3438.67,
+          y = 1504,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 215,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3824,
+          y = 1256,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 216,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 3992,
+          y = 1144,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 217,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4118.67,
+          y = 1120,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 218,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4205.33,
+          y = 1182.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 219,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4104,
+          y = 1214.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 220,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4061.33,
+          y = 1476,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 221,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4149.33,
+          y = 1402.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 222,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4453.33,
+          y = 1458.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 223,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4697.33,
+          y = 1461.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 224,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4557.33,
+          y = 1384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 225,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4306.67,
+          y = 1502.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 226,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4868,
+          y = 1533.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 227,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4990.67,
+          y = 1430.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 228,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5102.67,
+          y = 1372,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 229,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5178.67,
+          y = 1490.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 230,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4801.33,
+          y = 1353.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 231,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4342.67,
+          y = 1206.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 232,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4422.67,
+          y = 1029.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 233,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4586.67,
+          y = 1197.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 234,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4672,
+          y = 1089.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 235,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4898.67,
+          y = 1028,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 236,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5009.33,
+          y = 1166.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 237,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 4888,
+          y = 1189.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 238,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5050.67,
+          y = 896,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 239,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5192,
+          y = 1132,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 240,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5208,
+          y = 938.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 241,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5460,
+          y = 870,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 242,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5698,
+          y = 812,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 243,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6104,
+          y = 860,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 244,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5872,
+          y = 1004,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 245,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5568,
+          y = 968,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 246,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5584,
+          y = 1096,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 247,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5486,
+          y = 1188,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 248,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5444,
+          y = 1018,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 249,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5396,
+          y = 1300,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 250,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5394,
+          y = 1420,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 251,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5640,
+          y = 1434,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 252,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5986,
+          y = 1336,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 253,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6198,
+          y = 1472,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 254,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5856,
+          y = 1410,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 255,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5670,
+          y = 1118,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 256,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5814,
+          y = 1192,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 257,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5756,
+          y = 964,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 258,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5890,
+          y = 836,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 259,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6188,
+          y = 1126,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 260,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6116,
+          y = 1172,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 261,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 5906,
+          y = 1056,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 262,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6086,
+          y = 972,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 263,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6232,
+          y = 804,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 264,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6274,
+          y = 1194,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 265,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 6272,
+          y = 924,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 266,
+          name = "Decoration",
+          type = "confite",
+          shape = "point",
+          x = 1648,
+          y = 1508,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 282,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 76,
+          y = 1087,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 284,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 352,
+          y = 1088,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 285,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 632,
+          y = 1087,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 286,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 897,
+          y = 1084,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 287,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 1145,
+          y = 1083,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 288,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 1423,
+          y = 1084,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 289,
+          name = "Puerta",
+          type = "2",
+          shape = "rectangle",
+          x = 2236,
+          y = 1292,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 290,
+          name = "Puerta",
+          type = "3",
+          shape = "rectangle",
+          x = 3385,
+          y = 1189,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 291,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 4059.75,
+          y = 903.374,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 293,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 4289.33,
+          y = 855.333,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 294,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 4524,
+          y = 806,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 295,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 4742,
+          y = 762,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 296,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 4969,
+          y = 716,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 297,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 5189,
+          y = 670,
+          width = 60,
+          height = 100,
+          rotation = -11.339,
+          visible = true,
+          properties = {}
         }
       }
     }

@@ -6,4 +6,6 @@ index.Baba = require "entities.enemy.baba"
 
 index.Casa = require "entities.map_object.casa"
 
+index.Puerta = require "entities.map_object.puerta"
+
 return index
