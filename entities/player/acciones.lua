@@ -44,6 +44,7 @@ function acciones:init(x,y,w,h)
   self.mano_fisica.fixture_mano:setSensor( true )
   
   self.fixture : setGroupIndex ( self.creador )
+  self.body:setBullet(true)
   
 end
 
@@ -243,114 +244,6 @@ function acciones:disparo_balas()
   end
 end
 
+
+
 return acciones
-
-
---[[
-
-function acciones:touchpressed( id, x, y, dx, dy, pressure )
-  
-  if(love.mouse.getX()<self.entidad.camera_x_ui) then
-    self:add_touch(id)
-    
-    if id == self.touch_list[1] then
-      
-      self.touch_inicial.x = x
-      self.touch_inicial.y = y
-      
-    elseif id==self.touch_list[2] then
-
-      
-      self:update_bala_android(self.ox,self.oy,x,y)
-      
-      if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-        self:disparo(self.arma_index)
-      end
-    end
-  else
-    --moviles
-    self.entidad:check_arma()
-  end
-end
-
-function acciones:touchreleased( id, x, y, dx, dy, pressure )
-  
-  if id==self.touch_list[1] then
-    self.movimiento.a = false
-    self.movimiento.d = false
-  elseif id==self.touch_list[2]  then
-    if self.arma_index > 0 and self.timer_balas then
-      self.timer:cancel(self.timer_balas)
-      self.timer_balas = nil
-    end
-  end
-  
-  self:remove_touch(id)
-  
-end
-
-function acciones:touchmoved( id, x, y, dx, dy, pressure )
- 
-  if(love.mouse.getX()<self.entidad.camera_x_ui) then
-  
-    if id==self.touch_list[1] then
-      
-      local x_c = self.touch_inicial.x-x
-      local y_c = self.touch_inicial.y-y
-      
-      if  x_c <= 50 then
-        
-        self.movimiento.a = false
-        self.movimiento.d = true
-      elseif x_c >= -50 then
-        self.movimiento.a = true
-        self.movimiento.d = false
-      end
-      
-      if y_c >= 80 and self.ground and not self.acciones.saltando then
-        self:saltar()
-      end
-      
-    elseif id==self.touch_list[2] then
-      self:update_bala_android(self.ox,self.oy,x,y)
-      
-    end
-  end
-  
-end
-
-function acciones:add_touch(id)
-  
-  local validar=true
-  
-  for i=1,2,1 do
-    local k = self.touch_list[i]
-    
-    if k == id then
-      validar=false
-      break
-    end
-  end
-  
-
-  if validar then
-    for i=1,2,1 do
-      local k = self.touch_list[i]
-      
-      if k == nil then
-        self.touch_list[i] = id
-        break
-      end
-    end
-  end
-end
-
-function acciones:remove_touch(id)
-  for i=1,2,1 do
-    local k = self.touch_list[i]
-    if k == id then
-      self.touch_list[i] = nil
-      break
-    end
-  end
-end]]

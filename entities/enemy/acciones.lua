@@ -21,7 +21,6 @@ function acciones:init(x,y,w,h)
   self.body2 = love.physics.newBody(self.entidad.world,x,y,"dynamic")
   
   --extremidades
-  
   self.lineas_fisica = {}
   self.lineas_fisica.shape_suelo = {}
   self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,80)
@@ -52,6 +51,8 @@ function acciones:init(x,y,w,h)
 
   --presa
   self.obj_presa = nil
+  
+  self.body:setBullet(true)
 end
 
 function acciones:draw_enemy()
@@ -62,12 +63,12 @@ function acciones:draw_enemy()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   
-  --love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
+  love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
   
-  --love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
+  love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
   
-  --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
-  --love.graphics.line(x1,y1,w1,h1)
+  local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
+  love.graphics.line(x1,y1,w1,h1)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end

@@ -7,10 +7,6 @@ require "libs.gooi"
 
 local joy_disparo=nil
 local joy_movimiento=nil
-local boton_recargar = nil
-local boton_disparar =nil
-
-
 
 local game = Class{
     __includes = {game_conf}
@@ -20,23 +16,8 @@ function game:init()
   game_conf.init(self,map_index.multiplayer[1])
   
   if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
-    
-    joy_movimiento = gooi.newJoy({size = 100*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 100*self.scale}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
-    joy_disparo = gooi.newJoy({size = 100*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 100*self.scale}):setStyle({showBorder = true}):setImage("assets/img/joystick.png")
-    boton_disparar = gooi.newButton({text = "Disparar",x = (self.camera_x_ui/2) - (100*self.scale)/2 ,y = self.screen_y_normal - 50*self.scale ,w = 100*self.scale,h = 25*self.scale}):onRelease(function()
-      if self.gameobject.player[1] then
-        self.gameobject.player[1]:disparo_balas()
-      end
-    end)
-    
-    
-    
-    boton_recargar = gooi.newButton({text = "Recargar",x = (self.camera_x_ui/2) - (100*self.scale)/2 ,y = self.screen_y_normal - 100*self.scale ,w = 100*self.scale,h = 25*self.scale}):onRelease(function()
-      if self.gameobject.player[1] then
-        self.gameobject.player[1]:recargar_arma()
-      end
-    end)
-  
+    joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
+    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale}):setStyle({showBorder = true}):setImage("assets/img/joystick.png")
   end
   
 end

@@ -123,9 +123,7 @@ function baba:init(entidad,posicion,img)
     if self.cambiar_direccion then
       self.direccion=self.direccion*-1
     end
-    
   end)
-
 
   self.timer:every(0.05,function() 
     self.posicion_ataque=false
@@ -139,9 +137,6 @@ function baba:init(entidad,posicion,img)
       self.posicion_ataque=false
     end
   end)
-
-
-
 end
 
 function baba:draw()
@@ -149,11 +144,7 @@ function baba:draw()
 end
 
 function baba:update(dt)
-  
   self:update_enemy(dt)
-  
-  
 end
-
 
 return baba

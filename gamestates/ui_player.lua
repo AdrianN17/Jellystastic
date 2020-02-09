@@ -49,7 +49,9 @@ function ui_player:check_arma(x,y)
 
       local player = self.gameobject.player[1]
   
-      if player then
+      if k.index == tostring(player.arma_index) then
+        player:recargar_arma()
+      else
         player:keypressed(k.index)
       end
     end

@@ -22,7 +22,7 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   self.shape = love.physics.newCircleShape(18)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setRestitution(0.5)
-  
+  self.body:setBullet(true)
   self.body:setMass(0)
   self.body:setLinearDamping( 1 )
   self.fixture:setFriction(1)
@@ -41,7 +41,7 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   
   local angle = math.abs(math.rad(angle))
   local cx,cy  = math.cos(angle),math.sin(angle)
-  self.vel = 100
+  self.vel = 200
   
   local direccion = self.ox-ex
   local dir = -1
