@@ -54,8 +54,7 @@ function acciones:draw_player()
   
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   
-  --love.graphics.print(self.hp,self.ox,self.oy-100)
-  love.graphics.print(tostring(self.timer_recarga),self.ox,self.oy-100)
+  love.graphics.print(self.hp,self.ox,self.oy-100)
   
   local arma = self.armas_values[self.arma_index]
   
