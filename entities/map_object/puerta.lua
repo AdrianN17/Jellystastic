@@ -1,8 +1,7 @@
 local Class = require "libs.hump.class"
 local puerta = Class{}
 
-function puerta:init(entidad,x,y,img,radio)
-  print(entidad,x,y,img,radio)
+function puerta:init(entidad,x,y,img,radio,tipo)
   self.entidad = entidad
   self.ox,self.oy = x,y
   self.img = img.cosas.puerta[1]
@@ -11,6 +10,8 @@ function puerta:init(entidad,x,y,img,radio)
   
   self.w = self.img:getWidth()
   self.h = self.img:getHeight()
+  
+  self.tipo_puerta = tipo
   
   self.entidad:add_obj("door",self)
   

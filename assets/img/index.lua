@@ -70,11 +70,14 @@ index.texturas = {}
 index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
-index.texturas["casa"] = love.graphics.newImage("assets/img/ladrillo2.png")
+index.texturas["casa"] = love.graphics.newImage("assets/img/ladrillo5.png")
 index.texturas["casa"]:setWrap("repeat")
 
 index.texturas["casa_interior"] = love.graphics.newImage("assets/img/ladrillo.png")
 index.texturas["casa_interior"]:setWrap("repeat")
+
+index.texturas["techo"] = love.graphics.newImage("assets/img/techo.png")
+index.texturas["techo"]:setWrap("repeat")
 
 index.cosas = {}
 

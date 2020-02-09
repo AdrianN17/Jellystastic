@@ -71,6 +71,7 @@ function game_conf:init(nombreMapa)
   self.gameobject.decoration={}
   
   self.gameobject.door = {}
+  self.gameobject.platform = {}
   
   self:map_read()
   self:map_create()
@@ -203,7 +204,7 @@ function game_conf:get_objects(objectlayer)
           data_pos = polygon
         elseif obj.shape == "rectangle" then
           if obj.name == "Puerta" then
-            index_entidades[obj.name](self,obj.x+obj.width,obj.y+obj.height,img_index,obj.rotation)
+            index_entidades[obj.name](self,obj.x+obj.width,obj.y+obj.height,img_index,obj.rotation,tipo)
           else
             data_pos = {obj.x,obj.y,obj.width,obj.height}
           end
@@ -332,6 +333,12 @@ function game_conf:map_create()
     end
     
     for _, obj_data in ipairs(self.gameobject.door) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+    
+    for _, obj_data in ipairs(self.gameobject.platform) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
       end

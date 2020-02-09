@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="300">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="312">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -1083,5 +1083,38 @@
   <object id="295" name="Puerta" type="4" x="4742" y="762" width="60" height="100" rotation="-11.339"/>
   <object id="296" name="Puerta" type="4" x="4969" y="716" width="60" height="100" rotation="-11.339"/>
   <object id="297" name="Puerta" type="4" x="5189" y="670" width="60" height="100" rotation="-11.339"/>
+  <object id="300" name="Plataforma" x="227" y="928">
+   <polygon points="0,0 -225,1 -227,-14 -130,-121 -72,-122 -71,-98 -124,-96 -129,-24 -2,-24"/>
+  </object>
+  <object id="301" name="Plataforma" x="224" y="980">
+   <polygon points="0,0 329.665,0 331,23 9.34274,25"/>
+  </object>
+  <object id="303" name="Plataforma" x="559" y="938">
+   <polygon points="0,0 229,-1 227,-104 131,-104 132,-78 187,-78 186,-22 1,-26"/>
+  </object>
+  <object id="304" name="Plataforma" x="787" y="770">
+   <polygon points="0,0 287,2 287,-19 103,-18 103,-94 151,-93 148,-119 100,-116 1,-26"/>
+  </object>
+  <object id="305" name="Plataforma" x="1080" y="934">
+   <polygon points="0,0 465,3 466,-15 -2,-16"/>
+  </object>
+  <object id="306" name="Plataforma" x="2378" y="1143">
+   <polygon points="0,0 -228,0 -227,-20 -118,-128 -40,-126 -42,-104 -110,-100 -120,-18 1,-15"/>
+  </object>
+  <object id="307" name="Plataforma" x="3953" y="793">
+   <polygon points="0,0 230,-45 221,-76 -9,-28"/>
+  </object>
+  <object id="308" name="Plataforma" x="4136" y="499">
+   <polygon points="0,0 219,-40 211,-65 84,-41 65,-101 100,-112 84,-142 56,-130 -9,-28"/>
+  </object>
+  <object id="309" name="Plataforma" x="4425" y="786">
+   <polygon points="0,0 450,-88 447,-109 -5,-23"/>
+  </object>
+  <object id="310" name="Plataforma" x="4826" y="413">
+   <polygon points="0,0 5,46 233,-2 223,-41 110,-147 47,-129 57,-96 112,-112 143,-32"/>
+  </object>
+  <object id="311" name="Plataforma" x="5077" y="520">
+   <polygon points="0,0 227,-46 219,-80 -5,-29.7143"/>
+  </object>
  </objectgroup>
 </map>

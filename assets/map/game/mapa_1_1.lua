@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 300,
+  nextobjectid = 312,
   properties = {},
   tilesets = {},
   layers = {
@@ -3193,6 +3193,244 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
+          properties = {}
+        },
+        {
+          id = 300,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 227,
+          y = 928,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -225, y = 1 },
+            { x = -227, y = -14 },
+            { x = -130, y = -121 },
+            { x = -72, y = -122 },
+            { x = -71, y = -98 },
+            { x = -124, y = -96 },
+            { x = -129, y = -24 },
+            { x = -2, y = -24 }
+          },
+          properties = {}
+        },
+        {
+          id = 301,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 224,
+          y = 980,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 329.665, y = 0 },
+            { x = 331, y = 23 },
+            { x = 9.34274, y = 25 }
+          },
+          properties = {}
+        },
+        {
+          id = 303,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 559,
+          y = 938,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 229, y = -1 },
+            { x = 227, y = -104 },
+            { x = 131, y = -104 },
+            { x = 132, y = -78 },
+            { x = 187, y = -78 },
+            { x = 186, y = -22 },
+            { x = 1, y = -26 }
+          },
+          properties = {}
+        },
+        {
+          id = 304,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 787,
+          y = 770,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 287, y = 2 },
+            { x = 287, y = -19 },
+            { x = 103, y = -18 },
+            { x = 103, y = -94 },
+            { x = 151, y = -93 },
+            { x = 148, y = -119 },
+            { x = 100, y = -116 },
+            { x = 1, y = -26 }
+          },
+          properties = {}
+        },
+        {
+          id = 305,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 1080,
+          y = 934,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 465, y = 3 },
+            { x = 466, y = -15 },
+            { x = -2, y = -16 }
+          },
+          properties = {}
+        },
+        {
+          id = 306,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 2378,
+          y = 1143,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -228, y = 0 },
+            { x = -227, y = -20 },
+            { x = -118, y = -128 },
+            { x = -40, y = -126 },
+            { x = -42, y = -104 },
+            { x = -110, y = -100 },
+            { x = -120, y = -18 },
+            { x = 1, y = -15 }
+          },
+          properties = {}
+        },
+        {
+          id = 307,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 3953,
+          y = 793,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 230, y = -45 },
+            { x = 221, y = -76 },
+            { x = -9, y = -28 }
+          },
+          properties = {}
+        },
+        {
+          id = 308,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4136,
+          y = 499,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 219, y = -40 },
+            { x = 211, y = -65 },
+            { x = 84, y = -41 },
+            { x = 65, y = -101 },
+            { x = 100, y = -112 },
+            { x = 84, y = -142 },
+            { x = 56, y = -130 },
+            { x = -9, y = -28 }
+          },
+          properties = {}
+        },
+        {
+          id = 309,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4425,
+          y = 786,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 450, y = -88 },
+            { x = 447, y = -109 },
+            { x = -5, y = -23 }
+          },
+          properties = {}
+        },
+        {
+          id = 310,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4826,
+          y = 413,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 5, y = 46 },
+            { x = 233, y = -2 },
+            { x = 223, y = -41 },
+            { x = 110, y = -147 },
+            { x = 47, y = -129 },
+            { x = 57, y = -96 },
+            { x = 112, y = -112 },
+            { x = 143, y = -32 }
+          },
+          properties = {}
+        },
+        {
+          id = 311,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 5077,
+          y = 520,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 227, y = -46 },
+            { x = 219, y = -80 },
+            { x = -5, y = -29.7143 }
+          },
           properties = {}
         }
       }
