@@ -63,9 +63,9 @@ end
 function bala:update_bala_android()
     self.bx,self.by = self.entidad:analogico()
     
-    if self.bx ~= 0 and self.by ~= 0 then
-      self.bala_radio = math.atan2(self.by,self.bx)
-    end
+
+    self.bala_radio = math.atan2(self.by,self.bx)
+ 
 end
 
 function bala:draw_bala()

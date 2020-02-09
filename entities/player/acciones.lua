@@ -180,9 +180,8 @@ end
 
 function acciones:mousereleased(x,y,button)
 
-  if button == 1 and self.arma_index > 0 and self.timer_balas then
-    self.timer:cancel(self.timer_balas)
-    self.timer_balas = nil
+  if button == 1 then
+    self:terminar_disparo_balas()
   end
 
 end
@@ -241,6 +240,13 @@ end
 function acciones:disparo_balas()
   if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
     self:disparo(self.arma_index)
+  end
+end
+
+function acciones:terminar_disparo_balas()
+  if self.arma_index > 0 and self.timer_balas then
+    self.timer:cancel(self.timer_balas)
+    self.timer_balas = nil
   end
 end
 

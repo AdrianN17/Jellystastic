@@ -39,20 +39,38 @@ function ui_player:draw_ui()
   for i,k in pairs(self.aabb_armas) do
     love.graphics.rectangle("line",k.x,k.y,k.w,k.h)
   end
+  love.graphics.rectangle("line",(self.camera_x_ui/2) - (180*self.scale)/2 ,self.screen_y_normal - 100*self.scale ,180*self.scale,100*self.scale)
+  
 end
 
-function ui_player:check_arma(x,y)
+function ui_player:check_arma(x,y,tipo)
   
-  for i,k in pairs(self.aabb_armas) do
-    
-    if x > k.x and x <k.x+k.w and y > k.y and y <k.y+k.h then
+  local player = self.gameobject.player[1]
+  
+  if player then
+    if tipo == 1 then
+      for i,k in pairs(self.aabb_armas) do
+        
+        if x > k.x and x <k.x+k.w and y > k.y and y <k.y+k.h then
 
-      local player = self.gameobject.player[1]
-  
-      if k.index == tostring(player.arma_index) then
-        player:recargar_arma()
-      else
-        player:keypressed(k.index)
+          if k.index == tostring(player.arma_index) then
+            -- a futuro presionar donde salga las balas para recargar
+            player:recargar_arma()
+          else
+            player:keypressed(k.index)
+          end
+        end
+      end
+    end   
+    
+    local x_d,y_d = (self.camera_x_ui/2) - (100*self.scale)/2, self.screen_y_normal - 100*self.scale
+    local w_d,h_d = 180*self.scale,100*self.scale
+    
+    if x > x_d and x <x_d+w_d and y > y_d  and y <y_d +h_d then
+      if tipo == 1 then
+        player:disparo_balas()
+      elseif tipo == 2 then
+        player:terminar_disparo_balas()
       end
     end
   end

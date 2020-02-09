@@ -17,7 +17,7 @@ function game:init()
   
   if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
     joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
-    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale}):setStyle({showBorder = true}):setImage("assets/img/joystick.png")
+    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
   end
   
 end
@@ -82,7 +82,7 @@ function game:touchpressed( id, x, y, dx, dy, pressure )
     gooi.pressed(id, x, y)
     
     if self.gameobject.player[1] then
-      self:check_arma(x,y)
+      self:check_arma(x,y,1)
     end
   end
 end
@@ -92,7 +92,7 @@ function game:touchreleased( id, x, y, dx, dy, pressure )
     
     gooi.released(id, x, y)
     if self.gameobject.player[1] then
-
+      self:check_arma(x,y,2)
     end
   end
 end
