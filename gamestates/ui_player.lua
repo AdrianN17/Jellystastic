@@ -39,8 +39,10 @@ function ui_player:draw_ui()
   for i,k in pairs(self.aabb_armas) do
     love.graphics.rectangle("line",k.x,k.y,k.w,k.h)
   end
-  love.graphics.rectangle("line",(self.camera_x_ui/2) - (180*self.scale)/2 ,self.screen_y_normal - 100*self.scale ,180*self.scale,100*self.scale)
   
+  if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+    love.graphics.rectangle("line",(self.camera_x_ui/2) - (180*self.scale)/2 ,self.screen_y_normal - 100*self.scale ,180*self.scale,100*self.scale)
+  end
 end
 
 function ui_player:check_arma(x,y,tipo)

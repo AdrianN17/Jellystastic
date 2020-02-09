@@ -41,6 +41,9 @@ function bala:init(target)
     
     return -1
   end
+  
+  --otros
+  self.rf = 1
 end
 
 function bala:update_bala_player()
@@ -56,12 +59,26 @@ function bala:update_bala_desktop()
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
     
+    
+    if self.bx>cx then
+      self.rf = 1
+    else
+      self.rf = -1
+    end
+    
+    
     self.bala_radio = math.atan2(cy-self.by,cx-self.bx)+math.pi
   end
 end
 
 function bala:update_bala_android()
     self.bx,self.by = self.entidad:analogico()
+    
+    if self.bx>=0 then
+      self.rf = 1
+    else
+      self.rf = -1
+    end
     
 
     self.bala_radio = math.atan2(self.by,self.bx)
@@ -81,17 +98,7 @@ function bala:draw_bala()
     local scale = self.spritesheet_arma.scale[self.arma_index]
     local x,y,w,h = quad:getViewport()
     
-    
-    love.graphics.print(math.deg(self.bala_radio),self.ox,self.oy-200)
-    
-    local rf = 1
-    local rad = math.deg(self.bala_radio)
-    if rad<270 and rad>90 then
-      rf = -1
-    end
-  
-    
-    love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*rf,w/2,h/2)
+    love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*self.rf,w/2,h/2)
   end
   
 end
@@ -199,6 +206,7 @@ function bala:disparo(arma_index)
         end)
     end
 end
+
   
 return bala
   
