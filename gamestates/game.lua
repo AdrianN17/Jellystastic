@@ -70,6 +70,7 @@ end
 
 function game:mousereleased(x,y,button)
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    local cx,cy = self.cam:toWorld(x,y)
     if self.gameobject.player[1] then
       self.gameobject.player[1]:mousereleased(x,y,button)
     end
