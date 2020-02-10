@@ -1,5 +1,8 @@
 function love.conf(t)
-    t.identity = nil                    -- The name of the save directory (string)
+    t.version = "11.2" 
+  	t.author="AdrianN"
+  
+    t.identity = "Jellystastic"         -- The name of the save directory (string)
     t.appendidentity = false            -- Search files in source directory before save directory (boolean)
     t.version = "11.3"                  -- The LÖVE version this game was made for (string)
     t.console = false                   -- Attach a console (boolean, Windows only)
@@ -10,7 +13,7 @@ function love.conf(t)
     t.audio.mic = false                 -- Request and use microphone capabilities in Android (boolean)
     t.audio.mixwithsystem = true        -- Keep background music playing when opening LOVE (boolean, iOS and Android only)
  
-    t.window.title = "Jellystastic"         -- The window title (string)
+    t.window.title = "Jellystastic"     -- The window title (string)
     t.window.icon = nil                 -- Filepath to an image to use as the window's icon (string)
     t.window.width = 800                -- The window width (number)
     t.window.height = 600               -- The window height (number)
@@ -18,7 +21,7 @@ function love.conf(t)
     t.window.resizable = false          -- Let the window be user-resizable (boolean)
     t.window.minwidth = 1               -- Minimum window width if the window is resizable (number)
     t.window.minheight = 1              -- Minimum window height if the window is resizable (number)
-    t.window.fullscreen = true         -- Enable fullscreen (boolean)
+    t.window.fullscreen = true          -- Enable fullscreen (boolean)
     t.window.fullscreentype = "desktop" -- Choose between "desktop" fullscreen or "exclusive" fullscreen mode (string)
     t.window.usedpiscale = true         -- Enable automatic DPI scaling (boolean)
     t.window.vsync = 1                  -- Vertical sync mode (number)

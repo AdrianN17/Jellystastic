@@ -31,8 +31,8 @@ function acciones:init(x,y,w,h)
   self.body2 = love.physics.newBody(self.entidad.world,x,y,"dynamic")
   
   self.lineas_fisica = {}
-  self.lineas_fisica.shape_suelo1 = love.physics.newEdgeShape(-27.375/2,0,-27.375/2,50)
-  self.lineas_fisica.shape_suelo2 = love.physics.newEdgeShape(27.375/2,0,27.375/2,50)
+  self.lineas_fisica.shape_suelo1 = love.physics.newEdgeShape(-27.375/2,0,-27.375/2,75)
+  self.lineas_fisica.shape_suelo2 = love.physics.newEdgeShape(27.375/2,0,27.375/2,75)
   self.lineas_fisica.fixture_suelo1 = love.physics.newFixture(self.body2,self.lineas_fisica.shape_suelo1)
   self.lineas_fisica.fixture_suelo2 = love.physics.newFixture(self.body2,self.lineas_fisica.shape_suelo2)
   self.lineas_fisica.fixture_suelo1:setSensor( true )

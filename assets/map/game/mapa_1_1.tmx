@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="312">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="313">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -34,10 +34,10 @@
   <object id="66" name="Baba" x="2332" y="1359">
    <point/>
   </object>
-  <object id="68" name="Baba" x="3531" y="1267">
+  <object id="68" name="Baba" x="3476" y="1268">
    <point/>
   </object>
-  <object id="69" name="Baba" x="3605" y="1268">
+  <object id="69" name="Baba" x="3573" y="1267">
    <point/>
   </object>
   <object id="70" name="Baba" x="5609" y="674">
@@ -56,7 +56,7 @@
    <point/>
   </object>
   <object id="79" name="Gelatina" x="3950" y="1070">
-   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2450.13,225.333 -287.89,219.058"/>
+   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2450.13,225.333 -44.9809,227.876"/>
   </object>
   <object id="80" name="Gelatina" x="2494.67" y="1596">
    <polygon points="0,4 5.33333,-482 774.667,-470.667 820,-305.333 1421.33,-308.667 1420.85,4.54545"/>
@@ -1115,6 +1115,9 @@
   </object>
   <object id="311" name="Plataforma" x="5077" y="520">
    <polygon points="0,0 227,-46 219,-80 -5,-29.7143"/>
+  </object>
+  <object id="312" name="Gelatina" x="3958" y="1051">
+   <polygon points="7.29744,-25.4996 -134,100 -182,101 -342,238 -51,237"/>
   </object>
  </objectgroup>
 </map>

@@ -23,8 +23,8 @@ function acciones:init(x,y,w,h)
   --extremidades
   self.lineas_fisica = {}
   self.lineas_fisica.shape_suelo = {}
-  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,80)
-  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/4)*self.direccion,0,-(82.25/4)*self.direccion,80)
+  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,130)
+  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/4)*self.direccion,0,-(82.25/4)*self.direccion,130)
   self.lineas_fisica.shape_pared = {}
   self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,75*self.direccion,0)
   self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,-75*self.direccion,0)

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 312,
+  nextobjectid = 313,
   properties = {},
   tilesets = {},
   layers = {
@@ -201,8 +201,8 @@ return {
           name = "Baba",
           type = "",
           shape = "point",
-          x = 3531,
-          y = 1267,
+          x = 3476,
+          y = 1268,
           width = 0,
           height = 0,
           rotation = 0,
@@ -214,8 +214,8 @@ return {
           name = "Baba",
           type = "",
           shape = "point",
-          x = 3605,
-          y = 1268,
+          x = 3573,
+          y = 1267,
           width = 0,
           height = 0,
           rotation = 0,
@@ -306,7 +306,7 @@ return {
             { x = 1904, y = -364 },
             { x = 2450, y = -362 },
             { x = 2450.13, y = 225.333 },
-            { x = -287.89, y = 219.058 }
+            { x = -44.9809, y = 227.876 }
           },
           properties = {}
         },
@@ -3430,6 +3430,26 @@ return {
             { x = 227, y = -46 },
             { x = 219, y = -80 },
             { x = -5, y = -29.7143 }
+          },
+          properties = {}
+        },
+        {
+          id = 312,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 3958,
+          y = 1051,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 7.29744, y = -25.4996 },
+            { x = -134, y = 100 },
+            { x = -182, y = 101 },
+            { x = -342, y = 238 },
+            { x = -51, y = 237 }
           },
           properties = {}
         }

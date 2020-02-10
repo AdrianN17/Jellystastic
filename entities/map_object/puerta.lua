@@ -14,8 +14,6 @@ function puerta:init(entidad,x,y,img,radio,tipo)
   self.tipo_puerta = tipo
   
   self.entidad:add_obj("door",self)
-  
-  print(self.w*self.img_data.x,self.h*self.img_data.y)
 end
 
 function puerta:draw()
