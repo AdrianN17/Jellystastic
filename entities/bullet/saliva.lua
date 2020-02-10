@@ -32,7 +32,7 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   self.fixture : setGroupIndex ( - 2 )
   --self.body:setGravityScale( 0 )
   
-  self.fixture:setUserData( {data="enemy_bullet",obj=self, pos=4} )
+  self.fixture:setUserData( {data="enemy_bullet",obj=self, pos=orden.bullet_enemy} )
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.w,self.h = 18,18

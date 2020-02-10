@@ -6,7 +6,7 @@ function ui_player:init()
   self.aabb_armas={}
   self.validar_aabb_armas = true
   
-  local player = self.gameobject.player[1]
+  local player = self.gameobject.player[self.index_player]
   self.weapons = player.spritesheet_arma
   
   self.camera_x_ui = self.screen_x - self.espacio_x
@@ -40,14 +40,14 @@ function ui_player:draw_ui()
     love.graphics.rectangle("line",k.x,k.y,k.w,k.h)
   end
   
-  if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
     love.graphics.rectangle("line",(self.camera_x_ui/2) - (180*self.scale)/2 ,self.screen_y_normal - 100*self.scale ,180*self.scale,100*self.scale)
   end
 end
 
 function ui_player:check_arma(x,y,tipo)
   
-  local player = self.gameobject.player[1]
+  local player = self.gameobject.player[self.index_player]
   
   if player then
     if tipo == 1 then

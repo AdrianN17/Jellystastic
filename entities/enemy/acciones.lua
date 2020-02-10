@@ -63,12 +63,12 @@ function acciones:draw_enemy()
     
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   
-  love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
+  --love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
   
-  love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
+  --love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
   
-  local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
-  love.graphics.line(x1,y1,w1,h1)
+  --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
+  --love.graphics.line(x1,y1,w1,h1)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end
@@ -131,7 +131,7 @@ function acciones:masa(x,y)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  self.fixture:setUserData( {data="enemy",obj=self, pos=2} )
+  self.fixture:setUserData( {data="enemy",obj=self, pos=orden.enemy} )
   self.fixture : setGroupIndex ( self.creador)
 end
 

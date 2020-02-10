@@ -3,6 +3,8 @@ local game_conf = require "gamestates.game_conf"
 
 local map_index = require "assets.map.index"
 
+orden = require "entities.orden"
+
 require "libs.gooi"
 
 local joy_disparo=nil
@@ -13,9 +15,13 @@ local game = Class{
 }
 
 function game:init()
-  game_conf.init(self,map_index.multiplayer[1])
   
-  if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+  
+  self.index_player=1
+  
+  game_conf.init(self,map_index.campana[1]["main"])
+  
+  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
   
   local style = {
     showBorder = true,
@@ -34,9 +40,9 @@ function game:update(dt)
   dt = math.min (dt, 1/30)
   gooi.update(dt)
   
-  if self.gameobject.player[1] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
     local dir = joy_movimiento:direction()
-    self.gameobject.player[1]:joystick(dir)
+    self.gameobject.player[self.index_player]:joystick(dir)
   end
   
   self:update_conf(dt)
@@ -53,16 +59,16 @@ end
 
 function game:keypressed(key)
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
-    if self.gameobject.player[1] then
-      self.gameobject.player[1]:keypressed(key)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:keypressed(key)
     end
   end
 end
 
 function game:keyreleased(key)
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
-    if self.gameobject.player[1] then
-      self.gameobject.player[1]:keyreleased(key)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:keyreleased(key)
     end
   end
 end
@@ -70,8 +76,8 @@ end
 function game:mousepressed(x,y,button)
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
     local cx,cy = self.cam:toWorld(x,y)
-    if self.gameobject.player[1] then
-      self.gameobject.player[1]:mousepressed(cx,cy,button)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:mousepressed(cx,cy,button)
     end
   end
 end
@@ -79,8 +85,8 @@ end
 function game:mousereleased(x,y,button)
   if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
     local cx,cy = self.cam:toWorld(x,y)
-    if self.gameobject.player[1] then
-      self.gameobject.player[1]:mousereleased(x,y,button)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:mousereleased(x,y,button)
     end
   end
 end
@@ -90,7 +96,7 @@ function game:touchpressed( id, x, y, dx, dy, pressure )
     
     gooi.pressed(id, x, y)
     
-    if self.gameobject.player[1] then
+    if self.gameobject.player[self.index_player] then
       self:check_arma(x,y,1)
     end
   end
@@ -100,7 +106,7 @@ function game:touchreleased( id, x, y, dx, dy, pressure )
   if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
     
     gooi.released(id, x, y)
-    if self.gameobject.player[1] then
+    if self.gameobject.player[self.index_player] then
       self:check_arma(x,y,2)
     end
   end
@@ -110,7 +116,7 @@ function game:touchmoved( id, x, y, dx, dy, pressure )
   
   if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
     gooi.moved(id, x, y)
-    if self.gameobject.player[1] then
+    if self.gameobject.player[self.index_player] then
 
     end
   end

@@ -51,7 +51,7 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   
   
   self.entidad:add_obj("bullet",self)
-  self.fixture:setUserData( {data="destructive_bullet",obj=self, pos=5} )
+  self.fixture:setUserData( {data="destructive_bullet",obj=self, pos=orden.destructive_bullet} )
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.w,self.h = w*scale.x,h*scale.y

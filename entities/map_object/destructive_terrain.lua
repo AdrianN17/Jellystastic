@@ -132,7 +132,7 @@ function destructive_terrain:crear_poligonos_fisica(poligono)
   t.id_poligono = self.poligono_main_index
   
    
-  t.fixture:setUserData( {data="map_object",obj=self, pos=5, id_poligono =  self.poligono_main_index} )
+  t.fixture:setUserData( {data="map_object",obj=self, pos=orden.destructive_terrain, id_poligono =  self.poligono_main_index} )
   
   table.insert(self.poligonos_tabla,t)
   

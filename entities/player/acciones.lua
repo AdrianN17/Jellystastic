@@ -46,6 +46,9 @@ function acciones:init(x,y,w,h)
   self.fixture : setGroupIndex ( self.creador )
   self.body:setBullet(true)
   
+  self.hay_puerta=false
+  self.data_puerta=nil
+  
 end
 
 function acciones:draw_player()
@@ -133,6 +136,10 @@ function acciones:keypressed(key)
     self:saltar()
   end
   
+  if key == "s" and self.hay_puerta and self.data_puerta then 
+
+  end
+  
   if key == "1" or key == "2" or key == "3" or key == "6" then
     
     local index = tonumber(key)
@@ -199,6 +206,8 @@ function acciones:joystick(dir)
 
   if dir:match("t") and self.ground and not self.acciones.saltando then
     self:saltar()
+  elseif dir:match("b") and self.hay_puerta and self.data_puerta then
+    
   end
 end
 
@@ -213,7 +222,7 @@ function acciones:masa(x,y)
   self.body:setLinearDamping( 1 )
   self.body: setFixedRotation (true)
   
-  self.fixture:setUserData( {data="player",obj=self, pos=1} )
+  self.fixture:setUserData( {data="player",obj=self, pos=orden.player} )
   
   self.body:resetMassData ()
   self.body:setMass(20)

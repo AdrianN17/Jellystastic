@@ -109,7 +109,7 @@ function game_conf:init(nombreMapa)
   
   self.shape = love.physics.newChainShape(true,0,0,w_m,0,w_m,h_m+500,0,h_m+500)
   self.fixture = love.physics.newFixture(self.body,self.shape)
-  self.fixture:setUserData({data="bedrock",obj=nil,pos=5})
+  self.fixture:setUserData({data="bedrock",obj=nil,pos=orden.bedrock})
   
 end
 
@@ -204,7 +204,7 @@ function game_conf:get_objects(objectlayer)
           data_pos = polygon
         elseif obj.shape == "rectangle" then
           if obj.name == "Puerta" then
-            index_entidades[obj.name](self,obj.x+obj.width,obj.y+obj.height,img_index,obj.rotation,tipo)
+            index_entidades[obj.name](self,obj.x,obj.y,img_index,obj.rotation,tipo)
           else
             data_pos = {obj.x,obj.y,obj.width,obj.height}
           end

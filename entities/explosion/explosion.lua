@@ -9,7 +9,7 @@ function explosion:init(entidad,x,y,scale,dano)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
   self.body:resetMassData()
-  self.fixture:setUserData( {data="explosion",obj = self, pos=6} )
+  self.fixture:setUserData( {data="explosion",obj = self, pos=orden.explosion} )
   
   self.dano =dano
   self.entidad = entidad
@@ -28,7 +28,7 @@ function explosion:init(entidad,x,y,scale,dano)
           self.entidad:dano(k.obj,self.dano)
         elseif k.data == "map_object" then
           k.obj:hacer_hueco(k.id_poligono,self.entidad:poligono_para_destruir(self.x,self.y),self.x,self.y) 
-        elseif k.data == "enemy_bullet" then
+        elseif k.data == "enemy_bullet" or k.data == "door" then
           k.obj:remove()
         end
       end
