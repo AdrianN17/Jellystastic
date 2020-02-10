@@ -13,7 +13,6 @@ function explosion:init(entidad,x,y,scale,dano)
   
   self.dano =dano
   self.entidad = entidad
-  --entidad:add_obj("bullet",self)
   self.body:setGravityScale( 0 )
   
   
@@ -28,15 +27,16 @@ function explosion:init(entidad,x,y,scale,dano)
           self.entidad:dano(k.obj,self.dano)
         elseif k.data == "map_object" then
           k.obj:hacer_hueco(k.id_poligono,self.entidad:poligono_para_destruir(self.x,self.y),self.x,self.y) 
-        elseif k.data == "enemy_bullet" or k.data == "door" then
+        elseif k.data == "enemy_bullet" then
           k.obj:remove()
+        elseif k.data == "door" then
+          k.obj:colisiona_centro(self.fixture)
         end
       end
     end
       
       
     self.body:destroy()
-    --self.entidad:remove_obj("bullet",self)
   end)
 
 

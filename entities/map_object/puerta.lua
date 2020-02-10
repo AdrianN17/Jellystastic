@@ -37,6 +37,12 @@ function puerta:update(dt)
   
 end
 
+function puerta:colisiona_centro(fixture)
+  if fixture:testPoint(self.ox,self.oy) then
+    self:remove()
+  end
+end
+
 function puerta:remove()
   if self.vivo then
     
