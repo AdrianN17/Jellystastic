@@ -8,7 +8,7 @@ function casa:init(entidad,poligono,img)
   
   self.entidad:add_obj("map_object",self)
   
-  self.mesh = self:poly2mesh(poligono)
+  self.mesh = self:poly2mesh(poligono,2)
   self.mesh:setTexture(img.texturas.casa)
   
   
@@ -29,7 +29,7 @@ end
 function casa:update()
 end
 
-function casa:poly2mesh(points)
+function casa:poly2mesh(points,uv_scale)
   local polypts = love.math.triangulate(points)
   local tlist
 
@@ -68,7 +68,7 @@ function casa:poly2mesh(points)
     local x, y = vcoords[i * 2 - 1], vcoords[i * 2]
 
     -- Here's where the UVs are assigned
-    mesh:setVertex(i, x, y, x / 50, y / 50)
+    mesh:setVertex(i, x, y, x / (50*uv_scale), y / (50*uv_scale))
   end
   mesh:setVertexMap(vnums)
   return mesh

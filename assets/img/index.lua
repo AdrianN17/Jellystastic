@@ -67,7 +67,7 @@ index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimens
 
 index.texturas = {}
     
-index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo.png")
+index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo2.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
 index.texturas["casa"] = love.graphics.newImage("assets/img/ladrillo5.png")
@@ -76,7 +76,7 @@ index.texturas["casa"]:setWrap("repeat")
 index.texturas["casa_interior"] = love.graphics.newImage("assets/img/ladrillo.png")
 index.texturas["casa_interior"]:setWrap("repeat")
 
-index.texturas["techo"] = love.graphics.newImage("assets/img/techo.png")
+index.texturas["techo"] = love.graphics.newImage("assets/img/techo1_textura.png")
 index.texturas["techo"]:setWrap("repeat")
 
 index.cosas = {}
@@ -84,6 +84,8 @@ index.cosas = {}
 index.cosas["ventana"]={}
 index.cosas["ventana"][1] = love.graphics.newImage("assets/img/ventana.png")
 index.cosas["ventana"][2] = love.graphics.newImage("assets/img/ventana2.png")
+index.cosas["ventana"][3] = love.graphics.newImage("assets/img/ventana3.png")
+index.cosas["ventana"][4] = love.graphics.newImage("assets/img/ventana4.png")
 
 index.cosas["ventana_data"] = {}
 index.cosas["ventana_data"].x = 0.12
@@ -96,8 +98,8 @@ index.cosas["confite"][3] = love.graphics.newImage("assets/img/ladrilloEfecto3.p
 index.cosas["confite"][4] = love.graphics.newImage("assets/img/ladrilloEfecto4.png")
 
 index.cosas["confite_data"] = {}
-index.cosas["confite_data"].x = 0.06
-index.cosas["confite_data"].y = 0.06
+index.cosas["confite_data"].x = 0.1
+index.cosas["confite_data"].y = 0.1
 
 index.cosas["puerta"] = {}
 index.cosas["puerta"][1] = love.graphics.newImage("assets/img/puertas.png")
@@ -105,6 +107,14 @@ index.cosas["puerta"][1] = love.graphics.newImage("assets/img/puertas.png")
 index.cosas["puerta_data"] = {}
 index.cosas["puerta_data"].x = 0.2
 index.cosas["puerta_data"].y = 0.2
+
+
+index.cosas["blanco"] = {}
+index.cosas["blanco"][1] = love.graphics.newImage("assets/img/efectoestandar.png")
+
+index.cosas["blanco_data"] = {}
+index.cosas["blanco_data"].x = 0.2
+index.cosas["blanco_data"].y = 0.2
 
 index.armas = {}
 

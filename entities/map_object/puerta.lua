@@ -17,6 +17,8 @@ function puerta:init(entidad,x,y,img,radio,tipo)
   self.shape = love.physics.newRectangleShape(self.w*self.img_data.x,self.h*self.img_data.y)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
+  
+  self.body:setAngle(self.radio)
     
   self.ox,self.oy = self.body:getX(), self.body:getY()
   
@@ -30,11 +32,11 @@ function puerta:init(entidad,x,y,img,radio,tipo)
 end
 
 function puerta:draw()
-  love.graphics.draw(self.img,self.ox+(self.w*self.img_data.x)/2,self.oy+(self.h*self.img_data.y)/2,self.radio,self.img_data.x,self.img_data.y,self.w,self.h)
+  love.graphics.draw(self.img,self.ox,self.oy,self.radio,self.img_data.x,self.img_data.y,self.w/2,self.h/2)
 end
 
 function puerta:update(dt)
-  
+  self.ox,self.oy = self.body:getX(), self.body:getY()
 end
 
 function puerta:colisiona_centro(fixture)

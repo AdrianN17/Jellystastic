@@ -22,7 +22,7 @@ function bala:init(target)
   --desert eagle
   self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0, tiempo_recarga = 0.9, raycast = true}
   --uzi
-  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.25, tiempo_recarga = 0.5, raycast = true}
+  self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
   self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
@@ -33,13 +33,15 @@ function bala:init(target)
   self.timer_recarga = nil
   
   self.raycast_bala_disparo = function (fixture, x, y, xn, yn, fraction)
-    local tipo_obj=fixture:getUserData()
-    
-    if tipo_obj then
-      table.insert(self.bala_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
+    if not fixture:isSensor( ) then
+      local tipo_obj=fixture:getUserData()
+      
+      if tipo_obj then
+        table.insert(self.bala_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
+      end
     end
     
-    return -1
+    return 1
   end
   
   --otros

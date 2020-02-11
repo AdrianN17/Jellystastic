@@ -6,8 +6,8 @@ local destructive_terrain = Class{
     __includes = {}
 }
 
-function destructive_terrain:init(poligono,img)
-  self.mesh = self:poly2mesh(poligono)
+function destructive_terrain:init(poligono,img,uv_scale)
+  self.mesh = self:poly2mesh(poligono, uv_scale)
   self.mesh:setTexture(img)
   
   self.poligonos_tabla={}
@@ -74,7 +74,7 @@ function destructive_terrain:hacer_hueco(index,poligono_destruir,cx,cy)
   
 end
 
-function destructive_terrain:poly2mesh(points)
+function destructive_terrain:poly2mesh(points,uv_scale)
   local polypts = love.math.triangulate(points)
   local tlist
 
@@ -113,7 +113,7 @@ function destructive_terrain:poly2mesh(points)
     local x, y = vcoords[i * 2 - 1], vcoords[i * 2]
 
     -- Here's where the UVs are assigned
-    mesh:setVertex(i, x, y, x / 50, y / 50)
+    mesh:setVertex(i, x, y, x / (50 * uv_scale), y / (50 * uv_scale))
   end
   mesh:setVertexMap(vnums)
   return mesh

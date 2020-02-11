@@ -9,7 +9,7 @@ function gelatina:init(entidad,poligono,img)
   
   self.entidad:add_obj("map_object",self)
   
-  destructive_terrain.init(self,poligono,img.texturas.gelatina)
+  destructive_terrain.init(self,poligono,img.texturas.gelatina,2)
   
   self.ox,self.oy,self.w,self.h = self.poligonos_tabla[1].fixture:getBoundingBox(1)
   

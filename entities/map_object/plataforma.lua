@@ -9,7 +9,7 @@ function plataforma:init(entidad,poligono,img)
   
   self.entidad:add_obj("platform",self)
   
-  destructive_terrain.init(self,poligono,img.texturas.techo)
+  destructive_terrain.init(self,poligono,img.texturas.techo,1)
   
   self.ox,self.oy,self.w,self.h = self.poligonos_tabla[1].fixture:getBoundingBox(1)
   

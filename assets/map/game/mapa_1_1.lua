@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 313,
+  nextobjectid = 328,
   properties = {},
   tilesets = {},
   layers = {
@@ -301,9 +301,6 @@ return {
           polygon = {
             { x = 15, y = -44.5 },
             { x = 1584, y = -368 },
-            { x = 1734, y = -366 },
-            { x = 1796, y = -318 },
-            { x = 1904, y = -364 },
             { x = 2450, y = -362 },
             { x = 2450.13, y = 225.333 },
             { x = -44.9809, y = 227.876 }
@@ -2808,8 +2805,8 @@ return {
           name = "Decoration",
           type = "confite",
           shape = "point",
-          x = 6198,
-          y = 1472,
+          x = 6122,
+          y = 1490.67,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3452,6 +3449,201 @@ return {
             { x = -51, y = 237 }
           },
           properties = {}
+        },
+        {
+          id = 313,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 1414.67,
+          y = 1382.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 314,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 869.333,
+          y = 1526.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 315,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 541.333,
+          y = 1329.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 316,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 2414.67,
+          y = 1470.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 317,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 2816,
+          y = 1210.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 318,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 3596,
+          y = 1414.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 320,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 3329.33,
+          y = 1430.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 321,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 4680,
+          y = 1366.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 322,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 4877.33,
+          y = 954.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 323,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 5485.33,
+          y = 804,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 324,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 6325.33,
+          y = 817.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 325,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 6026.67,
+          y = 1078.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
+        },
+        {
+          id = 326,
+          name = "Decoration",
+          type = "blanco",
+          shape = "point",
+          x = 6252,
+          y = 1370.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0
+          }
         }
       }
     }

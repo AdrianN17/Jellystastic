@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="313">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="328">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -56,7 +56,7 @@
    <point/>
   </object>
   <object id="79" name="Gelatina" x="3950" y="1070">
-   <polygon points="15,-44.5 1584,-368 1734,-366 1796,-318 1904,-364 2450,-362 2450.13,225.333 -44.9809,227.876"/>
+   <polygon points="15,-44.5 1584,-368 2450,-362 2450.13,225.333 -44.9809,227.876"/>
   </object>
   <object id="80" name="Gelatina" x="2494.67" y="1596">
    <polygon points="0,4 5.33333,-482 774.667,-470.667 820,-305.333 1421.33,-308.667 1420.85,4.54545"/>
@@ -985,7 +985,7 @@
    </properties>
    <point/>
   </object>
-  <object id="253" name="Decoration" type="confite" x="6198" y="1472">
+  <object id="253" name="Decoration" type="confite" x="6122" y="1490.67">
    <properties>
     <property name="radio" type="int" value="0"/>
    </properties>
@@ -1118,6 +1118,84 @@
   </object>
   <object id="312" name="Gelatina" x="3958" y="1051">
    <polygon points="7.29744,-25.4996 -134,100 -182,101 -342,238 -51,237"/>
+  </object>
+  <object id="313" name="Decoration" type="blanco" x="1414.67" y="1382.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="314" name="Decoration" type="blanco" x="869.333" y="1526.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="315" name="Decoration" type="blanco" x="541.333" y="1329.33">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="316" name="Decoration" type="blanco" x="2414.67" y="1470.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="317" name="Decoration" type="blanco" x="2816" y="1210.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="318" name="Decoration" type="blanco" x="3596" y="1414.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="320" name="Decoration" type="blanco" x="3329.33" y="1430.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="321" name="Decoration" type="blanco" x="4680" y="1366.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="322" name="Decoration" type="blanco" x="4877.33" y="954.667">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="323" name="Decoration" type="blanco" x="5485.33" y="804">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="324" name="Decoration" type="blanco" x="6325.33" y="817.333">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="325" name="Decoration" type="blanco" x="6026.67" y="1078.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="326" name="Decoration" type="blanco" x="6252" y="1370.67">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>
