@@ -25,7 +25,7 @@ function bala:init(target)
   self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
+  self.armas_values[6] = {stock = 2000, max_stock = 2, municion = 5, max_municion = 5, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 0.01, raycast = false, index_bala= 1}
   
   --timer
   

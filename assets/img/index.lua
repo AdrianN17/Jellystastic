@@ -73,6 +73,9 @@ index.texturas["gelatina"]:setWrap("repeat")
 index.texturas["casa"] = love.graphics.newImage("assets/img/wafer.png")
 index.texturas["casa"]:setWrap("repeat")
 
+index.texturas["casa2"] = love.graphics.newImage("assets/img/wafer2.png")
+index.texturas["casa2"]:setWrap("repeat")
+
 index.cosas = {}
 
 index.cosas["ventana"]={}

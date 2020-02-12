@@ -72,6 +72,11 @@ end
 function misil:update(dt)
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  if self.oy > self.entidad.caida_y  then
+    self:remove()
+  end
+  
 end
 
 function misil:remove()

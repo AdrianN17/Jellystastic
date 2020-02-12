@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 364,
+  nextobjectid = 386,
   properties = {},
   tilesets = {},
   layers = {
@@ -3436,287 +3436,249 @@ return {
           }
         },
         {
-          id = 343,
+          id = 365,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = -7.99492,
-          y = 906,
+          x = -4.66667,
+          y = 900.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 240.667, y = 0 },
+            { x = 240, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 344,
+          id = 366,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 217.333,
-          y = 976.667,
+          x = 222,
+          y = 974,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 336, y = 0 },
+            { x = 335.069, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 345,
+          id = 367,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 546.667,
-          y = 914.667,
+          x = 549.333,
+          y = 909.333,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 240.667, y = 0 },
+            { x = 240, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 346,
+          id = 368,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 762.667,
-          y = 745.333,
+          x = 778.667,
+          y = 733.333,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 317.667, y = 0 },
+            { x = 316.787, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 347,
+          id = 369,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 1068,
-          y = 904.667,
+          x = 1072.67,
+          y = 895.333,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 240.667, y = 0 },
+            { x = 240, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 348,
+          id = 370,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 1312,
-          y = 904.667,
+          x = 1314,
+          y = 896,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 240.667, y = 0 },
+            { x = 240, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 349,
+          id = 372,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 2146.67,
-          y = 1116,
+          x = 2147,
+          y = 1113,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.338412, y = 21.4362 },
-            { x = 243.657, y = 21.6667 },
-            { x = 243.995, y = 0.460993 }
+            { x = 240.667, y = 0 },
+            { x = 240, y = 26.6667 },
+            { x = 0, y = 26 }
           },
           properties = {}
         },
         {
-          id = 350,
+          id = 375,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 461.141,
-          y = 977.333,
+          x = 3935.33,
+          y = 748,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.146353, y = 21.4362 },
-            { x = 105.374, y = 21.6667 },
-            { x = 105.52, y = 0.460993 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         },
         {
-          id = 351,
+          id = 381,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 1007.33,
-          y = 744.667,
+          x = 4115.67,
+          y = 459.333,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = -0.146353, y = 21.4362 },
-            { x = 105.374, y = 21.6667 },
-            { x = 105.52, y = 0.460993 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         },
         {
-          id = 356,
+          id = 382,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 3940,
-          y = 754,
+          x = 4414.67,
+          y = 748.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 239.167, y = -47.1667 },
-            { x = 243.333, y = -28.4167 },
-            { x = 4.5, y = 21 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         },
         {
-          id = 357,
+          id = 383,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 4118.5,
-          y = 465,
+          x = 4660,
+          y = 698,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 240.167, y = -46.8333 },
-            { x = 244, y = -27.75 },
-            { x = 4.5, y = 21 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         },
         {
-          id = 358,
+          id = 384,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 4414.5,
-          y = 756,
+          x = 4815.33,
+          y = 399.333,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 239.5, y = -45.5 },
-            { x = 243.333, y = -24.75 },
-            { x = 4.5, y = 21 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         },
         {
-          id = 361,
+          id = 385,
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 4654.33,
-          y = 710,
+          x = 5064.33,
+          y = 472.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 239.5, y = -45.5 },
-            { x = 243.333, y = -24.75 },
-            { x = 4.5, y = 21 }
-          },
-          properties = {}
-        },
-        {
-          id = 362,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 4817,
-          y = 405,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 239.5, y = -45.5 },
-            { x = 243.333, y = -24.75 },
-            { x = 4.5, y = 21 }
-          },
-          properties = {}
-        },
-        {
-          id = 363,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 5064,
-          y = 476.5,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 239.5, y = -45.5 },
-            { x = 243.333, y = -24.75 },
-            { x = 4.5, y = 21 }
+            { x = 244, y = -51 },
+            { x = 249, y = -25.6667 },
+            { x = 4.66667, y = 24.6667 }
           },
           properties = {}
         }

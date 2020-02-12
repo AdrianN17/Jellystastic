@@ -8,8 +8,19 @@ function casa:init(entidad,poligono,img)
   
   self.entidad:add_obj("map_object",self)
   
+  local i = math.random(1,2)
+  local texture
+  
+  if i == 1 then
+    texture = img.texturas.casa
+  elseif i == 2 then
+    texture = img.texturas.casa2
+  end
+  
+    
+  
   self.mesh = self:poly2mesh(poligono,2)
-  self.mesh:setTexture(img.texturas.casa)
+  self.mesh:setTexture(texture)
   
   
   self.body = love.physics.newBody(self.entidad.world,0,0)
