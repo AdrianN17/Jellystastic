@@ -137,7 +137,7 @@ function acciones:keypressed(key)
   end
   
   if key == "s" and self.hay_puerta and self.data_puerta then 
-
+    self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
   if key == "1" or key == "2" or key == "3" or key == "6" then

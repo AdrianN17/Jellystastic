@@ -1,10 +1,15 @@
 io.stdout:setvbuf("no")
 
 Gamestate = require "libs.hump.gamestate" 
-local Game = require "gamestates.game"
+local Game = require "gamestates.game_conf"
 Inspect  = require "libs.inspect.inspect"
+
+map_index = require "assets.map.index"
+orden = require "entities.orden"
+
+require "libs.gooi"
 
 function love.load()
   Gamestate.registerEvents()
-	Gamestate.switch(Game)
+	Gamestate.switch(Game,1)
 end

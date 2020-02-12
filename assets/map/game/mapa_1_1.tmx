@@ -1069,20 +1069,76 @@
    </properties>
    <point/>
   </object>
-  <object id="282" name="Puerta" type="1" x="76" y="1087" width="60" height="100"/>
-  <object id="284" name="Puerta" type="1" x="352" y="1088" width="60" height="100"/>
-  <object id="285" name="Puerta" type="1" x="632" y="1087" width="60" height="100"/>
-  <object id="286" name="Puerta" type="1" x="897" y="1084" width="60" height="100"/>
-  <object id="287" name="Puerta" type="1" x="1145" y="1083" width="60" height="100"/>
-  <object id="288" name="Puerta" type="1" x="1423" y="1084" width="60" height="100"/>
-  <object id="289" name="Puerta" type="2" x="2236" y="1292" width="60" height="100"/>
-  <object id="290" name="Puerta" type="3" x="3385" y="1189" width="60" height="100"/>
-  <object id="291" name="Puerta" type="4" x="4059.75" y="903.374" width="60" height="100" rotation="-11.339"/>
-  <object id="293" name="Puerta" type="4" x="4289.33" y="855.333" width="60" height="100" rotation="-11.339"/>
-  <object id="294" name="Puerta" type="4" x="4524" y="806" width="60" height="100" rotation="-11.339"/>
-  <object id="295" name="Puerta" type="4" x="4742" y="762" width="60" height="100" rotation="-11.339"/>
-  <object id="296" name="Puerta" type="4" x="4969" y="716" width="60" height="100" rotation="-11.339"/>
-  <object id="297" name="Puerta" type="4" x="5189" y="670" width="60" height="100" rotation="-11.339"/>
+  <object id="282" name="Puerta" type="1" x="76" y="1087" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="284" name="Puerta" type="1" x="352" y="1088" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="285" name="Puerta" type="1" x="632" y="1087" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="286" name="Puerta" type="1" x="897" y="1084" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="287" name="Puerta" type="1" x="1145" y="1083" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="288" name="Puerta" type="1" x="1423" y="1084" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="289" name="Puerta" type="2" x="2236" y="1292" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="290" name="Puerta" type="3" x="3385" y="1189" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="291" name="Puerta" type="4" x="4059.75" y="903.374" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="293" name="Puerta" type="4" x="4289.33" y="855.333" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="294" name="Puerta" type="4" x="4524" y="806" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="295" name="Puerta" type="4" x="4742" y="762" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="296" name="Puerta" type="4" x="4969" y="716" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="297" name="Puerta" type="4" x="5189" y="670" width="60" height="100" rotation="-11.339">
+   <properties>
+    <property name="id" type="int" value="14"/>
+   </properties>
+  </object>
   <object id="300" name="Plataforma" x="227" y="928">
    <polygon points="0,0 -225,1 -227,-14 -130,-121 -72,-122 -71,-98 -124,-96 -129,-24 -2,-24"/>
   </object>

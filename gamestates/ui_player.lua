@@ -6,8 +6,8 @@ function ui_player:init()
   self.aabb_armas={}
   self.validar_aabb_armas = true
   
-  local player = self.gameobject.player[self.index_player]
-  self.weapons = player.spritesheet_arma
+
+  self.weapons = img_index.armas
   
   self.camera_x_ui = self.screen_x - self.espacio_x
 end

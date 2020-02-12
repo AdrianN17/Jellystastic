@@ -3021,7 +3021,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 1
+          }
         },
         {
           id = 284,
@@ -3034,7 +3036,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 2
+          }
         },
         {
           id = 285,
@@ -3047,7 +3051,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 3
+          }
         },
         {
           id = 286,
@@ -3060,7 +3066,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 4
+          }
         },
         {
           id = 287,
@@ -3073,7 +3081,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 5
+          }
         },
         {
           id = 288,
@@ -3086,7 +3096,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 6
+          }
         },
         {
           id = 289,
@@ -3099,7 +3111,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 7
+          }
         },
         {
           id = 290,
@@ -3112,7 +3126,9 @@ return {
           height = 100,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 8
+          }
         },
         {
           id = 291,
@@ -3125,7 +3141,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 9
+          }
         },
         {
           id = 293,
@@ -3138,7 +3156,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 10
+          }
         },
         {
           id = 294,
@@ -3151,7 +3171,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 11
+          }
         },
         {
           id = 295,
@@ -3164,7 +3186,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 12
+          }
         },
         {
           id = 296,
@@ -3177,7 +3201,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 13
+          }
         },
         {
           id = 297,
@@ -3190,7 +3216,9 @@ return {
           height = 100,
           rotation = -11.339,
           visible = true,
-          properties = {}
+          properties = {
+            ["id"] = 14
+          }
         },
         {
           id = 300,

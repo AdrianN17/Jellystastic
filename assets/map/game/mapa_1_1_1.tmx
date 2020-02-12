@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="60" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="6">
+ <editorsettings>
+  <export target="mapa_1_1_1.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup id="2" name="Borrador">
+  <object id="1" name="Gelatina" x="-4.18149" y="572.864">
+   <polygon points="0,0 1931.2,-1.39383 1928.41,391.666 5.58149,390.272"/>
+  </object>
+  <object id="3" name="Puerta" type="1" x="397.906" y="467.111" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="4" name="Baba" x="1378.79" y="524.242">
+   <point/>
+  </object>
+  <object id="5" name="Puerta" type="1" x="1138" y="468.667" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

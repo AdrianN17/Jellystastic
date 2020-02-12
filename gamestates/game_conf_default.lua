@@ -10,11 +10,13 @@ local Box2d_conf = require "gamestates.box2d_conf"
 local UI_player = require "gamestates.ui_player"
 local max_decoration = require "entities.max_decoration"
 
-
+local joy_disparo=nil
+local joy_movimiento=nil
 
 local game_conf_default = Class{
   __includes = {Box2d_conf,UI_player}
 }
+
 
 function game_conf_default:init(nombreMapa)
   
@@ -112,6 +114,27 @@ function game_conf_default:init(nombreMapa)
   self.shape = love.physics.newChainShape(true,0,0,w_m,0,w_m,h_m+500,0,h_m+500)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setUserData({data="bedrock",obj=nil,pos=orden.bedrock})
+  
+  
+  ----
+  
+  self.index_player=1
+  
+  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+  
+  local style = {
+    showBorder = true,
+    bgColor = {0, 0, 0,0.2}
+  }
+  gooi.setStyle(style)
+  
+  
+    joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
+    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
+  end
+  
+  self:arreglar_posicion_puerta()
+  
 end
 
 function game_conf_default:update_conf(dt)
@@ -205,7 +228,7 @@ function game_conf_default:get_objects(objectlayer)
           data_pos = polygon
         elseif obj.shape == "rectangle" then
           if obj.name == "Puerta" then
-            index_entidades[obj.name](self,obj.x,obj.y,img_index,obj.rotation,tipo)
+            index_entidades[obj.name](self,obj.x,obj.y,img_index,obj.rotation,obj.type,obj.properties.id)
           else
             data_pos = {obj.x,obj.y,obj.width,obj.height}
           end
@@ -448,5 +471,121 @@ function game_conf_default:dividir_decoraciones()
   
 end
 
+function game_conf_default:update(dt)
+  dt = math.min (dt, 1/30)
+  gooi.update(dt)
+  
+  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+    local dir = joy_movimiento:direction()
+    self.gameobject.player[self.index_player]:joystick(dir)
+  end
+  
+  self:update_conf(dt)
+end
+
+function game_conf_default:draw()
+  love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+   
+  self:draw_conf()
+
+  gooi.draw()
+  
+end
+
+function game_conf_default:keypressed(key)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:keypressed(key)
+    end
+  end
+  
+  if key == "0" then
+    self:clear()
+  end
+  if key == "9" then
+    self:cambiar_mundo()
+  end
+end
+
+function game_conf_default:keyreleased(key)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:keyreleased(key)
+    end
+  end
+end
+
+function game_conf_default:mousepressed(x,y,button)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    local cx,cy = self.cam:toWorld(x,y)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:mousepressed(cx,cy,button)
+    end
+  end
+end
+
+function game_conf_default:mousereleased(x,y,button)
+  if love.system.getOS( ) == "Windows" or love.system.getOS( ) == "Linux" or love.system.getOS( ) == "OS X" then
+    local cx,cy = self.cam:toWorld(x,y)
+    if self.gameobject.player[self.index_player] then
+      self.gameobject.player[self.index_player]:mousereleased(x,y,button)
+    end
+  end
+end
+
+function game_conf_default:touchpressed( id, x, y, dx, dy, pressure )
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+    
+    gooi.pressed(id, x, y)
+    
+    if self.gameobject.player[self.index_player] then
+      self:check_arma(x,y,1)
+    end
+  end
+end
+
+function game_conf_default:touchreleased( id, x, y, dx, dy, pressure )
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    
+    gooi.released(id, x, y)
+    if self.gameobject.player[self.index_player] then
+      self:check_arma(x,y,2)
+    end
+  end
+end
+
+function game_conf_default:touchmoved( id, x, y, dx, dy, pressure )
+  
+  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
+    gooi.moved(id, x, y)
+    if self.gameobject.player[self.index_player] then
+
+    end
+  end
+end
+
+function game_conf_default:analogico()
+  return joy_disparo:xValue(),joy_disparo:yValue()
+end
+
+function game_conf_default:default_clear()
+  self.map = nil
+  self.cam = nil
+  
+  self.gameobject = {}
+
+  
+  self.world:destroy()
+end
+
+function game_conf_default:arreglar_posicion_puerta()
+  local data_door = self.gameobject.door 
+  self.gameobject.door = {}
+  
+  for _,k in ipairs(data_door) do
+    self.gameobject.door[k.id_puerta] = k
+  end
+
+end
 
 return game_conf_default
