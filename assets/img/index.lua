@@ -67,17 +67,11 @@ index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimens
 
 index.texturas = {}
     
-index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo2.png")
+index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo3.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
-index.texturas["casa"] = love.graphics.newImage("assets/img/ladrillo5.png")
+index.texturas["casa"] = love.graphics.newImage("assets/img/wafer.png")
 index.texturas["casa"]:setWrap("repeat")
-
-index.texturas["casa_interior"] = love.graphics.newImage("assets/img/ladrillo.png")
-index.texturas["casa_interior"]:setWrap("repeat")
-
-index.texturas["techo"] = love.graphics.newImage("assets/img/techo1_textura.png")
-index.texturas["techo"]:setWrap("repeat")
 
 index.cosas = {}
 
@@ -109,12 +103,17 @@ index.cosas["puerta_data"].x = 0.2
 index.cosas["puerta_data"].y = 0.2
 
 
-index.cosas["blanco"] = {}
-index.cosas["blanco"][1] = love.graphics.newImage("assets/img/efectoestandar.png")
+index.cosas["adorno_mapa"] = {}
+index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/efectoestandar.png")
+index.cosas["adorno_mapa"][2] = love.graphics.newImage("assets/img/sueloefecto1.png")
+index.cosas["adorno_mapa"][3] = love.graphics.newImage("assets/img/sueloefecto2.png")
 
-index.cosas["blanco_data"] = {}
-index.cosas["blanco_data"].x = 0.2
-index.cosas["blanco_data"].y = 0.2
+index.cosas["adorno_mapa_data"] = {}
+index.cosas["adorno_mapa_data"].x = 0.2
+index.cosas["adorno_mapa_data"].y = 0.2
+
+index.redimensionable = {}
+index.redimensionable[1] = love.graphics.newImage("assets/img/techo2.png")
 
 index.armas = {}
 

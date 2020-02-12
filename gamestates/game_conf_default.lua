@@ -230,7 +230,7 @@ function game_conf_default:get_objects(objectlayer)
           if obj.name == "Puerta" then
             index_entidades[obj.name](self,obj.x,obj.y,img_index,obj.rotation,obj.type,obj.properties.id)
           else
-            data_pos = {obj.x,obj.y,obj.width,obj.height}
+            data_pos = {obj.x,obj.y,obj.width,obj.height,obj.rotation}
           end
         elseif obj.shape == "ellipse" then
           data_pos = {obj.x,obj.y,obj.width,obj.height}

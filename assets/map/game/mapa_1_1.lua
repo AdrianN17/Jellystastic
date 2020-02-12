@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 328,
+  nextobjectid = 364,
   properties = {},
   tilesets = {},
   layers = {
@@ -53,7 +53,7 @@ return {
         {
           id = 35,
           name = "Gelatina",
-          type = "",
+          type = "adorno_mapa",
           shape = "polygon",
           x = 14,
           y = 1192,
@@ -1558,7 +1558,7 @@ return {
         {
           id = 170,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 369.333,
           y = 1353.33,
@@ -1573,7 +1573,7 @@ return {
         {
           id = 171,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 440,
           y = 1474.67,
@@ -1588,7 +1588,7 @@ return {
         {
           id = 172,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 786.667,
           y = 1416,
@@ -1603,7 +1603,7 @@ return {
         {
           id = 173,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 686.667,
           y = 1496,
@@ -1618,7 +1618,7 @@ return {
         {
           id = 174,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 657.333,
           y = 1340,
@@ -1633,7 +1633,7 @@ return {
         {
           id = 175,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 140,
           y = 1405.33,
@@ -1648,7 +1648,7 @@ return {
         {
           id = 176,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 122.667,
           y = 1277.33,
@@ -1663,7 +1663,7 @@ return {
         {
           id = 177,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1116,
           y = 1470.67,
@@ -1678,7 +1678,7 @@ return {
         {
           id = 178,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1253.33,
           y = 1318.67,
@@ -1693,7 +1693,7 @@ return {
         {
           id = 179,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1505.33,
           y = 1464,
@@ -1708,7 +1708,7 @@ return {
         {
           id = 180,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1661.33,
           y = 1329.33,
@@ -1723,7 +1723,7 @@ return {
         {
           id = 181,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1492,
           y = 1312,
@@ -1738,7 +1738,7 @@ return {
         {
           id = 182,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1330.67,
           y = 1506.67,
@@ -1753,7 +1753,7 @@ return {
         {
           id = 183,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 989.333,
           y = 1305.33,
@@ -1768,7 +1768,7 @@ return {
         {
           id = 184,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2161.33,
           y = 1553.33,
@@ -1783,7 +1783,7 @@ return {
         {
           id = 185,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2241.33,
           y = 1458.67,
@@ -1798,7 +1798,7 @@ return {
         {
           id = 186,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2046.67,
           y = 1458.67,
@@ -1813,7 +1813,7 @@ return {
         {
           id = 187,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2033.33,
           y = 1554.67,
@@ -1828,7 +1828,7 @@ return {
         {
           id = 188,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2392,
           y = 1528,
@@ -1843,7 +1843,7 @@ return {
         {
           id = 189,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2482.67,
           y = 1448,
@@ -1858,7 +1858,7 @@ return {
         {
           id = 190,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2304,
           y = 1534.67,
@@ -1873,7 +1873,7 @@ return {
         {
           id = 191,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2608,
           y = 1188,
@@ -1888,7 +1888,7 @@ return {
         {
           id = 192,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2906.67,
           y = 1193.33,
@@ -1903,7 +1903,7 @@ return {
         {
           id = 193,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3076,
           y = 1193.33,
@@ -1918,7 +1918,7 @@ return {
         {
           id = 194,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2942.67,
           y = 1269.33,
@@ -1933,7 +1933,7 @@ return {
         {
           id = 195,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2720,
           y = 1296,
@@ -1948,7 +1948,7 @@ return {
         {
           id = 196,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2912,
           y = 1413.33,
@@ -1963,7 +1963,7 @@ return {
         {
           id = 197,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3116,
           y = 1328,
@@ -1978,7 +1978,7 @@ return {
         {
           id = 198,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2874.67,
           y = 1530.67,
@@ -1993,7 +1993,7 @@ return {
         {
           id = 199,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2749.33,
           y = 1510.67,
@@ -2008,7 +2008,7 @@ return {
         {
           id = 200,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2601.33,
           y = 1398.67,
@@ -2023,7 +2023,7 @@ return {
         {
           id = 201,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2589.33,
           y = 1266.67,
@@ -2038,7 +2038,7 @@ return {
         {
           id = 202,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 2724,
           y = 1356,
@@ -2053,7 +2053,7 @@ return {
         {
           id = 203,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3188,
           y = 1221.33,
@@ -2068,7 +2068,7 @@ return {
         {
           id = 204,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3236,
           y = 1417.33,
@@ -2083,7 +2083,7 @@ return {
         {
           id = 205,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3129.33,
           y = 1458.67,
@@ -2098,7 +2098,7 @@ return {
         {
           id = 206,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3081.33,
           y = 1524,
@@ -2113,7 +2113,7 @@ return {
         {
           id = 207,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3269.33,
           y = 1509.33,
@@ -2128,7 +2128,7 @@ return {
         {
           id = 208,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3513.33,
           y = 1366.67,
@@ -2143,7 +2143,7 @@ return {
         {
           id = 209,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3716,
           y = 1360,
@@ -2158,7 +2158,7 @@ return {
         {
           id = 210,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3884,
           y = 1437.33,
@@ -2173,7 +2173,7 @@ return {
         {
           id = 211,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3730.67,
           y = 1488,
@@ -2188,7 +2188,7 @@ return {
         {
           id = 212,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3565.33,
           y = 1496,
@@ -2203,7 +2203,7 @@ return {
         {
           id = 213,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3390.67,
           y = 1384,
@@ -2218,7 +2218,7 @@ return {
         {
           id = 214,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3438.67,
           y = 1504,
@@ -2233,7 +2233,7 @@ return {
         {
           id = 215,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3824,
           y = 1256,
@@ -2248,7 +2248,7 @@ return {
         {
           id = 216,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 3992,
           y = 1144,
@@ -2263,7 +2263,7 @@ return {
         {
           id = 217,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4118.67,
           y = 1120,
@@ -2278,7 +2278,7 @@ return {
         {
           id = 218,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4205.33,
           y = 1182.67,
@@ -2293,7 +2293,7 @@ return {
         {
           id = 219,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4104,
           y = 1214.67,
@@ -2308,7 +2308,7 @@ return {
         {
           id = 220,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4061.33,
           y = 1476,
@@ -2323,7 +2323,7 @@ return {
         {
           id = 221,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4149.33,
           y = 1402.67,
@@ -2338,7 +2338,7 @@ return {
         {
           id = 222,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4453.33,
           y = 1458.67,
@@ -2353,7 +2353,7 @@ return {
         {
           id = 223,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4697.33,
           y = 1461.33,
@@ -2368,7 +2368,7 @@ return {
         {
           id = 224,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4557.33,
           y = 1384,
@@ -2383,7 +2383,7 @@ return {
         {
           id = 225,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4306.67,
           y = 1502.67,
@@ -2398,7 +2398,7 @@ return {
         {
           id = 226,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4868,
           y = 1533.33,
@@ -2413,7 +2413,7 @@ return {
         {
           id = 227,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4990.67,
           y = 1430.67,
@@ -2428,7 +2428,7 @@ return {
         {
           id = 228,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5102.67,
           y = 1372,
@@ -2443,7 +2443,7 @@ return {
         {
           id = 229,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5178.67,
           y = 1490.67,
@@ -2458,7 +2458,7 @@ return {
         {
           id = 230,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4801.33,
           y = 1353.33,
@@ -2473,7 +2473,7 @@ return {
         {
           id = 231,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4342.67,
           y = 1206.67,
@@ -2488,7 +2488,7 @@ return {
         {
           id = 232,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4422.67,
           y = 1029.33,
@@ -2503,7 +2503,7 @@ return {
         {
           id = 233,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4586.67,
           y = 1197.33,
@@ -2518,7 +2518,7 @@ return {
         {
           id = 234,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4672,
           y = 1089.33,
@@ -2533,7 +2533,7 @@ return {
         {
           id = 235,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4898.67,
           y = 1028,
@@ -2548,7 +2548,7 @@ return {
         {
           id = 236,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5009.33,
           y = 1166.67,
@@ -2563,7 +2563,7 @@ return {
         {
           id = 237,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 4888,
           y = 1189.33,
@@ -2578,7 +2578,7 @@ return {
         {
           id = 238,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5050.67,
           y = 896,
@@ -2593,7 +2593,7 @@ return {
         {
           id = 239,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5192,
           y = 1132,
@@ -2608,7 +2608,7 @@ return {
         {
           id = 240,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5208,
           y = 938.667,
@@ -2623,7 +2623,7 @@ return {
         {
           id = 241,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5460,
           y = 870,
@@ -2638,7 +2638,7 @@ return {
         {
           id = 242,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5698,
           y = 812,
@@ -2653,7 +2653,7 @@ return {
         {
           id = 243,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6104,
           y = 860,
@@ -2668,7 +2668,7 @@ return {
         {
           id = 244,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5872,
           y = 1004,
@@ -2683,7 +2683,7 @@ return {
         {
           id = 245,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5568,
           y = 968,
@@ -2698,7 +2698,7 @@ return {
         {
           id = 246,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5584,
           y = 1096,
@@ -2713,7 +2713,7 @@ return {
         {
           id = 247,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5486,
           y = 1188,
@@ -2728,7 +2728,7 @@ return {
         {
           id = 248,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5444,
           y = 1018,
@@ -2743,7 +2743,7 @@ return {
         {
           id = 249,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5396,
           y = 1300,
@@ -2758,7 +2758,7 @@ return {
         {
           id = 250,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5394,
           y = 1420,
@@ -2773,7 +2773,7 @@ return {
         {
           id = 251,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5640,
           y = 1434,
@@ -2788,7 +2788,7 @@ return {
         {
           id = 252,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5986,
           y = 1336,
@@ -2803,7 +2803,7 @@ return {
         {
           id = 253,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6122,
           y = 1490.67,
@@ -2818,7 +2818,7 @@ return {
         {
           id = 254,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5856,
           y = 1410,
@@ -2833,7 +2833,7 @@ return {
         {
           id = 255,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5670,
           y = 1118,
@@ -2848,7 +2848,7 @@ return {
         {
           id = 256,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5814,
           y = 1192,
@@ -2863,7 +2863,7 @@ return {
         {
           id = 257,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5756,
           y = 964,
@@ -2878,7 +2878,7 @@ return {
         {
           id = 258,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5890,
           y = 836,
@@ -2893,7 +2893,7 @@ return {
         {
           id = 259,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6188,
           y = 1126,
@@ -2908,7 +2908,7 @@ return {
         {
           id = 260,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6116,
           y = 1172,
@@ -2923,7 +2923,7 @@ return {
         {
           id = 261,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 5906,
           y = 1056,
@@ -2938,7 +2938,7 @@ return {
         {
           id = 262,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6086,
           y = 972,
@@ -2953,7 +2953,7 @@ return {
         {
           id = 263,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6232,
           y = 804,
@@ -2968,7 +2968,7 @@ return {
         {
           id = 264,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6274,
           y = 1194,
@@ -2983,7 +2983,7 @@ return {
         {
           id = 265,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 6272,
           y = 924,
@@ -2998,7 +2998,7 @@ return {
         {
           id = 266,
           name = "Decoration",
-          type = "confite",
+          type = "adorno_mapa",
           shape = "point",
           x = 1648,
           y = 1508,
@@ -3221,244 +3221,6 @@ return {
           }
         },
         {
-          id = 300,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 227,
-          y = 928,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = -225, y = 1 },
-            { x = -227, y = -14 },
-            { x = -130, y = -121 },
-            { x = -72, y = -122 },
-            { x = -71, y = -98 },
-            { x = -124, y = -96 },
-            { x = -129, y = -24 },
-            { x = -2, y = -24 }
-          },
-          properties = {}
-        },
-        {
-          id = 301,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 224,
-          y = 980,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 329.665, y = 0 },
-            { x = 331, y = 23 },
-            { x = 9.34274, y = 25 }
-          },
-          properties = {}
-        },
-        {
-          id = 303,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 559,
-          y = 938,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 229, y = -1 },
-            { x = 227, y = -104 },
-            { x = 131, y = -104 },
-            { x = 132, y = -78 },
-            { x = 187, y = -78 },
-            { x = 186, y = -22 },
-            { x = 1, y = -26 }
-          },
-          properties = {}
-        },
-        {
-          id = 304,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 787,
-          y = 770,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 287, y = 2 },
-            { x = 287, y = -19 },
-            { x = 103, y = -18 },
-            { x = 103, y = -94 },
-            { x = 151, y = -93 },
-            { x = 148, y = -119 },
-            { x = 100, y = -116 },
-            { x = 1, y = -26 }
-          },
-          properties = {}
-        },
-        {
-          id = 305,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 1080,
-          y = 934,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 465, y = 3 },
-            { x = 466, y = -15 },
-            { x = -2, y = -16 }
-          },
-          properties = {}
-        },
-        {
-          id = 306,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 2378,
-          y = 1143,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = -228, y = 0 },
-            { x = -227, y = -20 },
-            { x = -118, y = -128 },
-            { x = -40, y = -126 },
-            { x = -42, y = -104 },
-            { x = -110, y = -100 },
-            { x = -120, y = -18 },
-            { x = 1, y = -15 }
-          },
-          properties = {}
-        },
-        {
-          id = 307,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 3953,
-          y = 793,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 230, y = -45 },
-            { x = 221, y = -76 },
-            { x = -9, y = -28 }
-          },
-          properties = {}
-        },
-        {
-          id = 308,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 4136,
-          y = 499,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 219, y = -40 },
-            { x = 211, y = -65 },
-            { x = 84, y = -41 },
-            { x = 65, y = -101 },
-            { x = 100, y = -112 },
-            { x = 84, y = -142 },
-            { x = 56, y = -130 },
-            { x = -9, y = -28 }
-          },
-          properties = {}
-        },
-        {
-          id = 309,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 4425,
-          y = 786,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 450, y = -88 },
-            { x = 447, y = -109 },
-            { x = -5, y = -23 }
-          },
-          properties = {}
-        },
-        {
-          id = 310,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 4826,
-          y = 413,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 5, y = 46 },
-            { x = 233, y = -2 },
-            { x = 223, y = -41 },
-            { x = 110, y = -147 },
-            { x = 47, y = -129 },
-            { x = 57, y = -96 },
-            { x = 112, y = -112 },
-            { x = 143, y = -32 }
-          },
-          properties = {}
-        },
-        {
-          id = 311,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 5077,
-          y = 520,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 227, y = -46 },
-            { x = 219, y = -80 },
-            { x = -5, y = -29.7143 }
-          },
-          properties = {}
-        },
-        {
           id = 312,
           name = "Gelatina",
           type = "",
@@ -3481,7 +3243,7 @@ return {
         {
           id = 313,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 1414.67,
           y = 1382.67,
@@ -3496,7 +3258,7 @@ return {
         {
           id = 314,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 869.333,
           y = 1526.67,
@@ -3511,7 +3273,7 @@ return {
         {
           id = 315,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 541.333,
           y = 1329.33,
@@ -3526,7 +3288,7 @@ return {
         {
           id = 316,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 2414.67,
           y = 1470.67,
@@ -3541,7 +3303,7 @@ return {
         {
           id = 317,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 2816,
           y = 1210.67,
@@ -3556,7 +3318,7 @@ return {
         {
           id = 318,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 3596,
           y = 1414.67,
@@ -3571,7 +3333,7 @@ return {
         {
           id = 320,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 3329.33,
           y = 1430.67,
@@ -3586,7 +3348,7 @@ return {
         {
           id = 321,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 4680,
           y = 1366.67,
@@ -3601,7 +3363,7 @@ return {
         {
           id = 322,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 4877.33,
           y = 954.667,
@@ -3616,7 +3378,7 @@ return {
         {
           id = 323,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 5485.33,
           y = 804,
@@ -3631,7 +3393,7 @@ return {
         {
           id = 324,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 6325.33,
           y = 817.333,
@@ -3646,7 +3408,7 @@ return {
         {
           id = 325,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 6026.67,
           y = 1078.67,
@@ -3661,7 +3423,7 @@ return {
         {
           id = 326,
           name = "Decoration",
-          type = "blanco",
+          type = "adorno_mapa",
           shape = "point",
           x = 6252,
           y = 1370.67,
@@ -3672,6 +3434,291 @@ return {
           properties = {
             ["radio"] = 0
           }
+        },
+        {
+          id = 343,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = -7.99492,
+          y = 906,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 344,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 217.333,
+          y = 976.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 345,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 546.667,
+          y = 914.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 346,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 762.667,
+          y = 745.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 347,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 1068,
+          y = 904.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 348,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 1312,
+          y = 904.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 349,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 2146.67,
+          y = 1116,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.338412, y = 21.4362 },
+            { x = 243.657, y = 21.6667 },
+            { x = 243.995, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 350,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 461.141,
+          y = 977.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.146353, y = 21.4362 },
+            { x = 105.374, y = 21.6667 },
+            { x = 105.52, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 351,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 1007.33,
+          y = 744.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = -0.146353, y = 21.4362 },
+            { x = 105.374, y = 21.6667 },
+            { x = 105.52, y = 0.460993 }
+          },
+          properties = {}
+        },
+        {
+          id = 356,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 3940,
+          y = 754,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 239.167, y = -47.1667 },
+            { x = 243.333, y = -28.4167 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
+        },
+        {
+          id = 357,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4118.5,
+          y = 465,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 240.167, y = -46.8333 },
+            { x = 244, y = -27.75 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
+        },
+        {
+          id = 358,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4414.5,
+          y = 756,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 239.5, y = -45.5 },
+            { x = 243.333, y = -24.75 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
+        },
+        {
+          id = 361,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4654.33,
+          y = 710,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 239.5, y = -45.5 },
+            { x = 243.333, y = -24.75 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
+        },
+        {
+          id = 362,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 4817,
+          y = 405,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 239.5, y = -45.5 },
+            { x = 243.333, y = -24.75 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
+        },
+        {
+          id = 363,
+          name = "Plataforma",
+          type = "",
+          shape = "polygon",
+          x = 5064,
+          y = 476.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 239.5, y = -45.5 },
+            { x = 243.333, y = -24.75 },
+            { x = 4.5, y = 21 }
+          },
+          properties = {}
         }
       }
     }
