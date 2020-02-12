@@ -12,7 +12,7 @@ function game_conf:init()
   self.mundos = {}
 end
 
-function game_conf:enter(_,nombreMapa,accion,data)
+function game_conf:enter(_,nombreMapa,accion,data,data_player)
   
   if nombreMapa then
     self.nombreMapa = nombreMapa
@@ -29,18 +29,36 @@ function game_conf:enter(_,nombreMapa,accion,data)
     local player = self.gameobject.player[self.index_player]
       
     if player then
+      player.body:setLinearVelocity(0,0)
       player.body:setPosition( x, y )
+      
     end
   end
+  
+  
+  if data_player then
+      local player = self.gameobject.player[self.index_player]
+      
+      if player then
+        player.armas_values = data_player.bala
+        player.arma_index = data_player.arma_index
+        player.hp = data_player.hp
+      end
+    end
+    
 end
 
 function game_conf:ir_a_otro_nivel(data_puerta)
   if not self.mundos[data_puerta.id_mapa] then
     if map_index.campana[self.nombreMapa][data_puerta.id_mapa] then
-      Gamestate.switch(game_conf_subnivel,data_puerta)
+      local player = self.gameobject.player[self.index_player]
+      local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+      Gamestate.switch(game_conf_subnivel,data_puerta,data_player)
     end
   else
-    Gamestate.push(self.mundos[data_puerta.id_mapa],data_puerta)
+    local player = self.gameobject.player[self.index_player]
+    local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+    Gamestate.push(self.mundos[data_puerta.id_mapa],data_puerta,data_player)
   end
 end
 

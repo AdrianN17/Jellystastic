@@ -499,12 +499,14 @@ function game_conf_default:keypressed(key)
     end
   end
   
-  if key == "0" then
+  --[[if key == "0" then
+    --muerte
     self:clear()
   end
   if key == "9" then
+    --cambiar mapa
     self:cambiar_mundo()
-  end
+  end]]
 end
 
 function game_conf_default:keyreleased(key)

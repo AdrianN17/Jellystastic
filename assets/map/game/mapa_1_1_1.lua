@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 6,
+  nextobjectid = 10,
   properties = {},
   tilesets = {},
   layers = {
@@ -48,8 +48,8 @@ return {
           name = "Puerta",
           type = "1",
           shape = "rectangle",
-          x = 397.906,
-          y = 467.111,
+          x = 89.9056,
+          y = 473.777,
           width = 60,
           height = 100,
           rotation = 0,
@@ -76,14 +76,74 @@ return {
           name = "Puerta",
           type = "1",
           shape = "rectangle",
-          x = 1138,
-          y = 468.667,
+          x = 752.667,
+          y = 470,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["id"] = 3
+          }
+        },
+        {
+          id = 6,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 428.667,
+          y = 472.667,
           width = 60,
           height = 100,
           rotation = 0,
           visible = true,
           properties = {
             ["id"] = 2
+          }
+        },
+        {
+          id = 7,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 1171.33,
+          y = 472.667,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["id"] = 4
+          }
+        },
+        {
+          id = 8,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 1606,
+          y = 467.333,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["id"] = 5
+          }
+        },
+        {
+          id = 9,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = 1835.33,
+          y = 470,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["id"] = 6
           }
         }
       }

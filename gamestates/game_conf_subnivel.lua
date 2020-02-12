@@ -12,7 +12,7 @@ function game_conf_subnivel:init()
   self.main_level = nil
 end
 
-function game_conf_subnivel:enter(from,data)
+function game_conf_subnivel:enter(from,data,data_player)
   
   
   self.main_level = from
@@ -37,9 +37,21 @@ function game_conf_subnivel:enter(from,data)
       local player = self.gameobject.player[self.index_player]
       
       if player then
+        player.body:setLinearVelocity(0,0)
         player.body:setPosition( x, y )
+        
       end
       
+    end
+    
+    if data_player then
+      local player = self.gameobject.player[self.index_player]
+      
+      if player then
+        player.armas_values = data_player.bala
+        player.arma_index = data_player.arma_index
+        player.hp = data_player.hp
+      end
     end
     
     
@@ -48,8 +60,9 @@ function game_conf_subnivel:enter(from,data)
 end
 
 function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
-  
-  Gamestate.push(self.main_level,_,"cambiar_pos",data_puerta)
+  local player = self.gameobject.player[self.index_player]
+  local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+  Gamestate.push(self.main_level,_,"cambiar_pos",data_puerta,data_player)
 end
 
 function game_conf_subnivel:clear()
