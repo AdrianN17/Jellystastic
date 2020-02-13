@@ -135,6 +135,8 @@ function game_conf_default:init(nombreMapa)
   
   self:arreglar_posicion_puerta()
   
+  self.sky_box = 1
+  
 end
 
 function game_conf_default:update_conf(dt)
@@ -158,7 +160,7 @@ function game_conf_default:draw_conf()
   self.vision.w = self.vision.w + self.vision.w
   self.vision.h = self.vision.h + self.vision.h
   
-  
+  self:skybox()
   
  self.map:draw(-cx,-cy,self.scale,self.scale)
  
@@ -588,6 +590,17 @@ function game_conf_default:arreglar_posicion_puerta()
     self.gameobject.door[k.id_puerta] = k
   end
 
+end
+
+function game_conf_default:skybox()
+
+  local img = img_index.skybox[self.sky_box]
+  local x = self.camera_x_ui/ img:getWidth()
+
+  local y = self.screen_y/ img:getHeight()
+  
+  
+  love.graphics.draw(img, 0, 0, 0, x, y)
 end
 
 return game_conf_default

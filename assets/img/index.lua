@@ -144,6 +144,11 @@ index.armas.scale_screen[6] = {x = 0.25,y=0.25}
 index.armas.balas.scale ={}
 index.armas.balas.scale[1] = {x = 0.25,y=0.25}
 
+index.skybox = {}
+index.skybox[1] = love.graphics.newImage("assets/img/CieloDia.png")
+index.skybox[2] = love.graphics.newImage("assets/img/CieloDia.png")
+index.skybox[3] = love.graphics.newImage("assets/img/CieloDia.png")
+
 
 
 return  index

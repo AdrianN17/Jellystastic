@@ -1,5 +1,4 @@
 local Class = require "libs.hump.class"
-img_index = require "assets/img/index"
 
 local game_conf_default = require "gamestates.game_conf_default"
 local game_conf_subnivel = require "gamestates.game_conf_subnivel"
