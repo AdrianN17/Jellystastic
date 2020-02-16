@@ -10,4 +10,6 @@ index.Puerta = require "entities.map_object.puerta"
 
 index.Plataforma = require "entities.map_object.plataforma"
 
+index.Municion = require "entities.object.ammo"
+
 return index

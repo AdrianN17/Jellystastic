@@ -1,7 +1,7 @@
 local Class = require "libs.hump.class"
 local puerta = Class{}
 
-function puerta:init(entidad,x,y,img,radio,tipo,id)
+function puerta:init(entidad,posicion,img,radio,tipo,propiedad)
   self.entidad = entidad
   
   self.img = img.cosas.puerta[1]
@@ -13,16 +13,14 @@ function puerta:init(entidad,x,y,img,radio,tipo,id)
   
   self.id_mapa = tonumber(tipo)
   
-  self.id_puerta = id
+  self.id_puerta = propiedad.id
   
-  self.body = love.physics.newBody(entidad.world,x+(self.w*self.img_data.x)/2,y+(self.h*self.img_data.y)/2,"static")
+  self.body = love.physics.newBody(entidad.world,posicion[1]+(self.w*self.img_data.x)/2,posicion[2]+(self.h*self.img_data.y)/2,"static")
   self.shape = love.physics.newRectangleShape(self.w*self.img_data.x,self.h*self.img_data.y)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
   
   self.body:setAngle(self.radio)
-    
-  self.ox,self.oy = self.body:getX(), self.body:getY()
   
   self.fixture:setUserData( {data="door",obj=self, pos=orden.door})
   

@@ -229,17 +229,15 @@ function game_conf_default:get_objects(objectlayer)
           
           data_pos = polygon
         elseif obj.shape == "rectangle" then
-          if obj.name == "Puerta" then
-            index_entidades[obj.name](self,obj.x,obj.y,img_index,obj.rotation,obj.type,obj.properties.id)
-          else
-            data_pos = {obj.x,obj.y,obj.width,obj.height,obj.rotation}
-          end
+          
+          data_pos = {obj.x,obj.y,obj.width,obj.height}
+          
         elseif obj.shape == "ellipse" then
           data_pos = {obj.x,obj.y,obj.width,obj.height}
         end
         
         if data_pos ~= nil and index_entidades[obj.name] ~= nil then 
-          index_entidades[obj.name](self,data_pos,img_index)
+          index_entidades[obj.name](self,data_pos,img_index,obj.rotation,obj.type,obj.properties)
         end
         
       end

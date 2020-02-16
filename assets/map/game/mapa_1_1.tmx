@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="386">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="387">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -1258,6 +1258,12 @@
   </object>
   <object id="385" name="Plataforma" x="5064.33" y="472.667">
    <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>
+  </object>
+  <object id="386" name="Municion" type="1" x="297.333" y="1168.67">
+   <properties>
+    <property name="stock" type="int" value="14"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

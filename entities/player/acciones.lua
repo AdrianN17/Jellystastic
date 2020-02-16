@@ -64,7 +64,7 @@ function acciones:draw_player()
   
   
   if arma then
-    love.graphics.print(tostring(arma.stock),self.ox,self.oy-150)
+    love.graphics.print(Inspect(arma),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -207,7 +207,7 @@ function acciones:joystick(dir)
   if dir:match("t") and self.ground and not self.acciones.saltando then
     self:saltar()
   elseif dir:match("b") and self.hay_puerta and self.data_puerta then
-    
+    self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
 end
 

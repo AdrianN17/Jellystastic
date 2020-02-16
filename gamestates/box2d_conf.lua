@@ -44,11 +44,13 @@ function box2d_conf:callbacks()
           self.timer:after(0.01,function()
             obj2.obj:crear_circulo(x,y,self.explosion_scale)
           end)
-      elseif (obj1.data == "enemy" or obj1.data == "player" or obj1.data == "map_object" or obj1.data == "enemy_bullet" or obj1.data == "door") and obj2.data == "explosion" then
+      elseif (obj1.data == "enemy" or obj1.data == "player" or obj1.data == "map_object" or obj1.data == "object" or obj1.data == "enemy_bullet" or obj1.data == "door") and obj2.data == "explosion" then
         obj2.obj:guardar(obj1)
       elseif obj1.data == "player" and obj2.data == "door" then
         obj1.obj.hay_puerta = true
         obj1.obj.data_puerta = obj2.obj.data_puerta
+      elseif obj1.data == "player" and obj2.data == "object" then
+        obj2.obj:usar(obj1.obj)
       end
       
       

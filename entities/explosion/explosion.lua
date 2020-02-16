@@ -27,7 +27,7 @@ function explosion:init(entidad,x,y,scale,dano)
           self.entidad:dano(k.obj,self.dano)
         elseif k.data == "map_object" then
           k.obj:hacer_hueco(k.id_poligono,self.entidad:poligono_para_destruir(self.x,self.y),self.x,self.y) 
-        elseif k.data == "enemy_bullet" then
+        elseif k.data == "enemy_bullet" or k.data == "object" then
           k.obj:remove()
         elseif k.data == "door" then
           k.obj:colisiona_centro(self.fixture)

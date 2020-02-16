@@ -59,14 +59,16 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.existe=true
   self.explosion={}
   
+  self.quad = self.spritesheet.balas.quad[self.index_bala]
+  self.scale = self.spritesheet.balas.scale[self.index_bala]
+  
 end
 
 function misil:draw()
-  local quad = self.spritesheet.balas.quad[self.index_bala]
-  local scale = self.spritesheet.balas.scale[self.index_bala]
-  local x,y,w,h = quad:getViewport()
   
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x,scale.y,w/2,h/2)
+  local x,y,w,h = self.quad:getViewport()
+  
+  love.graphics.draw(self.spritesheet["img"],self.quad,self.ox,self.oy,self.radio,self.scale.x,self.scale.y,w/2,h/2)
 end
 
 function misil:update(dt)

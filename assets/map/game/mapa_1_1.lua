@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 386,
+  nextobjectid = 387,
   properties = {},
   tilesets = {},
   layers = {
@@ -3681,6 +3681,21 @@ return {
             { x = 4.66667, y = 24.6667 }
           },
           properties = {}
+        },
+        {
+          id = 386,
+          name = "Municion",
+          type = "1",
+          shape = "point",
+          x = 297.333,
+          y = 1168.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["stock"] = 14
+          }
         }
       }
     }
