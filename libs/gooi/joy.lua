@@ -161,6 +161,7 @@ function gooi.newJoy(params)
     self.dx = 0
     self.dy = 0
   end
+
   function s:noSpring()
     self.spring = false
     return self
@@ -205,6 +206,6 @@ function gooi.newJoy(params)
   end
   function s:theX() return (self.x) + (self.r) end
   function s:theY() return (self.y) + (self.r) end
-  
+
   return gooi.storeComponent(s, id)
 end

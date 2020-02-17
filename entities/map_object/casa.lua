@@ -8,13 +8,15 @@ function casa:init(entidad,poligono,img)
   
   self.entidad:add_obj("map_object",self)
   
-  local i = math.random(1,2)
+  local i = math.random(1,3)
   local texture
   
   if i == 1 then
     texture = img.texturas.casa
   elseif i == 2 then
     texture = img.texturas.casa2
+  elseif i == 3 then
+    texture = img.texturas.casa3
   end
   
     

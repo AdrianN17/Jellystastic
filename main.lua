@@ -11,6 +11,7 @@ img_index = require "assets/img/index"
 require "libs.gooi"
 
 function love.load()
+  
   Gamestate.registerEvents()
 	Gamestate.switch(Game,1)
 end

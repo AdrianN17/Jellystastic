@@ -9,6 +9,9 @@ local game_conf = Class{
 
 function game_conf:init()
   self.mundos = {}
+  
+  
+  
 end
 
 function game_conf:enter(_,nombreMapa,accion,data,data_player)
@@ -16,7 +19,23 @@ function game_conf:enter(_,nombreMapa,accion,data,data_player)
   if nombreMapa then
     self.nombreMapa = nombreMapa
     game_conf_default.init(self,map_index.campana[nombreMapa]["main"])
+    
+    if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" and not joy_movimiento and not joy_disparo then
+  
+    local style = {
+      showBorder = true,
+      bgColor = {0, 0, 0,0.2}
+    }
+    gooi.setStyle(style)
+    
+    
+    joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
+    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
+    end
+    
   end
+  
+  
   
   if accion == "limpiar" then
     self:clear()
@@ -48,17 +67,30 @@ function game_conf:enter(_,nombreMapa,accion,data,data_player)
 end
 
 function game_conf:ir_a_otro_nivel(data_puerta)
+  if joy_movimiento then
+    joy_movimiento:restore()
+  end
+  
   if not self.mundos[data_puerta.id_mapa] then
     if map_index.campana[self.nombreMapa][data_puerta.id_mapa] then
       local player = self.gameobject.player[self.index_player]
       local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+      
+
+      player:clear_puerta()
       Gamestate.switch(game_conf_subnivel,data_puerta,data_player)
+      
     end
   else
     local player = self.gameobject.player[self.index_player]
     local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+    
+    
+    player:clear_puerta()
     Gamestate.push(self.mundos[data_puerta.id_mapa],data_puerta,data_player)
   end
+  
+  
 end
 
 function game_conf:clear()

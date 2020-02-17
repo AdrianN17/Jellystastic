@@ -64,7 +64,7 @@ function acciones:draw_player()
   
   
   if arma then
-    love.graphics.print(Inspect(arma),self.ox,self.oy-150)
+    love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -113,12 +113,18 @@ function acciones:saltar()
     
     self.acciones.saltando=true
     self.raycast_ground=false
+    self.ground = false
     
-    self.timer:after(0.2,function()
-      self.ground = false
+    self.timer:after(0.1,function()
+      if not self.acciones.saltando then
+        self.acciones.saltando=true
+        self.ground = false
+      end
+    end)
+    
+    self.timer:after(0.5,function()
       self.raycast_ground=true
-
-  end)
+    end)
 end
 
 function acciones:keypressed(key)
@@ -132,11 +138,11 @@ function acciones:keypressed(key)
     self.direccion=1
   end
   
-  if key == "w" and self.ground and not self.acciones.saltando then
+  if key == "w" and self.ground and not self.acciones.saltando and self.raycast_ground then
     self:saltar()
   end
   
-  if key == "s" and self.hay_puerta and self.data_puerta then 
+  if key == "s" and self.hay_puerta and self.data_puerta and self.ground then 
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
@@ -204,9 +210,9 @@ function acciones:joystick(dir)
     self.movimiento.d = true
   end
 
-  if dir:match("t") and self.ground and not self.acciones.saltando then
+  if dir:match("t") and self.ground and not self.acciones.saltando and self.raycast_ground then
     self:saltar()
-  elseif dir:match("b") and self.hay_puerta and self.data_puerta then
+  elseif dir:match("b") and self.hay_puerta and self.data_puerta and self.ground then
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
 end
@@ -259,6 +265,10 @@ function acciones:terminar_disparo_balas()
   end
 end
 
+function acciones:clear_puerta()
+  self.hay_puerta=false
+  self.data_puerta=nil
+end
 
 
 return acciones

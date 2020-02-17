@@ -14,7 +14,6 @@ end
 
 function game_conf_subnivel:enter(from,data,data_player)
   
-  
   self.main_level = from
   self.creado = false
 
@@ -60,8 +59,15 @@ function game_conf_subnivel:enter(from,data,data_player)
 end
 
 function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
+  if joy_movimiento then
+    joy_movimiento:restore()
+  end
+  
   local player = self.gameobject.player[self.index_player]
   local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+    
+  player:clear_puerta()
+  
   Gamestate.push(self.main_level,_,"cambiar_pos",data_puerta,data_player)
 end
 

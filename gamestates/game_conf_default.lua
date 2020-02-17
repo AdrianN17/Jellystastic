@@ -10,8 +10,7 @@ local Box2d_conf = require "gamestates.box2d_conf"
 local UI_player = require "gamestates.ui_player"
 local max_decoration = require "entities.max_decoration"
 
-local joy_disparo=nil
-local joy_movimiento=nil
+
 
 local game_conf_default = Class{
   __includes = {Box2d_conf,UI_player}
@@ -120,19 +119,7 @@ function game_conf_default:init(nombreMapa)
   
   self.index_player=1
   
-  if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
-  
-  local style = {
-    showBorder = true,
-    bgColor = {0, 0, 0,0.2}
-  }
-  gooi.setStyle(style)
-  
-  
-    joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 80*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
-    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.camera_x_ui - 150*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
-  end
-  
+ 
   self:arreglar_posicion_puerta()
   
   self.sky_box = 1
@@ -150,7 +137,6 @@ function game_conf_default:draw_conf()
   
   local cx,cy,cw,ch=self.cam:getVisible()
   
-  --love.graphics.print("Scaled text", 100,100)
   self.vision.x,self.vision.y,self.vision.w,self.vision.h = cx,cy,cw,ch
   
   self.vision.x = self.vision.x - self.vision.w/2
@@ -187,6 +173,8 @@ end)
 	love.graphics.rectangle("fill",self.camera_x_ui,0,self.espacio_x,self.screen_y)
   love.graphics.setColor(1,1,1,1)
   self:draw_ui()
+  
+  love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10,10)
  
 
 end
@@ -476,8 +464,10 @@ function game_conf_default:update(dt)
   gooi.update(dt)
   
   if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" then
+
     local dir = joy_movimiento:direction()
     self.gameobject.player[self.index_player]:joystick(dir)
+    
   end
   
   self:update_conf(dt)
@@ -524,6 +514,7 @@ function game_conf_default:mousepressed(x,y,button)
       self.gameobject.player[self.index_player]:mousepressed(cx,cy,button)
     end
   end
+
 end
 
 function game_conf_default:mousereleased(x,y,button)
@@ -533,6 +524,8 @@ function game_conf_default:mousereleased(x,y,button)
       self.gameobject.player[self.index_player]:mousereleased(x,y,button)
     end
   end
+  
+
 end
 
 function game_conf_default:touchpressed( id, x, y, dx, dy, pressure )
