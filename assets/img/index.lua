@@ -156,6 +156,7 @@ index.skybox[1] = love.graphics.newImage("assets/img/CieloDia.png")
 index.skybox[2] = love.graphics.newImage("assets/img/CieloDia.png")
 index.skybox[3] = love.graphics.newImage("assets/img/CieloDia.png")
 
-
+index.background={}
+index.background[1] = love.graphics.newImage("assets/img/Fondo1.png")
 
 return  index

@@ -123,6 +123,7 @@ function game_conf_default:init(nombreMapa)
   self:arreglar_posicion_puerta()
   
   self.sky_box = 1
+  self.background = 1
   
 end
 
@@ -586,12 +587,18 @@ end
 function game_conf_default:skybox()
 
   local img = img_index.skybox[self.sky_box]
+  local img2 = img_index.background[self.background]
   local x = self.camera_x_ui/ img:getWidth()
 
   local y = self.screen_y/ img:getHeight()
   
+  local x2 = self.camera_x_ui/ img2:getWidth()
+
+  local y2 = self.screen_y/ img2:getHeight()
+  
   
   love.graphics.draw(img, 0, 0, 0, x, y)
+  love.graphics.draw(img2, 0, 0, 0, x2, y2)
 end
 
 return game_conf_default
