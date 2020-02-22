@@ -75,6 +75,13 @@ function jelly_boy:init(entidad,posicion,img)
     self.entidad.world:rayCast(x2,y2,w2,h2, raycast_funcion)
   end)
 
+  self.shader_player = shader_index.shader_player
+  self.vec4_shader = {0.4,0,0,0}
+  
+  self.shader_player:send("color_player",self.vec4_shader)
+  
+  
+  
 end
 
 function jelly_boy:draw()

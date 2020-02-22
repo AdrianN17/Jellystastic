@@ -7,6 +7,7 @@ Inspect  = require "libs.inspect.inspect"
 map_index = require "assets.map.index"
 orden = require "entities.orden"
 img_index = require "assets/img/index"
+shader_index = require "assets/shader/index"
 
 require "libs.gooi"
 

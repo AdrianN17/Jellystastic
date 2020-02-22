@@ -56,7 +56,9 @@ function acciones:draw_player()
   local scale = self.spritesheet.scale
   local x,y,w,h = quad:getViewport()
   
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  love.graphics.setShader(self.shader_player)
+    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  love.graphics.setShader()
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
