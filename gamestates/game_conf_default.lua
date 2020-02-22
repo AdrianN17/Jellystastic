@@ -45,16 +45,14 @@ function game_conf_default:init(nombreMapa)
 
   self.scale = 1/self.scale_dpi
   
-  self.espacio_x_no_escalado = 180
-  self.espacio_x = self.espacio_x_no_escalado*self.scale
   
   self.explosion_scale = 2
   
   self.map = Sti(nombreMapa)
-  self.map:resize((x/self.scale)-self.espacio_x,(y/self.scale))
+  self.map:resize((x/self.scale),(y/self.scale))
   
   self.cam = Gamera.new(0,0,self.map.width*self.map.tilewidth, self.map.height*self.map.tileheight)
-  self.cam:setWindow(0,0,x-self.espacio_x,y)
+  self.cam:setWindow(0,0,x,y)
   self.cam:setScale(self.scale)
   
   love.physics.setMeter(64)
@@ -170,10 +168,8 @@ function game_conf_default:draw_conf()
 
 end)
 
-  love.graphics.setColor(0, 0, 0)
-	love.graphics.rectangle("fill",self.camera_x_ui,0,self.espacio_x,self.screen_y)
-  love.graphics.setColor(1,1,1,1)
-  self:draw_ui()
+
+  --self:draw_ui()
   
   love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10,10)
  
@@ -535,7 +531,7 @@ function game_conf_default:touchpressed( id, x, y, dx, dy, pressure )
     gooi.pressed(id, x, y)
     
     if self.gameobject.player[self.index_player] then
-      self:check_arma(x,y,1)
+      --self:check_arma(x,y,1)
     end
   end
 end
@@ -545,7 +541,7 @@ function game_conf_default:touchreleased( id, x, y, dx, dy, pressure )
     
     gooi.released(id, x, y)
     if self.gameobject.player[self.index_player] then
-      self:check_arma(x,y,2)
+      --self:check_arma(x,y,2)
     end
   end
 end
@@ -588,11 +584,11 @@ function game_conf_default:skybox()
 
   local img = img_index.skybox[self.sky_box]
   local img2 = img_index.background[self.background]
-  local x = self.camera_x_ui/ img:getWidth()
+  local x = self.screen_x/ img:getWidth()
 
   local y = self.screen_y/ img:getHeight()
   
-  local x2 = self.camera_x_ui/ img2:getWidth()
+  local x2 = self.screen_x/ img2:getWidth()
 
   local y2 = self.screen_y/ img2:getHeight()
   

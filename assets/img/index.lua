@@ -3,7 +3,7 @@ local index = {}
 index.personajes = {}
 
 index.personajes[1] = {}
-index.personajes[1].img = love.graphics.newImage("assets/img/sprite.png")
+index.personajes[1].img = love.graphics.newImage("assets/img/Jugadores/sprite.png")
 index.personajes[1].quad = {}
 
 --normal
@@ -49,7 +49,7 @@ index.personajes[1].quad[6][3] = love.graphics.newQuad(839,1699,233,97,index.per
 index.personajes[1].scale = {x = 0.25,y=0.25}
 
 index.baba = {}
-index.baba.img = love.graphics.newImage("assets/img/enemigo1.png")
+index.baba.img = love.graphics.newImage("assets/img/Enemigos/enemigo1.png")
 
 index.baba.quad = {}
 index.baba.quad[1]=love.graphics.newQuad(21,97,329,378,index.baba.img:getDimensions())
@@ -67,42 +67,42 @@ index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimens
 
 index.texturas = {}
     
-index.texturas["gelatina"] = love.graphics.newImage("assets/img/suelo3.png")
+index.texturas["gelatina"] = love.graphics.newImage("assets/img/Texturas/suelo3.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
-index.texturas["casa"] = love.graphics.newImage("assets/img/wafer.png")
+index.texturas["casa"] = love.graphics.newImage("assets/img/Texturas/wafer.png")
 index.texturas["casa"]:setWrap("repeat")
 
-index.texturas["casa2"] = love.graphics.newImage("assets/img/wafer2.png")
+index.texturas["casa2"] = love.graphics.newImage("assets/img/Texturas/wafer2.png")
 index.texturas["casa2"]:setWrap("repeat")
 
-index.texturas["casa3"] = love.graphics.newImage("assets/img/wafer_profundidad.png")
+index.texturas["casa3"] = love.graphics.newImage("assets/img/Texturas/wafer_profundidad.png")
 index.texturas["casa3"]:setWrap("repeat")
 
 index.cosas = {}
 
 index.cosas["ventana"]={}
-index.cosas["ventana"][1] = love.graphics.newImage("assets/img/ventana.png")
-index.cosas["ventana"][2] = love.graphics.newImage("assets/img/ventana2.png")
-index.cosas["ventana"][3] = love.graphics.newImage("assets/img/ventana3.png")
-index.cosas["ventana"][4] = love.graphics.newImage("assets/img/ventana4.png")
+index.cosas["ventana"][1] = love.graphics.newImage("assets/img/Objetos/ventana.png")
+index.cosas["ventana"][2] = love.graphics.newImage("assets/img/Objetos/ventana2.png")
+index.cosas["ventana"][3] = love.graphics.newImage("assets/img/Objetos/ventana3.png")
+index.cosas["ventana"][4] = love.graphics.newImage("assets/img/Objetos/ventana4.png")
 
 index.cosas["ventana_data"] = {}
 index.cosas["ventana_data"].x = 0.12
 index.cosas["ventana_data"].y = 0.12
 
 index.cosas["confite"]={}
-index.cosas["confite"][1] = love.graphics.newImage("assets/img/ladrilloEfecto.png")
-index.cosas["confite"][2] = love.graphics.newImage("assets/img/ladrilloEfecto2.png")
-index.cosas["confite"][3] = love.graphics.newImage("assets/img/ladrilloEfecto3.png")
-index.cosas["confite"][4] = love.graphics.newImage("assets/img/ladrilloEfecto4.png")
+index.cosas["confite"][1] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto.png")
+index.cosas["confite"][2] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto2.png")
+index.cosas["confite"][3] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto3.png")
+index.cosas["confite"][4] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto4.png")
 
 index.cosas["confite_data"] = {}
 index.cosas["confite_data"].x = 0.1
 index.cosas["confite_data"].y = 0.1
 
 index.cosas["puerta"] = {}
-index.cosas["puerta"][1] = love.graphics.newImage("assets/img/puertas.png")
+index.cosas["puerta"][1] = love.graphics.newImage("assets/img/Objetos/puertas.png")
 
 index.cosas["puerta_data"] = {}
 index.cosas["puerta_data"].x = 0.2
@@ -110,20 +110,20 @@ index.cosas["puerta_data"].y = 0.2
 
 
 index.cosas["adorno_mapa"] = {}
-index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/efectoestandar.png")
-index.cosas["adorno_mapa"][2] = love.graphics.newImage("assets/img/sueloefecto1.png")
-index.cosas["adorno_mapa"][3] = love.graphics.newImage("assets/img/sueloefecto2.png")
+index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/Efectos/efectoestandar.png")
+index.cosas["adorno_mapa"][2] = love.graphics.newImage("assets/img/Efectos/sueloefecto1.png")
+index.cosas["adorno_mapa"][3] = love.graphics.newImage("assets/img/Efectos/sueloefecto2.png")
 
 index.cosas["adorno_mapa_data"] = {}
 index.cosas["adorno_mapa_data"].x = 0.2
 index.cosas["adorno_mapa_data"].y = 0.2
 
 index.redimensionable = {}
-index.redimensionable[1] = love.graphics.newImage("assets/img/techo2.png")
+index.redimensionable[1] = love.graphics.newImage("assets/img/Objetos/techo2.png")
 
 index.armas = {}
 
-index.armas.img = love.graphics.newImage("assets/img/armas.png")
+index.armas.img = love.graphics.newImage("assets/img/Armas/armas.png")
 
 index.armas.quad={}
 index.armas.quad[1] = love.graphics.newQuad(402,43,157,111,index.armas.img:getDimensions())
@@ -152,11 +152,11 @@ index.municion.quad = love.graphics.newQuad(1283,20,233,206,index.armas.img:getD
 index.municion.scale = {x = 0.25,y=0.25}
 
 index.skybox = {}
-index.skybox[1] = love.graphics.newImage("assets/img/CieloDia.png")
-index.skybox[2] = love.graphics.newImage("assets/img/CieloDia.png")
-index.skybox[3] = love.graphics.newImage("assets/img/CieloDia.png")
+index.skybox[1] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
+index.skybox[2] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
+index.skybox[3] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
 
 index.background={}
-index.background[1] = love.graphics.newImage("assets/img/Fondo1.png")
+index.background[1] = love.graphics.newImage("assets/img/Capa_2/Fondo1.png")
 
 return  index

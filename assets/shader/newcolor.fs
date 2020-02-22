@@ -11,7 +11,7 @@ number _hue(number s, number t, number h)
 }
 vec4 hsl_to_rgb(vec4 c)
 {
-	if (c.y == 0)
+	if (float(c.y) == float(0))
 		return vec4(vec3(c.z), c.a);
 
 	number t = (c.z < .5) ? c.y*c.z + c.z : -c.y*c.z + (c.y+c.z);
@@ -27,7 +27,7 @@ vec4 rgb_to_hsl(vec4 c)
 	number sum = high+low;
 
 	vec4 hsl = vec4(.0, .0, .5 * sum, c.a);
-	if (delta == .0)
+	if (float(delta) == .0)
 		return hsl;
 
 	hsl.y = (hsl.z < .5) ? delta / sum : delta / (2.0 - sum);

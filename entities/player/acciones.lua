@@ -181,14 +181,11 @@ end
 
 function acciones:mousepressed(x,y,button)
   
-  if love.mouse.getX()<self.entidad.camera_x_ui then
-    if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-      self:disparo(self.arma_index)
-    elseif button == 2 then
-      self:recargar_arma()
-    end
-  else
-    self.entidad:check_arma(x,y)
+
+  if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self:disparo(self.arma_index)
+  elseif button == 2 then
+    self:recargar_arma()
   end
   
 end

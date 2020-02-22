@@ -76,7 +76,7 @@ function jelly_boy:init(entidad,posicion,img)
   end)
 
   self.shader_player = shader_index.shader_player
-  self.vec4_shader = {0.4,0,0,0}
+  self.vec4_shader = {0.5,0,0,0}
   
   self.shader_player:send("color_player",self.vec4_shader)
   
