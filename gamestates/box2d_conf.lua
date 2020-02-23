@@ -75,7 +75,7 @@ function box2d_conf:callbacks()
 
       if obj1.data == "player" and obj2.data == "enemy" then
         coll:setEnabled( false )
-        if not obj1.obj.acciones.invulnerable then
+        if not obj1.obj.acciones.invulnerable and obj2.obj.dano_tocar then
           self:dano(obj1.obj,2)
           obj1.obj.acciones.invulnerable = true
           self.timer:after(1,function() 

@@ -126,6 +126,15 @@ function game_conf_default:init(nombreMapa)
   self.img_fondo = img_index.skybox[self.sky_box]
   self.img_fondo2 = img_index.background[self.background]
   
+  --shaders compartidos
+  
+  self.shader_enemigo = love.graphics.newShader(shader_index.shader_player)
+  
+  
+  self.vec4_shader = {0.7,-0.4,0,0}
+  
+  self.shader_enemigo:send("color_player",self.vec4_shader)
+  
 end
 
 function game_conf_default:update_conf(dt)
@@ -582,6 +591,15 @@ function game_conf_default:arreglar_posicion_puerta()
     self.gameobject.door[k.id_puerta] = k
   end
 
+end
+
+function game_conf_default:eliminar_presa_jugador(player)
+  for _, enemy in ipairs(self.gameobject.enemy) do
+    if enemy.obj_presa == player then
+      enemy.obj_presa = nil
+      enemy.acciones:a_mover()
+    end
+  end
 end
 
 function game_conf_default:skybox()

@@ -7,8 +7,9 @@ function acciones:init(x,y,w,h)
   self.radio = 0
     
   self.iterador=1
+  self.iterador2 = 1
   self.cambiar_direccion=false
-  self.direccion=-1
+  self.direccion=1
   
   self.w,self.h =w, h
   
@@ -23,14 +24,12 @@ function acciones:init(x,y,w,h)
   --extremidades
   self.lineas_fisica = {}
   self.lineas_fisica.shape_suelo = {}
-  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape((82.25/4)*self.direccion,0,(82.25/4)*self.direccion,130)
-  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape(-(82.25/4)*self.direccion,0,-(82.25/4)*self.direccion,130)
+  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape(-(82.25/4),0,-(82.25/4),130)
+  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape((82.25/4),0,(82.25/4),130)
   self.lineas_fisica.shape_pared = {}
-  self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,75*self.direccion,0)
-  self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,-75*self.direccion,0)
-  self.lineas_fisica.shape_player = {}
-  self.lineas_fisica.shape_player[-1] = love.physics.newEdgeShape(0,0,self.limite_vision*self.direccion,0)
-  self.lineas_fisica.shape_player[1] = love.physics.newEdgeShape(0,0,-self.limite_vision*self.direccion,0)
+  self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,-75,0)
+  self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,75,0)
+  
   
   self.lineas_fisica.fixture_suelo = {}
   self.lineas_fisica.fixture_suelo[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_suelo[-1])
@@ -38,16 +37,13 @@ function acciones:init(x,y,w,h)
   self.lineas_fisica.fixture_pared = {}
   self.lineas_fisica.fixture_pared[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_pared[-1])
   self.lineas_fisica.fixture_pared[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_pared[1])
-  self.lineas_fisica.fixture_player = {}
-  self.lineas_fisica.fixture_player[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[-1])
-  self.lineas_fisica.fixture_player[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[1])
+  
   
   self.lineas_fisica.fixture_suelo[-1]:setSensor( true )
   self.lineas_fisica.fixture_suelo[1]:setSensor( true )
   self.lineas_fisica.fixture_pared[-1]:setSensor( true )
   self.lineas_fisica.fixture_pared[1]:setSensor( true )
-  self.lineas_fisica.fixture_player[-1]:setSensor( true )
-  self.lineas_fisica.fixture_player[1]:setSensor( true )
+  
 
   --presa
   self.obj_presa = nil
@@ -73,9 +69,32 @@ function acciones:draw_enemy()
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
+function acciones:draw_enemy2()
+  local quad = self.spritesheet.quad[self.iterador][self.iterador2]
+  local scale = self.spritesheet.scale
+  local x,y,w,h = quad:getViewport()
+  
+  love.graphics.setShader(self.entidad.shader_enemigo)
+    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  love.graphics.setShader()
+  
+  local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
+  local scale1 = self.spritesheet_accesorio.scale
+  local _,_,w1,h1 = quad1:getViewport()
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
+  
+  love.graphics.print(self.hp,self.ox,self.oy-100)
+  
+  local arma = self.armas_values[self.arma_index]
+  
+  
+  
+  
+  self:draw_bala()
+end
+
 function acciones:update_enemy(dt)
   self.timer:update(dt)
-  
   
   if self.acciones.current == "atacar" and self.obj_presa then
     local ox,oy = self.obj_presa.ox,self.obj_presa.oy
@@ -85,10 +104,15 @@ function acciones:update_enemy(dt)
     local direccion = ox - self.ox
     --print(direccion)
     
-    if distancia > self.limite_vision or direccion>0 and self.direccion == -1 or direccion<0 and self.direccion == 1 then
-      self.obj_presa=nil
-      self.acciones:a_mover()
+    if not self.giro_completo then
+      if distancia > self.limite_vision or ((direccion>0 and self.direccion == -1) or (direccion<0 and self.direccion == 1)) then
+        self:terminar_seguimiento()
+      end
+
+    elseif self.giro_completo and distancia > self.limite_vision then
+      self:terminar_seguimiento()
     end
+  
     
   end
   
@@ -133,6 +157,16 @@ function acciones:masa(x,y)
   
   self.fixture:setUserData( {data="enemy",obj=self, pos=orden.enemy} )
   self.fixture : setGroupIndex ( self.creador)
+end
+
+function acciones:terminar_seguimiento()
+  self.obj_presa=nil
+  self.acciones:a_mover()
+  
+  if self.restaurar_radio then
+    self:restaurar_radio()
+  end
+  
 end
 
 

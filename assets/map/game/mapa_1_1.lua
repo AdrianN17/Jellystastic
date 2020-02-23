@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 387,
+  nextobjectid = 388,
   properties = {},
   tilesets = {},
   layers = {
@@ -138,7 +138,7 @@ return {
         {
           id = 52,
           name = "Casa",
-          type = "",
+          type = "2",
           shape = "polygon",
           x = 3338,
           y = 1290,
@@ -389,7 +389,7 @@ return {
         {
           id = 89,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 2,
           y = 1187.9,
@@ -408,7 +408,7 @@ return {
         {
           id = 90,
           name = "Casa",
-          type = "",
+          type = "2",
           shape = "polygon",
           x = 236,
           y = 987.971,
@@ -427,7 +427,7 @@ return {
         {
           id = 91,
           name = "Casa",
-          type = "",
+          type = "3",
           shape = "polygon",
           x = 557,
           y = 928,
@@ -446,7 +446,7 @@ return {
         {
           id = 92,
           name = "Casa",
-          type = "",
+          type = "2",
           shape = "polygon",
           x = 786,
           y = 754,
@@ -465,7 +465,7 @@ return {
         {
           id = 93,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 1077,
           y = 917.204,
@@ -484,7 +484,7 @@ return {
         {
           id = 94,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 2154,
           y = 1389,
@@ -503,7 +503,7 @@ return {
         {
           id = 97,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 3947,
           y = 765,
@@ -522,7 +522,7 @@ return {
         {
           id = 98,
           name = "Casa",
-          type = "",
+          type = "2",
           shape = "polygon",
           x = 4128,
           y = 474,
@@ -541,7 +541,7 @@ return {
         {
           id = 99,
           name = "Casa",
-          type = "",
+          type = "2",
           shape = "polygon",
           x = 4826,
           y = 418,
@@ -560,7 +560,7 @@ return {
         {
           id = 100,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 5075,
           y = 489,
@@ -579,7 +579,7 @@ return {
         {
           id = 101,
           name = "Casa",
-          type = "",
+          type = "3",
           shape = "polygon",
           x = 4419,
           y = 766,
@@ -3681,21 +3681,6 @@ return {
             { x = 4.66667, y = 24.6667 }
           },
           properties = {}
-        },
-        {
-          id = 386,
-          name = "Municion",
-          type = "1",
-          shape = "point",
-          x = 297.333,
-          y = 1168.67,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["stock"] = 14
-          }
         }
       }
     }

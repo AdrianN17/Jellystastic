@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="387">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="388">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -22,7 +22,7 @@
   <object id="51" x="2976" y="1120">
    <polygon points="0,0 -552,-224 -488,-368 174,-82 108,-60 136,-24 80,2"/>
   </object>
-  <object id="52" name="Casa" x="3338" y="1290">
+  <object id="52" name="Casa" type="2" x="3338" y="1290">
    <polygon points="-22,2 -24,-169.333 30,-130 70,-166 96,-122 146,-160 149.333,-0.333333"/>
   </object>
   <object id="60" name="Baba" x="1184" y="1138.67">
@@ -70,37 +70,37 @@
   <object id="86" name="Gelatina" x="3917.33" y="1290.67">
    <polygon points="-1.25,0.25 -1.91667,309.5 2483.05,309.417 2483.13,3.875"/>
   </object>
-  <object id="89" name="Casa" x="2" y="1187.9">
+  <object id="89" name="Casa" type="1" x="2" y="1187.9">
    <polygon points="-2,1.79072 -2,-273.896 227,-273.896 227.25,1.32702"/>
   </object>
-  <object id="90" name="Casa" x="236" y="987.971">
+  <object id="90" name="Casa" type="2" x="236" y="987.971">
    <polygon points="-7.22464,3.56923 -6.75,201.029 318.75,200.173 319,3.28442"/>
   </object>
-  <object id="91" name="Casa" x="557" y="928">
+  <object id="91" name="Casa" type="3" x="557" y="928">
    <polygon points="-2.25,0 230,-1 229,260 -2.5,260"/>
   </object>
-  <object id="92" name="Casa" x="786" y="754">
+  <object id="92" name="Casa" type="2" x="786" y="754">
    <polygon points="0,0 290.5,1 290.75,432.25 -0.25,434"/>
   </object>
-  <object id="93" name="Casa" x="1077" y="917.204">
+  <object id="93" name="Casa" type="1" x="1077" y="917.204">
    <polygon points="-0.429348,-0.579009 469,0 469.273,267.537 -0.25,269.046"/>
   </object>
-  <object id="94" name="Casa" x="2154" y="1389">
+  <object id="94" name="Casa" type="1" x="2154" y="1389">
    <polygon points="0,3.66667 -2,-261 227,-257 226.667,3"/>
   </object>
-  <object id="97" name="Casa" x="3947" y="765">
+  <object id="97" name="Casa" type="1" x="3947" y="765">
    <polygon points="0,0 230,-47.3333 280.333,206 51.6667,255"/>
   </object>
-  <object id="98" name="Casa" x="4128" y="474">
+  <object id="98" name="Casa" type="2" x="4128" y="474">
    <polygon points="0,0 222,-43 323,451 99,496"/>
   </object>
-  <object id="99" name="Casa" x="4826" y="418">
+  <object id="99" name="Casa" type="2" x="4826" y="418">
    <polygon points="-0.666667,0 224.333,-46.3333 302.667,367.667 81.3333,414"/>
   </object>
-  <object id="100" name="Casa" x="5075" y="489">
+  <object id="100" name="Casa" type="1" x="5075" y="489">
    <polygon points="-2,0 222,-46 283.333,249.667 53.6667,297"/>
   </object>
-  <object id="101" name="Casa" x="4419" y="766">
+  <object id="101" name="Casa" type="3" x="4419" y="766">
    <polygon points="0,0 457,-89 488,65 32,159"/>
   </object>
   <object id="102" name="Decoration" type="ventana" x="52" y="1018">
@@ -1258,12 +1258,6 @@
   </object>
   <object id="385" name="Plataforma" x="5064.33" y="472.667">
    <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>
-  </object>
-  <object id="386" name="Municion" type="1" x="297.333" y="1168.67">
-   <properties>
-    <property name="stock" type="int" value="14"/>
-   </properties>
-   <point/>
   </object>
  </objectgroup>
 </map>

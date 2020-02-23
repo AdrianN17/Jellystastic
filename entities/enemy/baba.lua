@@ -21,7 +21,9 @@ function baba:init(entidad,posicion,img)
   self.hp = 10
   self.vel = 100
   self.limite_vision=200
-  self.posicion_ataque=false
+  self.dano_tocar = true
+  self.posicion_ataque = false
+  self.giro_completo = false
   
   self.spritesheet = img.baba
   
@@ -39,6 +41,15 @@ function baba:init(entidad,posicion,img)
   })
   
   Acciones.init(self,posicion[1],posicion[2],82.25, 94.5)
+  
+  self.lineas_fisica.shape_player = {}
+  self.lineas_fisica.shape_player[-1] = love.physics.newEdgeShape(0,0,-self.limite_vision,0)
+  self.lineas_fisica.shape_player[1] = love.physics.newEdgeShape(0,0,self.limite_vision,0)
+  self.lineas_fisica.fixture_player = {}
+  self.lineas_fisica.fixture_player[-1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[-1])
+  self.lineas_fisica.fixture_player[1] = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player[1])
+  self.lineas_fisica.fixture_player[-1]:setSensor( true )
+  self.lineas_fisica.fixture_player[1]:setSensor( true )
   
   self:masa(posicion[1],posicion[2])
 
@@ -76,9 +87,9 @@ function baba:init(entidad,posicion,img)
         if tipo_obj and tipo_obj.data==objetivo then
           self.posicion_ataque=true
           
-          if self.obj_presa == nil then
+          --if self.obj_presa == nil then
             self.obj_presa = fixture:getUserData().obj
-          end
+          --end
           
         end
       end
@@ -146,5 +157,6 @@ end
 function baba:update(dt)
   self:update_enemy(dt)
 end
+
 
 return baba

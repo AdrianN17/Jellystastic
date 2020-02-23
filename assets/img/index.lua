@@ -71,19 +71,30 @@ index.accesorios.quad[2] = love.graphics.newQuad(290,310,145,135,index.accesorio
 
 index.accesorios.scale = {x = 0.2,y=0.2}
 
+index.vidas = {}
+
+index.vidas.img = index.accesorios.img
+index.vidas.quad = {}
+index.vidas.quad[1] = love.graphics.newQuad(75,485,183,152,index.vidas.img:getDimensions())
+index.vidas.quad[2] = love.graphics.newQuad(435,485,183,152,index.vidas.img:getDimensions())
+
+index.vidas.scale = {x = 0.3,y=0.3}
+
 index.texturas = {}
     
 index.texturas["gelatina"] = love.graphics.newImage("assets/img/Texturas/suelo3.png")
 index.texturas["gelatina"]:setWrap("repeat")
 
-index.texturas["casa"] = love.graphics.newImage("assets/img/Texturas/wafer.png")
-index.texturas["casa"]:setWrap("repeat")
+index.texturas.casa = {}
 
-index.texturas["casa2"] = love.graphics.newImage("assets/img/Texturas/wafer2.png")
-index.texturas["casa2"]:setWrap("repeat")
+index.texturas.casa[1] = love.graphics.newImage("assets/img/Texturas/wafer.png")
+index.texturas.casa[1]:setWrap("repeat")
 
-index.texturas["casa3"] = love.graphics.newImage("assets/img/Texturas/wafer_profundidad.png")
-index.texturas["casa3"]:setWrap("repeat")
+index.texturas.casa[2] = love.graphics.newImage("assets/img/Texturas/wafer2.png")
+index.texturas.casa[2]:setWrap("repeat")
+
+index.texturas.casa[3] = love.graphics.newImage("assets/img/Texturas/wafer_profundidad.png")
+index.texturas.casa[3]:setWrap("repeat")
 
 index.cosas = {}
 

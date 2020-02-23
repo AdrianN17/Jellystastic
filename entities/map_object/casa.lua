@@ -2,24 +2,14 @@ local Class = require "libs.hump.class"
 
 local casa = Class{}
 
-function casa:init(entidad,poligono,img)
+function casa:init(entidad,poligono,img,radio,tipo)
   
   self.entidad = entidad
   
   self.entidad:add_obj("map_object",self)
   
-  local i = math.random(1,3)
-  local texture
-  
-  if i == 1 then
-    texture = img.texturas.casa
-  elseif i == 2 then
-    texture = img.texturas.casa2
-  elseif i == 3 then
-    texture = img.texturas.casa3
-  end
-  
-    
+
+  texture = img.texturas.casa[tonumber(tipo)]
   
   self.mesh = self:poly2mesh(poligono,2)
   self.mesh:setTexture(texture)

@@ -62,10 +62,8 @@ function ammo:recargar(armas)
 end
 
 function ammo:remove()
-
-    self.body:destroy()
-
-    self.entidad:remove_obj("object",self)
+  self.body:destroy()
+  self.entidad:remove_obj("object",self)
 end
 
 return ammo

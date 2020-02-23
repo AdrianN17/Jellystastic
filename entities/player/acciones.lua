@@ -64,7 +64,7 @@ function acciones:draw_player()
   local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
   local scale1 = self.spritesheet_accesorio.scale
   local _,_,w1,h1 = quad1:getViewport()
-  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-40,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
@@ -109,6 +109,7 @@ function acciones:update_player(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   if self.hp < 0.1 or self.oy > self.entidad.caida_y then
+    self.entidad:eliminar_presa_jugador(self)
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)
@@ -188,8 +189,8 @@ end
 function acciones:mousepressed(x,y,button)
   
 
-  if button == 1 and self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self:disparo(self.arma_index)
+  if button == 1 then
+    self:disparo_balas()
   elseif button == 2 then
     self:recargar_arma()
   end
@@ -239,35 +240,6 @@ function acciones:masa(x,y)
   self.body:setMass(20)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
-end
-
-function acciones:recargar_arma()
-  
-  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    local balas = self.armas_values[self.arma_index]
-  
-    if balas.stock<balas.max_stock and balas.municion>0 then
-      self.timer_recarga = nil
-      self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
-        self:recarga(self.arma_index)
-        self.timer:cancel(self.timer_recarga)
-        self.timer_recarga = nil
-      end)
-    end
-  end
-end
-
-function acciones:disparo_balas()
-  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
-    self:disparo(self.arma_index)
-  end
-end
-
-function acciones:terminar_disparo_balas()
-  if self.arma_index > 0 and self.timer_balas then
-    self.timer:cancel(self.timer_balas)
-    self.timer_balas = nil
-  end
 end
 
 function acciones:clear_puerta()

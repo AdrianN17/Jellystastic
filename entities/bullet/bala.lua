@@ -8,9 +8,15 @@ local bala = Class{
 function bala:init(target)
   self.bx,self.by = 0,0
   self.max_distancia_bala = 1000
-  self.bala_radio = 0
+  
   self.bala_objetivos = {}
   self.target = target
+  
+  if self.direccion == -1 then
+    self.bala_radio = math.rad(180)
+  else
+    self.bala_radio = math.rad(0)
+  end
   
   --armas
   
@@ -18,9 +24,9 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0, tiempo_recarga = 0.7, raycast = true}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
   --desert eagle
-  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0, tiempo_recarga = 0.9, raycast = true}
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
   --uzi
   self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
   
@@ -46,6 +52,16 @@ function bala:init(target)
   
   --otros
   self.rf = 1
+  
+  self.df = 1
+  self.min_angle = {}
+  self.min_angle[-1] =  math.rad(110)
+  self.min_angle[1] =  math.rad(-70)
+  self.max_angle = {}
+  self.max_angle[-1] = math.rad(250)
+  self.max_angle[1] = math.rad(70)
+  
+  
 end
 
 function bala:update_bala_player()
@@ -54,6 +70,30 @@ function bala:update_bala_player()
   else
     self:update_bala_android()
   end
+end
+
+function bala:update_bala_enemigo(dt)
+  
+  if self.acciones.current == "mover" then
+    self.bala_radio = (self.bala_radio +dt*self.df)
+    
+    if self.bala_radio>self.max_angle[self.direccion] or self.bala_radio<self.min_angle[self.direccion] then
+      self.df = self.df*-1
+    end
+    
+  elseif self.acciones.current == "atacar" then
+    local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+    self.bala_radio = math.atan2(cy- self.obj_presa.oy,cx- self.obj_presa.ox)+math.pi
+  end
+  
+  local bx = math.cos(self.bala_radio)
+    
+    if bx>0 then
+      self.rf = 1
+    else
+      self.rf = -1
+    end
+  
 end
 
 function bala:update_bala_desktop()
@@ -103,8 +143,11 @@ function bala:draw_bala()
     local x,y,w,h = quad:getViewport()
     
     love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*self.rf,w/2,h/2)
+    
   end
   
+  
+
 end
 
 function bala:unico_target()
@@ -135,7 +178,12 @@ function bala:unico_target()
       local x = obj_target.ox - self.ox
       
       if (x<0 and obj_target.direccion<0 ) or (x>0 and obj_target.direccion>0) then
+        
         obj_target.direccion = obj_target.direccion*-1
+        
+        if obj_target.voltear then
+          obj_target:voltear()
+        end
       end
       
     end
@@ -207,6 +255,43 @@ function bala:disparo(arma_index)
           end
         end)
     end
+end
+
+function bala:restaurar_radio()
+  if self.direccion == -1 then
+    self.bala_radio = math.rad(180)
+  else
+    self.bala_radio = math.rad(0)
+  end
+end
+
+function bala:recargar_arma()
+  
+  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    local balas = self.armas_values[self.arma_index]
+  
+    if balas.stock<balas.max_stock and balas.municion>0 then
+      self.timer_recarga = nil
+      self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+        self:recarga(self.arma_index)
+        self.timer:cancel(self.timer_recarga)
+        self.timer_recarga = nil
+      end)
+    end
+  end
+end
+
+function bala:disparo_balas()
+  if self.arma_index > 0 and not self.timer_recarga and not self.timer_balas then
+    self:disparo(self.arma_index)
+  end
+end
+
+function bala:terminar_disparo_balas()
+  if self.arma_index > 0 and self.timer_balas then
+    self.timer:cancel(self.timer_balas)
+    self.timer_balas = nil
+  end
 end
 
   

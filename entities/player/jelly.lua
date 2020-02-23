@@ -3,18 +3,19 @@ local Timer = require "libs.chrono.Timer"
 local Bala = require "entities.bullet.bala"
 local Acciones =  require "entities.player.acciones"
 
-local jelly_boy = Class{
+local jelly = Class{
   __includes = {Bala,Acciones}
 }
 
-function jelly_boy:init(entidad,posicion,img)
+function jelly:init(entidad,posicion,img)
   self.entidad = entidad
   
   self.entidad:add_obj("player",self)
   
   self.creador = - 1
   
-  self.hp = 100
+  self.hp = 25
+  self.max_hp = self.hp
   self.vel = 175
   self.jump = 30
   
@@ -75,7 +76,7 @@ function jelly_boy:init(entidad,posicion,img)
     self.entidad.world:rayCast(x2,y2,w2,h2, raycast_funcion)
   end)
 
-  self.shader_player = shader_index.shader_player
+  self.shader_player = love.graphics.newShader(shader_index.shader_player)
   self.vec4_shader = {0.3,0,0,0}
   
   self.shader_player:send("color_player",self.vec4_shader)
@@ -86,11 +87,11 @@ function jelly_boy:init(entidad,posicion,img)
   
 end
 
-function jelly_boy:draw()
+function jelly:draw()
   self:draw_player()
 end
 
-function jelly_boy:update(dt)
+function jelly:update(dt)
   self:update_player(dt)
   
   self.entidad.cam:setPosition(self.ox, self.oy)
@@ -98,5 +99,5 @@ end
 
 
 
-return jelly_boy
+return jelly
 
