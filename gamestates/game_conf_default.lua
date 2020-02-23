@@ -123,6 +123,9 @@ function game_conf_default:init(nombreMapa)
   self.sky_box = 1
   self.background = 1
   
+  self.img_fondo = img_index.skybox[self.sky_box]
+  self.img_fondo2 = img_index.background[self.background]
+  
 end
 
 function game_conf_default:update_conf(dt)
@@ -146,6 +149,7 @@ function game_conf_default:draw_conf()
   self.vision.h = self.vision.h + self.vision.h
   
   self:skybox()
+  self:parallax()
   
  self.map:draw(-cx,-cy,self.scale,self.scale)
  
@@ -582,19 +586,20 @@ end
 
 function game_conf_default:skybox()
 
-  local img = img_index.skybox[self.sky_box]
-  local img2 = img_index.background[self.background]
-  local x = self.screen_x/ img:getWidth()
+  local x = self.screen_x/ self.img_fondo:getWidth()
 
-  local y = self.screen_y/ img:getHeight()
+  local y = self.screen_y/ self.img_fondo:getHeight()
   
-  local x2 = self.screen_x/ img2:getWidth()
+  love.graphics.draw(self.img_fondo, 0, 0, 0, x, y)
+end
 
-  local y2 = self.screen_y/ img2:getHeight()
+function game_conf_default:parallax()
   
+  local x2 = self.screen_x/ self.img_fondo2:getWidth()
+
+  local y2 = self.screen_y/ self.img_fondo2:getHeight()
   
-  love.graphics.draw(img, 0, 0, 0, x, y)
-  love.graphics.draw(img2, 0, 0, 0, x2, y2)
+  love.graphics.draw(self.img_fondo2, 0, 0, 0, x2, y2)
 end
 
 return game_conf_default

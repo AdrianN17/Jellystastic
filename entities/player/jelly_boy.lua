@@ -76,10 +76,12 @@ function jelly_boy:init(entidad,posicion,img)
   end)
 
   self.shader_player = shader_index.shader_player
-  self.vec4_shader = {0.5,0,0,0}
+  self.vec4_shader = {0.3,0,0,0}
   
   self.shader_player:send("color_player",self.vec4_shader)
   
+  self.spritesheet_accesorio = img.accesorios
+  self.id_accesorio = 2
   
   
 end

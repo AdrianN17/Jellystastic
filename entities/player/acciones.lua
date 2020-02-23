@@ -54,11 +54,17 @@ end
 function acciones:draw_player()
   local quad = self.spritesheet.quad[self.iterador][self.iterador2]
   local scale = self.spritesheet.scale
-  local x,y,w,h = quad:getViewport()
+  local _, _ ,w,h = quad:getViewport()
   
   love.graphics.setShader(self.shader_player)
     love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
   love.graphics.setShader()
+  
+  
+  local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
+  local scale1 = self.spritesheet_accesorio.scale
+  local _,_,w1,h1 = quad1:getViewport()
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-40,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   

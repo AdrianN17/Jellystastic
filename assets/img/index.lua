@@ -63,7 +63,13 @@ index.baba.scale = {x = 0.25,y=0.25}
 
 index.baba.saliva=love.graphics.newQuad(879,588,103,119,index.baba.img:getDimensions())
 
+index.accesorios={}
+index.accesorios.img = love.graphics.newImage("assets/img/Items/accesorios.png")
+index.accesorios.quad = {}
+index.accesorios.quad[1] = love.graphics.newQuad(229,104,242,137,index.accesorios.img:getDimensions())
+index.accesorios.quad[2] = love.graphics.newQuad(290,310,145,135,index.accesorios.img:getDimensions())
 
+index.accesorios.scale = {x = 0.2,y=0.2}
 
 index.texturas = {}
     
