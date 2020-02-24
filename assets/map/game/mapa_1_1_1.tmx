@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="28">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="29">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -12,7 +12,7 @@
     <property name="id" type="int" value="1"/>
    </properties>
   </object>
-  <object id="4" name="Soldado" x="705.457" y="837.575">
+  <object id="4" name="Soldado" type="1" x="705.457" y="837.575">
    <point/>
   </object>
   <object id="5" name="Puerta" type="1" x="1071.7" y="790.242" width="60" height="100">
@@ -40,7 +40,7 @@
     <property name="id" type="int" value="6"/>
    </properties>
   </object>
-  <object id="16" name="Soldado" x="1064" y="842.667">
+  <object id="16" name="Soldado" type="1" x="1064" y="842.667">
    <point/>
   </object>
   <object id="19" name="Casa" type="1" x="0.975777" y="888.722">
@@ -74,6 +74,9 @@
    <properties>
     <property name="stock" type="int" value="14"/>
    </properties>
+   <point/>
+  </object>
+  <object id="28" name="Arma" type="1" x="14.6667" y="853">
    <point/>
   </object>
  </objectgroup>

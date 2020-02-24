@@ -16,4 +16,6 @@ index.Vida = require "entities.object.health"
 
 index.Soldado = require "entities.enemy.soldado"
 
+index.Arma = require "entities.object.weapon"
+
 return index

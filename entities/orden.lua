@@ -8,7 +8,8 @@ orden.destructive_bullet = 5
 orden.door=6
 orden.municion=7
 orden.vida=8
-orden.explosion = 9
-orden.bedrock = 10
+orden.arma=9
+orden.explosion = 10
+orden.bedrock = 11
 
 return orden

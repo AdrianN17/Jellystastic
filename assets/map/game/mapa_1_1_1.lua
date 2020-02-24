@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 28,
+  nextobjectid = 29,
   properties = {},
   tilesets = {},
   layers = {
@@ -61,7 +61,7 @@ return {
         {
           id = 4,
           name = "Soldado",
-          type = "",
+          type = "1",
           shape = "point",
           x = 705.457,
           y = 837.575,
@@ -149,7 +149,7 @@ return {
         {
           id = 16,
           name = "Soldado",
-          type = "",
+          type = "1",
           shape = "point",
           x = 1064,
           y = 842.667,
@@ -298,6 +298,19 @@ return {
           properties = {
             ["stock"] = 14
           }
+        },
+        {
+          id = 28,
+          name = "Arma",
+          type = "1",
+          shape = "point",
+          x = 14.6667,
+          y = 853,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

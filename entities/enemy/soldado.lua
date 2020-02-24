@@ -8,14 +8,13 @@ local soldado = Class{
     __includes = {Acciones,Bala}
 }
 
-function soldado:init(entidad,posicion,img)
+function soldado:init(entidad,posicion,img,radio,tipo)
   self.entidad = entidad
   
   self.entidad:add_obj("enemy",self)
   
   self.objetivos={"player"}
   self.paredes_suelo={"map_object","bedrock"}
-  
   
   self.creador = -2
   self.hp = 10
@@ -37,7 +36,7 @@ function soldado:init(entidad,posicion,img)
   
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
   Bala.init(self,"player")
-  self.arma_index = 6
+  self.arma_index = tonumber(tipo)
   
   self.mano_fisica = {}
   self.mano_fisica.shape_mano = love.physics.newCircleShape(20,5,1)
@@ -181,6 +180,7 @@ function soldado:init(entidad,posicion,img)
   self.spritesheet_accesorio = img.accesorios
   self.id_accesorio = 1
   
+  self:recargar_max()
 end
 
 function soldado:draw()
