@@ -26,12 +26,12 @@ function bala:init(target)
   --pistola
   self.armas_values[1] = {stock = 14, max_stock = 14, municion = 70, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
   --desert eagle
-  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.5, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 40, max_municion = 40, enable = false, dano = 1.2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
   --uzi
   self.armas_values[3] = {stock = 30, max_stock = 30, municion = 120, max_municion = 120, enable = true, dano = 0.5, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 6, max_municion = 6, enable = true, dano = 10, tiempo = 0 ,tiempo_recarga = 0.01, raycast = false, index_bala= 1}
+  self.armas_values[6] = {stock = 2, max_stock = 2, municion = 6, max_municion = 6, enable = true, dano = 10, tiempo = 1 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
   
   --timer
   

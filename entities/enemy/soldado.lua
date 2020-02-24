@@ -37,7 +37,7 @@ function soldado:init(entidad,posicion,img)
   
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
   Bala.init(self,"player")
-  self.arma_index = 1
+  self.arma_index = 6
   
   self.mano_fisica = {}
   self.mano_fisica.shape_mano = love.physics.newCircleShape(20,5,1)
@@ -138,7 +138,7 @@ function soldado:init(entidad,posicion,img)
     
     if self.arma_index>0 then
       local bala = self.armas_values[self.arma_index]
-      if bala.stock<1 then
+      if bala.stock<1 and bala.municion>0 then
         self.acciones:a_recargar()
       end
     end

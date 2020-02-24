@@ -49,6 +49,8 @@ function acciones:init(x,y,w,h)
   self.hay_puerta=false
   self.data_puerta=nil
   
+  self.cooldown = false
+  
 end
 
 function acciones:draw_player()
@@ -189,7 +191,7 @@ end
 function acciones:mousepressed(x,y,button)
   
 
-  if button == 1 then
+  if button == 1 and not self.cooldown then
     self:disparo_balas()
   elseif button == 2 then
     self:recargar_arma()
@@ -199,8 +201,13 @@ end
 
 function acciones:mousereleased(x,y,button)
 
-  if button == 1 then
+  if button == 1 and not self.cooldown then
     self:terminar_disparo_balas()
+    
+    self.cooldown = true
+    self.timer:after(self.armas_values[self.arma_index].tiempo, function()
+      self.cooldown = false
+    end)
   end
 
 end
