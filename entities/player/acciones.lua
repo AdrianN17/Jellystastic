@@ -51,6 +51,8 @@ function acciones:init(x,y,w,h)
   
   self.cooldown = false
   
+  self.cooldown_iterador = true
+  
 end
 
 function acciones:draw_player()
@@ -201,7 +203,7 @@ end
 
 function acciones:mousereleased(x,y,button)
 
-  if button == 1 and not self.cooldown then
+  if button == 1 and not self.cooldown and self.arma_index>0 then
     self:terminar_disparo_balas()
     
     self.cooldown = true
@@ -252,6 +254,28 @@ end
 function acciones:clear_puerta()
   self.hay_puerta=false
   self.data_puerta=nil
+end
+
+function acciones:cambiar_estado(tipo)
+  local hp = self.max_hp*0.5
+
+  if self.hp<hp and self.cooldown_iterador then
+    
+    if tipo == "semizombie" then
+      self.iterador = 4
+    elseif tipo == "agujereado" then
+      self.iterador = 2
+    elseif tipo == "canon" then
+      self.iterador = 3
+    end
+    
+    self.cooldown_iterador = false
+    
+  elseif self.hp>hp and not self.cooldown_iterador then
+    
+    self.iterador = 1
+    self.cooldown_iterador = true
+  end
 end
 
 

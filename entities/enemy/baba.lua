@@ -18,7 +18,7 @@ function baba:init(entidad,posicion,img)
   
   
   self.creador = -2
-  self.hp = 10
+  self.hp = 15
   self.vel = 100
   self.limite_vision=200
   self.dano_tocar = true
@@ -51,7 +51,7 @@ function baba:init(entidad,posicion,img)
   self.lineas_fisica.fixture_player[-1]:setSensor( true )
   self.lineas_fisica.fixture_player[1]:setSensor( true )
   
-  self:masa(posicion[1],posicion[2])
+  self:masa(posicion[1],posicion[2],"baba")
 
   --Raycast
   

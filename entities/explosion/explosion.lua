@@ -25,6 +25,11 @@ function explosion:init(entidad,x,y,scale,dano)
       if k then
         if k.data == "enemy" or k.data == "player" then
           self.entidad:dano(k.obj,self.dano)
+          
+          if k.data == "player" then
+            k.obj:cambiar_estado("canon")
+          end
+          
         elseif k.data == "map_object" then
           k.obj:hacer_hueco(k.id_poligono,self.entidad:poligono_para_destruir(self.x,self.y),self.x,self.y) 
         elseif k.data == "enemy_bullet" or k.data == "object" then

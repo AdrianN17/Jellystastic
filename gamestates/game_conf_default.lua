@@ -10,6 +10,8 @@ local Box2d_conf = require "gamestates.box2d_conf"
 local UI_player = require "gamestates.ui_player"
 local max_decoration = require "entities.max_decoration"
 
+local Pausa = require "gamestates.pausa"
+
 
 
 local game_conf_default = Class{
@@ -497,7 +499,13 @@ function game_conf_default:keypressed(key)
     if self.gameobject.player[self.index_player] then
       self.gameobject.player[self.index_player]:keypressed(key)
     end
+    
+    if key == "p" then
+      Gamestate.switch(Pausa)
+    end
   end
+  
+  
   
   --[[if key == "0" then
     --muerte
@@ -596,8 +604,13 @@ end
 function game_conf_default:eliminar_presa_jugador(player)
   for _, enemy in ipairs(self.gameobject.enemy) do
     if enemy.obj_presa == player then
+      
+      if enemy.restaurar_radio then
+        enemy:restaurar_radio()
+      end
       enemy.obj_presa = nil
       enemy.acciones:a_mover()
+      
     end
   end
 end

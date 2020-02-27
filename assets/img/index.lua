@@ -16,7 +16,7 @@ index.personajes[1].quad[1][4] = love.graphics.newQuad(840,21,250,336,index.pers
 --agujeros
 index.personajes[1].quad[2] = {}
 index.personajes[1].quad[2][1] = love.graphics.newQuad(26,365,219,336,index.personajes[1].img:getDimensions())
-index.personajes[1].quad[2][2] = love.graphics.newQuad(300,270,219,329,index.personajes[1].img:getDimensions())
+index.personajes[1].quad[2][2] = love.graphics.newQuad(300,370,219,329,index.personajes[1].img:getDimensions())
 index.personajes[1].quad[2][3] = love.graphics.newQuad(566,365,219,336,index.personajes[1].img:getDimensions())
 index.personajes[1].quad[2][4] = love.graphics.newQuad(840,365,250,336,index.personajes[1].img:getDimensions())
 

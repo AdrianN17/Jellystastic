@@ -49,6 +49,8 @@ function health:usar(obj)
   elseif self.tipo_vida == 2 then
     self:extender_vida(obj)
   end
+  
+  obj:cambiar_estado()
 end
 
 function health:subir_vida(obj)

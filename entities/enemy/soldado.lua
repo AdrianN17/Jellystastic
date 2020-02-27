@@ -17,9 +17,9 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   self.paredes_suelo={"map_object","bedrock"}
   
   self.creador = -2
-  self.hp = 10
+  self.hp = 12
   self.vel = 100
-  self.limite_vision=600
+  self.limite_vision=1000
   self.giro_completo = true
   
   
@@ -43,7 +43,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   self.mano_fisica.fixture_mano = love.physics.newFixture(self.body2,self.mano_fisica.shape_mano,0)
   self.mano_fisica.fixture_mano:setSensor( true )
   
-  self:masa(posicion[1],posicion[2])
+  self:masa(posicion[1],posicion[2],"soldado")
   
   --FSM
   
@@ -60,9 +60,11 @@ function soldado:init(entidad,posicion,img,radio,tipo)
         self:disparo_balas()
       end,
       
-      ona_recargar= function(_, event, from, to)  
-        self.timer:cancel(self.timer_balas)
-        self.timer_balas = nil
+      ona_recargar= function(_, event, from, to) 
+        if self.timer_balas then
+          self.timer:cancel(self.timer_balas)
+          self.timer_balas = nil
+        end
         
         self:recargar_arma()
         local bala = self.armas_values[self.arma_index]
@@ -160,7 +162,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
     end
   end)
 
-  self.timer:every(0.05,function() 
+  self.timer:every(0.025,function() 
     self.posicion_ataque=false
     
     local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
@@ -181,12 +183,13 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   self.id_accesorio = 1
   
   self:recargar_max()
+  
 end
 
 function soldado:draw()
   self:draw_enemy2()
   
-  love.graphics.print(self.acciones.current,self.ox,self.oy-200)
+  love.graphics.print(self.acciones.current .. " , " .. self.df  .. " , " .. self.direccion .. " , " .. math.deg(self.bala_radio),self.ox,self.oy-200)
 end
 
 function soldado:update(dt)

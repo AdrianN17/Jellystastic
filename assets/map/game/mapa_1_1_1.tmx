@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="29">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="30">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -77,6 +77,9 @@
    <point/>
   </object>
   <object id="28" name="Arma" type="1" x="14.6667" y="853">
+   <point/>
+  </object>
+  <object id="29" name="Arma" type="6" x="2512" y="824">
    <point/>
   </object>
  </objectgroup>

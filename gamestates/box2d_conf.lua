@@ -39,6 +39,7 @@ function box2d_conf:callbacks()
       elseif obj1.data == "player" and obj2.data == "enemy_bullet" then
         self:dano(obj1.obj,obj2.obj.dano)
         obj2.obj:remove()
+        obj1.obj:cambiar_estado("semizombie")
       elseif (obj1.data == "enemy" or obj1.data == "map_object" or obj1.data == "enemy_bullet") and obj2.data == "destructive_bullet" then
         local x,y = coll:getPositions()
           self.timer:after(0.01,function()

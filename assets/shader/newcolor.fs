@@ -47,18 +47,18 @@ vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords 
 {
     vec4 pixel = Texel(texture, texture_coords);
     
-    if((pixel.r >0.8 && pixel.g >0.8 && pixel.a >0.8) || (pixel.r <0.2 && pixel.g <0.2 && pixel.a <0.2) )
-    {
+    
+    vec4 hsl_clear = rgb_to_hsl(pixel);
+    
+    vec4 hsl = hsl_clear + color_player;
+
+    if( hsl_clear.x<0.6) {
       return pixel;
     }
     else
     {
-      vec4 hsl = rgb_to_hsl(pixel);
-      hsl.r = hsl.r + color_player.r;
-      hsl.g = hsl.g + color_player.g;
-      hsl.b = hsl.b + color_player.b;
-      hsl.a = hsl.a + color_player.a;
       return hsl_to_rgb(hsl);
     }
+   
 }
 

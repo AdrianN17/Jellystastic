@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 29,
+  nextobjectid = 30,
   properties = {},
   tilesets = {},
   layers = {
@@ -306,6 +306,19 @@ return {
           shape = "point",
           x = 14.6667,
           y = 853,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 29,
+          name = "Arma",
+          type = "6",
+          shape = "point",
+          x = 2512,
+          y = 824,
           width = 0,
           height = 0,
           rotation = 0,

@@ -7,7 +7,7 @@ local bala = Class{
 
 function bala:init(target)
   self.bx,self.by = 0,0
-  self.max_distancia_bala = 1000
+  self.max_distancia_bala = 1500
   
   self.bala_objetivos = {}
   self.target = target
@@ -79,20 +79,23 @@ function bala:update_bala_enemigo(dt)
     
     if self.bala_radio>self.max_angle[self.direccion] or self.bala_radio<self.min_angle[self.direccion] then
       self.df = self.df*-1
+      
     end
     
   elseif self.acciones.current == "atacar" then
+    
     local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
     self.bala_radio = math.atan2(cy- self.obj_presa.oy,cx- self.obj_presa.ox)+math.pi
+    
   end
   
   local bx = math.cos(self.bala_radio)
     
-    if bx>0 then
-      self.rf = 1
-    else
-      self.rf = -1
-    end
+  if bx>0 then
+    self.rf = 1
+  else
+    self.rf = -1
+  end
   
 end
 
@@ -146,8 +149,6 @@ function bala:draw_bala()
     
   end
   
-  
-
 end
 
 function bala:unico_target()
@@ -186,6 +187,8 @@ function bala:unico_target()
         end
       end
       
+    elseif obj_name == "player" then
+      obj_target:cambiar_estado("agujereado")
     end
     
   end
@@ -301,7 +304,6 @@ function bala:recargar_max()
   
   self.armas_values[self.arma_index].enable = true
 end
-
   
 return bala
   

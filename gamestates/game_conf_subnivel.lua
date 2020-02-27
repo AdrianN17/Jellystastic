@@ -50,6 +50,7 @@ function game_conf_subnivel:enter(from,data,data_player)
         player.armas_values = data_player.bala
         player.arma_index = data_player.arma_index
         player.hp = data_player.hp
+        player.iterador = data_player.iterador
       end
     end
     
@@ -64,7 +65,7 @@ function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
   end
   
   local player = self.gameobject.player[self.index_player]
-  local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp}
+  local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador}
     
   player:clear_puerta()
   
