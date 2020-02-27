@@ -137,6 +137,8 @@ function game_conf_default:init(nombreMapa)
   
   self.shader_enemigo:send("color_player",self.vec4_shader)
   
+  --score
+  
 end
 
 function game_conf_default:update_conf(dt)
@@ -631,6 +633,10 @@ function game_conf_default:parallax()
   local y2 = self.screen_y/ self.img_fondo2:getHeight()
   
   love.graphics.draw(self.img_fondo2, 0, 0, 0, x2, y2)
+end
+
+function game_conf_default:crear_zombie(x,y)
+  index_entidades["Zombie"](self,{x,y},img_index)
 end
 
 return game_conf_default

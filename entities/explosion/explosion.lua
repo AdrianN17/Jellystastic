@@ -23,10 +23,10 @@ function explosion:init(entidad,x,y,scale,dano)
       
     for _, k in pairs(self.objetivos) do
       if k then
-        if k.data == "baba" or k.data == "player" or k.data=="soldier" then
+        if k.data == "baba" or k.data == "player" or k.data=="soldier" or k.data == "npc" then
           self.entidad:dano(k.obj,self.dano)
           
-          if k.data == "player" then
+          if k.obj.cambiar_estado then
             k.obj:cambiar_estado("canon")
           end
           

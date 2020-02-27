@@ -13,7 +13,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player","baba"}
+  self.objetivos={"player","baba","npc"}
   self.paredes_suelo={"map_object","bedrock"}
   
   self.creador = 0
@@ -36,7 +36,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
-  Bala.init(self,{"player","baba"})
+  Bala.init(self,{"player","baba","npc"})
   self.arma_index = tonumber(tipo)
   
   self.mano_fisica = {}
@@ -185,6 +185,9 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.cooldown_iterador=true
   
+  self.tipo_enemigo = "soldier"
+  
+  self.acciones.invulnerable =false
 end
 
 function soldado:draw()

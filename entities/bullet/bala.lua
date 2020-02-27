@@ -199,7 +199,7 @@ function bala:unico_target()
           obj_target:cambiar_estado("agujereado")
         end
         
-      elseif obj_name == "player" then
+      elseif obj_name == "player" or obj_name == "npc" then
         obj_target:cambiar_estado("agujereado")
       end
       

@@ -112,11 +112,17 @@ function acciones:update_player(dt)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
+  
+  if self.hp < 0.1 and self.iterador== 4 then
+    self.entidad:crear_zombie(self.ox,self.oy)
+  end
+  
   if self.hp < 0.1 or self.oy > self.entidad.caida_y then
     self.entidad:eliminar_presa(self)
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)
+    
   end
 end
 

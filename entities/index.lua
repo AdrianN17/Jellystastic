@@ -18,4 +18,8 @@ index.Soldado = require "entities.enemy.soldado"
 
 index.Arma = require "entities.object.weapon"
 
+index.NPC = require "entities.npc.jelly_npc"
+
+index.Zombie = require "entities.enemy.zombie"
+
 return index

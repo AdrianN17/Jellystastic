@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 388,
+  nextobjectid = 389,
   properties = {},
   tilesets = {},
   layers = {
@@ -3680,6 +3680,19 @@ return {
             { x = 249, y = -25.6667 },
             { x = 4.66667, y = 24.6667 }
           },
+          properties = {}
+        },
+        {
+          id = 388,
+          name = "Zombie",
+          type = "",
+          shape = "point",
+          x = 315,
+          y = 1147,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
           properties = {}
         }
       }

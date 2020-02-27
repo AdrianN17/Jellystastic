@@ -24,8 +24,8 @@ function acciones:init(x,y,w,h)
   --extremidades
   self.lineas_fisica = {}
   self.lineas_fisica.shape_suelo = {}
-  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape(-(82.25/4),0,-(82.25/4),130)
-  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape((82.25/4),0,(82.25/4),130)
+  self.lineas_fisica.shape_suelo[-1] = love.physics.newEdgeShape(-(82.25/4),0,-(82.25),130)
+  self.lineas_fisica.shape_suelo[1] = love.physics.newEdgeShape((82.25/4),0,(82.25),130)
   self.lineas_fisica.shape_pared = {}
   self.lineas_fisica.shape_pared[-1] = love.physics.newEdgeShape(0,0,-75,0)
   self.lineas_fisica.shape_pared[1] = love.physics.newEdgeShape(0,0,75,0)
@@ -87,10 +87,17 @@ function acciones:draw_enemy2()
   
   local arma = self.armas_values[self.arma_index]
   
-  
-  
-  
   self:draw_bala()
+end
+
+function acciones:draw_enemy3()
+  local quad = self.spritesheet.quad[self.iterador][self.iterador2]
+  local scale = self.spritesheet.scale
+  local x,y,w,h = quad:getViewport()
+  
+  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function acciones:update_enemy(dt)
@@ -133,7 +140,11 @@ function acciones:update_enemy(dt)
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  if self.hp < 0.1 then
+  if self.hp < 0.1 and self.iterador== 4  and self.tipo_enemigo == "soldier" then
+    self.entidad:crear_zombie(self.ox,self.oy)
+  end
+  
+  if self.hp < 0.1 or self.oy > self.entidad.caida_y then
     self.entidad:eliminar_presa(self)
     self.timer:destroy()
     self.body2:destroy()

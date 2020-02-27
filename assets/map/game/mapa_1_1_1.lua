@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 31,
+  nextobjectid = 44,
   properties = {},
   tilesets = {},
   layers = {
@@ -57,19 +57,6 @@ return {
           properties = {
             ["id"] = 1
           }
-        },
-        {
-          id = 4,
-          name = "Soldado",
-          type = "1",
-          shape = "point",
-          x = 428.457,
-          y = 840.575,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
         },
         {
           id = 5,
@@ -326,17 +313,24 @@ return {
           properties = {}
         },
         {
-          id = 30,
-          name = "Baba",
+          id = 31,
+          name = "NPC",
           type = "",
           shape = "point",
-          x = 104,
-          y = 830,
+          x = 106,
+          y = 847,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["a"] = 0,
+            ["ayuda"] = "Estoy muriendo",
+            ["b"] = 0,
+            ["frase"] = "Hola xd",
+            ["g"] = 0,
+            ["r"] = 0.4
+          }
         }
       }
     }

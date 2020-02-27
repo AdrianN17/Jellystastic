@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="31">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="80" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="44">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -11,9 +11,6 @@
    <properties>
     <property name="id" type="int" value="1"/>
    </properties>
-  </object>
-  <object id="4" name="Soldado" type="1" x="428.457" y="840.575">
-   <point/>
   </object>
   <object id="5" name="Puerta" type="1" x="1071.7" y="790.242" width="60" height="100">
    <properties>
@@ -82,7 +79,15 @@
   <object id="29" name="Arma" type="6" x="2512" y="824">
    <point/>
   </object>
-  <object id="30" name="Baba" x="104" y="830">
+  <object id="31" name="NPC" x="106" y="847">
+   <properties>
+    <property name="a" type="float" value="0"/>
+    <property name="ayuda" value="Estoy muriendo"/>
+    <property name="b" type="float" value="0"/>
+    <property name="frase" value="Hola xd"/>
+    <property name="g" type="float" value="0"/>
+    <property name="r" type="float" value="0.4"/>
+   </properties>
    <point/>
   </object>
  </objectgroup>
