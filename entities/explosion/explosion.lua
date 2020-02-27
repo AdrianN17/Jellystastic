@@ -23,7 +23,7 @@ function explosion:init(entidad,x,y,scale,dano)
       
     for _, k in pairs(self.objetivos) do
       if k then
-        if k.data == "enemy" or k.data == "player" then
+        if k.data == "baba" or k.data == "player" or k.data=="soldier" then
           self.entidad:dano(k.obj,self.dano)
           
           if k.data == "player" then

@@ -164,34 +164,47 @@ function bala:unico_target()
   for _,obj in ipairs(self.bala_objetivos) do
     local d = self.entidad:distance(self.ox,self.oy,obj.x,obj.y) 
     
-    if distance>d then
-      distance = d 
-      obj_target = obj.obj
-      obj_name = obj.name
+    for _, target_name in ipairs(self.target) do
+
+      if distance>d and obj.name == target_name then
+        distance = d 
+        obj_target = obj.obj
+        obj_name = obj.name
+      end
     end
   end
   
-  if obj_target and obj_name == self.target then
-    local arma = self.armas_values[self.arma_index]
-    obj_target.hp = obj_target.hp -arma.dano
-    
-    if obj_name == "enemy" then
-      local x = obj_target.ox - self.ox
+  
+    if obj_target then
+      local arma = self.armas_values[self.arma_index]
+      obj_target.hp = obj_target.hp -arma.dano
       
-      if (x<0 and obj_target.direccion<0 ) or (x>0 and obj_target.direccion>0) then
+      
+      
+      if obj_name == "baba" or obj_name == "soldier" then
+        local x = obj_target.ox - self.ox
         
-        obj_target.direccion = obj_target.direccion*-1
-        
-        if obj_target.voltear then
-          obj_target:voltear()
+        if (x<0 and obj_target.direccion<0 ) or (x>0 and obj_target.direccion>0) then
+          
+          obj_target.direccion = obj_target.direccion*-1
+          
+          if obj_target.voltear then
+            obj_target:voltear()
+          end
+          
+          
         end
+        
+        if obj_target.cambiar_estado then
+          obj_target:cambiar_estado("agujereado")
+        end
+        
+      elseif obj_name == "player" then
+        obj_target:cambiar_estado("agujereado")
       end
       
-    elseif obj_name == "player" then
-      obj_target:cambiar_estado("agujereado")
     end
-    
-  end
+  
   
 end
 

@@ -13,12 +13,13 @@ function baba:init(entidad,posicion,img)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player"}
+  self.objetivos={"player","soldier"}
   self.paredes_suelo={"map_object","bedrock"}
   
   
   self.creador = -2
   self.hp = 15
+  self.max_hp = self.hp
   self.vel = 100
   self.limite_vision=200
   self.dano_tocar = true

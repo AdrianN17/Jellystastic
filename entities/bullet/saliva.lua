@@ -51,7 +51,7 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   
   self.existe = true
   
-  self.body:applyLinearImpulse(cx*self.vel*dir, cy*self.vel)
+  self.body:applyLinearImpulse(self.vel*dir,0)
   
   self.fixture : setGroupIndex ( self.creador )
 end

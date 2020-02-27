@@ -601,7 +601,7 @@ function game_conf_default:arreglar_posicion_puerta()
 
 end
 
-function game_conf_default:eliminar_presa_jugador(player)
+function game_conf_default:eliminar_presa(player)
   for _, enemy in ipairs(self.gameobject.enemy) do
     if enemy.obj_presa == player then
       

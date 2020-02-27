@@ -43,7 +43,7 @@ function acciones:init(x,y,w,h)
   self.mano_fisica.fixture_mano = love.physics.newFixture(self.body2,self.mano_fisica.shape_mano,0)
   self.mano_fisica.fixture_mano:setSensor( true )
   
-  self.fixture : setGroupIndex ( self.creador )
+  --self.fixture : setGroupIndex ( self.creador )
   self.body:setBullet(true)
   
   self.hay_puerta=false
@@ -113,7 +113,7 @@ function acciones:update_player(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   if self.hp < 0.1 or self.oy > self.entidad.caida_y then
-    self.entidad:eliminar_presa_jugador(self)
+    self.entidad:eliminar_presa(self)
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)

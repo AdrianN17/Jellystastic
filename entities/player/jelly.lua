@@ -12,7 +12,7 @@ function jelly:init(entidad,posicion,img)
   
   self.entidad:add_obj("player",self)
   
-  self.creador = - 1
+  self.creador = 1
   
   self.hp = 25
   self.max_hp = self.hp
@@ -27,7 +27,7 @@ function jelly:init(entidad,posicion,img)
   
   self:masa(posicion[1],posicion[2])
   
-  Bala.init(self,"enemy")
+  Bala.init(self,{"baba","soldier"})
   
   
   --timer

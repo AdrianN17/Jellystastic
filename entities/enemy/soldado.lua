@@ -13,11 +13,12 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player"}
+  self.objetivos={"player","baba"}
   self.paredes_suelo={"map_object","bedrock"}
   
-  self.creador = -2
+  self.creador = 0
   self.hp = 12
+  self.max_hp = self.hp
   self.vel = 100
   self.limite_vision=1000
   self.giro_completo = true
@@ -35,7 +36,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
-  Bala.init(self,"player")
+  Bala.init(self,{"player","baba"})
   self.arma_index = tonumber(tipo)
   
   self.mano_fisica = {}
@@ -43,7 +44,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   self.mano_fisica.fixture_mano = love.physics.newFixture(self.body2,self.mano_fisica.shape_mano,0)
   self.mano_fisica.fixture_mano:setSensor( true )
   
-  self:masa(posicion[1],posicion[2],"soldado")
+  self:masa(posicion[1],posicion[2],"soldier")
   
   --FSM
   
@@ -173,10 +174,8 @@ function soldado:init(entidad,posicion,img,radio,tipo)
       self.iterador2 = 1
       self.posicion_ataque=false
       
-      --disparo
     end
   end)
-  
   
   
   self.spritesheet_accesorio = img.accesorios
@@ -184,12 +183,14 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self:recargar_max()
   
+  self.cooldown_iterador=true
+  
 end
 
 function soldado:draw()
   self:draw_enemy2()
   
-  love.graphics.print(self.acciones.current .. " , " .. self.df  .. " , " .. self.direccion .. " , " .. math.deg(self.bala_radio),self.ox,self.oy-200)
+  --love.graphics.print(self.acciones.current .. " , " .. self.df  .. " , " .. self.direccion .. " , " .. math.deg(self.bala_radio),self.ox,self.oy-200)
 end
 
 function soldado:update(dt)
@@ -202,6 +203,24 @@ function soldado:voltear()
       
   if self.direccion == -1 then
     self.bala_radio = math.abs(self.bala_radio)
+  end
+end
+
+function soldado:cambiar_estado(tipo)
+  local hp = self.max_hp*0.5
+  
+  if self.hp<hp and self.cooldown_iterador then
+    
+    if tipo == "semizombie" then
+      self.iterador = 4
+    elseif tipo == "agujereado" then
+      self.iterador = 2
+    elseif tipo == "canon" then
+      self.iterador = 3
+    end
+    
+    self.cooldown_iterador = false
+    
   end
 end
 

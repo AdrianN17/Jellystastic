@@ -39,7 +39,8 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.mass= self.body:getMass()*self.body:getMass()
   
   self.creador = creador
-  self.fixture : setGroupIndex ( self.creador)
+  
+  --self.fixture : setGroupIndex ( self.creador)
     
   
   

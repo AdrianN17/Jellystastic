@@ -134,6 +134,7 @@ function acciones:update_enemy(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   if self.hp < 0.1 then
+    self.entidad:eliminar_presa(self)
     self.timer:destroy()
     self.body2:destroy()
     self.body:destroy()
@@ -156,8 +157,8 @@ function acciones:masa(x,y,tipo)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  self.fixture:setUserData( {data="enemy",obj=self, pos=orden.enemy, tipo = tipo} )
-  self.fixture : setGroupIndex ( self.creador)
+  self.fixture:setUserData( {data=tipo,obj=self, pos=orden[tipo]} )
+  --self.fixture : setGroupIndex ( self.creador)
 end
 
 function acciones:terminar_seguimiento()

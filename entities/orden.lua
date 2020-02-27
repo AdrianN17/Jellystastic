@@ -1,15 +1,16 @@
 local orden = {}
 
 orden.player = 1
-orden.enemy = 2
-orden.bullet_enemy = 3
-orden.destructive_terrain = 4
-orden.destructive_bullet = 5
-orden.door=6
-orden.municion=7
-orden.vida=8
-orden.arma=9
-orden.explosion = 10
-orden.bedrock = 11
+orden.soldier = 2
+orden.baba = 3
+orden.bullet_enemy = 4
+orden.destructive_terrain = 5
+orden.destructive_bullet = 6
+orden.door=7
+orden.municion=8
+orden.vida=9
+orden.arma=10
+orden.explosion = 11
+orden.bedrock = 12
 
 return orden
