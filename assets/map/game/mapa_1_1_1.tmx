@@ -37,7 +37,7 @@
     <property name="id" type="int" value="6"/>
    </properties>
   </object>
-  <object id="16" name="Soldado" type="1" x="1064" y="842.667">
+  <object id="16" name="Soldado" type="4" x="1064" y="842.667">
    <point/>
   </object>
   <object id="19" name="Casa" type="1" x="0.975777" y="888.722">

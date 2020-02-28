@@ -136,7 +136,7 @@ return {
         {
           id = 16,
           name = "Soldado",
-          type = "1",
+          type = "4",
           shape = "point",
           x = 1064,
           y = 842.667,

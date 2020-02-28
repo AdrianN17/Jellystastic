@@ -144,7 +144,10 @@ index.armas.img = love.graphics.newImage("assets/img/Armas/armas.png")
 
 index.armas.quad={}
 index.armas.quad[1] = love.graphics.newQuad(402,43,157,111,index.armas.img:getDimensions())
+index.armas.quad[2] = love.graphics.newQuad(47,423,211,120,index.armas.img:getDimensions())
 index.armas.quad[3] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDimensions())
+index.armas.quad[4] = love.graphics.newQuad(602,210,531,146,index.armas.img:getDimensions())
+index.armas.quad[5] = love.graphics.newQuad(21,245,491,121,index.armas.img:getDimensions())
 index.armas.quad[6] = love.graphics.newQuad(598,23,503,156,index.armas.img:getDimensions())
 
 index.armas.balas={}
@@ -153,7 +156,10 @@ index.armas.balas.quad[1] = love.graphics.newQuad(1110,49,118,55,index.armas.img
 
 index.armas.scale ={}
 index.armas.scale[1] = {x = 0.25,y=0.25}
+index.armas.scale[2] = {x = 0.25,y=0.25}
 index.armas.scale[3] = {x = 0.20,y=0.20}
+index.armas.scale[4] = {x = 0.28,y=0.28}
+index.armas.scale[5] = {x = 0.25,y=0.25}
 index.armas.scale[6] = {x = 0.25,y=0.25}
 
 index.armas.scale_screen={}

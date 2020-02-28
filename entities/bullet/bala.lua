@@ -26,12 +26,17 @@ function bala:init(target)
   --pistola
   self.armas_values[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
   --desert eagle
-  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 1.2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
+  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
   --uzi
-  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.5, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
+  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
+  --m4a1
+  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8, raycast = true}
+  
+  --escopeta
+  self.armas_values[5] = {stock = 8, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 0, max_stock = 2, municion = 0, max_municion = 6, enable = false, dano = 10, tiempo = 1 ,tiempo_recarga = 1.5, raycast = false, index_bala= 1}
+  self.armas_values[6] = {stock = 0, max_stock = 2, municion = 0, max_municion = 6, enable = false, dano = 10, tiempo = 1 ,tiempo_recarga = 2, raycast = false, index_bala= 1}
   
   --timer
   

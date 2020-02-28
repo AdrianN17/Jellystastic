@@ -165,7 +165,7 @@ function acciones:keypressed(key)
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
-  if key == "1" or key == "2" or key == "3" or key == "6" then
+  if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
     
     local index = tonumber(key)
     
