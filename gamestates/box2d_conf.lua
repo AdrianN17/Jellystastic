@@ -47,9 +47,9 @@ function box2d_conf:callbacks()
           end)
       elseif (obj1.data == "baba" or obj1.data == "soldier" or obj1.data == "player" or obj1.data == "map_object" or obj1.data == "object" or obj1.data == "enemy_bullet" or obj1.data == "door" or obj1.data=="npc") and obj2.data == "explosion" then
         obj2.obj:guardar(obj1)
-      elseif obj1.data == "player" and obj2.data == "door" then
+      --[[elseif obj1.data == "player" and obj2.data == "door" then
         obj1.obj.hay_puerta = true
-        obj1.obj.data_puerta = obj2.obj.data_puerta
+        obj1.obj.data_puerta = obj2.obj.data_puerta]]
       elseif obj1.data == "player" and obj2.data == "object" then
         obj2.obj:usar(obj1.obj)
       end
@@ -62,10 +62,10 @@ function box2d_conf:callbacks()
     local obj1, obj2 = self:validar_pos(a,b)
     
     if obj1 and obj2 then
-      if obj1.data == "player" and obj2.data == "door" then
+      --[[if obj1.data == "player" and obj2.data == "door" then
         obj1.obj.hay_puerta = false
         obj1.obj.data_puerta = nil
-      end
+      end]]
     end
   end
   

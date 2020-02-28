@@ -93,8 +93,30 @@ end
 
 function jelly:update(dt)
   self:update_player(dt)
+  self:check_door()
   
   self.entidad.cam:setPosition(self.ox, self.oy)
+end
+
+function jelly:check_door()
+  local contacts = self.body:getContacts()
+  
+  self.hay_puerta = false
+  self.data_puerta = nil
+  
+  for _,contact in ipairs(contacts) do
+    local a,b = contact:getFixtures()
+    local obj1, obj2 = self.entidad:validar_pos(a,b)
+    
+    
+    
+    if obj1 and obj2 then
+      if obj1.data == "player" and obj2.data == "door" then
+        self.hay_puerta = true
+        self.data_puerta = obj2.obj.data_puerta
+      end
+    end
+  end
 end
 
 
