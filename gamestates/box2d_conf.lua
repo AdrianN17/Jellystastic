@@ -39,9 +39,9 @@ function box2d_conf:callbacks()
       elseif (obj1.data == "player" or obj1.data == "soldier" or obj1.data=="npc") and obj2.data == "enemy_bullet" then
         
         if obj2.obj.direccion == obj1.obj.direccion then
-          obj1.obj.direccion=obj1.obj.direccion*-1
           
           if obj1.obj.voltear then
+            obj1.obj.direccion=obj1.obj.direccion*-1
             obj1.obj:voltear()
           end
         end
@@ -54,9 +54,9 @@ function box2d_conf:callbacks()
         local x,y = coll:getPositions()
         
         if obj2.obj.direccion == obj1.obj.direccion then
-          obj1.obj.direccion=obj1.obj.direccion*-1
           
           if obj1.obj.voltear then
+            obj1.obj.direccion=obj1.obj.direccion*-1
             obj1.obj:voltear()
           end
         end
@@ -92,9 +92,9 @@ function box2d_conf:callbacks()
         if obj2.obj.multi_ataque and obj2.obj.obj_presa == obj1.obj then
           
           if obj2.obj.direccion == obj1.obj.direccion then
-            obj1.obj.direccion=obj1.obj.direccion*-1
             
             if obj1.obj.voltear then
+              obj1.obj.direccion=obj1.obj.direccion*-1
               obj1.obj:voltear()
             end
           end
