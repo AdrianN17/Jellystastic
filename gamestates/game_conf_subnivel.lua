@@ -15,13 +15,11 @@ end
 function game_conf_subnivel:enter(from,data,data_player)
   
   self.main_level = from
-  self.creado = false
-
   
   if data then
     
-    if not self.creado then
-    
+    if not self.main_level.mundos[data.id_mapa] then
+
       self.main_level.mundos[data.id_mapa] = self
       
       game_conf_default.init(self,map_index.campana[1][1])
@@ -32,6 +30,8 @@ function game_conf_subnivel:enter(from,data,data_player)
       
       entities.Personaje(self,{x,y},img_index)
     else
+      
+      local puerta = self.gameobject.door[data.id_puerta]
       local x,y = puerta.ox,puerta.oy
       local player = self.gameobject.player[self.index_player]
       
@@ -51,6 +51,8 @@ function game_conf_subnivel:enter(from,data,data_player)
         player.arma_index = data_player.arma_index
         player.hp = data_player.hp
         player.iterador = data_player.iterador
+        player.cooldown = data_player.cooldown
+        player.cooldown_iterador = data_player.cooldown_iterador
       end
     end
     
@@ -65,7 +67,8 @@ function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
   end
   
   local player = self.gameobject.player[self.index_player]
-  local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador}
+  local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador,
+    cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador}
     
   player:clear_puerta()
   
