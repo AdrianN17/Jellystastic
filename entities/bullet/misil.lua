@@ -41,14 +41,9 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.creador = creador
   
   --self.fixture : setGroupIndex ( self.creador)
-    
-  
-  
   
   local cx,cy = math.cos(angle), math.sin(angle)
   self.body:applyLinearImpulse( cx*self.mass*self.vel,cy*self.mass*self.vel)
-  
-
   
   
   self.entidad:add_obj("bullet",self)
@@ -62,6 +57,13 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   
   self.quad = self.spritesheet.balas.quad[self.index_bala]
   self.scale = self.spritesheet.balas.scale[self.index_bala]
+  
+  local dir = -1
+  if cx>0 then
+    dir = 1
+  end
+  
+  self.direccion = dir
   
 end
 

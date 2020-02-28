@@ -4,7 +4,7 @@ local saliva = Class{
     __includes = {}
 }
 
-function saliva:init(entidad,img,x,y,ex,ey,creador)
+function saliva:init(entidad,img,x,y,direccion,creador)
   self.entidad = entidad
   self.entidad:add_obj("bullet",self)
   
@@ -37,21 +37,13 @@ function saliva:init(entidad,img,x,y,ex,ey,creador)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.w,self.h = 18,18
   
-  local angle = self.entidad:round(math.deg(math.atan2(math.abs(self.oy - ey),math.abs(self.oy - ex))))
-  
-  local angle = math.abs(math.rad(angle))
-  local cx,cy  = math.cos(angle),math.sin(angle)
   self.vel = 200
   
-  local direccion = self.ox-ex
-  local dir = -1
-  if direccion<0 then
-    dir = 1
-  end
+  self.direccion = direccion
   
   self.existe = true
   
-  self.body:applyLinearImpulse(self.vel*dir,0)
+  self.body:applyLinearImpulse(self.vel*self.direccion,0)
   
   self.fixture : setGroupIndex ( self.creador )
 end

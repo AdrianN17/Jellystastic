@@ -20,11 +20,12 @@ function zombie:init(entidad,posicion,img)
   self.creador = -2
   self.hp = 20
   self.max_hp = self.hp
-  self.vel = 150
-  self.limite_vision=450
+  self.vel = 160
+  self.limite_vision=100
   self.dano_tocar = true
   self.posicion_ataque = false
   self.giro_completo = false
+  self.multi_ataque = true
   
   self.spritesheet = img.personajes[1]
   
@@ -36,8 +37,8 @@ function zombie:init(entidad,posicion,img)
   self.acciones = LSM.create({
    initial = 'mover',
     events ={
-      {name = "a_atacar", from = "mover", to = "atacar"},
-      {name = "a_mover", from = "atacar", to = "mover"}
+      {name = "a_atacar", from = "mover", to = "seguir"},
+      {name = "a_mover", from = "seguir", to = "mover"}
     }
   })
   
@@ -100,14 +101,14 @@ function zombie:init(entidad,posicion,img)
 
   --Timer
   
-  self.timer:every(0.25,function () 
-    if self.acciones.current == "mover" then
+  self.timer:every(0.15,function () 
+    
       self.iterador2 = self.iterador2 +1
       
       if self.iterador2>3 then
         self.iterador2=1
       end
-    end
+
   end)
   
   self.timer:every(0.1,function() 
@@ -121,6 +122,18 @@ function zombie:init(entidad,posicion,img)
   
     if self.cambiar_direccion then
       self.direccion=self.direccion*-1
+    end
+  end)
+
+  self.timer:every(0.05,function() 
+    self.posicion_ataque=false
+    
+    local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
+    self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_atacar)
+    
+    if self.posicion_ataque and self.acciones.current == "mover" then
+      self.acciones:a_atacar()
+      self.posicion_ataque=false
     end
   end)
 

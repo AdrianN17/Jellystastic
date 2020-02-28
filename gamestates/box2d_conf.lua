@@ -37,19 +37,36 @@ function box2d_conf:callbacks()
         end)
 
       elseif (obj1.data == "player" or obj1.data == "soldier" or obj1.data=="npc") and obj2.data == "enemy_bullet" then
+        
+        if obj2.obj.direccion == obj1.obj.direccion then
+          obj1.obj.direccion=obj1.obj.direccion*-1
+          
+          if obj1.obj.voltear then
+            obj1.obj:voltear()
+          end
+        end
+        
         self:dano(obj1.obj,obj2.obj.dano)
         obj2.obj:remove()
         obj1.obj:cambiar_estado("semizombie")
+        
       elseif (obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "map_object" or obj1.data == "enemy_bullet" or obj1.data=="npc") and obj2.data == "destructive_bullet" then
         local x,y = coll:getPositions()
+        
+        if obj2.obj.direccion == obj1.obj.direccion then
+          obj1.obj.direccion=obj1.obj.direccion*-1
+          
+          if obj1.obj.voltear then
+            obj1.obj:voltear()
+          end
+        end
+        
+        
           self.timer:after(0.01,function()
             obj2.obj:crear_circulo(x,y,self.explosion_scale)
           end)
       elseif (obj1.data == "baba" or obj1.data == "soldier" or obj1.data == "player" or obj1.data == "map_object" or obj1.data == "object" or obj1.data == "enemy_bullet" or obj1.data == "door" or obj1.data=="npc") and obj2.data == "explosion" then
         obj2.obj:guardar(obj1)
-      --[[elseif obj1.data == "player" and obj2.data == "door" then
-        obj1.obj.hay_puerta = true
-        obj1.obj.data_puerta = obj2.obj.data_puerta]]
       elseif obj1.data == "player" and obj2.data == "object" then
         obj2.obj:usar(obj1.obj)
       end
@@ -62,10 +79,7 @@ function box2d_conf:callbacks()
     local obj1, obj2 = self:validar_pos(a,b)
     
     if obj1 and obj2 then
-      --[[if obj1.data == "player" and obj2.data == "door" then
-        obj1.obj.hay_puerta = false
-        obj1.obj.data_puerta = nil
-      end]]
+
     end
   end
   
@@ -74,8 +88,21 @@ function box2d_conf:callbacks()
     
     if obj1 and obj2 then
 
-      if (obj1.data == "player" or obj1.data == "npc" or obj1.data == "soldier") and (obj2.data == "baba" or obj2.data == "soldier") then
-        coll:setEnabled( false )
+      if (obj1.data == "player" or obj1.data == "npc" or obj1.data == "soldier") and obj2.data == "baba" then
+        if obj2.obj.multi_ataque and obj2.obj.obj_presa == obj1.obj then
+          
+          if obj2.obj.direccion == obj1.obj.direccion then
+            obj1.obj.direccion=obj1.obj.direccion*-1
+            
+            if obj1.obj.voltear then
+              obj1.obj:voltear()
+            end
+          end
+          
+        else
+           coll:setEnabled( false )
+        end
+        
         if not obj1.obj.acciones.invulnerable and obj2.obj.dano_tocar then
           self:dano(obj1.obj,2)
           obj1.obj.acciones.invulnerable = true
@@ -86,6 +113,8 @@ function box2d_conf:callbacks()
             end
           end)
         end
+      elseif (obj1.data == "player" or obj1.data == "npc" or obj1.data == "soldier") and obj2.data == "soldier" then
+        coll:setEnabled( false )
       elseif obj1.data == "soldier" and obj2.data == "baba" then
         coll:setEnabled( false )
       elseif (obj1.data == "player" or obj1.data == "soldier") and obj2.data == "destructive_bullet" then

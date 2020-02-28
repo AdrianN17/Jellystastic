@@ -109,7 +109,6 @@ function acciones:update_enemy(dt)
     local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
     
     local direccion = ox - self.ox
-    --print(direccion)
     
     if not self.giro_completo then
       if distancia > self.limite_vision or ((direccion>0 and self.direccion == -1) or (direccion<0 and self.direccion == 1)) then
@@ -121,6 +120,33 @@ function acciones:update_enemy(dt)
     end
   
     
+  elseif self.acciones.current == "seguir" and self.obj_presa then
+    local ox,oy = self.obj_presa.ox,self.obj_presa.oy
+    
+    local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
+    
+    local direccion = ox - self.ox
+    
+    if not self.giro_completo then
+      if distancia > self.limite_vision or ((direccion>0 and self.direccion == -1) or (direccion<0 and self.direccion == 1)) then
+        self:terminar_seguimiento()
+      end
+
+    elseif self.giro_completo and distancia > self.limite_vision then
+      self:terminar_seguimiento()
+    end
+    
+    local dir = math.abs(self.ox - ox)
+    
+    if dir>60 then
+      local vx,vy=self.body:getLinearVelocity()
+      local mx=self.direccion*self.mass*self.vel
+      
+      if math.abs(vx)<self.vel then
+        --self.body:applyLinearImpulse(mx,0)
+        self.body:applyForce(mx,0)
+      end
+    end
   end
   
 

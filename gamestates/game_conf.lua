@@ -74,6 +74,8 @@ function game_conf:ir_a_otro_nivel(data_puerta)
     joy_movimiento:restore()
   end
   
+  self.gameobject.player[self.index_player]:limpiar_movimiento()
+  
   if not self.mundos[data_puerta.id_mapa] then
     if map_index.campana[self.nombreMapa][data_puerta.id_mapa] then
       local player = self.gameobject.player[self.index_player]

@@ -66,6 +66,8 @@ function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
     joy_movimiento:restore()
   end
   
+  self.gameobject.player[self.index_player]:limpiar_movimiento()
+  
   local player = self.gameobject.player[self.index_player]
   local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador,
     cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador}

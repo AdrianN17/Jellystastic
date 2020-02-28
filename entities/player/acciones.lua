@@ -8,7 +8,7 @@ function acciones:init(x,y,w,h)
   
   self.movimiento = {a=false,d=false}
   self.ground = true
-  self.acciones = {moviendo = false, saltando = false, invulnerable = false, quemadura = falses}
+  self.acciones = {moviendo = false, saltando = false, invulnerable = false}
   
   self.direccion = 1
   
@@ -284,5 +284,8 @@ function acciones:cambiar_estado(tipo)
   end
 end
 
+function acciones:limpiar_movimiento()
+  self.movimiento = {a=false,d=false}
+end
 
 return acciones

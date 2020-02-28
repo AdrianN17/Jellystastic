@@ -113,7 +113,7 @@ function baba:init(entidad,posicion,img)
       
       if self.iterador == 5 and self.obj_presa then
         --lanzar saliva
-        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy,self.creador)
+        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.direccion,self.creador)
       end
       
       if self.iterador>5 then
