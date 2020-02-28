@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 44,
+  nextobjectid = 48,
   properties = {},
   tilesets = {},
   layers = {
@@ -331,6 +331,58 @@ return {
             ["g"] = 0,
             ["r"] = 0.4
           }
+        },
+        {
+          id = 44,
+          name = "Arma",
+          type = "3",
+          shape = "point",
+          x = 314.667,
+          y = 856,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 45,
+          name = "Arma",
+          type = "4",
+          shape = "point",
+          x = 553.333,
+          y = 842.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 46,
+          name = "Arma",
+          type = "5",
+          shape = "point",
+          x = 716,
+          y = 849.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 47,
+          name = "Arma",
+          type = "2",
+          shape = "point",
+          x = 1196,
+          y = 836,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

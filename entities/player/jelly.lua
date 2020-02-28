@@ -92,8 +92,9 @@ function jelly:draw()
 end
 
 function jelly:update(dt)
-  self:update_player(dt)
   self:check_door()
+  self:update_player(dt)
+  
   
   self.entidad.cam:setPosition(self.ox, self.oy)
 end
@@ -107,8 +108,6 @@ function jelly:check_door()
   for _,contact in ipairs(contacts) do
     local a,b = contact:getFixtures()
     local obj1, obj2 = self.entidad:validar_pos(a,b)
-    
-    
     
     if obj1 and obj2 then
       if obj1.data == "player" and obj2.data == "door" then
