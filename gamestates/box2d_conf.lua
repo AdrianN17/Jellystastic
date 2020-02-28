@@ -40,8 +40,11 @@ function box2d_conf:callbacks()
         
         if obj2.obj.direccion == obj1.obj.direccion then
           
-          if obj1.obj.voltear then
+          if obj1.data ~= "player" then
             obj1.obj.direccion=obj1.obj.direccion*-1
+          end
+          
+          if obj1.obj.voltear then
             obj1.obj:voltear()
           end
         end
@@ -55,8 +58,11 @@ function box2d_conf:callbacks()
         
         if obj2.obj.direccion == obj1.obj.direccion then
           
-          if obj1.obj.voltear then
+          if obj1.data ~= "player" then
             obj1.obj.direccion=obj1.obj.direccion*-1
+          end
+          
+          if obj1.obj.voltear then
             obj1.obj:voltear()
           end
         end
@@ -93,8 +99,11 @@ function box2d_conf:callbacks()
           
           if obj2.obj.direccion == obj1.obj.direccion then
             
-            if obj1.obj.voltear then
+            if obj1.data ~= "player" then
               obj1.obj.direccion=obj1.obj.direccion*-1
+            end
+            
+            if obj1.obj.voltear then
               obj1.obj:voltear()
             end
           end
