@@ -48,7 +48,7 @@ function game_conf_default:init(nombreMapa)
   self.scale = 1/self.scale_dpi
   
   
-  self.explosion_scale = 2
+  self.explosion_scale = 1.5
   
   self.map = Sti(nombreMapa)
   self.map:resize((x/self.scale),(y/self.scale))
