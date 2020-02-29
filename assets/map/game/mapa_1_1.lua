@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 4,
-  nextobjectid = 389,
+  nextobjectid = 392,
   properties = {},
   tilesets = {},
   layers = {
@@ -93,7 +93,7 @@ return {
         {
           id = 49,
           name = "Casa",
-          type = "",
+          type = "1",
           shape = "polygon",
           x = 2573.33,
           y = 1114.67,

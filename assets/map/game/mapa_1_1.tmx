@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="389">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="392">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -16,7 +16,7 @@
   <object id="40" name="Gelatina" x="1987.67" y="1596">
    <polygon points="74.6667,3.5 78.3333,-203.333 509.5,-203.083 507.616,4.18731"/>
   </object>
-  <object id="49" name="Casa" x="2573.33" y="1114.67">
+  <object id="49" name="Casa" type="1" x="2573.33" y="1114.67">
    <polygon points="0,0 2.66667,-77.3333 40,-41.3333 70.6667,-81.3333 96,-40 168,-86.6667 213.333,-38.6667 236,2.66667"/>
   </object>
   <object id="51" x="2976" y="1120">

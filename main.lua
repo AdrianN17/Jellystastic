@@ -14,5 +14,5 @@ require "libs.gooi"
 function love.load()
   
   Gamestate.registerEvents()
-	Gamestate.switch(Game,1)
+	Gamestate.switch(Game,2)
 end

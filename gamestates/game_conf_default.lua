@@ -137,7 +137,19 @@ function game_conf_default:init(nombreMapa)
   
   self.shader_enemigo:send("color_player",self.vec4_shader)
   
-  --score
+  --capas
+  
+  self.skybox_x = self.screen_x/ self.img_fondo:getWidth()
+
+  self.skybox_y = self.screen_y/ self.img_fondo:getHeight()
+  
+  self.parallax_x = self.screen_x/ self.img_fondo2:getWidth()
+
+  self.parallax_y = self.screen_y/ self.img_fondo2:getHeight()
+  
+  self.parallax_count = 0
+  self.parallax_last = 0
+  self.parallax_sign = -1
   
 end
 
@@ -189,7 +201,7 @@ end)
   --self:draw_ui()
   
   love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10,10)
- 
+  love.graphics.print(self.parallax_count*320, 10,30)
 
 end
 
@@ -488,7 +500,6 @@ function game_conf_default:update(dt)
 end
 
 function game_conf_default:draw()
-  love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10, 10)
    
   self:draw_conf()
 
@@ -618,21 +629,50 @@ function game_conf_default:eliminar_presa(player)
 end
 
 function game_conf_default:skybox()
-
-  local x = self.screen_x/ self.img_fondo:getWidth()
-
-  local y = self.screen_y/ self.img_fondo:getHeight()
-  
-  love.graphics.draw(self.img_fondo, 0, 0, 0, x, y)
+  love.graphics.draw(self.img_fondo, 0, 0, 0, self.skybox_x, self.skybox_y)
 end
 
 function game_conf_default:parallax()
   
-  local x2 = self.screen_x/ self.img_fondo2:getWidth()
-
-  local y2 = self.screen_y/ self.img_fondo2:getHeight()
   
-  love.graphics.draw(self.img_fondo2, 0, 0, 0, x2, y2)
+  
+  xc,yc,hc,wc=self.cam:getVisible()
+  
+  local x = xc/wc
+  local g = love.graphics.getWidth()
+  
+  local dif = x - self.parallax_last
+
+  if dif~=0 then
+    self.parallax_count = self.parallax_count + dif
+  end
+  
+  self.parallax_last = x
+  
+  local x_p = math.floor(self.parallax_count*320)
+  
+  love.graphics.draw(self.img_fondo2,x_p , 0, 0, self.parallax_x, self.parallax_y)
+  
+  if self.parallax_count ~= 0 then
+    if self.parallax_count*320>0 then
+      love.graphics.draw(self.img_fondo2, x_p-g , 0, 0, self.parallax_x, self.parallax_y)
+    end
+    
+    if self.parallax_count*320<0 then
+      love.graphics.draw(self.img_fondo2, x_p+g , 0, 0, self.parallax_x, self.parallax_y)
+    end
+  end
+  
+  
+    
+    
+  if self.parallax_count*320>g or self.parallax_count*320<-g then
+    self.parallax_count = 0
+  end
+  
+  --[[if x>0 then
+    love.graphics.draw(self.img_fondo2, (x*320) - g, 0, 0, x2, y2)
+  end]]
 end
 
 function game_conf_default:crear_zombie(x,y)

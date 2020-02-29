@@ -4,7 +4,7 @@ return {
   tiledversion = "1.3.0",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 200,
+  width = 2000,
   height = 50,
   tilewidth = 32,
   tileheight = 32,
@@ -37,15 +37,15 @@ return {
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 2284.85, y = 6.06061 },
-            { x = 2275.76, y = 621.212 },
-            { x = 3.0303, y = 636.364 }
+            { x = 64020.8, y = 6.06061 },
+            { x = 63766.1, y = 621.212 },
+            { x = 84.9083, y = 636.364 }
           },
           properties = {}
         },
         {
           id = 2,
-          name = "",
+          name = "Agua",
           type = "",
           shape = "rectangle",
           x = 2275.76,

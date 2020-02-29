@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="200" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="6">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="2000" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="6">
  <editorsettings>
   <export target="mapa_1_2.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="2" name="Borrador">
   <object id="1" name="Gelatina" x="-3.0303" y="969.697">
-   <polygon points="0,0 2284.85,6.06061 2275.76,621.212 3.0303,636.364"/>
+   <polygon points="0,0 64020.8,6.06061 63766.1,621.212 84.9083,636.364"/>
   </object>
   <object id="2" name="Agua" x="2275.76" y="978.788" width="1560.61" height="615.152"/>
   <object id="5" name="Personaje" x="322" y="894">
