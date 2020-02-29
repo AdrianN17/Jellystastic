@@ -149,7 +149,7 @@ function game_conf_default:init(nombreMapa)
   
   self.parallax_count = 0
   self.parallax_last = 0
-  self.parallax_sign = -1
+  self.parallax_variable = 320
   
 end
 
@@ -201,7 +201,6 @@ end)
   --self:draw_ui()
   
   love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10,10)
-  love.graphics.print(self.parallax_count*320, 10,30)
 
 end
 
@@ -634,12 +633,9 @@ end
 
 function game_conf_default:parallax()
   
-  
-  
   xc,yc,hc,wc=self.cam:getVisible()
   
   local x = xc/wc
-  local g = love.graphics.getWidth()
   
   local dif = x - self.parallax_last
 
@@ -649,30 +645,27 @@ function game_conf_default:parallax()
   
   self.parallax_last = x
   
-  local x_p = math.floor(self.parallax_count*320)
+  local x_p = math.floor(self.parallax_count*self.parallax_variable)
   
   love.graphics.draw(self.img_fondo2,x_p , 0, 0, self.parallax_x, self.parallax_y)
   
   if self.parallax_count ~= 0 then
-    if self.parallax_count*320>0 then
-      love.graphics.draw(self.img_fondo2, x_p-g , 0, 0, self.parallax_x, self.parallax_y)
+    if self.parallax_count*self.parallax_variable>0 then
+      love.graphics.draw(self.img_fondo2, x_p-self.screen_x , 0, 0, self.parallax_x, self.parallax_y)
     end
     
-    if self.parallax_count*320<0 then
-      love.graphics.draw(self.img_fondo2, x_p+g , 0, 0, self.parallax_x, self.parallax_y)
+    if self.parallax_count*self.parallax_variable<0 then
+      love.graphics.draw(self.img_fondo2, x_p+self.screen_x , 0, 0, self.parallax_x, self.parallax_y)
     end
   end
   
   
     
     
-  if self.parallax_count*320>g or self.parallax_count*320<-g then
+  if self.parallax_count*self.parallax_variable>self.screen_x or self.parallax_count*self.parallax_variable<-self.screen_x then
     self.parallax_count = 0
   end
   
-  --[[if x>0 then
-    love.graphics.draw(self.img_fondo2, (x*320) - g, 0, 0, x2, y2)
-  end]]
 end
 
 function game_conf_default:crear_zombie(x,y)
