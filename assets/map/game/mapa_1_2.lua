@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 3,
-  nextobjectid = 6,
+  nextobjectid = 9,
   properties = {},
   tilesets = {},
   layers = {
@@ -29,7 +29,7 @@ return {
           name = "Gelatina",
           type = "",
           shape = "polygon",
-          x = -3.0303,
+          x = -4.0303,
           y = 969.697,
           width = 0,
           height = 0,
@@ -37,23 +37,10 @@ return {
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 64020.8, y = 6.06061 },
-            { x = 63766.1, y = 621.212 },
-            { x = 84.9083, y = 636.364 }
+            { x = 972.8, y = 6.06061 },
+            { x = 968.93, y = 621.212 },
+            { x = 1.29019, y = 636.364 }
           },
-          properties = {}
-        },
-        {
-          id = 2,
-          name = "Agua",
-          type = "",
-          shape = "rectangle",
-          x = 2275.76,
-          y = 978.788,
-          width = 1560.61,
-          height = 615.152,
-          rotation = 0,
-          visible = true,
           properties = {}
         },
         {
@@ -61,12 +48,51 @@ return {
           name = "Personaje",
           type = "",
           shape = "point",
-          x = 322,
-          y = 894,
+          x = 298,
+          y = 932.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
+          properties = {}
+        },
+        {
+          id = 6,
+          name = "Liquido",
+          type = "1",
+          shape = "polygon",
+          x = 976,
+          y = 980,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 1592, y = 8 },
+            { x = 1596, y = 612 },
+            { x = 0, y = 612 }
+          },
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 720,
+          y = 736,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 7.29744, y = -25.4996 },
+            { x = -134, y = 100 },
+            { x = -182, y = 101 },
+            { x = -342, y = 238 },
+            { x = -51, y = 237 }
+          },
           properties = {}
         }
       }

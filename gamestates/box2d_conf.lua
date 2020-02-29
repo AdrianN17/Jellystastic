@@ -10,21 +10,26 @@ function box2d_conf:callbacks()
     if obj1 and obj2 then
       if (obj1.data == "player" or obj1.data == "baba" or obj1.data=="soldier" or obj1.data=="npc") and obj2.data == "map_object" then
         local x,y = coll:getNormal()
-    
-        local r = self:round(math.deg(math.atan2(y,x)))
-        
-        local r_abs = math.abs(r) 
-        
-        if(r_abs < 115 and r_abs > 65 and r<0) then
-          r = math.rad(r)
 
-          self.timer:after(0.01, 
-            function()  
-              if obj1.obj then
-                obj1.obj.body:setAngle(r+math.pi/2) 
-                obj1.obj.body2:setAngle(r+math.pi/2) 
-              end
-            end)
+        if y < 0 then
+          
+          local r = self:round(math.deg(math.atan2(y,x)))
+                  
+          local r_abs = math.abs(r) 
+          
+          if(r_abs < 125 and r_abs > 75) then
+            r = math.rad(r)
+
+            self.timer:after(0.01, 
+              function()  
+                if obj1.obj then
+                  obj1.obj.body:setAngle(r+math.pi/2) 
+                  obj1.obj.body2:setAngle(r+math.pi/2) 
+                end
+              end)
+          end
+          
+          
         end
           
       elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
@@ -75,6 +80,8 @@ function box2d_conf:callbacks()
         obj2.obj:guardar(obj1)
       elseif obj1.data == "player" and obj2.data == "object" then
         obj2.obj:usar(obj1.obj)
+      elseif obj1.data == "player" and obj2.data == "liquido" then
+        obj2.obj:agregar(obj1.obj)
       end
       
       
@@ -85,7 +92,9 @@ function box2d_conf:callbacks()
     local obj1, obj2 = self:validar_pos(a,b)
     
     if obj1 and obj2 then
-
+      if obj1.data == "player" and obj2.data == "liquido" then
+        obj2.obj:eliminar(obj1.obj)
+      end
     end
   end
   

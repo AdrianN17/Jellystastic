@@ -12,6 +12,6 @@ orden.municion=9
 orden.vida=10
 orden.arma=11
 orden.explosion = 12
-orden.bedrock = 13
-
+orden.liquido = 13
+orden.bedrock = 14
 return orden

@@ -70,6 +70,7 @@ function game_conf_default:init(nombreMapa)
   self.gameobject.npc = {}
   self.gameobject.map_object = {}
   self.gameobject.holes = {}
+  self.gameobject.liquid= {}
   
   self.gameobject.decoration={}
   
@@ -357,6 +358,15 @@ function game_conf_default:map_create()
         obj_data:draw()
       end
     end
+    
+    love.graphics.setStencilTest()
+    
+    for _, obj_data in ipairs(self.gameobject.liquid) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+
     
     for _, obj_data in pairs(self.gameobject.decoration) do
       for _, obj_data2 in ipairs(obj_data) do

@@ -22,4 +22,6 @@ index.NPC = require "entities.npc.jelly_npc"
 
 index.Zombie = require "entities.enemy.zombie"
 
+index.Liquido = require "entities.map_object.liquido"
+
 return index
