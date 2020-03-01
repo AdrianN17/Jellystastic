@@ -1,7 +1,7 @@
 local Class = require "libs.hump.class"
 local vector= require "libs.hump.vector"
 local polybool = require "libs.polygon.polybool"
-
+local polygonClip = polybool
 local destructive = Class{}
 
 function destructive:init()
@@ -211,6 +211,55 @@ function destructive:area(poligono)
   end
   
   return math.abs(area)/2
+end
+
+function destructive:destructor(a,b)--b es el terreno
+
+	local ball = {}
+	local x,y=a:getShape():getPoint()
+	local r = a:getShape():getRadius()*2
+	for i=1,16 do
+		table.insert(ball, a:getBody():getX()+x+r*math.sin(i*math.pi/8))
+		table.insert(ball, a:getBody():getY()+y+r*math.cos(i*math.pi/8))
+	end
+
+	local target
+	if b:getShape():getType()=="circle" then
+		---
+	else
+		target={b:getBody():getWorldPoints( b:getShape():getPoints() )}
+	end
+	local rest = polygonClip(target,ball,"not")
+	local tri = {}
+	for i,v in ipairs(rest) do
+		local test, res = pcall(love.math.triangulate,v)
+		if test then
+			for i,t in ipairs(res) do
+				table.insert(tri,t)
+			end		
+		else
+			b:getBody():destroy()
+		end
+	end
+
+	local desBody = b:getBody()
+	local function create()
+		local destruct
+		for i,v in ipairs(tri) do				
+			destruct = true
+			
+			local test,re =pcall(love.physics.newPolygonShape,math.polygonTrans(-v[1],-v[2],0,1,v))
+			if test then
+				local body = love.physics.newBody(helper.world, v[1], v[2], "static")
+				local shape=re
+				local fixture = love.physics.newFixture(body, shape)							
+			end
+		end
+		if destruct then 
+			if not desBody:isDestroyed() then desBody:destroy() end 
+		end
+	end
+	table.insert(helper.system.todo,{create})
 end
 
 

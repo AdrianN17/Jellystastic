@@ -11,8 +11,17 @@ shader_index = require "assets/shader/index"
 
 require "libs.gooi"
 
+require "libs.utils"
+
 function love.load()
   
   Gamestate.registerEvents()
 	Gamestate.switch(Game,2)
+end
+
+function table.empty (self)
+    for _, _ in pairs(self) do
+        return false
+    end
+    return true
 end

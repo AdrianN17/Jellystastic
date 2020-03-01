@@ -80,8 +80,6 @@ function box2d_conf:callbacks()
         obj2.obj:guardar(obj1)
       elseif obj1.data == "player" and obj2.data == "object" then
         obj2.obj:usar(obj1.obj)
-      elseif obj1.data == "player" and obj2.data == "liquido" then
-        obj2.obj:agregar(obj1.obj)
       end
       
       
@@ -148,6 +146,8 @@ function box2d_conf:callbacks()
         obj2.obj:remove()
       elseif obj1.data ==  obj2.data then
         coll:setEnabled( false )
+      elseif obj1.data == "player" and obj2.data == "liquido" then
+        obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
       end
     end
   end
