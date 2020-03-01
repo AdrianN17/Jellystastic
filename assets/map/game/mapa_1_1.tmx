@@ -101,7 +101,7 @@
    <polygon points="-2,0 222,-46 283.333,249.667 53.6667,297"/>
   </object>
   <object id="101" name="Casa" type="3" x="4419" y="766">
-   <polygon points="0,0 457,-89 488,65 32,159"/>
+   <polygon points="-14,-62.5 444.625,-158.125 488,65 32,159"/>
   </object>
   <object id="102" name="Decoration" type="ventana" x="52" y="1018">
    <properties>
@@ -1247,11 +1247,11 @@
   <object id="381" name="Plataforma" x="4115.67" y="459.333">
    <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>
   </object>
-  <object id="382" name="Plataforma" x="4414.67" y="748.667">
+  <object id="382" name="Plataforma" x="4401.17" y="678.667">
    <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>
   </object>
-  <object id="383" name="Plataforma" x="4660" y="698">
-   <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>
+  <object id="383" name="Plataforma" x="4646.5" y="628">
+   <polygon points="0,0 212.5,-44.75 217,-19.4167 4.66667,24.6667"/>
   </object>
   <object id="384" name="Plataforma" x="4815.33" y="399.333">
    <polygon points="0,0 244,-51 249,-25.6667 4.66667,24.6667"/>

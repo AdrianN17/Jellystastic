@@ -41,8 +41,6 @@ function saliva:init(entidad,img,x,y,direccion,creador)
   
   self.direccion = direccion
   
-  self.existe = true
-  
   self.body:applyLinearImpulse(self.vel*self.direccion,0)
   
   self.fixture : setGroupIndex ( self.creador )
@@ -65,9 +63,8 @@ end
 
 function saliva:remove()
   
-    if self.existe then
+    if not self.body:isDestroyed() then
       self.body:destroy()
-      self.existe=false
     end
       
       

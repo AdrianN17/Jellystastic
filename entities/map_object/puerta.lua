@@ -28,7 +28,6 @@ function puerta:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.entidad:add_obj("door",self)
   
-  self.vivo = true
   self.ox,self.oy = self.body:getX(), self.body:getY()
 end
 
@@ -47,12 +46,8 @@ function puerta:colisiona_centro(fixture)
 end
 
 function puerta:remove()
-  if self.vivo then
-    
+  if not self.body:isDestroyed() then
     self.body:destroy()
-    
-    self.vivo = false
-    
   end
 end
 

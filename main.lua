@@ -16,7 +16,7 @@ require "libs.utils"
 function love.load()
   
   Gamestate.registerEvents()
-	Gamestate.switch(Game,2)
+	Gamestate.switch(Game,1)
 end
 
 function table.empty (self)

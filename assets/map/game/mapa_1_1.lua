@@ -588,8 +588,8 @@ return {
           rotation = 0,
           visible = true,
           polygon = {
-            { x = 0, y = 0 },
-            { x = 457, y = -89 },
+            { x = -14, y = -62.5 },
+            { x = 444.625, y = -158.125 },
             { x = 488, y = 65 },
             { x = 32, y = 159 }
           },
@@ -3611,8 +3611,8 @@ return {
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 4414.67,
-          y = 748.667,
+          x = 4401.17,
+          y = 678.667,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3630,16 +3630,16 @@ return {
           name = "Plataforma",
           type = "",
           shape = "polygon",
-          x = 4660,
-          y = 698,
+          x = 4646.5,
+          y = 628,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 244, y = -51 },
-            { x = 249, y = -25.6667 },
+            { x = 212.5, y = -44.75 },
+            { x = 217, y = -19.4167 },
             { x = 4.66667, y = 24.6667 }
           },
           properties = {}

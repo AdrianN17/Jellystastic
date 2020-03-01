@@ -29,9 +29,6 @@ function explosion:init(entidad,x,y,scale,dano)
           if k.obj.cambiar_estado then
             k.obj:cambiar_estado("canon")
           end
-          
-        elseif k.data == "map_object" then
-          k.obj:hacer_hueco(k.id_poligono,self.entidad:poligono_para_destruir(self.x,self.y),self.x,self.y) 
         elseif k.data == "enemy_bullet" or k.data == "object" then
           k.obj:remove()
         elseif k.data == "door" then
@@ -40,8 +37,9 @@ function explosion:init(entidad,x,y,scale,dano)
       end
     end
       
-      
-    self.body:destroy()
+    if not self.body:isDestroyed() then
+      self.body:destroy()
+    end
   end)
 
 

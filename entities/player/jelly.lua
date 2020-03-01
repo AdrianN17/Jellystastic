@@ -17,7 +17,7 @@ function jelly:init(entidad,posicion,img)
   self.hp = 25
   self.max_hp = self.hp
   self.vel = 175
-  self.jump = 30
+  self.jump = 70
   
   
   self.spritesheet = img.personajes[1]

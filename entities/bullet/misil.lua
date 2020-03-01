@@ -52,7 +52,6 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.w,self.h = w*scale.x,h*scale.y
   
-  self.existe=true
   self.explosion={}
   
   self.quad = self.spritesheet.balas.quad[self.index_bala]
@@ -85,9 +84,8 @@ function misil:update(dt)
 end
 
 function misil:remove()
-    if self.existe then
+    if not self.body:isDestroyed() then
       self.body:destroy()
-      self.existe=false
     end
       
     self.entidad:remove_obj("bullet",self)
