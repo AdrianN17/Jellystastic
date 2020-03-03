@@ -29,6 +29,7 @@ function puerta:init(entidad,posicion,img,radio,tipo,propiedad)
   self.entidad:add_obj("door",self)
   
   self.ox,self.oy = self.body:getX(), self.body:getY()
+  
 end
 
 function puerta:draw()

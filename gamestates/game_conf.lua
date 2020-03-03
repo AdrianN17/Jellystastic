@@ -40,16 +40,18 @@ function game_conf:enter(_,nombreMapa,accion,data,data_player)
   if accion == "limpiar" then
     self:clear()
   elseif accion == "cambiar_pos" then
-    local puerta = self.gameobject.door[data.id_puerta]
+    local puerta = self:buscar_puerta(data.id_puerta)
 
-    local x,y = puerta.ox,puerta.oy
-    
-    local player = self.gameobject.player[self.index_player]
+    if puerta then
+      local x,y = puerta.ox,puerta.oy
       
-    if player then
-      player.body:setLinearVelocity(0,0)
-      player.body:setPosition( x, y )
-      
+      local player = self.gameobject.player[self.index_player]
+        
+      if player then
+        player.body:setLinearVelocity(0,0)
+        player.body:setPosition( x, y )
+        
+      end
     end
   end
   

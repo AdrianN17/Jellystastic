@@ -106,7 +106,7 @@ function acciones:update_enemy(dt)
   if self.acciones.current == "atacar" and self.obj_presa then
     local ox,oy = self.obj_presa.ox,self.obj_presa.oy
     
-    local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
+    local distancia = math.distance(self.ox,self.oy,ox,oy)
     
     local direccion = ox - self.ox
     
@@ -123,7 +123,7 @@ function acciones:update_enemy(dt)
   elseif self.acciones.current == "seguir" and self.obj_presa then
     local ox,oy = self.obj_presa.ox,self.obj_presa.oy
     
-    local distancia = self.entidad:distance(self.ox,self.oy,ox,oy)
+    local distancia = math.distance(self.ox,self.oy,ox,oy)
     
     local direccion = ox - self.ox
     

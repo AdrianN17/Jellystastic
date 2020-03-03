@@ -130,6 +130,13 @@ index.cosas["puerta_data"] = {}
 index.cosas["puerta_data"].x = 0.2
 index.cosas["puerta_data"].y = 0.2
 
+index.cosas["arbol"] = {}
+index.cosas["arbol"][1] = love.graphics.newImage("assets/img/Objetos/puertas.png")
+
+index.cosas["arbol_data"] = {}
+index.cosas["arbol_data"].x = 0.2
+index.cosas["arbol_data"].y = 0.2
+
 
 index.cosas["adorno_mapa"] = {}
 index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/Efectos/efectoestandar.png")
@@ -181,8 +188,8 @@ index.municion.scale = {x = 0.25,y=0.25}
 
 index.skybox = {}
 index.skybox[1] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
-index.skybox[2] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
-index.skybox[3] = love.graphics.newImage("assets/img/Capa_3/CieloDia.png")
+index.skybox[2] = love.graphics.newImage("assets/img/Capa_3/CieloTarde.png")
+index.skybox[3] = love.graphics.newImage("assets/img/Capa_3/CieloNoche.png")
 
 index.background={}
 index.background[1] = love.graphics.newImage("assets/img/Capa_2/Fondo1.png")

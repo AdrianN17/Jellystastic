@@ -24,21 +24,27 @@ function game_conf_subnivel:enter(from,data,data_player)
       
       game_conf_default.init(self,map_index.campana[1][1])
       
-      local puerta = self.gameobject.door[data.id_puerta]
+      local puerta = self:buscar_puerta(data.id_puerta)
       
-      local x,y = puerta.ox,puerta.oy
+      if puerta then
       
-      entities.Personaje(self,{x,y},img_index)
+        local x,y = puerta.ox,puerta.oy
+        entities.Personaje(self,{x,y},img_index)
+        
+      end
     else
       
-      local puerta = self.gameobject.door[data.id_puerta]
-      local x,y = puerta.ox,puerta.oy
-      local player = self.gameobject.player[self.index_player]
+      local puerta = self:buscar_puerta(data.id_puerta)
       
-      if player then
-        player.body:setLinearVelocity(0,0)
-        player.body:setPosition( x, y )
+      if puerta then
+        local x,y = puerta.ox,puerta.oy
+        local player = self.gameobject.player[self.index_player]
         
+        if player then
+          player.body:setLinearVelocity(0,0)
+          player.body:setPosition( x, y )
+          
+        end
       end
       
     end

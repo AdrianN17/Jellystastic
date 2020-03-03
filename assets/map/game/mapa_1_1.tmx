@@ -82,7 +82,7 @@
   <object id="92" name="Casa" type="2" x="786" y="754">
    <polygon points="0,0 290.5,1 290.75,432.25 -0.25,434"/>
   </object>
-  <object id="93" name="Casa" type="1" x="1077" y="917.204">
+  <object id="93" name="Casa" type="1" x="1056" y="682.204">
    <polygon points="-0.429348,-0.579009 469,0 469.273,267.537 -0.25,269.046"/>
   </object>
   <object id="94" name="Casa" type="1" x="2154" y="1389">

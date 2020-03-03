@@ -13,7 +13,7 @@ function box2d_conf:callbacks()
 
         if y < 0 then
           
-          local r = self:round(math.deg(math.atan2(y,x)))
+          local r = math.round(math.deg(math.atan2(y,x)))
                   
           local r_abs = math.abs(r) 
           

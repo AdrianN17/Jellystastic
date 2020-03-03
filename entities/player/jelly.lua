@@ -17,7 +17,7 @@ function jelly:init(entidad,posicion,img)
   self.hp = 25
   self.max_hp = self.hp
   self.vel = 175
-  self.jump = 70
+  self.jump = 30
   
   
   self.spritesheet = img.personajes[1]
@@ -58,7 +58,7 @@ function jelly:init(entidad,posicion,img)
       
       local tipo_obj=fixture:getUserData()
   
-      if tipo_obj and tipo_obj.data=="map_object" then
+      if tipo_obj and (tipo_obj.data=="map_object" or tipo_obj.data == "liquido") then
         self.ground = true
         self.acciones.saltando=false
       end

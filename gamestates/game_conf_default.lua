@@ -21,15 +21,7 @@ local game_conf_default = Class{
 
 function game_conf_default:init(nombreMapa)
   
-  local dpi = 0
-  
-  if love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS"  then
-    dpi = 1.5
-  else
-    dpi = 1
-  end
-  
-  self.scale_dpi = dpi
+  self.scale_dpi = 1
   
   local x,y=love.graphics.getDimensions( )
   
@@ -42,8 +34,6 @@ function game_conf_default:init(nombreMapa)
   end
   
   self.screen_x,self.screen_y = x,y
-  
-  
 
   self.scale = 1/self.scale_dpi
   
@@ -80,26 +70,6 @@ function game_conf_default:init(nombreMapa)
   self:map_read()
   self:map_create()
   
-  
-  self.poligono_explosion = {50 , 0,
-43 , 25,
-25 , 43,
-0 , 50,
--25 , 43,
--43 , 25,
--50 , 0,
--43 , -25,
--25 , -43,
-0 , -50,
-25 , -43,
-43 , -25}
---50 , 0}
-
-  for i,k in ipairs(self.poligono_explosion) do
-    self.poligono_explosion[i] = k*self.explosion_scale 
-  end
-  
-  
   self.timer = Timer()
   
   self.vision={x=0,y=0,w=0,h=0}
@@ -119,9 +89,6 @@ function game_conf_default:init(nombreMapa)
   ----
   
   self.index_player=1
-  
- 
-  self:arreglar_posicion_puerta()
   
   self.sky_box = 1
   self.background = 1
@@ -209,14 +176,18 @@ end
 function game_conf_default:map_read()
 
   for _, layer in ipairs(self.map.layers) do
+    
     if layer.type=="tilelayer" then
       --self:get_tile(layer)
     elseif layer.type=="objectgroup" then
       self:get_objects(layer)
     end
+    
   end
   
-  self.map:removeLayer("Borrador")
+  for _, layer in pairs(self.map.layers) do
+   self.map:removeLayer(layer.name)
+  end
   
 end
 
@@ -420,19 +391,6 @@ function game_conf_default:remove_obj(name,obj)
 	end
 end
 
-function game_conf_default:poligono_para_destruir(x,y)
-  local poligono_explosion = {}
-  
-  for i=1,#self.poligono_explosion,2 do
-    poligono_explosion[i] = self.poligono_explosion[i]+x
-    poligono_explosion[i+1] = self.poligono_explosion[i+1]+y
-  end
-  
-  return poligono_explosion
-end
-
-
-
 function game_conf_default:validar_pos(a,b)
   local o1,o2=a:getUserData(),b:getUserData()
   
@@ -448,16 +406,6 @@ function game_conf_default:validar_pos(a,b)
   else
     return o2,o1
   end
-end
-
-function game_conf_default:round(x)
-  return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
-end
-
-function game_conf_default:distance ( x1, y1, x2, y2 )
-  local dx = x1 - x2
-  local dy = y1 - y2
-  return math.sqrt ( dx * dx + dy * dy )
 end
 
 function game_conf_default:dano(obj1,dano)
@@ -613,15 +561,7 @@ function game_conf_default:default_clear()
   self.world:destroy()
 end
 
-function game_conf_default:arreglar_posicion_puerta()
-  local data_door = self.gameobject.door 
-  self.gameobject.door = {}
-  
-  for _,k in ipairs(data_door) do
-    self.gameobject.door[k.id_puerta] = k
-  end
 
-end
 
 function game_conf_default:eliminar_presa(player)
   for _, enemy in ipairs(self.gameobject.enemy) do
@@ -680,6 +620,16 @@ end
 
 function game_conf_default:crear_zombie(x,y)
   index_entidades["Zombie"](self,{x,y},img_index)
+end
+
+function game_conf_default:buscar_puerta(id)
+  for _,door in ipairs(self.gameobject.door) do
+    if id == door.id_puerta then
+      return door
+    end
+  end
+  
+  return nil
 end
 
 return game_conf_default

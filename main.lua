@@ -25,3 +25,13 @@ function table.empty (self)
     end
     return true
 end
+
+function math.round(x)
+  return x>=0 and math.floor(x+0.5) or math.ceil(x-0.5)
+end
+
+function math.distance ( x1, y1, x2, y2 )
+  local dx = x1 - x2
+  local dy = y1 - y2
+  return math.sqrt ( dx * dx + dy * dy )
+end

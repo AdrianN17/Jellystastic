@@ -167,7 +167,7 @@ function bala:unico_target()
   local obj_name = ""
   
   for _,obj in ipairs(self.bala_objetivos) do
-    local d = self.entidad:distance(self.ox,self.oy,obj.x,obj.y) 
+    local d = math.distance(self.ox,self.oy,obj.x,obj.y) 
     
     for _, target_name in ipairs(self.target) do
 
