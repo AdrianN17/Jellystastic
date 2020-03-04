@@ -1,18 +1,20 @@
 local Class = require "libs.hump.class"
 local explosion = Class{}
 
-function explosion:init(entidad,x,y,scale,dano)
+function explosion:init(entidad,x,y)
+  self.entidad = entidad
+
 
   self.x,self.y=x,y
   self.body = love.physics.newBody(entidad.world,x,y,"dynamic")
-  self.shape = love.physics.newCircleShape(50*scale)
+  self.shape = love.physics.newCircleShape(50*self.entidad.explosion_scale)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
   self.body:resetMassData()
   self.fixture:setUserData( {data="explosion",obj = self, pos=orden.explosion} )
   
-  self.dano =dano
-  self.entidad = entidad
+  self.dano =10
+  
   self.body:setGravityScale( 0 )
   
   
@@ -58,9 +60,7 @@ function explosion:guardar(obj)
     
     table.insert(self.objetivos,obj)
   end
-  
-  
-  
+
 end
 
 function explosion:update()

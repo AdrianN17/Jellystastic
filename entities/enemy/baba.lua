@@ -17,7 +17,7 @@ function baba:init(entidad,posicion,img)
   self.paredes_suelo={"map_object","bedrock"}
   
   
-  self.creador = -2
+  self.creador = 3
   self.hp = 15
   self.max_hp = self.hp
   self.vel = 100

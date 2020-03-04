@@ -1,6 +1,7 @@
 local Class = require "libs.hump.class"
 local Misil = require "entities.bullet.misil"
-local Efecto_bala_normal = require "entities.bullet.efecto_bala"
+local Bala = require "entities.bullet.bala_normal"
+--local Efecto_bala_normal = require "entities.bullet.efecto_bala"
 
 local bala = Class{
   __include = {}
@@ -10,7 +11,7 @@ function bala:init(target)
   self.bx,self.by = 0,0
   self.max_distancia_bala = 1500
   
-  self.bala_objetivos = {}
+  --self.bala_objetivos = {}
   self.target = target
   table.insert(self.target,"map_object")
   table.insert(self.target,"bedrock")
@@ -27,19 +28,19 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 0, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 0, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7}
   --desert eagle
-  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
+  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9}
   --uzi
-  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
+  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5}
   --m4a1
-  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8, raycast = true}
+  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8}
   
   --escopeta
-  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2, raycast = true}
+  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 0, max_stock = 3, municion = 0, max_municion = 6, enable = false, dano = 10, tiempo = 1 ,tiempo_recarga = 2, raycast = false, index_bala= 1}
+  self.armas_values[6] = {stock = 3, max_stock = 3, municion = 0, max_municion = 6, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2, index_bala= 1}
   
   --timer
   
@@ -163,7 +164,7 @@ function bala:draw_bala()
   
 end
 
-function bala:unico_target()
+--[[function bala:unico_target()
   if #self.bala_objetivos<1 then
     return
   end
@@ -217,24 +218,26 @@ function bala:unico_target()
     end
   
   
-end
+end]]
 
-function bala:generar_bala_raycast()
+function bala:generar_bala_normal()
   
   local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
   local radio = self.bala_radio
   
-  local crear_bala = function() 
+  Bala(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+  
+  --local crear_bala = function() 
     
-    self.entidad.world:rayCast(cx,cy,cx + math.cos(radio)*self.max_distancia_bala,cy + math.sin(radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+    --self.entidad.world:rayCast(cx,cy,cx + math.cos(radio)*self.max_distancia_bala,cy + math.sin(radio)*self.max_distancia_bala,self.raycast_bala_disparo)
     
-    self:unico_target()
+    --self:unico_target()
     
-    self.bala_objetivos = {}
+    --self.bala_objetivos = {}
 
-  end
+  --end
 
-  Efecto_bala_normal(self.entidad,cx,cy,radio,crear_bala,self.target_list,self)
+  --Efecto_bala_normal(self.entidad,cx,cy,radio,crear_bala,self.target_list,self)
   
 end
 
@@ -258,8 +261,8 @@ function bala:disparo(arma_index)
     
     if arma.stock>=1 then
       
-      if arma.raycast then
-        self:generar_bala_raycast()
+      if not arma.index_bala then
+        self:generar_bala_normal()
       else
         --arma fisica
         local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
@@ -275,8 +278,8 @@ function bala:disparo(arma_index)
         function()
           if arma.stock>=1 then
             
-            if arma.raycast then
-              self:generar_bala_raycast()
+            if not arma.index_bala then
+              self:generar_bala_normal()
             else
               --arma fisica
               local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())

@@ -58,8 +58,18 @@ function box2d_conf:callbacks()
         obj2.obj:remove()
         obj1.obj:cambiar_estado("semizombie")
         
-      elseif (obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "map_object" or obj1.data == "enemy_bullet" or obj1.data=="npc") and obj2.data == "destructive_bullet" then
+      elseif (obj1.data == "baba" or obj1.data == "soldier" or obj1.data == "player" or obj1.data == "object" or obj1.data == "enemy_bullet" or obj1.data == "door" or obj1.data=="npc") and obj2.data == "explosion" then
+        obj2.obj:guardar(obj1)
+      elseif obj1.data == "player" and obj2.data == "object" then
+        obj2.obj:usar(obj1.obj)
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object") then
         local x,y = coll:getPositions()
+        obj1.obj:remove(x,y)
+      elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "enemy_bullet"  or obj1.data=="npc") and obj2.data == "bullet" then
+
+        local x,y = coll:getPositions()
+        
+        coll:setEnabled(false)
         
         if obj2.obj.direccion == obj1.obj.direccion then
           
@@ -71,18 +81,19 @@ function box2d_conf:callbacks()
             obj1.obj:voltear()
           end
         end
-        
-        
-          self.timer:after(0.01,function()
-            obj2.obj:crear_circulo(x,y,self.explosion_scale)
-          end)
-      elseif (obj1.data == "baba" or obj1.data == "soldier" or obj1.data == "player" or obj1.data == "object" or obj1.data == "enemy_bullet" or obj1.data == "door" or obj1.data=="npc") and obj2.data == "explosion" then
-        obj2.obj:guardar(obj1)
-      elseif obj1.data == "player" and obj2.data == "object" then
-        obj2.obj:usar(obj1.obj)
+          
+        if obj1.data == "enemy_bullet" then
+          obj1.obj:remove()
+          obj2.obj:remove()
+        elseif obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" then
+          if obj1.obj.creador ~= obj2.obj.creador then
+
+            self:dano(obj1.obj,obj2.obj.dano)
+             
+            obj2.obj:remove(x,y)
+          end
+        end
       end
-      
-      
     end
   end
   
@@ -133,10 +144,6 @@ function box2d_conf:callbacks()
         coll:setEnabled( false )
       elseif obj1.data == "soldier" and obj2.data == "baba" then
         coll:setEnabled( false )
-      elseif (obj1.data == "player" or obj1.data == "soldier") and obj2.data == "destructive_bullet" then
-        if obj1.obj.creador == obj2.obj.creador then
-          coll:setEnabled( false )
-        end
       elseif obj1.data == "baba" and obj2.data == "enemy_bullet" then
         --if obj1.obj.creador == obj2.obj.creador then
           coll:setEnabled( false )
@@ -156,7 +163,7 @@ function box2d_conf:callbacks()
     local obj1, obj2 = self:validar_pos(a,b)
     
     if obj1 and obj2 then
-      
+
     end
 	end
 

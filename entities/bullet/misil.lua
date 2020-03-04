@@ -47,7 +47,7 @@ function misil:init(entidad,img,x,y,angle,creador,index_bala,dano)
   
   
   self.entidad:add_obj("bullet",self)
-  self.fixture:setUserData( {data="destructive_bullet",obj=self, pos=orden.destructive_bullet} )
+  self.fixture:setUserData( {data="bullet",obj=self, pos=orden.bullet} )
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.w,self.h = w*scale.x,h*scale.y
@@ -78,13 +78,18 @@ function misil:update(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   if self.oy > self.entidad.caida_y  then
-    self:remove()
+    self:remove(self.ox,self.oy)
   end
   
 end
 
-function misil:remove()
+function misil:remove(x,y)
+  
     if not self.body:isDestroyed() then
+      
+      self.entidad.timer:after(0.01,function()
+        self:crear_circulo(x,y,self.explosion_scale)
+      end)
       self.body:destroy()
     end
       
