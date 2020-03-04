@@ -49,9 +49,12 @@ function acciones:init(x,y,w,h)
   self.hay_puerta=false
   self.data_puerta=nil
   
+  self.cooldown_timer = nil
   self.cooldown = false
   
   self.cooldown_iterador = true
+  
+  
   
 end
 
@@ -167,9 +170,16 @@ function acciones:keypressed(key)
   
   if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
     
+    
+    
     local index = tonumber(key)
     
     if self.armas_values[index].enable then
+      
+      if self.arma_index ~= index then
+        self.cooldown = false
+      end
+      
       if self.timer_balas then
         self.timer:cancel(self.timer_balas)
         self.timer_balas=nil
@@ -213,7 +223,8 @@ function acciones:mousereleased(x,y,button)
     self:terminar_disparo_balas()
     
     self.cooldown = true
-    self.timer:after(self.armas_values[self.arma_index].tiempo, function()
+    
+    self.cooldown_timer = self.timer:after(self.armas_values[self.arma_index].tiempo, function()
       self.cooldown = false
     end)
   end

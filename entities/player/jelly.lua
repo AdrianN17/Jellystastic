@@ -27,7 +27,7 @@ function jelly:init(entidad,posicion,img)
   
   self:masa(posicion[1],posicion[2])
   
-  Bala.init(self,{"baba","soldier"})
+  Bala.init(self,{"player","baba","soldier"})
   
   
   --timer

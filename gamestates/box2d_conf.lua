@@ -138,9 +138,9 @@ function box2d_conf:callbacks()
           coll:setEnabled( false )
         end
       elseif obj1.data == "baba" and obj2.data == "enemy_bullet" then
-        if obj1.obj.creador == obj2.obj.creador then
+        --if obj1.obj.creador == obj2.obj.creador then
           coll:setEnabled( false )
-        end
+        --end
       elseif obj1.data == "player" and obj2.data == "npc" then
         coll:setEnabled( false )
         obj2.obj:remove()

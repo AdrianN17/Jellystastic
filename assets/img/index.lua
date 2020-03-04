@@ -130,14 +130,6 @@ index.cosas["puerta_data"] = {}
 index.cosas["puerta_data"].x = 0.2
 index.cosas["puerta_data"].y = 0.2
 
-index.cosas["arbol"] = {}
-index.cosas["arbol"][1] = love.graphics.newImage("assets/img/Objetos/puertas.png")
-
-index.cosas["arbol_data"] = {}
-index.cosas["arbol_data"].x = 0.2
-index.cosas["arbol_data"].y = 0.2
-
-
 index.cosas["adorno_mapa"] = {}
 index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/Efectos/efectoestandar.png")
 index.cosas["adorno_mapa"][2] = love.graphics.newImage("assets/img/Efectos/sueloefecto1.png")
@@ -146,6 +138,10 @@ index.cosas["adorno_mapa"][3] = love.graphics.newImage("assets/img/Efectos/suelo
 index.cosas["adorno_mapa_data"] = {}
 index.cosas["adorno_mapa_data"].x = 0.2
 index.cosas["adorno_mapa_data"].y = 0.2
+
+index.objetos_mapa = {}
+index.objetos_mapa.img = love.graphics.newImage("assets/img/Objetos/Adornos_Mapa.png")
+index.objetos_mapa.arbol = love.graphics.newQuad(70,17,254,400,index.objetos_mapa.img:getDimensions())
 
 index.redimensionable = {}
 index.redimensionable[1] = love.graphics.newImage("assets/img/Objetos/techo2.png")
@@ -193,5 +189,9 @@ index.skybox[3] = love.graphics.newImage("assets/img/Capa_3/CieloNoche.png")
 
 index.background={}
 index.background[1] = love.graphics.newImage("assets/img/Capa_2/Fondo1.png")
+
+index.bala = {}
+index.bala.img = love.graphics.newImage("assets/img/Armas/bullet.png")
+index.bala.scale = {x=1,y=10}
 
 return  index

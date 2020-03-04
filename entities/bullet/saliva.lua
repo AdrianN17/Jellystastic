@@ -4,7 +4,7 @@ local saliva = Class{
     __includes = {}
 }
 
-function saliva:init(entidad,img,x,y,direccion,creador)
+function saliva:init(entidad,img,x,y,ex,ey,direccion,creador)
   self.entidad = entidad
   self.entidad:add_obj("bullet",self)
   
@@ -29,7 +29,6 @@ function saliva:init(entidad,img,x,y,direccion,creador)
   self.fixture:setDensity(1)
   self.body: setFixedRotation (true)
   --self.fixture:setSensor( true )
-  self.fixture : setGroupIndex ( - 2 )
   --self.body:setGravityScale( 0 )
   
   self.fixture:setUserData( {data="enemy_bullet",obj=self, pos=orden.bullet_enemy} )
@@ -41,9 +40,12 @@ function saliva:init(entidad,img,x,y,direccion,creador)
   
   self.direccion = direccion
   
-  self.body:applyLinearImpulse(self.vel*self.direccion,0)
+  local radio = math.atan2(ey-y,ex-x)
+  
+  self.body:applyLinearImpulse(self.vel*math.cos(radio),self.vel*math.sin(radio))
   
   self.fixture : setGroupIndex ( self.creador )
+  
 end
 
 function saliva:update(dt)

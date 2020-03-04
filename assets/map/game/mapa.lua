@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 6,
-  nextobjectid = 111,
+  nextobjectid = 134,
   properties = {},
   tilesets = {},
   layers = {
@@ -469,6 +469,44 @@ return {
             { x = 227.25, y = 1.32702 }
           },
           properties = {}
+        },
+        {
+          id = 117,
+          name = "Gelatina",
+          type = "",
+          shape = "polygon",
+          x = 3106.67,
+          y = 2976,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 478.667, y = 12 },
+            { x = 485.333, y = 225.333 },
+            { x = -2.66667, y = 229.333 }
+          },
+          properties = {}
+        },
+        {
+          id = 121,
+          name = "Casa",
+          type = "1",
+          shape = "polygon",
+          x = 3233.5,
+          y = 2984.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = -2, y = 1.79072 },
+            { x = -2, y = -273.896 },
+            { x = 227, y = -273.896 },
+            { x = 227.25, y = 1.32702 }
+          },
+          properties = {}
         }
       }
     },
@@ -561,7 +599,7 @@ return {
         {
           id = 76,
           name = "Puerta",
-          type = "1",
+          type = "2",
           shape = "rectangle",
           x = 1146,
           y = 2638,
@@ -576,7 +614,7 @@ return {
         {
           id = 77,
           name = "Puerta",
-          type = "1",
+          type = "2",
           shape = "rectangle",
           x = 1488,
           y = 2637,
@@ -595,6 +633,21 @@ return {
           shape = "rectangle",
           x = 1598,
           y = 2266,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["id"] = 8
+          }
+        },
+        {
+          id = 122,
+          name = "Puerta",
+          type = "4",
+          shape = "rectangle",
+          x = 3324.75,
+          y = 2882.25,
           width = 60,
           height = 100,
           rotation = 0,
@@ -623,6 +676,45 @@ return {
           shape = "point",
           x = 26.6667,
           y = 2916.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 125,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 1994,
+          y = 2779,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 131,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 1364,
+          y = 2688.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 132,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 701.333,
+          y = 2892,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1196,6 +1288,162 @@ return {
           properties = {
             ["radio"] = 0
           }
+        },
+        {
+          id = 111,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 721,
+          y = 2817,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 112,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 1830.67,
+          y = 2720.17,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 113,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 1909.67,
+          y = 2608.17,
+          width = 154,
+          height = 238.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 114,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 2044.33,
+          y = 2720.17,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 115,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 2816.33,
+          y = 2758.83,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 116,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 2911,
+          y = 2700.17,
+          width = 90,
+          height = 183.667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 118,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 3019,
+          y = 2700.17,
+          width = 90,
+          height = 183.667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 119,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 3107,
+          y = 2846.83,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 120,
+          name = "Extra",
+          type = "arbol",
+          shape = "rectangle",
+          x = 3496.33,
+          y = 2860.17,
+          width = 90,
+          height = 125,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 126,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 3217,
+          y = 2943,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 127,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 3806,
+          y = 2886,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 128,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 4026,
+          y = 2873,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

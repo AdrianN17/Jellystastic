@@ -13,7 +13,7 @@ function baba:init(entidad,posicion,img)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player","soldier","npc"}
+  self.objetivos={"player","soldier","npc","map_object","bedrock"}
   self.paredes_suelo={"map_object","bedrock"}
   
   
@@ -29,7 +29,6 @@ function baba:init(entidad,posicion,img)
   self.spritesheet = img.baba
   
   self.timer = Timer()
-  
   
   --FSM
   
@@ -82,19 +81,14 @@ function baba:init(entidad,posicion,img)
   end
   
   local raycast_funcion_atacar = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
-      
-      for _,objetivo in ipairs(self.objetivos) do
-        if tipo_obj and tipo_obj.data==objetivo then
-          self.posicion_ataque=true
-          
-          --if self.obj_presa == nil then
-            self.obj_presa = fixture:getUserData().obj
-          --end
-          
+      if not fixture:isSensor( ) then
+        local tipo_obj=fixture:getUserData()
+        
+        if tipo_obj then
+          table.insert(self.vision_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
         end
       end
-
+      
     return 1
   end
 
@@ -113,7 +107,8 @@ function baba:init(entidad,posicion,img)
       
       if self.iterador == 5 and self.obj_presa then
         --lanzar saliva
-        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.direccion,self.creador)
+
+        Saliva(self.entidad,self.spritesheet,self.ox,self.oy,self.obj_presa.ox,self.obj_presa.oy,self.direccion,self.creador)
       end
       
       if self.iterador>5 then
@@ -142,6 +137,8 @@ function baba:init(entidad,posicion,img)
     
     local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
     self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_atacar)
+    
+    self:buscar_posibles_presas()
     
     if self.posicion_ataque and self.acciones.current == "mover" then
       self.acciones:a_atacar()

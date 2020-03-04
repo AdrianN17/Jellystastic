@@ -13,7 +13,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player","baba","npc"}
+  self.objetivos={"player","baba","npc","map_object","bedrock"}
   self.paredes_suelo={"map_object","bedrock"}
   
   self.creador = 0
@@ -58,7 +58,14 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
     callbacks = {
       ona_atacar = function(_,event,from,to)
-        self:disparo_balas()
+
+          self:disparo_balas()
+
+      end,
+      ona_mover = function(_,event,from,to)
+ 
+          self:terminar_disparo_balas()
+        
       end,
       
       ona_recargar= function(_, event, from, to) 
@@ -111,16 +118,12 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   end
   
   local raycast_funcion_atacar = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
       
-      for _,objetivo in ipairs(self.objetivos) do
-        if tipo_obj and tipo_obj.data==objetivo then
-          self.posicion_ataque=true
-          
-          --if self.obj_presa == nil then
-            self.obj_presa = fixture:getUserData().obj
-          --end
-          
+      if not fixture:isSensor( ) then
+        local tipo_obj=fixture:getUserData()
+        
+        if tipo_obj then
+          table.insert(self.vision_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
         end
       end
 
@@ -169,8 +172,11 @@ function soldado:init(entidad,posicion,img,radio,tipo)
     local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
     self.entidad.world:rayCast(cx,cy,cx + math.cos(self.bala_radio)*self.limite_vision,cy + math.sin(self.bala_radio)*self.limite_vision,raycast_funcion_atacar)
     
+    self:buscar_posibles_presas()
+    
     if self.posicion_ataque and self.acciones.current == "mover" then
       self.acciones:a_atacar()
+      
       self.iterador2 = 1
       self.posicion_ataque=false
       
@@ -193,7 +199,7 @@ end
 function soldado:draw()
   self:draw_enemy2()
   
-  --love.graphics.print(self.acciones.current .. " , " .. self.df  .. " , " .. self.direccion .. " , " .. math.deg(self.bala_radio),self.ox,self.oy-200)
+  love.graphics.print(self.acciones.current ,self.ox,self.oy-200)
 end
 
 function soldado:update(dt)

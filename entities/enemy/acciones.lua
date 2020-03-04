@@ -46,6 +46,7 @@ function acciones:init(x,y,w,h)
   
 
   --presa
+  self.vision_objetivos = {}
   self.obj_presa = nil
   
   self.body:setBullet(true)
@@ -56,15 +57,7 @@ function acciones:draw_enemy()
   local scale = self.spritesheet.scale
   local x,y,w,h = quad:getViewport()
   
-    
   love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
-  
-  --love.graphics.line(self.ox+(82.25/2)*self.direccion,self.oy,self.ox+(82.25/2)*self.direccion,self.oy+80)
-  
-  --love.graphics.line(self.ox,self.oy,self.ox+(50)*self.direccion,self.oy)
-  
-  --local x1,y1,w1,h1 = self.body:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
-  --love.graphics.line(x1,y1,w1,h1)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end
@@ -206,6 +199,38 @@ function acciones:terminar_seguimiento()
     self:restaurar_radio()
   end
   
+end
+
+function acciones:buscar_posibles_presas()
+  if #self.vision_objetivos<1 then
+    return
+  end
+  
+  local distance = 9999
+  local obj_target = nil
+  local obj_name = ""
+  
+  for _,obj in ipairs(self.vision_objetivos) do
+    local d = math.distance(self.ox,self.oy,obj.x,obj.y) 
+
+    for _, target_name in ipairs(self.objetivos) do
+      
+      if distance>d and obj.name == target_name and obj.obj ~= self.obj then
+        distance = d 
+        obj_target = obj.obj
+        obj_name = obj.name
+      end
+    end
+  end
+  
+  
+  
+  if obj_target and obj_target ~= self  and obj_name ~= "map_object" and obj_name ~= "bedrock" then
+    self.posicion_ataque=true
+    self.obj_presa = obj_target
+  end
+  
+  self.vision_objetivos = {}
 end
 
 

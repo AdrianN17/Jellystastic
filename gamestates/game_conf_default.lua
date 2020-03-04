@@ -61,9 +61,8 @@ function game_conf_default:init(nombreMapa)
   self.gameobject.map_object = {}
   self.gameobject.holes = {}
   self.gameobject.liquid= {}
-  
   self.gameobject.decoration={}
-  
+  self.gameobject.extras = {}
   self.gameobject.door = {}
   self.gameobject.platform = {}
   
@@ -232,12 +231,12 @@ function game_conf_default:get_objects(objectlayer)
 end
 
 function game_conf_default:map_create()
+  
   local map_object = self.map:addCustomLayer ("map_object",1 )
   local player = self.map:addCustomLayer ("player", 2)
   local enemy = self.map:addCustomLayer ("enemy", 3)
   local npc = self.map:addCustomLayer ("npc", 4)
-  local bullet = self.map:addCustomLayer ("object",5 )
-  local object = self.map:addCustomLayer ("object",6 )
+  local object = self.map:addCustomLayer ("object",5 )
   
   
   local function stencil()
@@ -289,20 +288,6 @@ function game_conf_default:map_create()
     end
   end
   
-  bullet.draw = function(obj)
-    for _, obj_data in ipairs(self.gameobject.bullet) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-  end
-  
-  bullet.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.bullet) do
-      obj_data:update(dt)
-    end
-  end
-  
   object.draw = function(obj)
     for _, obj_data in ipairs(self.gameobject.object) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
@@ -332,7 +317,14 @@ function game_conf_default:map_create()
     
     love.graphics.setStencilTest()
     
+    
     for _, obj_data in ipairs(self.gameobject.liquid) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+    
+    for _,obj_data in ipairs(self.gameobject.extras) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
         obj_data:draw()
       end
@@ -362,13 +354,21 @@ function game_conf_default:map_create()
       end
     end
     
-    love.graphics.setStencilTest()
+    for _, obj_data in ipairs(self.gameobject.bullet) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
     
   end
   
   map_object.update = function(obj,dt)
     for _, obj_data in ipairs(self.gameobject.map_object) do
       obj_data:update()
+    end
+    
+    for _, obj_data in ipairs(self.gameobject.bullet) do
+      obj_data:update(dt)
     end
   end
   

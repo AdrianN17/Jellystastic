@@ -1,5 +1,6 @@
 local Class = require "libs.hump.class"
 local Misil = require "entities.bullet.misil"
+local Efecto_bala_normal = require "entities.bullet.efecto_bala"
 
 local bala = Class{
   __include = {}
@@ -11,6 +12,8 @@ function bala:init(target)
   
   self.bala_objetivos = {}
   self.target = target
+  table.insert(self.target,"map_object")
+  table.insert(self.target,"bedrock")
   
   if self.direccion == -1 then
     self.bala_radio = math.rad(180)
@@ -24,19 +27,19 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
+  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 0, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7, raycast = true}
   --desert eagle
-  self.armas_values[2] = {stock = 8, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
+  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9, raycast = true}
   --uzi
   self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5, raycast = true}
   --m4a1
   self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8, raycast = true}
   
   --escopeta
-  self.armas_values[5] = {stock = 8, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2, raycast = true}
+  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2, raycast = true}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 0, max_stock = 2, municion = 0, max_municion = 6, enable = false, dano = 10, tiempo = 1 ,tiempo_recarga = 2, raycast = false, index_bala= 1}
+  self.armas_values[6] = {stock = 0, max_stock = 3, municion = 0, max_municion = 6, enable = false, dano = 10, tiempo = 1 ,tiempo_recarga = 2, raycast = false, index_bala= 1}
   
   --timer
   
@@ -66,7 +69,8 @@ function bala:init(target)
   self.max_angle[-1] = math.rad(250)
   self.max_angle[1] = math.rad(70)
   
-  
+  self.target_list = target
+
 end
 
 function bala:update_bala_player()
@@ -152,6 +156,9 @@ function bala:draw_bala()
     
     love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*self.rf,w/2,h/2)
     
+    love.graphics.print(Inspect(self.armas_values[self.arma_index]),self.ox,self.oy +100)
+    
+    
   end
   
 end
@@ -168,10 +175,10 @@ function bala:unico_target()
   
   for _,obj in ipairs(self.bala_objetivos) do
     local d = math.distance(self.ox,self.oy,obj.x,obj.y) 
-    
+
     for _, target_name in ipairs(self.target) do
 
-      if distance>d and obj.name == target_name then
+      if distance>d and obj.name == target_name and obj.obj ~= self then
         distance = d 
         obj_target = obj.obj
         obj_name = obj.name
@@ -179,8 +186,7 @@ function bala:unico_target()
     end
   end
   
-  
-    if obj_target then
+    if obj_target and obj_name ~= "map_object" and obj_name ~= "bedrock" then
       local arma = self.armas_values[self.arma_index]
       obj_target.hp = obj_target.hp -arma.dano
       
@@ -216,16 +222,21 @@ end
 function bala:generar_bala_raycast()
   
   local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+  local radio = self.bala_radio
   
-    self.entidad.world:rayCast(cx,cy,cx + math.cos(self.bala_radio)*self.max_distancia_bala,cy + math.sin(  self.bala_radio)*self.max_distancia_bala,self.raycast_bala_disparo)
+  local crear_bala = function() 
+    
+    self.entidad.world:rayCast(cx,cy,cx + math.cos(radio)*self.max_distancia_bala,cy + math.sin(radio)*self.max_distancia_bala,self.raycast_bala_disparo)
     
     self:unico_target()
     
     self.bala_objetivos = {}
+
+  end
+
+  Efecto_bala_normal(self.entidad,cx,cy,radio,crear_bala,self.target_list,self)
+  
 end
-
-
-
 
 function bala:recarga(arma_index)
   local arma = self.armas_values[arma_index]

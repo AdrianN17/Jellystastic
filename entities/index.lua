@@ -24,4 +24,6 @@ index.Zombie = require "entities.enemy.zombie"
 
 index.Liquido = require "entities.map_object.liquido"
 
+index.Extra = require "entities.map_object.extra"
+
 return index
