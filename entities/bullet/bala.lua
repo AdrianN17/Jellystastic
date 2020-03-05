@@ -27,7 +27,7 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala}
+  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala}
   --desert eagle
   self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9,clase = Bala}
   --uzi
@@ -43,7 +43,7 @@ function bala:init(target)
   end}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 0, max_stock = 3, municion = 0, max_municion = 6, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil}
+  self.armas_values[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil}
   
   --timer
   

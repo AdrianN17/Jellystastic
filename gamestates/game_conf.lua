@@ -15,29 +15,26 @@ function game_conf:init()
 end
 
 function game_conf:enter(_,nombreMapa,accion,data,data_player)
-  
-  if nombreMapa then
-    self.nombreMapa = nombreMapa
-    game_conf_default.init(self,map_index.campana[nombreMapa]["main"])
+  if accion ==  "crear" then
+    if nombreMapa then
+      self.nombreMapa = nombreMapa
+      game_conf_default.init(self,map_index.campana[nombreMapa]["main"])
+      
+      if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" and not joy_movimiento and not joy_disparo then
     
-    if self.gameobject.player[self.index_player] and love.system.getOS( ) == "Android" or love.system.getOS( ) == "iOS" and not joy_movimiento and not joy_disparo then
-  
-    local style = {
-      showBorder = true,
-      bgColor = {0, 0, 0,0.2}
-    }
-    gooi.setStyle(style)
-    
-    
-    joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 150*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
-    joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.screen_x - 300*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
+      local style = {
+        showBorder = true,
+        bgColor = {0, 0, 0,0.2}
+      }
+      gooi.setStyle(style)
+      
+      
+      joy_movimiento = gooi.newJoy({size = 150*self.scale,  x = 150*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setDigital():setStyle({showBorder = true}):setImage("assets/img/joystick.png")
+      joy_disparo = gooi.newJoy({size = 150*self.scale, x = self.screen_x - 300*self.scale,y = self.screen_y_normal - 150*self.scale, deadZone = 0.2}):setStyle({showBorder = true}):setImage("assets/img/joystick.png"):noSpring() 
+      end
+      
     end
-    
-  end
-  
-  
-  
-  if accion == "limpiar" then
+  elseif accion == "limpiar" then
     self:clear()
   elseif accion == "cambiar_pos" then
     local puerta = self:buscar_puerta(data.id_puerta)

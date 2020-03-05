@@ -85,6 +85,10 @@ function jelly:init(entidad,posicion,img)
   self.id_accesorio = 2
   
   
+  self.arma_index = 1
+  self.armas_values[1].enable = true
+  self.armas_values[1].stock = self.armas_values[self.arma_index].max_stock
+  self.armas_values[1].municion = self.armas_values[self.arma_index].max_stock
 end
 
 function jelly:draw()

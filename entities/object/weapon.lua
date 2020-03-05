@@ -39,12 +39,35 @@ function weapon:update(dt)
 end
 
 function weapon:usar(obj)
-  local balas = obj.armas_values[self.tipo_arma]
+  if obj.arma_index ~=  self.tipo_arma then
+    
+    obj.armas_values[obj.arma_index].enable = false
+    obj.armas_values[obj.arma_index].stock = 0
+    obj.armas_values[obj.arma_index].municion = 0
+    
+    obj.funcion_arma_temp =nil
+    obj.cooldown = false
+    
+    if obj.timer_balas then
+      obj.timer:cancel(obj.timer_balas)
+      obj.timer_balas=nil
+    end
+      
+    if obj.timer_recarga then
+      obj.timer:cancel(obj.timer_recarga)
+      obj.timer_recarga=nil
+    end
+    
   
-  obj.armas_values[self.tipo_arma].enable = true
-  obj.armas_values[self.tipo_arma].stock = balas.max_stock
-  
-  self:remove()
+    local balas = obj.armas_values[self.tipo_arma]
+    
+    obj.armas_values[self.tipo_arma].enable = true
+    obj.armas_values[self.tipo_arma].stock = balas.max_stock
+    
+    obj.arma_index = self.tipo_arma
+    
+    self:remove()
+  end
 end
 
 function weapon:remove()

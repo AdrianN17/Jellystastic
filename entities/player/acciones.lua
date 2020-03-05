@@ -56,6 +56,10 @@ function acciones:init(x,y,w,h)
   
   self.funcion_arma_temp =nil
   
+  self.item_touch = nil
+  
+  
+  
 end
 
 function acciones:draw_player()
@@ -79,7 +83,7 @@ function acciones:draw_player()
   
   
   if arma then
-    love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.stock),self.ox,self.oy-150)
+   -- love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.stock),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -169,11 +173,16 @@ function acciones:keypressed(key)
     self:saltar()
   end
   
-  if key == "s" and self.hay_puerta and self.data_puerta and self.ground then 
+  if key == "e" and self.item_touch then
+    self.item_touch:usar(self)
+  elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground then
+    print(Inspect(self.data_puerta))
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
-  if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
+  
+  
+  --[[if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
     
     self.funcion_arma_temp =nil
     
@@ -197,7 +206,7 @@ function acciones:keypressed(key)
       
       self.arma_index = index
     end
-  end
+  end]]
   
 end
 

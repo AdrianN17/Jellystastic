@@ -80,6 +80,7 @@ function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
     
   player:clear_puerta()
   
+
   Gamestate.push(self.main_level,_,"cambiar_pos",data_puerta,data_player)
 end
 
