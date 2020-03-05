@@ -43,7 +43,7 @@ function acciones:init(x,y,w,h)
   self.mano_fisica.fixture_mano = love.physics.newFixture(self.body2,self.mano_fisica.shape_mano,0)
   self.mano_fisica.fixture_mano:setSensor( true )
   
-  --self.fixture : setGroupIndex ( self.creador )
+  
   self.body:setBullet(true)
   
   self.hay_puerta=false
@@ -54,7 +54,7 @@ function acciones:init(x,y,w,h)
   
   self.cooldown_iterador = true
   
-  
+  self.funcion_arma_temp =nil
   
 end
 
@@ -79,7 +79,7 @@ function acciones:draw_player()
   
   
   if arma then
-    love.graphics.print(tostring(self.acciones.saltando),self.ox,self.oy-150)
+    love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.stock),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -89,6 +89,11 @@ function acciones:update_player(dt)
   self:update_bala_player()
   
   self.timer:update(dt)
+  
+  if self.funcion_arma_temp and not self.cooldown then
+    self:funcion_arma_temp()
+    self.funcion_arma_temp=nil
+  end
   
   self.acciones.moviendo = false
   
@@ -170,7 +175,7 @@ function acciones:keypressed(key)
   
   if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
     
-    
+    self.funcion_arma_temp =nil
     
     local index = tonumber(key)
     
@@ -208,10 +213,19 @@ end
 
 function acciones:mousepressed(x,y,button)
   
+  if not self.funcion_arma_temp then
+    self.funcion_arma_temp = function()
+      if button == 1 then
+        self:disparo_balas()
+      elseif button == 2 then
+        self:recargar_arma()
+      end
+    end
+  end
 
   if button == 1 and not self.cooldown then
     self:disparo_balas()
-  elseif button == 2 then
+  elseif button == 2 and not self.cooldown then
     self:recargar_arma()
   end
   
@@ -226,6 +240,7 @@ function acciones:mousereleased(x,y,button)
     
     self.cooldown_timer = self.timer:after(self.armas_values[self.arma_index].tiempo, function()
       self.cooldown = false
+      self.cooldown_timer=nil
     end)
   end
 

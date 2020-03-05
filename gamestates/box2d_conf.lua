@@ -2,6 +2,8 @@ local Class = require "libs.hump.class"
 
 local box2d_conf = Class{}
 
+
+
 function box2d_conf:callbacks()
   local beginContact =  function(a, b, coll)
     
@@ -9,8 +11,9 @@ function box2d_conf:callbacks()
    
     if obj1 and obj2 then
       if (obj1.data == "player" or obj1.data == "baba" or obj1.data=="soldier" or obj1.data=="npc") and obj2.data == "map_object" then
+        
         local x,y = coll:getNormal()
-
+        
         if y < 0 then
           
           local r = math.round(math.deg(math.atan2(y,x)))
@@ -32,7 +35,7 @@ function box2d_conf:callbacks()
           
         end
           
-      elseif obj1.data == "enemy_bullet" and obj2.data == "map_object" then
+      elseif obj1.data == "enemy_bullet" and (obj2.data == "map_object" or obj2.data == "bedrock") then
         local x,y = coll:getPositions()
         
         self.timer:after(2.5,function()  
@@ -62,37 +65,6 @@ function box2d_conf:callbacks()
         obj2.obj:guardar(obj1)
       elseif obj1.data == "player" and obj2.data == "object" then
         obj2.obj:usar(obj1.obj)
-      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object") then
-        local x,y = coll:getPositions()
-        obj1.obj:remove(x,y)
-      elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "enemy_bullet"  or obj1.data=="npc") and obj2.data == "bullet" then
-
-        local x,y = coll:getPositions()
-        
-        coll:setEnabled(false)
-        
-        if obj2.obj.direccion == obj1.obj.direccion then
-          
-          if obj1.data ~= "player" then
-            obj1.obj.direccion=obj1.obj.direccion*-1
-          end
-          
-          if obj1.obj.voltear then
-            obj1.obj:voltear()
-          end
-        end
-          
-        if obj1.data == "enemy_bullet" then
-          obj1.obj:remove()
-          obj2.obj:remove()
-        elseif obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" then
-          if obj1.obj.creador ~= obj2.obj.creador then
-
-            self:dano(obj1.obj,obj2.obj.dano)
-             
-            obj2.obj:remove(x,y)
-          end
-        end
       end
     end
   end
@@ -155,6 +127,40 @@ function box2d_conf:callbacks()
         coll:setEnabled( false )
       elseif obj1.data == "player" and obj2.data == "liquido" then
         obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object") then
+        coll:setEnabled( false )
+        local x,y = coll:getPositions()
+        obj1.obj:remove(x,y)
+        coll:release( )
+      elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "enemy_bullet"  or obj1.data=="npc") and obj2.data == "bullet" then
+
+        local x,y = coll:getPositions()
+        coll:setEnabled( false )
+        
+        if obj2.obj.direccion == obj1.obj.direccion then
+          
+          if obj1.data ~= "player" then
+            obj1.obj.direccion=obj1.obj.direccion*-1
+          end
+          
+          if obj1.obj.voltear then
+            obj1.obj:voltear()
+          end
+        end
+          
+        if obj1.data == "enemy_bullet" then
+          obj1.obj:remove()
+          obj2.obj:remove()
+        elseif obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" then
+          if obj1.obj.creador ~= obj2.obj.creador then
+
+            self:dano(obj1.obj,obj2.obj.dano)
+             
+            obj2.obj:remove(x,y)
+          end
+        end
+        
+        coll:release( )
       end
     end
   end

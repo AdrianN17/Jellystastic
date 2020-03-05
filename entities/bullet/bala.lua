@@ -1,7 +1,6 @@
 local Class = require "libs.hump.class"
 local Misil = require "entities.bullet.misil"
 local Bala = require "entities.bullet.bala_normal"
---local Efecto_bala_normal = require "entities.bullet.efecto_bala"
 
 local bala = Class{
   __include = {}
@@ -28,19 +27,23 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 14, max_stock = 14, municion = 0, max_municion = 70, enable = true, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7}
+  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 70, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala}
   --desert eagle
-  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9}
+  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9,clase = Bala}
   --uzi
-  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5}
+  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5,clase = Bala}
   --m4a1
-  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8}
+  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala}
   
   --escopeta
-  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 3, tiempo = 1.2, tiempo_recarga = 1.2}
+  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala, funcion = function(clase,entidad,spritesheet,cx,cy,radio,creador,dano)
+    local dr = math.rad(2.5)
+    clase(entidad,spritesheet,cx,cy,radio-dr,creador,dano)
+    clase(entidad,spritesheet,cx,cy,radio+dr,creador,dano)
+  end}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 3, max_stock = 3, municion = 0, max_municion = 6, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2, index_bala= 1}
+  self.armas_values[6] = {stock = 0, max_stock = 3, municion = 0, max_municion = 6, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil}
   
   --timer
   
@@ -157,7 +160,7 @@ function bala:draw_bala()
     
     love.graphics.draw(self.spritesheet_arma["img"],quad,cx,cy,self.bala_radio,scale.x,scale.y*self.rf,w/2,h/2)
     
-    love.graphics.print(Inspect(self.armas_values[self.arma_index]),self.ox,self.oy +100)
+    --love.graphics.print(Inspect(self.armas_values[self.arma_index]),self.ox,self.oy +100)
     
     
   end
@@ -220,7 +223,7 @@ end
   
 end]]
 
-function bala:generar_bala_normal()
+--[[function bala:generar_bala_normal()
   
   local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
   local radio = self.bala_radio
@@ -239,7 +242,7 @@ function bala:generar_bala_normal()
 
   --Efecto_bala_normal(self.entidad,cx,cy,radio,crear_bala,self.target_list,self)
   
-end
+end]]
 
 function bala:recarga(arma_index)
   local arma = self.armas_values[arma_index]
@@ -261,12 +264,11 @@ function bala:disparo(arma_index)
     
     if arma.stock>=1 then
       
-      if not arma.index_bala then
-        self:generar_bala_normal()
-      else
-        --arma fisica
-        local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
-        Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
+      local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
+      arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+      
+      if arma.funcion then
+        arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
       end
       
       arma.stock = arma.stock-1
@@ -277,13 +279,13 @@ function bala:disparo(arma_index)
       self.timer_balas = self.timer:every(arma.tiempo,
         function()
           if arma.stock>=1 then
+          
+            local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
             
-            if not arma.index_bala then
-              self:generar_bala_normal()
-            else
-              --arma fisica
-              local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
-              Misil(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].index_bala,self.armas_values[self.arma_index].dano)
+            arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+            
+            if arma.funcion then
+              arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
             end
             
             arma.stock = arma.stock-1

@@ -192,6 +192,8 @@ index.background[1] = love.graphics.newImage("assets/img/Capa_2/Fondo1.png")
 
 index.bala = {}
 index.bala.img = love.graphics.newImage("assets/img/Armas/bullet.png")
-index.bala.scale = {x=1,y=10}
+index.bala.quad = {}
+index.bala.quad[1] = love.graphics.newQuad(20,7,42,38,index.bala.img:getDimensions())
+
 
 return  index
