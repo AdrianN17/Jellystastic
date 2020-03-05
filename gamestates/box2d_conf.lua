@@ -149,6 +149,10 @@ function box2d_conf:callbacks()
             obj1.obj:voltear()
           end
         end
+        
+        if obj1.obj.cambiar_estado then
+          obj1.obj:cambiar_estado("agujereado")
+        end
           
         if obj1.data == "enemy_bullet" then
           obj1.obj:remove()

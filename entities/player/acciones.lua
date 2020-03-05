@@ -176,7 +176,6 @@ function acciones:keypressed(key)
   if key == "e" and self.item_touch then
     self.item_touch:usar(self)
   elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground then
-    print(Inspect(self.data_puerta))
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
