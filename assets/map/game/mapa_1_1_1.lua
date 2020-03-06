@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 7,
-  nextobjectid = 79,
+  nextobjectid = 84,
   properties = {},
   tilesets = {},
   layers = {
@@ -53,12 +53,12 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = false,
+          visible = true,
           polygon = {
-            { x = -2.66703, y = 2.77983 },
-            { x = -2.66703, y = -425.183 },
-            { x = 304.793, y = -425.183 },
-            { x = 304.793, y = 0.99276 }
+            { x = -4.66703, y = 3.02983 },
+            { x = -4.16703, y = -425.183 },
+            { x = 307.73, y = -424.652 },
+            { x = 307.293, y = 3.24276 }
           },
           properties = {}
         },
@@ -76,8 +76,8 @@ return {
           polygon = {
             { x = -3.24836, y = 4.64841 },
             { x = -2.49023, y = -713.967 },
-            { x = 369.219, y = -712.244 },
-            { x = 369.094, y = 4.35382 }
+            { x = 370.906, y = -712.244 },
+            { x = 370.782, y = 4.10382 }
           },
           properties = {}
         },
@@ -93,10 +93,10 @@ return {
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -3.98025, y = 4.24412 },
-            { x = -2.70752, y = -426.673 },
+            { x = -3.73025, y = 3.61912 },
+            { x = -3.45752, y = -426.673 },
             { x = 307.304, y = -426.673 },
-            { x = 307.642, y = 2.06722 }
+            { x = 306.142, y = 3.19222 }
           },
           properties = {}
         },
@@ -120,82 +120,6 @@ return {
           properties = {}
         },
         {
-          id = 67,
-          name = "Pared",
-          type = "3",
-          shape = "polygon",
-          x = -5.333,
-          y = 461.985,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 5.09091, y = 0 },
-            { x = 375.543, y = 2.14004 },
-            { x = 375.95, y = -34.9601 },
-            { x = 5.27273, y = -37.652 }
-          },
-          properties = {}
-        },
-        {
-          id = 68,
-          name = "Pared",
-          type = "1",
-          shape = "polygon",
-          x = 338.197,
-          y = 470.465,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = -1.09091, y = -6.33976 },
-            { x = -1.28372, y = 422.654 },
-            { x = 31.3997, y = 422.444 },
-            { x = 32.0931, y = -6.27799 }
-          },
-          properties = {}
-        },
-        {
-          id = 69,
-          name = "Pared",
-          type = "1",
-          shape = "polygon",
-          x = 747.208,
-          y = 889.435,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = -1.27273, y = 3.63636 },
-            { x = -1.19281, y = -427.203 },
-            { x = 31.0131, y = -427.021 },
-            { x = 31.0131, y = 3.58131 }
-          },
-          properties = {}
-        },
-        {
-          id = 70,
-          name = "Pared",
-          type = "3",
-          shape = "polygon",
-          x = 745.47,
-          y = 461.819,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 374.543, y = 2.14004 },
-            { x = 374.132, y = -35.1419 },
-            { x = 0, y = -37.652 }
-          },
-          properties = {}
-        },
-        {
           id = 71,
           name = "Pared",
           type = "1",
@@ -207,10 +131,10 @@ return {
           rotation = 0,
           visible = true,
           polygon = {
-            { x = 0, y = -4.37365 },
+            { x = 0.25, y = -4.81115 },
             { x = -1.19281, y = 425.039 },
-            { x = 30.2179, y = 425.834 },
-            { x = 29.8203, y = -3.57844 }
+            { x = 31.0304, y = 424.959 },
+            { x = 31.0703, y = -5.07844 }
           },
           properties = {}
         },
@@ -220,16 +144,16 @@ return {
           type = "2",
           shape = "polygon",
           x = 340.739,
-          y = 176.437,
+          y = 181.158,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -0.454545, y = -2.56742 },
-            { x = -1.46554, y = 250.325 },
-            { x = 29.6724, y = 250.519 },
-            { x = 29.7981, y = -2.2784 }
+            { x = -0.454545, y = -7.07687 },
+            { x = -1.24679, y = 711.394 },
+            { x = 29.6724, y = 711.132 },
+            { x = 29.7981, y = -7.00087 }
           },
           properties = {}
         },
@@ -238,36 +162,17 @@ return {
           name = "Pared",
           type = "2",
           shape = "polygon",
-          x = 750,
-          y = 422.968,
+          x = 748,
+          y = 887.584,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -4.1875, y = 1.3125 },
-            { x = -4.06781, y = -247.013 },
-            { x = 30.7006, y = -246.763 },
-            { x = 30.8256, y = 1.44423 }
-          },
-          properties = {}
-        },
-        {
-          id = 74,
-          name = "Pared",
-          type = "3",
-          shape = "polygon",
-          x = 340,
-          y = 174,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 440.876, y = 2.14004 },
-            { x = 440.393, y = -35.1419 },
-            { x = 0, y = -37.652 }
+            { x = -4.1875, y = 4.40624 },
+            { x = -4.06781, y = -711.63 },
+            { x = 30.7631, y = -711.566 },
+            { x = 30.3256, y = 4.53575 }
           },
           properties = {}
         },
@@ -286,6 +191,76 @@ return {
             ["radio"] = 0,
             ["scale_x"] = 0.22,
             ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 79,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 182.333,
+          y = 450,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.38,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 80,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 564.667,
+          y = 165.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.42,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 82,
+          name = "Caramelo",
+          type = "",
+          shape = "point",
+          x = 868.273,
+          y = 453.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["direccion"] = 1,
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.15
+          }
+        },
+        {
+          id = 83,
+          name = "Caramelo",
+          type = "",
+          shape = "point",
+          x = 1002.5,
+          y = 453.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["direccion"] = -1,
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.15
           }
         }
       }

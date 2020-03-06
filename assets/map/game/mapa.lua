@@ -427,7 +427,7 @@ return {
           properties = {
             ["direccion"] = 1,
             ["radio"] = 0,
-            ["scale_x"] = 0.2,
+            ["scale_x"] = 0.16,
             ["scale_y"] = 0.15
           }
         },
@@ -445,7 +445,7 @@ return {
           properties = {
             ["direccion"] = -1,
             ["radio"] = 0,
-            ["scale_x"] = 0.2,
+            ["scale_x"] = 0.16,
             ["scale_y"] = 0.15
           }
         },

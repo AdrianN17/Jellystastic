@@ -68,7 +68,7 @@
    <properties>
     <property name="direccion" type="int" value="1"/>
     <property name="radio" type="int" value="0"/>
-    <property name="scale_x" type="float" value="0.2"/>
+    <property name="scale_x" type="float" value="0.16"/>
     <property name="scale_y" type="float" value="0.15"/>
    </properties>
    <point/>
@@ -77,7 +77,7 @@
    <properties>
     <property name="direccion" type="int" value="-1"/>
     <property name="radio" type="int" value="0"/>
-    <property name="scale_x" type="float" value="0.2"/>
+    <property name="scale_x" type="float" value="0.16"/>
     <property name="scale_y" type="float" value="0.15"/>
    </properties>
    <point/>

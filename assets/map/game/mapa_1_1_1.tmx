@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="79">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="84">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -7,47 +7,66 @@
   <object id="1" name="Gelatina" x="-0.516775" y="892.864">
    <polygon points="0.517103,0 1120.74,-1.26883 1120.71,387.541 0.617789,387.272"/>
   </object>
-  <object id="55" name="Casa" type="1" x="32.2731" y="889.311" visible="0">
-   <polygon points="-2.66703,2.77983 -2.66703,-425.183 304.793,-425.183 304.793,0.99276"/>
+  <object id="55" name="Casa" type="1" x="32.2731" y="889.311">
+   <polygon points="-4.66703,3.02983 -4.16703,-425.183 307.73,-424.652 307.293,3.24276"/>
   </object>
   <object id="56" name="Casa" type="2" x="373.042" y="888.106">
-   <polygon points="-3.24836,4.64841 -2.49023,-713.967 369.219,-712.244 369.094,4.35382"/>
+   <polygon points="-3.24836,4.64841 -2.49023,-713.967 370.906,-712.244 370.782,4.10382"/>
   </object>
   <object id="57" name="Casa" type="1" x="782.057" y="888.819">
-   <polygon points="-3.98025,4.24412 -2.70752,-426.673 307.304,-426.673 307.642,2.06722"/>
+   <polygon points="-3.73025,3.61912 -3.45752,-426.673 307.304,-426.673 306.142,3.19222"/>
   </object>
   <object id="66" name="Pared" type="1" x="-3.34498" y="889.606">
    <polygon points="3.27273,3.27273 3.17082,-427.36 31.0131,-427.451 31.0131,3.39423"/>
   </object>
-  <object id="67" name="Pared" type="3" x="-5.333" y="461.985">
-   <polygon points="5.09091,0 375.543,2.14004 375.95,-34.9601 5.27273,-37.652"/>
-  </object>
-  <object id="68" name="Pared" type="1" x="338.197" y="470.465">
-   <polygon points="-1.09091,-6.33976 -1.28372,422.654 31.3997,422.444 32.0931,-6.27799"/>
-  </object>
-  <object id="69" name="Pared" type="1" x="747.208" y="889.435">
-   <polygon points="-1.27273,3.63636 -1.19281,-427.203 31.0131,-427.021 31.0131,3.58131"/>
-  </object>
-  <object id="70" name="Pared" type="3" x="745.47" y="461.819">
-   <polygon points="0,0 374.543,2.14004 374.132,-35.1419 0,-37.652"/>
-  </object>
   <object id="71" name="Pared" type="1" x="1089" y="467">
-   <polygon points="0,-4.37365 -1.19281,425.039 30.2179,425.834 29.8203,-3.57844"/>
+   <polygon points="0.25,-4.81115 -1.19281,425.039 31.0304,424.959 31.0703,-5.07844"/>
   </object>
-  <object id="72" name="Pared" type="2" x="340.739" y="176.437">
-   <polygon points="-0.454545,-2.56742 -1.46554,250.325 29.6724,250.519 29.7981,-2.2784"/>
+  <object id="72" name="Pared" type="2" x="340.739" y="181.158">
+   <polygon points="-0.454545,-7.07687 -1.24679,711.394 29.6724,711.132 29.7981,-7.00087"/>
   </object>
-  <object id="73" name="Pared" type="2" x="750" y="422.968">
-   <polygon points="-4.1875,1.3125 -4.06781,-247.013 30.7006,-246.763 30.8256,1.44423"/>
-  </object>
-  <object id="74" name="Pared" type="3" x="340" y="174">
-   <polygon points="0,0 440.876,2.14004 440.393,-35.1419 0,-37.652"/>
+  <object id="73" name="Pared" type="2" x="748" y="887.584">
+   <polygon points="-4.1875,4.40624 -4.06781,-711.63 30.7631,-711.566 30.3256,4.53575"/>
   </object>
   <object id="75" name="Plataforma" x="134" y="656">
    <properties>
     <property name="radio" type="int" value="0"/>
     <property name="scale_x" type="float" value="0.22"/>
     <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="79" name="Plataforma" x="182.333" y="450">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.38"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="80" name="Plataforma" x="564.667" y="165.333">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.42"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="82" name="Caramelo" x="868.273" y="453.5">
+   <properties>
+    <property name="direccion" type="int" value="1"/>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.2"/>
+    <property name="scale_y" type="float" value="0.15"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="83" name="Caramelo" x="1002.5" y="453.5">
+   <properties>
+    <property name="direccion" type="int" value="-1"/>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.2"/>
+    <property name="scale_y" type="float" value="0.15"/>
    </properties>
    <point/>
   </object>
