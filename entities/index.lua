@@ -26,4 +26,6 @@ index.Liquido = require "entities.map_object.liquido"
 
 index.Extra = require "entities.map_object.extra"
 
+index.Caramelo = require "entities.map_object.baston"
+
 return index

@@ -145,6 +145,7 @@ index.objetos_mapa.arbol = love.graphics.newQuad(70,17,254,400,index.objetos_map
 
 index.redimensionable = {}
 index.redimensionable[1] = love.graphics.newImage("assets/img/Objetos/techo2.png")
+index.redimensionable[2] = love.graphics.newImage("assets/img/Objetos/techo1.png")
 
 index.armas = {}
 

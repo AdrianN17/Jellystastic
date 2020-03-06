@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 6,
-  nextobjectid = 140,
+  nextobjectid = 156,
   properties = {},
   tilesets = {},
   layers = {
@@ -213,8 +213,8 @@ return {
           polygon = {
             { x = -2, y = 1.79072 },
             { x = -2, y = -273.896 },
-            { x = 227, y = -273.896 },
-            { x = 227.25, y = 1.32702 }
+            { x = 228.563, y = -273.896 },
+            { x = 228.563, y = 0.63952 }
           },
           properties = {}
         },
@@ -319,101 +319,6 @@ return {
           properties = {}
         },
         {
-          id = 18,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = -4,
-          y = 2650.67,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 240.667, y = 0 },
-            { x = 240, y = 26.6667 },
-            { x = 0, y = 26 }
-          },
-          properties = {}
-        },
-        {
-          id = 20,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 460,
-          y = 2654.67,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 240.667, y = 0 },
-            { x = 240, y = 26.6667 },
-            { x = 0, y = 26 }
-          },
-          properties = {}
-        },
-        {
-          id = 21,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 818.667,
-          y = 2485.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 240.667, y = 0 },
-            { x = 240, y = 26.6667 },
-            { x = 0, y = 26 }
-          },
-          properties = {}
-        },
-        {
-          id = 23,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 1265.33,
-          y = 2363.67,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 240.667, y = 0 },
-            { x = 240, y = 26.6667 },
-            { x = 0, y = 26 }
-          },
-          properties = {}
-        },
-        {
-          id = 24,
-          name = "Plataforma",
-          type = "",
-          shape = "polygon",
-          x = 1502.67,
-          y = 2364,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polygon = {
-            { x = 0, y = 0 },
-            { x = 283.334, y = 0 },
-            { x = 282.548, y = 26.6667 },
-            { x = 0, y = 26 }
-          },
-          properties = {}
-        },
-        {
           id = 107,
           name = "Liquido",
           type = "1",
@@ -507,6 +412,144 @@ return {
             { x = 227.25, y = 1.32702 }
           },
           properties = {}
+        },
+        {
+          id = 145,
+          name = "Caramelo",
+          type = "",
+          shape = "point",
+          x = 498.273,
+          y = 2656.91,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["direccion"] = 1,
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.15
+          }
+        },
+        {
+          id = 146,
+          name = "Caramelo",
+          type = "",
+          shape = "point",
+          x = 632.5,
+          y = 2656.91,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["direccion"] = -1,
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.15
+          }
+        },
+        {
+          id = 148,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 115,
+          y = 2677.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.25,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 149,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 346,
+          y = 2508,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.25,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 150,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1170,
+          y = 2467,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.25,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 151,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 940.5,
+          y = 2497,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.25,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 154,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1420.5,
+          y = 2376,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.3,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 155,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1637,
+          y = 2376,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.3,
+            ["scale_y"] = 0.4
+          }
         }
       }
     },
