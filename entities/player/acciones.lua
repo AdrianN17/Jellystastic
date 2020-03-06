@@ -189,6 +189,16 @@ function acciones:keypressed(key)
   if key == "e" and self.item_touch then
     self.item_touch:usar(self)
   elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground then
+    
+    if self.objetivo_movible and self.joint_movible  then
+
+      self.objetivo_movible = nil
+      if not self.joint_movible:isDestroyed() then
+        self.joint_movible:destroy( )
+        self.joint_movible=nil
+      end
+    end
+    
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
@@ -206,10 +216,13 @@ function acciones:keyreleased(key)
     self.movimiento.d = false
   end
   
-  if key == "g" and self.objetivo_movible  then
+  if key == "g" and self.objetivo_movible and self.joint_movible  then
+
     self.objetivo_movible = nil
-    self.joint_movible:destroy( )
-    self.joint_movible=nil
+    if not self.joint_movible:isDestroyed() then
+      self.joint_movible:destroy( )
+      self.joint_movible=nil
+    end
   end
 end
 
