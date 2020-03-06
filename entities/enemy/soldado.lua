@@ -13,8 +13,8 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player","baba","npc","map_object","bedrock"}
-  self.paredes_suelo={"map_object","bedrock"}
+  self.objetivos={"player","baba","npc","map_object","bedrock","movible"}
+  self.paredes_suelo={"map_object","bedrock","movible"}
   
   self.creador = 2
   self.hp = 12

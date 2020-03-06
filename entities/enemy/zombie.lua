@@ -13,8 +13,8 @@ function zombie:init(entidad,posicion,img)
   
   self.entidad:add_obj("enemy",self)
   
-  self.objetivos={"player","soldier","npc"}
-  self.paredes_suelo={"map_object","bedrock"}
+  self.objetivos={"player","soldier","npc","map_object","bedrock","movible"}
+  self.paredes_suelo={"map_object","bedrock","movible"}
   
   
   self.creador = 3

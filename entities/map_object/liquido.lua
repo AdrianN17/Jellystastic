@@ -18,8 +18,6 @@ function liquido:init(entidad,poligono,img,radio,tipo)
   self.shape = love.physics.newPolygonShape(poligono)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
-  --self.fixture:setSensor(true)
-  
   self.fixture:setUserData( {data="liquido",obj=self, pos=orden.liquido} )
   
   self.ox,self.oy,self.w,self.h = self.fixture:getBoundingBox(1)

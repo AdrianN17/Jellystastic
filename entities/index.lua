@@ -28,4 +28,8 @@ index.Extra = require "entities.map_object.extra"
 
 index.Caramelo = require "entities.map_object.baston"
 
+index.Pared = require "entities.map_object.pared"
+
+index.Movible = require "entities.map_object.movible"
+
 return index

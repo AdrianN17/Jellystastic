@@ -90,11 +90,30 @@ index.texturas.casa = {}
 index.texturas.casa[1] = love.graphics.newImage("assets/img/Texturas/wafer.png")
 index.texturas.casa[1]:setWrap("repeat")
 
-index.texturas.casa[2] = love.graphics.newImage("assets/img/Texturas/wafer2.png")
+index.texturas.casa[2] = love.graphics.newImage("assets/img/Texturas/wafer1.png")
 index.texturas.casa[2]:setWrap("repeat")
 
-index.texturas.casa[3] = love.graphics.newImage("assets/img/Texturas/wafer_profundidad.png")
+index.texturas.casa[3] = love.graphics.newImage("assets/img/Texturas/wafer2.png")
 index.texturas.casa[3]:setWrap("repeat")
+
+index.texturas.casa[4] = love.graphics.newImage("assets/img/Texturas/wafer3.png")
+index.texturas.casa[4]:setWrap("repeat")
+
+index.texturas.casa[5] = love.graphics.newImage("assets/img/Texturas/wafer4.png")
+index.texturas.casa[5]:setWrap("repeat")
+
+index.texturas.pared = {}
+index.texturas.pared[1] = love.graphics.newImage("assets/img/Texturas/waferVfrontal.png")
+index.texturas.pared[1]:setWrap("repeat")
+
+index.texturas.pared[2] = love.graphics.newImage("assets/img/Texturas/waferVfrontal2.png")
+index.texturas.pared[2]:setWrap("repeat")
+
+index.texturas.pared[3] = love.graphics.newImage("assets/img/Texturas/waferVfrontal3.png")
+index.texturas.pared[3]:setWrap("repeat")
+
+index.texturas.pared[4] = love.graphics.newImage("assets/img/Texturas/waferVfrontal4.png")
+index.texturas.pared[4]:setWrap("repeat")
 
 index.texturas.liquido = {}
 
@@ -195,6 +214,9 @@ index.bala = {}
 index.bala.img = love.graphics.newImage("assets/img/Armas/bullet.png")
 index.bala.quad = {}
 index.bala.quad[1] = love.graphics.newQuad(20,7,42,38,index.bala.img:getDimensions())
+
+index.movible = {}
+index.movible[1] = love.graphics.newImage("assets/img/Objetos/Caja.png")
 
 
 return  index

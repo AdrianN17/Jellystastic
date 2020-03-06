@@ -15,7 +15,7 @@ function weapon:init(entidad,posicion,img,_,tipo,propiedades)
   self.w,self.h=w*self.scale.x,h*self.scale.y
   
   
-  self.body = love.physics.newBody(entidad.world,posicion[1],posicion[2],"static")
+  self.body = love.physics.newBody(entidad.world,posicion[1]+posicion[3]/2,posicion[2]+posicion[4]/2,"static")
   self.shape = love.physics.newRectangleShape(self.w,self.h)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
@@ -39,7 +39,7 @@ function weapon:update(dt)
 end
 
 function weapon:usar(obj)
-  if obj.arma_index ~=  self.tipo_arma then
+  if obj.arma_index>0 and obj.arma_index ~=  self.tipo_arma then
     
     obj.armas_values[obj.arma_index].enable = false
     obj.armas_values[obj.arma_index].stock = 0

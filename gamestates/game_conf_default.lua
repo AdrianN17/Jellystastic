@@ -65,6 +65,7 @@ function game_conf_default:init(nombreMapa)
   self.gameobject.extras = {}
   self.gameobject.door = {}
   self.gameobject.platform = {}
+  self.gameobject.movible = {}
   
   self:map_read()
   self:map_create()
@@ -348,6 +349,12 @@ function game_conf_default:map_create()
       end
     end
     
+    for _, obj_data in ipairs(self.gameobject.movible) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+    
     for _, obj_data in ipairs(self.gameobject.platform) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
@@ -365,6 +372,10 @@ function game_conf_default:map_create()
   map_object.update = function(obj,dt)
     for _, obj_data in ipairs(self.gameobject.map_object) do
       obj_data:update()
+    end
+    
+    for _, obj_data in ipairs(self.gameobject.movible) do
+      obj_data:update(dt)
     end
     
     for _, obj_data in ipairs(self.gameobject.bullet) do
@@ -502,7 +513,6 @@ function game_conf_default:mousepressed(x,y,button)
       self.gameobject.player[self.index_player]:mousepressed(cx,cy,button)
     end
   end
-
 end
 
 function game_conf_default:mousereleased(x,y,button)
@@ -512,8 +522,6 @@ function game_conf_default:mousereleased(x,y,button)
       self.gameobject.player[self.index_player]:mousereleased(x,y,button)
     end
   end
-  
-
 end
 
 function game_conf_default:touchpressed( id, x, y, dx, dy, pressure )
@@ -630,6 +638,12 @@ function game_conf_default:buscar_puerta(id)
   end
   
   return nil
+end
+
+function game_conf_default:get_mouse_pos()
+  local x,y = love.mouse.getPosition()
+  local cx,cy = self.cam:toWorld(x,y)
+  return cx,cy
 end
 
 return game_conf_default

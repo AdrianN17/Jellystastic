@@ -1,8 +1,8 @@
 local Class = require "libs.hump.class"
 
-local arbol = Class{}
+local extra = Class{}
 
-function arbol:init(entidad,posicion,img,radio,tipo,propiedad)
+function extra:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.entidad = entidad
   
@@ -27,12 +27,12 @@ function arbol:init(entidad,posicion,img,radio,tipo,propiedad)
   
 end
 
-function arbol:update(dt)
+function extra:update(dt)
   
 end
 
-function arbol:draw()
+function extra:draw()
   love.graphics.draw(self.spritesheet["img"],self.quad,self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
 end
 
-return arbol
+return extra

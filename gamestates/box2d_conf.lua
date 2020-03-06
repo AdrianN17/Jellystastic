@@ -35,7 +35,7 @@ function box2d_conf:callbacks()
           
         end
           
-      elseif obj1.data == "enemy_bullet" and (obj2.data == "map_object" or obj2.data == "bedrock") then
+      elseif obj1.data == "enemy_bullet" and (obj2.data == "map_object" or obj2.data == "bedrock" or obj2.data == "movible") then
         local x,y = coll:getPositions()
         
         self.timer:after(2.5,function()  
@@ -65,6 +65,17 @@ function box2d_conf:callbacks()
         obj2.obj:guardar(obj1)
       elseif obj1.data == "player" and obj2.data == "object" then
         obj1.obj.item_touch = obj2.obj
+      elseif obj1.data == "player" and obj2.data == "movible" then
+        if not obj1.obj.objetivo_movible then
+          local x,y = coll:getNormal()
+          
+          if math.abs(x)>0.89 and math.abs(y)<0.1 then
+            local cx,cy = coll:getPositions()
+            
+            obj1.obj.objetivo_movible = {obj = obj2.obj, x = cx, y = cy}
+          end
+
+        end
       end    
     end
   end
@@ -77,7 +88,9 @@ function box2d_conf:callbacks()
         obj2.obj:eliminar(obj1.obj)
       elseif obj1.data == "player" and obj2.data == "object" then
         obj1.obj.item_touch = nil
-      end  
+      elseif obj1.data == "player" and obj2.data == "movible" then
+        obj1.obj.objetivo_movible = false
+      end   
     end
   end
   
@@ -129,7 +142,7 @@ function box2d_conf:callbacks()
         coll:setEnabled( false )
       elseif obj1.data == "player" and obj2.data == "liquido" then
         obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
-      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object") then
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible") then
         coll:setEnabled( false )
         local x,y = coll:getPositions()
         obj1.obj:remove(x,y)

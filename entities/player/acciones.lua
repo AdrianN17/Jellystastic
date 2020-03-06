@@ -58,7 +58,10 @@ function acciones:init(x,y,w,h)
   
   self.item_touch = nil
   
+  self.arma_index_respaldo = 0
   
+  self.joint_movible = nil
+  self.objetivo_movible = nil
   
 end
 
@@ -173,40 +176,25 @@ function acciones:keypressed(key)
     self:saltar()
   end
   
+  if key == "q" then
+    if self.arma_index_respaldo == 0 then
+      self.arma_index_respaldo = self.arma_index
+      self.arma_index = 0
+    else
+      self.arma_index = self.arma_index_respaldo 
+      self.arma_index_respaldo = 0
+    end
+  end
+  
   if key == "e" and self.item_touch then
     self.item_touch:usar(self)
   elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground then
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
-  
-  
-  --[[if key == "1" or key == "2" or key == "3" or key == "4" or key == "5" or key == "6" then
-    
-    self.funcion_arma_temp =nil
-    
-    local index = tonumber(key)
-    
-    if self.armas_values[index].enable then
-      
-      if self.arma_index ~= index then
-        self.cooldown = false
-      end
-      
-      if self.timer_balas then
-        self.timer:cancel(self.timer_balas)
-        self.timer_balas=nil
-      end
-      
-      if self.timer_recarga then
-        self.timer:cancel(self.timer_recarga)
-        self.timer_recarga=nil
-      end
-      
-      self.arma_index = index
-    end
-  end]]
-  
+  if key == "g" and self.objetivo_movible and self.ground and not self.joint_movible then
+    self.joint_movible = love.physics.newWeldJoint(self.body,self.objetivo_movible.obj.body,self.objetivo_movible.x,self.objetivo_movible.y,true)
+  end
 end
 
 function acciones:keyreleased(key)
@@ -216,6 +204,12 @@ function acciones:keyreleased(key)
   
   if key == "d" then
     self.movimiento.d = false
+  end
+  
+  if key == "g" and self.objetivo_movible  then
+    self.objetivo_movible = nil
+    self.joint_movible:destroy( )
+    self.joint_movible=nil
   end
 end
 
