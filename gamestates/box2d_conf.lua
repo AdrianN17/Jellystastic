@@ -76,6 +76,12 @@ function box2d_conf:callbacks()
           end
 
         end
+      elseif obj1.data == "pierna" and obj2.data == "map_object" then
+        self.timer:after(0.001, function()
+          if obj1.obj.body:getType() == "dynamic" then
+            obj1.obj.body:setType( "static" )
+          end
+        end)
       end    
     end
   end
@@ -180,6 +186,27 @@ function box2d_conf:callbacks()
         end
         
         coll:release( )
+      elseif (obj1.data == "map_object" or obj1.data == "bedrock") and obj2.data == "meteorito" then
+        obj2.obj:mover()
+      elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "npc") and obj2.data == "meteorito" then
+        
+        coll:setEnabled( false )
+        
+        if not obj1.obj.acciones.invulnerable then
+          self:dano(obj1.obj,obj2.obj.dano)
+          
+          obj1.obj.acciones.invulnerable = true
+          
+          if obj1.obj.cambiar_estado then
+            obj1.obj:cambiar_estado("canon")
+          end
+          
+          self.timer:after(1,function() 
+            if obj1.obj then
+              obj1.obj.acciones.invulnerable=false
+            end
+          end)
+        end
       end
     end
   end

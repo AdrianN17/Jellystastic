@@ -3,6 +3,7 @@ local Timer = require "libs.chrono.Timer"
 local Bala = require "entities.bullet.bala"
 local LSM = require "libs.statemachine.statemachine"
 local Acciones =  require "entities.enemy.acciones"
+local Piernas = require "entities.object.piernas"
 
 local soldado = Class{
     __includes = {Acciones,Bala}
@@ -31,6 +32,11 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   
   self.spritesheet = img.personajes[1]
   self.spritesheet_arma = img.armas
+  
+  self.spritesheet_accesorio = img.accesorios
+  self.id_accesorio = 1
+  
+  self.scale1 = self.spritesheet_accesorio.scale
   
   self.timer = Timer()
   
@@ -176,16 +182,10 @@ function soldado:init(entidad,posicion,img,radio,tipo)
     
     if self.posicion_ataque and self.acciones.current == "mover" then
       self.acciones:a_atacar()
-      
       self.iterador2 = 1
       self.posicion_ataque=false
-      
     end
   end)
-  
-  
-  self.spritesheet_accesorio = img.accesorios
-  self.id_accesorio = 1
   
   self:recargar_max()
   
@@ -231,6 +231,26 @@ function soldado:cambiar_estado(tipo)
     self.cooldown_iterador = false
     
   end
+end
+
+function soldado:crear_sprite_muerto()
+  local iterador2 = 1
+    
+  if self.iterador == 4 then
+    iterador2 = 2
+  end
+  
+  local scale = self.spritesheet.scale
+  
+  local _,_,wi,hi = self.spritesheet.quad[6][iterador2]:getViewport()
+  
+  local spritesheet = self.spritesheet
+  local quad = self.spritesheet.quad[6][iterador2]
+
+  local data = {spritesheet = spritesheet, quad = quad,scale=scale,ox=self.ox,oy = ((self.oy + self.h/2) - (hi*scale.y)/2),w = self.h,h = self.h,wi = wi, hi = hi,shader = self.entidad.shader_enemigo }
+  
+  Piernas(self.entidad,data)
+  
 end
 
 return soldado

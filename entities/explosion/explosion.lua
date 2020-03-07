@@ -4,7 +4,6 @@ local explosion = Class{}
 function explosion:init(entidad,x,y)
   self.entidad = entidad
 
-
   self.x,self.y=x,y
   self.body = love.physics.newBody(entidad.world,x,y,"dynamic")
   self.shape = love.physics.newCircleShape(50*self.entidad.explosion_scale)

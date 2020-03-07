@@ -12,12 +12,9 @@ local max_decoration = require "entities.max_decoration"
 
 local Pausa = require "gamestates.pausa"
 
-
-
 local game_conf_default = Class{
   __includes = {Box2d_conf,UI_player}
 }
-
 
 function game_conf_default:init(nombreMapa)
   
@@ -51,6 +48,8 @@ function game_conf_default:init(nombreMapa)
   self.world = love.physics.newWorld(0,9.81*64, false)
   self.world:setCallbacks(self:callbacks())
   
+  self.timer = Timer()
+  
   
   self.gameobject = {}
   self.gameobject.player = {}
@@ -66,11 +65,13 @@ function game_conf_default:init(nombreMapa)
   self.gameobject.door = {}
   self.gameobject.platform = {}
   self.gameobject.movible = {}
+  self.gameobject.meteorito = {}
+  self.gameobject.muerte = {}
   
   self:map_read()
   self:map_create()
   
-  self.timer = Timer()
+  
   
   self.vision={x=0,y=0,w=0,h=0}
   
@@ -118,6 +119,8 @@ function game_conf_default:init(nombreMapa)
   self.parallax_count = 0
   self.parallax_last = 0
   self.parallax_variable = 320
+  
+  
   
 end
 
@@ -237,7 +240,8 @@ function game_conf_default:map_create()
   local player = self.map:addCustomLayer ("player", 2)
   local enemy = self.map:addCustomLayer ("enemy", 3)
   local npc = self.map:addCustomLayer ("npc", 4)
-  local object = self.map:addCustomLayer ("object",5 )
+  local muerte = self.map:addCustomLayer("muerte",5)
+  local object = self.map:addCustomLayer ("object",6 )
   
   
   local function stencil()
@@ -248,6 +252,18 @@ function game_conf_default:map_create()
   
   
   player.draw = function(obj)
+    --[[for _, obj_data in ipairs(self.gameobject.muerte) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        
+        local spritesheet = img_index.personajes[1]
+        local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
+        
+        love.graphics.setShader(obj_data.shader)
+          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
+        love.graphics.setShader()
+      end
+    end]]
+    
     for _, obj_data in ipairs(self.gameobject.player) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
@@ -262,6 +278,27 @@ function game_conf_default:map_create()
   end
   
   enemy.draw = function(obj)
+    --[[for _, obj_data in ipairs(self.gameobject.muerte_enemigo) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        
+        if obj_data.tipo == 1 then
+          local spritesheet = img_index.baba
+          local quad = spritesheet.quad[obj_data.iterador]
+          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
+        elseif obj_data.tipo == 2 then
+          local spritesheet = img_index.personajes[1]
+          local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
+        love.graphics.setShader(self.shader_enemigo)
+          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
+        love.graphics.setShader()
+        elseif obj_data.tipo == 3 then
+          local spritesheet = img_index.personajes[1]
+          local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
+          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
+        end
+      end
+    end]]
+    
     for _, obj_data in ipairs(self.gameobject.enemy) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
@@ -276,6 +313,19 @@ function game_conf_default:map_create()
   end
   
   npc.draw = function(obj)
+    
+    --[[for _, obj_data in ipairs(self.gameobject.muerte_npc) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        
+        local spritesheet = img_index.personajes[1]
+        local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
+        
+        love.graphics.setShader(obj_data.shader)
+          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
+        love.graphics.setShader()
+      end
+    end]]
+    
     for _, obj_data in ipairs(self.gameobject.npc) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
@@ -285,6 +335,20 @@ function game_conf_default:map_create()
   
   npc.update = function(obj,dt)
     for _, obj_data in ipairs(self.gameobject.npc) do
+      obj_data:update(dt)
+    end
+  end
+  
+  muerte.draw = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.muerte) do
+       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+  end
+  
+  muerte.update = function(obj,dt)
+    for _, obj_data in ipairs(self.gameobject.muerte) do
       obj_data:update(dt)
     end
   end
@@ -361,6 +425,12 @@ function game_conf_default:map_create()
       end
     end
     
+    for _, obj_data in ipairs(self.gameobject.meteorito) do
+      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
+        obj_data:draw()
+      end
+    end
+    
     for _, obj_data in ipairs(self.gameobject.bullet) do
       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
         obj_data:draw()
@@ -375,6 +445,10 @@ function game_conf_default:map_create()
     end
     
     for _, obj_data in ipairs(self.gameobject.movible) do
+      obj_data:update(dt)
+    end
+    
+    for _, obj_data in ipairs(self.gameobject.meteorito) do
       obj_data:update(dt)
     end
     

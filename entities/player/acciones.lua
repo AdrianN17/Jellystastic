@@ -1,4 +1,5 @@
 local Class = require "libs.hump.class"
+local Piernas = require "entities.object.piernas"
 
 local acciones = Class {}
 
@@ -63,22 +64,23 @@ function acciones:init(x,y,w,h)
   self.joint_movible = nil
   self.objetivo_movible = nil
   
+  self.scale = self.spritesheet.scale
+  self.scale1 = self.spritesheet_accesorio.scale
 end
 
 function acciones:draw_player()
   local quad = self.spritesheet.quad[self.iterador][self.iterador2]
-  local scale = self.spritesheet.scale
-  local _, _ ,w,h = quad:getViewport()
+  local _,_,w,h = quad:getViewport()
   
   love.graphics.setShader(self.shader_player)
-    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,self.scale.x*self.direccion,self.scale.y,w/2,h/2)
   love.graphics.setShader()
   
   
   local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
-  local scale1 = self.spritesheet_accesorio.scale
+  
   local _,_,w1,h1 = quad1:getViewport()
-  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
@@ -134,6 +136,8 @@ function acciones:update_player(dt)
   
   if self.hp < 0.1 or self.oy > self.entidad.caida_y then
     self.entidad:eliminar_presa(self)
+    
+    self:crear_sprite_muerto()
     self.body2:destroy()
     self.body:destroy()
     self.entidad:remove_obj("player",self)
@@ -327,6 +331,25 @@ end
 
 function acciones:limpiar_movimiento()
   self.movimiento = {a=false,d=false}
+end
+
+function acciones:crear_sprite_muerto()
+  local iterador2 = 1
+    
+  if self.iterador == 4 then
+    iterador2 = 2
+  end
+  
+  local scale = self.spritesheet.scale
+  
+  local _,_,wi,hi = self.spritesheet.quad[6][iterador2]:getViewport()
+  
+  local spritesheet = self.spritesheet
+  local quad = self.spritesheet.quad[6][iterador2]
+
+  local data = {spritesheet = spritesheet, quad = quad,scale=scale,ox=self.ox,oy = ((self.oy + self.h/2) - (hi*scale.y)/2),w = self.h,h = self.h,wi = wi, hi = hi,shader = self.shader_player }
+  
+  Piernas(self.entidad,data)
 end
 
 return acciones

@@ -23,6 +23,14 @@ function jelly:init(entidad,posicion,img)
   self.spritesheet = img.personajes[1]
   self.spritesheet_arma = img.armas
   
+  self.shader_player = love.graphics.newShader(shader_index.shader_player)
+  self.vec4_shader = {0.3,0,0,0}
+  
+  self.shader_player:send("color_player",self.vec4_shader)
+  
+  self.spritesheet_accesorio = img.accesorios
+  self.id_accesorio = 2
+  
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
   
   self:masa(posicion[1],posicion[2])
@@ -76,13 +84,7 @@ function jelly:init(entidad,posicion,img)
     self.entidad.world:rayCast(x2,y2,w2,h2, raycast_funcion)
   end)
 
-  self.shader_player = love.graphics.newShader(shader_index.shader_player)
-  self.vec4_shader = {0.3,0,0,0}
   
-  self.shader_player:send("color_player",self.vec4_shader)
-  
-  self.spritesheet_accesorio = img.accesorios
-  self.id_accesorio = 2
   
   
   self.arma_index = 1

@@ -11,9 +11,9 @@ function ammo:init(entidad,posicion,img,_,tipo,propiedades)
   
   
   
-  local x,y,w,h = self.quad:getViewport()
+  local _,_,w,h = self.quad:getViewport()
   self.w,self.h=w*self.scale.x,h*self.scale.y
-  
+  self.wi,self.hi = w,h
   
   self.body = love.physics.newBody(entidad.world,posicion[1]+posicion[3]/2,posicion[2]+posicion[4]/2,"static")
   self.shape = love.physics.newRectangleShape(self.w,self.h)
@@ -32,9 +32,7 @@ function ammo:init(entidad,posicion,img,_,tipo,propiedades)
 end
 
 function ammo:draw()
-  local x,y,w,h = self.quad:getViewport()
-  
-  love.graphics.draw(self.img,self.quad,self.ox,self.oy,0,self.scale.x,self.scale.y,w/2,h/2)
+  love.graphics.draw(self.img,self.quad,self.ox,self.oy,0,self.scale.x,self.scale.y,self.wi/2,self.hi/2)
 end
 
 function ammo:update(dt)

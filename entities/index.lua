@@ -32,4 +32,6 @@ index.Pared = require "entities.map_object.pared"
 
 index.Movible = require "entities.map_object.movible"
 
+index.Meteorito = require "entities.meteorito.meteorito"
+
 return index

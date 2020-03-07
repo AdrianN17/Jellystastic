@@ -103,16 +103,16 @@ index.texturas.casa[5] = love.graphics.newImage("assets/img/Texturas/wafer4.png"
 index.texturas.casa[5]:setWrap("repeat")
 
 index.texturas.pared = {}
-index.texturas.pared[1] = love.graphics.newImage("assets/img/Texturas/waferVfrontal.png")
+index.texturas.pared[1] = love.graphics.newImage("assets/img/Texturas/wafer_choco1.png")
 index.texturas.pared[1]:setWrap("repeat")
 
-index.texturas.pared[2] = love.graphics.newImage("assets/img/Texturas/waferVfrontal2.png")
+index.texturas.pared[2] = love.graphics.newImage("assets/img/Texturas/wafer_choco1.png")
 index.texturas.pared[2]:setWrap("repeat")
 
-index.texturas.pared[3] = love.graphics.newImage("assets/img/Texturas/waferVfrontal3.png")
+index.texturas.pared[3] = love.graphics.newImage("assets/img/Texturas/wafer_vainilla.png")
 index.texturas.pared[3]:setWrap("repeat")
 
-index.texturas.pared[4] = love.graphics.newImage("assets/img/Texturas/waferVfrontal4.png")
+index.texturas.pared[4] = love.graphics.newImage("assets/img/Texturas/wafer_vainilla.png")
 index.texturas.pared[4]:setWrap("repeat")
 
 index.texturas.liquido = {}
@@ -218,5 +218,17 @@ index.bala.quad[1] = love.graphics.newQuad(20,7,42,38,index.bala.img:getDimensio
 index.movible = {}
 index.movible[1] = love.graphics.newImage("assets/img/Objetos/Caja.png")
 
+index.meteorito = {}
+index.meteorito.img = love.graphics.newImage("assets/img/Meteorito/meteorito_spritesheet.png")
+index.meteorito.quad = {}
+index.meteorito.quad[1] = love.graphics.newQuad(634,29,431,422,index.meteorito.img:getDimensions())
+index.meteorito.quad[2] = love.graphics.newQuad(1106,29,431,422,index.meteorito.img:getDimensions())
+index.meteorito.quad[3] = love.graphics.newQuad(1578,28,431,423,index.meteorito.img:getDimensions())
+index.meteorito.quad[4] = love.graphics.newQuad(634,592,431,422,index.meteorito.img:getDimensions())
+index.meteorito.quad[5] = love.graphics.newQuad(1106,592,431,422,index.meteorito.img:getDimensions())
+index.meteorito.quad[6] = love.graphics.newQuad(1578,591,431,422,index.meteorito.img:getDimensions())
+
+
+index.meteorito.fuego = love.graphics.newQuad(0,0,611,1026,index.meteorito.img:getDimensions())
 
 return  index

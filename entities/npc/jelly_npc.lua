@@ -1,6 +1,7 @@
 local Class = require "libs.hump.class"
 local Timer = require "libs.chrono.Timer"
 local LSM = require "libs.statemachine.statemachine"
+local Piernas = require "entities.object.piernas"
 
 local jelly_npc = Class {}
 
@@ -110,6 +111,7 @@ end
 
 function jelly_npc:remove()
   self.entidad:eliminar_presa(self)
+  self:crear_sprite_muerto()
   self.timer:destroy()
   self.body2:destroy()
   self.body:destroy()
@@ -153,6 +155,25 @@ function jelly_npc:masa(x,y)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.fixture:setUserData( {data="npc",obj=self, pos=orden.npc} )
+end
+
+function jelly_npc:crear_sprite_muerto()
+  local iterador2 = 1
+    
+  if self.iterador == 4 then
+    iterador2 = 2
+  end
+  
+  local scale = self.spritesheet.scale
+  
+  local _,_,wi,hi = self.spritesheet.quad[6][iterador2]:getViewport()
+
+  local spritesheet = self.spritesheet
+  local quad = self.spritesheet.quad[6][iterador2]
+
+  local data = {spritesheet = spritesheet, quad = quad,scale=scale,ox=self.ox,oy = ((self.oy + self.h/2) - (hi*scale.y)/2),w = self.h,h = self.h,wi = wi, hi = hi,shader = self.shader_npc }
+  
+  Piernas(self.entidad,data)
 end
 
 return jelly_npc

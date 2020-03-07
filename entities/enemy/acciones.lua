@@ -9,7 +9,7 @@ function acciones:init(x,y,w,h)
   self.iterador=1
   self.iterador2 = 1
   self.cambiar_direccion=false
-  self.direccion=1
+  self.direccion=-1
   
   self.w,self.h =w, h
   
@@ -50,31 +50,30 @@ function acciones:init(x,y,w,h)
   self.obj_presa = nil
   
   self.body:setBullet(true)
+  
+  self.scale = self.spritesheet.scale
 end
 
 function acciones:draw_enemy()
   local quad = self.spritesheet.quad[self.iterador]
-  local scale = self.spritesheet.scale
   local x,y,w,h = quad:getViewport()
   
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,self.scale.x*self.direccion,self.scale.y,w/2,h/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function acciones:draw_enemy2()
   local quad = self.spritesheet.quad[self.iterador][self.iterador2]
-  local scale = self.spritesheet.scale
   local x,y,w,h = quad:getViewport()
   
   love.graphics.setShader(self.entidad.shader_enemigo)
-    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+    love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,self.scale.x*self.direccion,self.scale.y,w/2,h/2)
   love.graphics.setShader()
   
   local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
-  local scale1 = self.spritesheet_accesorio.scale
   local _,_,w1,h1 = quad1:getViewport()
-  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,scale1.x*self.direccion,scale1.y,w1/2,h1/2)
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
@@ -88,7 +87,7 @@ function acciones:draw_enemy3()
   local scale = self.spritesheet.scale
   local x,y,w,h = quad:getViewport()
   
-  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,scale.x*self.direccion,scale.y,w/2,h/2)
+  love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,self.scale.x*self.direccion,self.scale.y,w/2,h/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
 end
@@ -165,6 +164,7 @@ function acciones:update_enemy(dt)
   
   if self.hp < 0.1 or self.oy > self.entidad.caida_y then
     self.entidad:eliminar_presa(self)
+    self:crear_sprite_muerto()
     self.timer:destroy()
     self.body2:destroy()
     self.body:destroy()
@@ -232,6 +232,5 @@ function acciones:buscar_posibles_presas()
   
   self.vision_objetivos = {}
 end
-
 
 return acciones

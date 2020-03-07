@@ -3,6 +3,7 @@ local Timer = require "libs.chrono.Timer"
 local Saliva = require "entities.bullet.saliva"
 local LSM = require "libs.statemachine.statemachine"
 local Acciones =  require "entities.enemy.acciones"
+local Piernas = require "entities.object.piernas"
 
 local baba = Class{
     __includes = {Acciones}
@@ -158,5 +159,19 @@ function baba:update(dt)
   self:update_enemy(dt)
 end
 
+function baba:crear_sprite_muerto()
+  local iterador = 6
+  
+  local scale = self.spritesheet.scale
+  
+  local _,_,wi,hi = self.spritesheet.quad[iterador]:getViewport()
+  
+  local spritesheet = self.spritesheet
+  local quad = self.spritesheet.quad[iterador]
+
+  local data = {spritesheet = spritesheet, quad = quad,scale=scale,ox=self.ox,oy = ((self.oy + self.h/2) - (hi*scale.y)/2),w = self.h,h = self.h,wi = wi, hi = hi,shader = self.shader_player }
+  
+  Piernas(self.entidad,data)
+end
 
 return baba

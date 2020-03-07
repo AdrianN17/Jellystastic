@@ -3,6 +3,7 @@ local Timer = require "libs.chrono.Timer"
 local Saliva = require "entities.bullet.saliva"
 local LSM = require "libs.statemachine.statemachine"
 local Acciones =  require "entities.enemy.acciones"
+local Piernas = require "entities.object.piernas"
 
 local zombie = Class{
     __includes = {Acciones}
@@ -83,16 +84,11 @@ function zombie:init(entidad,posicion,img)
   end
   
   local raycast_funcion_atacar = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
-      
-      for _,objetivo in ipairs(self.objetivos) do
-        if tipo_obj and tipo_obj.data==objetivo then
-          self.posicion_ataque=true
-          
-          --if self.obj_presa == nil then
-            self.obj_presa = fixture:getUserData().obj
-          --end
-          
+      if not fixture:isSensor( ) then
+        local tipo_obj=fixture:getUserData()
+        
+        if tipo_obj then
+          table.insert(self.vision_objetivos,{x=x,y=y,name = tipo_obj.data, obj = tipo_obj.obj})
         end
       end
 
@@ -131,6 +127,8 @@ function zombie:init(entidad,posicion,img)
     local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_player[self.direccion]:getPoints())
     self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_atacar)
     
+    self:buscar_posibles_presas()
+
     if self.posicion_ataque and self.acciones.current == "mover" then
       self.acciones:a_atacar()
       self.posicion_ataque=false
@@ -139,17 +137,32 @@ function zombie:init(entidad,posicion,img)
 
   self.iterador = 5
 
-  local dir = {-1,1}
-  self.direccion = dir[math.random(1,2)]
+  --local dir = {-1,1}
+  --self.direccion = dir[math.random(1,2)]
 end
 
 function zombie:draw()
   self:draw_enemy3()
+  love.graphics.print(tostring(self.obj_presa),self.ox,self.oy-200)
 end
 
 function zombie:update(dt)
   self:update_enemy(dt)
 end
 
+function zombie:crear_sprite_muerto()
+  local iterador2 = 3
+  
+  local scale = self.spritesheet.scale
+  
+  local _,_,wi,hi = self.spritesheet.quad[6][iterador2]:getViewport()
+  
+  local spritesheet = self.spritesheet
+  local quad = self.spritesheet.quad[6][iterador2]
+
+  local data = {spritesheet = spritesheet, quad = quad,scale=scale,ox=self.ox,oy = ((self.oy + self.h/2) - (hi*scale.y)/2),w = self.h,h = self.h,wi = wi, hi = hi }
+  
+  Piernas(self.entidad,data)
+end
 
 return zombie
