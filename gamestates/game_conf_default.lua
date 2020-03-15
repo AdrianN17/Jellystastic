@@ -125,7 +125,6 @@ function game_conf_default:init(nombreMapa)
   if self.gameobject.player[self.index_player] then
     local player = self.gameobject.player[self.index_player]
     player:set_player_values(_G.player_values)
-    
   end
   
 end

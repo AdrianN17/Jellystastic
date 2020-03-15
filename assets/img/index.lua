@@ -160,7 +160,9 @@ index.cosas["adorno_mapa_data"].y = 0.2
 
 index.objetos_mapa = {}
 index.objetos_mapa.img = love.graphics.newImage("assets/img/Objetos/Adornos_Mapa.png")
-index.objetos_mapa.arbol = love.graphics.newQuad(70,17,254,400,index.objetos_mapa.img:getDimensions())
+index.objetos_mapa.arbol = love.graphics.newQuad(839,17,254,400,index.objetos_mapa.img:getDimensions())
+index.objetos_mapa.helado = love.graphics.newQuad(522,59,244,338,index.objetos_mapa.img:getDimensions())
+index.objetos_mapa.vaso_helado = love.graphics.newQuad(1195,17,250,373,index.objetos_mapa.img:getDimensions())
 
 index.redimensionable = {}
 index.redimensionable[1] = love.graphics.newImage("assets/img/Objetos/techo2.png")

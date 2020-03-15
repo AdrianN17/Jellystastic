@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="184">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="187">
  <editorsettings>
   <export target="mapa.lua" format="lua"/>
  </editorsettings>
@@ -451,6 +451,9 @@
   <object id="118" name="Extra" type="arbol" x="3019" y="2700.17" width="90" height="183.667"/>
   <object id="119" name="Extra" type="arbol" x="3107" y="2846.83" width="90" height="125"/>
   <object id="120" name="Extra" type="arbol" x="3496.33" y="2860.17" width="90" height="125"/>
+  <object id="184" name="Extra" type="helado" x="1" y="2513.5" width="227" height="167"/>
+  <object id="185" name="Extra" type="helado" x="230.5" y="2330.5" width="227" height="179"/>
+  <object id="186" name="Extra" type="helado" x="462.5" y="2531.5" width="227" height="147"/>
  </objectgroup>
  <objectgroup id="6" name="Borrador_Capa5"/>
 </map>

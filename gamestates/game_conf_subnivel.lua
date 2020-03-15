@@ -31,6 +31,11 @@ function game_conf_subnivel:enter(from,data,data_player)
         local x,y = puerta.ox,puerta.oy
         entities.Personaje(self,{x,y},img_index)
         
+        if self.gameobject.player[self.index_player] then
+          local player = self.gameobject.player[self.index_player]
+          player:set_player_values(_G.player_values)
+        end
+        
       end
     else
       
