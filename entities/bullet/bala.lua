@@ -27,23 +27,23 @@ function bala:init(target)
   
   self.armas_values = {}
   --pistola
-  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala}
+  self.armas_values[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala,tipo = 1}
   --desert eagle
-  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9,clase = Bala}
+  self.armas_values[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9,clase = Bala,tipo = 2}
   --uzi
-  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5,clase = Bala}
+  self.armas_values[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5,clase = Bala,tipo = 3}
   --m4a1
-  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala}
+  self.armas_values[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala,tipo = 4}
   
   --escopeta
-  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala, funcion = function(clase,entidad,spritesheet,cx,cy,radio,creador,dano)
+  self.armas_values[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, funcion = function(clase,entidad,spritesheet,cx,cy,radio,creador,dano,tipo)
     local dr = math.rad(2.5)
-    clase(entidad,spritesheet,cx,cy,radio-dr,creador,dano)
-    clase(entidad,spritesheet,cx,cy,radio+dr,creador,dano)
+    clase(entidad,spritesheet,cx,cy,radio-dr,creador,dano,tipo)
+    clase(entidad,spritesheet,cx,cy,radio+dr,creador,dano,tipo)
   end}
   
   --lanzagranadas
-  self.armas_values[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = true, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil}
+  self.armas_values[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
   
   --timer
   
@@ -265,10 +265,10 @@ function bala:disparo(arma_index)
     if arma.stock>=1 then
       
       local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
-      arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+      arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,arma.dano,arma.tipo)
       
       if arma.funcion then
-        arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+        arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,arma.dano,arma.tipo)
       end
       
       arma.stock = arma.stock-1
@@ -282,10 +282,10 @@ function bala:disparo(arma_index)
           
             local cx, cy = self.body2:getWorldPoints(self.mano_fisica.shape_mano:getPoint())
             
-            arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+            arma.clase(self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,arma.dano,arma.tipo)
             
             if arma.funcion then
-              arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,self.armas_values[self.arma_index].dano)
+              arma.funcion(arma.clase,self.entidad,self.spritesheet_arma,cx,cy,self.bala_radio,self.creador,arma.dano,arma.tipo)
             end
             
             arma.stock = arma.stock-1
@@ -309,7 +309,7 @@ function bala:recargar_arma()
   
     if balas.stock<balas.max_stock and balas.municion>0 then
       self.timer_recarga = nil
-      self.timer_recarga = self.timer:after(self.armas_values[self.arma_index].tiempo_recarga, function()
+      self.timer_recarga = self.timer:after(balas.tiempo_recarga, function()
         self:recarga(self.arma_index)
         self.timer:cancel(self.timer_recarga)
         self.timer_recarga = nil

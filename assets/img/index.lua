@@ -171,16 +171,22 @@ index.armas = {}
 index.armas.img = love.graphics.newImage("assets/img/Armas/armas.png")
 
 index.armas.quad={}
-index.armas.quad[1] = love.graphics.newQuad(402,43,157,111,index.armas.img:getDimensions())
-index.armas.quad[2] = love.graphics.newQuad(47,423,211,120,index.armas.img:getDimensions())
-index.armas.quad[3] = love.graphics.newQuad(42,35,315,153,index.armas.img:getDimensions())
-index.armas.quad[4] = love.graphics.newQuad(602,210,531,146,index.armas.img:getDimensions())
+index.armas.quad[1] = love.graphics.newQuad(536,43,157,111,index.armas.img:getDimensions())
+index.armas.quad[2] = love.graphics.newQuad(47,423,211,128,index.armas.img:getDimensions())
+index.armas.quad[3] = love.graphics.newQuad(41,35,316,153,index.armas.img:getDimensions())
+index.armas.quad[4] = love.graphics.newQuad(833,210,531,146,index.armas.img:getDimensions())
 index.armas.quad[5] = love.graphics.newQuad(21,245,491,121,index.armas.img:getDimensions())
-index.armas.quad[6] = love.graphics.newQuad(598,23,503,156,index.armas.img:getDimensions())
+index.armas.quad[6] = love.graphics.newQuad(861,23,503,156,index.armas.img:getDimensions())
 
 index.armas.balas={}
 index.armas.balas.quad={}
-index.armas.balas.quad[1] = love.graphics.newQuad(1110,49,118,55,index.armas.img:getDimensions())
+
+index.armas.balas.quad[1] = love.graphics.newQuad(713,47,65,27,index.armas.img:getDimensions())
+index.armas.balas.quad[2] = love.graphics.newQuad(280,427,68,30,index.armas.img:getDimensions())
+index.armas.balas.quad[3] = love.graphics.newQuad(373,58,83,29,index.armas.img:getDimensions())
+index.armas.balas.quad[4] = love.graphics.newQuad(1386,240,105,22,index.armas.img:getDimensions())
+index.armas.balas.quad[5] = love.graphics.newQuad(534,256,88,31,index.armas.img:getDimensions())
+index.armas.balas.quad[6] = love.graphics.newQuad(1373,49,118,55,index.armas.img:getDimensions())
 
 index.armas.scale ={}
 index.armas.scale[1] = {x = 0.25,y=0.25}
@@ -196,10 +202,15 @@ index.armas.scale_screen[3] = {x = 0.3,y=0.3}
 index.armas.scale_screen[6] = {x = 0.25,y=0.25}
 
 index.armas.balas.scale ={}
-index.armas.balas.scale[1] = {x = 0.25,y=0.25}
+index.armas.balas.scale[1] = {x = 0.30,y=0.35}
+index.armas.balas.scale[2] = {x = 0.30,y=0.35}
+index.armas.balas.scale[3] = {x = 0.30,y=0.35}
+index.armas.balas.scale[4] = {x = 0.30,y=0.35}
+index.armas.balas.scale[5] = {x = 0.30,y=0.35}
+index.armas.balas.scale[6] = {x = 0.35,y=0.35}
 
 index.municion = {}
-index.municion.quad = love.graphics.newQuad(1283,20,233,206,index.armas.img:getDimensions())
+index.municion.quad = love.graphics.newQuad(1271,754,233,206,index.armas.img:getDimensions())
 index.municion.scale = {x = 0.25,y=0.25}
 
 index.skybox = {}
@@ -210,10 +221,6 @@ index.skybox[3] = love.graphics.newImage("assets/img/Capa_3/CieloNoche.png")
 index.background={}
 index.background[1] = love.graphics.newImage("assets/img/Capa_2/Fondo1.png")
 
-index.bala = {}
-index.bala.img = love.graphics.newImage("assets/img/Armas/bullet.png")
-index.bala.quad = {}
-index.bala.quad[1] = love.graphics.newQuad(20,7,42,38,index.bala.img:getDimensions())
 
 index.movible = {}
 index.movible[1] = love.graphics.newImage("assets/img/Objetos/Caja.png")

@@ -3,7 +3,8 @@ local Explosion = require "entities.explosion.explosion"
 
 local misil = Class{}
 
-function misil:init(entidad,img,x,y,angle,creador,dano)
+function misil:init(entidad,img,x,y,angle,creador,dano,tipo)
+
   self.entidad = entidad
   
   self.spritesheet = img
@@ -14,23 +15,19 @@ function misil:init(entidad,img,x,y,angle,creador,dano)
   
   self.vel=300
   
-  self.w,self.h = 30,20
-  
-  
-  self.quad = self.spritesheet.balas.quad[1]
-  self.scale = self.spritesheet.balas.scale[1]
+  self.quad = self.spritesheet.balas.quad[tipo]
+  self.scale = self.spritesheet.balas.scale[tipo]
   
    _,_,self.wi,self.hi = self.quad:getViewport()
-  _,_,w,h = self.quad:getViewport()
    
-  
+  self.w,self.h = self.wi*self.scale.x,self.hi*self.scale.y
   
   self.scale_x = self.w/self.wi
   self.scale_y = self.h/self.hi
   
   
   self.body = love.physics.newBody(self.entidad.world,x,y,"dynamic")
-  self.shape = love.physics.newRectangleShape(w*self.scale_x,h* self.scale_y)
+  self.shape = love.physics.newRectangleShape(self.w,self.h)
   self.fixture = love.physics.newFixture(self.body,self.shape, 5)
   
   
@@ -59,8 +56,7 @@ function misil:init(entidad,img,x,y,angle,creador,dano)
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
-  
-  
+
   local dir = -1
   if cx>0 then
     dir = 1
@@ -72,7 +68,7 @@ function misil:init(entidad,img,x,y,angle,creador,dano)
 end
 
 function misil:draw()
-  love.graphics.draw(self.spritesheet["img"],self.quad,self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
+  love.graphics.draw(self.spritesheet["img"],self.quad,self.ox,self.oy,self.radio,self.scale.x,self.scale.y,self.wi/2,self.hi/2)
 end
 
 function misil:update(dt)
