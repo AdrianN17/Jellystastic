@@ -73,7 +73,8 @@ function acciones:draw_enemy2()
   
   local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
   local _,_,w1,h1 = quad1:getViewport()
-  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
+  local y = self.scale.y*h/2.2
+  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-y,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   

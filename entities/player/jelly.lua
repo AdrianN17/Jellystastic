@@ -24,12 +24,12 @@ function jelly:init(entidad,posicion,img)
   self.spritesheet_arma = img.armas
   
   self.shader_player = love.graphics.newShader(shader_index.shader_player)
-  self.vec4_shader = {0.3,0,0,0}
+  self.vec4_shader = {0,0,0,0}
   
   self.shader_player:send("color_player",self.vec4_shader)
   
   self.spritesheet_accesorio = img.accesorios
-  self.id_accesorio = 2
+  self.id_accesorio = 0
   
   Acciones.init(self,posicion[1],posicion[2],54.75, 84)
   
@@ -122,6 +122,13 @@ function jelly:check_door()
       end
     end
   end
+end
+
+function jelly:set_player_values(tabla)
+  self.vec4_shader = tabla[1]
+  self.id_accesorio = tabla[2]
+  
+  self.shader_player:send("color_player",self.vec4_shader)
 end
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="84">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="85">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -67,6 +67,17 @@
     <property name="radio" type="int" value="0"/>
     <property name="scale_x" type="float" value="0.2"/>
     <property name="scale_y" type="float" value="0.15"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="84" name="NPC" x="825.333" y="862.667">
+   <properties>
+    <property name="a" type="float" value="0"/>
+    <property name="ayuda" value="Estoy muriendo"/>
+    <property name="b" type="float" value="0"/>
+    <property name="frase" value="Hola xd"/>
+    <property name="g" type="float" value="0"/>
+    <property name="r" type="float" value="0.4"/>
    </properties>
    <point/>
   </object>

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 7,
-  nextobjectid = 84,
+  nextobjectid = 85,
   properties = {},
   tilesets = {},
   layers = {
@@ -261,6 +261,26 @@ return {
             ["radio"] = 0,
             ["scale_x"] = 0.2,
             ["scale_y"] = 0.15
+          }
+        },
+        {
+          id = 84,
+          name = "NPC",
+          type = "",
+          shape = "point",
+          x = 825.333,
+          y = 862.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["a"] = 0,
+            ["ayuda"] = "Estoy muriendo",
+            ["b"] = 0,
+            ["frase"] = "Hola xd",
+            ["g"] = 0,
+            ["r"] = 0.4
           }
         }
       }

@@ -9,9 +9,6 @@ local game_conf = Class{
 
 function game_conf:init()
   self.mundos = {}
-  
-  
-  
 end
 
 function game_conf:enter(_,nombreMapa,accion,data,data_player)

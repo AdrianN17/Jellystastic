@@ -215,39 +215,7 @@
   <object id="170" name="Baba" x="5537.33" y="2946.67">
    <point/>
   </object>
-  <object id="173" name="Zombie" x="702" y="2907">
-   <point/>
-  </object>
-  <object id="176" name="Soldado" type="1" x="707" y="2898">
-   <point/>
-  </object>
   <object id="177" name="Baba" x="707" y="2898">
-   <point/>
-  </object>
-  <object id="178" name="Meteorito" x="667" y="2809">
-   <point/>
-  </object>
-  <object id="179" name="Meteorito" x="714" y="2808">
-   <point/>
-  </object>
-  <object id="180" name="Meteorito" x="762" y="2799">
-   <point/>
-  </object>
-  <object id="181" name="Meteorito" x="633" y="2802">
-   <point/>
-  </object>
-  <object id="182" name="NPC" x="427" y="2900">
-   <properties>
-    <property name="a" type="float" value="0"/>
-    <property name="ayuda" value="Estoy muriendo"/>
-    <property name="b" type="float" value="0"/>
-    <property name="frase" value="Hola xd"/>
-    <property name="g" type="float" value="0"/>
-    <property name="r" type="float" value="0.4"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="183" name="Meteorito" x="428" y="2804">
    <point/>
   </object>
  </objectgroup>

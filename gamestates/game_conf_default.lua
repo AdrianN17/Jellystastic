@@ -120,7 +120,13 @@ function game_conf_default:init(nombreMapa)
   self.parallax_last = 0
   self.parallax_variable = 320
   
+  --send data values
   
+  if self.gameobject.player[self.index_player] then
+    local player = self.gameobject.player[self.index_player]
+    player:set_player_values(_G.player_values)
+    
+  end
   
 end
 

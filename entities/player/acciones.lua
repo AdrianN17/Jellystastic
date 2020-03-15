@@ -76,11 +76,14 @@ function acciones:draw_player()
     love.graphics.draw(self.spritesheet["img"],quad,self.ox,self.oy,self.radio,self.scale.x*self.direccion,self.scale.y,w/2,h/2)
   love.graphics.setShader()
   
-  
-  local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
-  
-  local _,_,w1,h1 = quad1:getViewport()
-  love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-35,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
+  if self.id_accesorio>0 then
+    local quad1 = self.spritesheet_accesorio.quad[self.id_accesorio]
+    
+    local _,_,w1,h1 = quad1:getViewport()
+    local y = self.scale.y*h/2.2
+    love.graphics.draw(self.spritesheet_accesorio["img"],quad1,self.ox,self.oy-y,self.radio,self.scale1.x*self.direccion,self.scale1.y,w1/2,h1/2)
+    
+  end
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
   
@@ -180,7 +183,11 @@ function acciones:keypressed(key)
     self:saltar()
   end
   
-  if key == "q" then
+  if key == "s" and not self.ground then
+    self.body:applyLinearImpulse( 0, (self.jump*self.mass)/2 )
+  end
+  
+  if key == "q" and not self.joint_movible then
     if self.arma_index_respaldo == 0 then
       self.arma_index_respaldo = self.arma_index
       self.arma_index = 0
@@ -190,9 +197,9 @@ function acciones:keypressed(key)
     end
   end
   
-  if key == "e" and self.item_touch then
+  if key == "e" and self.item_touch and not self.joint_movible then
     self.item_touch:usar(self)
-  elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground then
+  elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground and not self.joint_movible then
     
     if self.objetivo_movible and self.joint_movible  then
 
@@ -206,7 +213,7 @@ function acciones:keypressed(key)
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
-  if key == "g" and self.objetivo_movible and self.ground and not self.joint_movible then
+  if key == "g" and self.objetivo_movible and self.ground and not self.joint_movible and self.arma_index==0 then
     self.joint_movible = love.physics.newWeldJoint(self.body,self.objetivo_movible.obj.body,self.objetivo_movible.x,self.objetivo_movible.y,true)
   end
 end
@@ -278,9 +285,12 @@ function acciones:joystick(dir)
 
   if dir:match("t") and self.ground and not self.acciones.saltando and self.raycast_ground then
     self:saltar()
-  elseif dir:match("b") and self.hay_puerta and self.data_puerta and self.ground then
-    self.entidad:ir_a_otro_nivel(self.data_puerta)
+  elseif dir:match("b") and not self.ground then
+    self.body:applyLinearImpulse( 0, (self.jump*self.mass)/2 )
   end
+  --[[elseif dir:match("b") and self.hay_puerta and self.data_puerta and self.ground then
+    self.entidad:ir_a_otro_nivel(self.data_puerta)
+  end]]
 end
 
 function acciones:masa(x,y)

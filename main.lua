@@ -1,13 +1,14 @@
 io.stdout:setvbuf("no")
 
 Gamestate = require "libs.hump.gamestate" 
-local Game = require "gamestates.game_conf"
 Inspect  = require "libs.inspect.inspect"
-
 map_index = require "assets.map.index"
 orden = require "entities.orden"
 img_index = require "assets/img/index"
 shader_index = require "assets/shader/index"
+
+Game = require "gamestates.game_conf"
+Menu = require "gamestates.menu"
 
 require "libs.gooi"
 
@@ -16,8 +17,12 @@ require "libs.utils"
 function love.load()
   
   Gamestate.registerEvents()
-	Gamestate.switch(Game,1,"crear")
+	--
+  Gamestate.switch(Menu)
 end
+
+
+--funciones extras
 
 function table.empty (self)
     for _, _ in pairs(self) do
