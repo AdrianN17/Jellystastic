@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 7,
-  nextobjectid = 85,
+  nextobjectid = 97,
   properties = {},
   tilesets = {},
   layers = {
@@ -53,7 +53,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polygon = {
             { x = -4.66703, y = 3.02983 },
             { x = -4.16703, y = -425.183 },
@@ -91,7 +91,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polygon = {
             { x = -3.73025, y = 3.61912 },
             { x = -3.45752, y = -426.673 },
@@ -181,7 +181,7 @@ return {
           name = "Plataforma",
           type = "",
           shape = "point",
-          x = 134,
+          x = 151,
           y = 656,
           width = 0,
           height = 0,
@@ -189,7 +189,7 @@ return {
           visible = true,
           properties = {
             ["radio"] = 0,
-            ["scale_x"] = 0.22,
+            ["scale_x"] = 0.27,
             ["scale_y"] = 0.4
           }
         },
@@ -268,8 +268,8 @@ return {
           name = "NPC",
           type = "",
           shape = "point",
-          x = 825.333,
-          y = 862.667,
+          x = 870.666,
+          y = 863,
           width = 0,
           height = 0,
           rotation = 0,
@@ -279,9 +279,27 @@ return {
             ["ayuda"] = "Estoy muriendo",
             ["b"] = 0,
             ["frase"] = "Hola xd",
+            ["frase2"] = "Que tal?",
             ["g"] = 0,
             ["r"] = 0.4
           }
+        },
+        {
+          id = 87,
+          name = "Bajada",
+          type = "",
+          shape = "polyline",
+          x = 248.799,
+          y = 655,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 26.2014, y = 0 },
+            { x = 91.5347, y = 0.3333 }
+          },
+          properties = {}
         }
       }
     },

@@ -12,7 +12,7 @@ function jelly_npc:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.hp = 8
   self.max_hp = self.hp
-  self.limite_vision = 150
+  self.limite_vision = 100
   
   self.w,self.h = 54.75, 84
   self.direccion = 1
@@ -30,10 +30,6 @@ function jelly_npc:init(entidad,posicion,img,radio,tipo,propiedad)
   self.body2 = love.physics.newBody(self.entidad.world,posicion[1],posicion[2],"dynamic")
   self.lineas_fisica = {}
   
-  self.lineas_fisica.shape_player = love.physics.newEdgeShape(-self.limite_vision,0,self.limite_vision,0)
-  self.lineas_fisica.fixture_player = love.physics.newFixture(self.body2,self.lineas_fisica.shape_player)
-  self.lineas_fisica.fixture_player:setSensor( true )
-  
   self.joint = love.physics.newRevoluteJoint(self.body,self.body2,posicion[1],posicion[2],false)
   
   self:masa(posicion[1],posicion[2])
@@ -44,33 +40,25 @@ function jelly_npc:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.cooldown_iterador=true
   
-  self.iterador_hablar=0
+  self.iterador_hablar=1
   
-  --raycast
-  
-  local raycast_funcion_hablar = function (fixture, x, y, xn, yn, fraction)
-      local tipo_obj=fixture:getUserData()
-      if tipo_obj and tipo_obj.data=="player" then
-        self.iterador_hablar = 1
-      end
-
-    return 1
-  end
   --timer
   
   self.timer = Timer()
   
-  self.timer_busqueda = self.timer:every(0.5,function () 
-    self.iterador_hablar = 0
-    local x1,y1,w1,h1 = self.body2:getWorldPoints(self.lineas_fisica.shape_player:getPoints())
-    self.entidad.world:rayCast(x1,y1,w1,h1,raycast_funcion_hablar)
+  self.timer_busqueda = self.timer:every(2,function () 
+    if self.iterador_hablar < 2 then
+      self.iterador_hablar = self.iterador_hablar + 1
+    else
+      self.iterador_hablar = 1
+    end
   end)
   
   
   self.acciones = {invulnerable =false}
   
   
-  self.lista_frases={propiedad.frase,propiedad.ayuda}
+  self.lista_frases={propiedad.frase,propiedad.frase2,propiedad.ayuda}
   
   --shaders
   
@@ -110,13 +98,25 @@ function jelly_npc:update(dt)
 end
 
 function jelly_npc:remove()
-  self.entidad:eliminar_presa(self)
-  self:crear_sprite_muerto()
-  self.timer:destroy()
-  self.body2:destroy()
-  self.body:destroy()
-  self.entidad:remove_obj("npc",self)
+  if not self.body:isDestroyed() then
+    self.entidad:eliminar_presa(self)
+    self:crear_sprite_muerto()
+    self.timer:destroy()
+    self.body2:destroy()
+    self.body:destroy()
+    self.entidad:remove_obj("npc",self)
+  end
+end
 
+function jelly_npc:save_remove()
+  if not self.body:isDestroyed() then
+    self.entidad.contador_salvados = self.entidad.contador_salvados +1
+    self.entidad:eliminar_presa(self)
+    self.timer:destroy()
+    self.body2:destroy()
+    self.body:destroy()
+    self.entidad:remove_obj("npc",self)
+  end
 end
 
 function jelly_npc:cambiar_estado(tipo)
@@ -133,7 +133,7 @@ function jelly_npc:cambiar_estado(tipo)
     end
     
     self.cooldown_iterador = false
-    self.iterador_hablar=2
+    self.iterador_hablar=3
     
     self.timer:cancel(self.timer_busqueda)
     

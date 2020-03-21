@@ -61,6 +61,7 @@ function game_conf:enter(_,nombreMapa,accion,data,data_player)
         player.cooldown = data_player.cooldown
         player.cooldown_iterador = data_player.cooldown_iterador
         player.arma_index_respaldo = data_player.arma_index_respaldo
+        player.funcion_arma_temp = data_player.funcion_arma_temp
       end
     end
     
@@ -77,7 +78,8 @@ function game_conf:ir_a_otro_nivel(data_puerta)
     if map_index.campana[self.nombreMapa][data_puerta.id_mapa] then
       local player = self.gameobject.player[self.index_player]
       local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador,
-      cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo}
+      cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo, 
+      funcion_arma_temp = player.funcion_arma_temp}
       
       player:clear_puerta()
       Gamestate.switch(game_conf_subnivel,data_puerta,data_player)
@@ -86,7 +88,8 @@ function game_conf:ir_a_otro_nivel(data_puerta)
   else
     local player = self.gameobject.player[self.index_player]
     local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador,
-      cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo}
+      cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo,
+      funcion_arma_temp = player.funcion_arma_temp}
     
     
     player:clear_puerta()

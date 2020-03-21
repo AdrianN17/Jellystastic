@@ -12,10 +12,6 @@ function gelatina:init(entidad,poligono,img)
   self.mesh = self:poly2mesh(poligono, 2)
   self.mesh:setTexture(img.texturas.gelatina)
   
-  
-  
-
-  
   self.body = love.physics.newBody(self.entidad.world,0,0)
   self.shape = love.physics.newChainShape(true,poligono)
   self.fixture = love.physics.newFixture(self.body,self.shape)

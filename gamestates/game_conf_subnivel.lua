@@ -22,7 +22,7 @@ function game_conf_subnivel:enter(from,data,data_player)
 
       self.main_level.mundos[data.id_mapa] = self
       
-      game_conf_default.init(self,map_index.campana[1][1])
+      game_conf_default.init(self,map_index.campana[1][data.id_mapa])
       
       local puerta = self:buscar_puerta(data.id_puerta)
       
@@ -65,6 +65,7 @@ function game_conf_subnivel:enter(from,data,data_player)
         player.cooldown = data_player.cooldown
         player.cooldown_iterador = data_player.cooldown_iterador
         player.arma_index_respaldo = data_player.arma_index_respaldo
+        player.funcion_arma_temp = data_player.funcion_arma_temp
       end
     end
     
@@ -82,7 +83,8 @@ function game_conf_subnivel:ir_a_otro_nivel(data_puerta)
   
   local player = self.gameobject.player[self.index_player]
   local data_player = {bala = player.armas_values,arma_index = player.arma_index, hp = player.hp, iterador = player.iterador,
-    cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo}
+    cooldown = player.cooldown, cooldown_iterador = player.cooldown_iterador, arma_index_respaldo = player.arma_index_respaldo,
+    funcion_arma_temp = player.funcion_arma_temp}
     
   player:clear_puerta()
   

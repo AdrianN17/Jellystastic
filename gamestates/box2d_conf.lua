@@ -2,15 +2,13 @@ local Class = require "libs.hump.class"
 
 local box2d_conf = Class{}
 
-
-
 function box2d_conf:callbacks()
   local beginContact =  function(a, b, coll)
     
     local obj1, obj2 = self:validar_pos(a,b)
    
     if obj1 and obj2 then
-      if (obj1.data == "player" or obj1.data == "baba" or obj1.data=="soldier" or obj1.data=="npc") and obj2.data == "map_object" then
+      if (obj1.data == "player" or obj1.data == "baba" or obj1.data=="soldier" or obj1.data=="npc") and (obj2.data == "map_object" or obj2.data == "bajada") then
         
         local x,y = coll:getNormal()
         
@@ -35,7 +33,7 @@ function box2d_conf:callbacks()
           
         end
           
-      elseif obj1.data == "enemy_bullet" and (obj2.data == "map_object" or obj2.data == "bedrock" or obj2.data == "movible") then
+      elseif obj1.data == "enemy_bullet" and (obj2.data == "map_object" or obj2.data == "bedrock" or obj2.data == "movible" or obj2.data == "bajada") then
         local x,y = coll:getPositions()
         
         self.timer:after(2.5,function()  
@@ -76,7 +74,7 @@ function box2d_conf:callbacks()
           end
 
         end
-      elseif obj1.data == "pierna" and obj2.data == "map_object" then
+      elseif obj1.data == "pierna" and (obj2.data == "map_object" or obj2.data == "movible" or obj2.data == "bajada") then
         self.timer:after(0.001, function()
           if obj1.obj.body:getType() == "dynamic" then
             obj1.obj.body:setType( "static" )
@@ -143,12 +141,14 @@ function box2d_conf:callbacks()
         --end
       elseif obj1.data == "player" and obj2.data == "npc" then
         coll:setEnabled( false )
-        obj2.obj:remove()
+        self.timer:after(0.1,function() 
+          obj2.obj:save_remove()
+        end)
       elseif obj1.data ==  obj2.data then
         coll:setEnabled( false )
       elseif obj1.data == "player" and obj2.data == "liquido" then
         obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
-      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible") then
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible" or obj2.data == "bajada") then
         coll:setEnabled( false )
         local x,y = coll:getPositions()
         obj1.obj:remove(x,y)
@@ -186,7 +186,7 @@ function box2d_conf:callbacks()
         end
         
         coll:release( )
-      elseif (obj1.data == "map_object" or obj1.data == "bedrock") and obj2.data == "meteorito" then
+      elseif (obj1.data == "map_object" or obj1.data == "bedrock" or obj2.data == "bajada") and obj2.data == "meteorito" then
         obj2.obj:mover()
       elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "npc") and obj2.data == "meteorito" then
         
@@ -206,6 +206,23 @@ function box2d_conf:callbacks()
               obj1.obj.acciones.invulnerable=false
             end
           end)
+        end
+      elseif obj1.data == "player" and obj2.data == "bajada" then
+        local x,y = coll:getNormal()
+        if y>0 then
+          coll:setEnabled( false )
+        else
+          if obj1.obj.movimiento.s then
+            coll:setEnabled( false )
+          end
+        end
+      elseif obj1.data == "movible" and obj2.data == "bajada" then
+        local x,y = coll:getNormal()
+        
+        if obj1.obj.is_joint then
+          coll:setEnabled( false )
+        elseif  y>0 then
+          coll:setEnabled( false )
         end
       end
     end

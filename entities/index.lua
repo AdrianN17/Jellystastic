@@ -34,4 +34,8 @@ index.Movible = require "entities.map_object.movible"
 
 index.Meteorito = require "entities.meteorito.meteorito"
 
+index.Burbuja = require "entities.map_object.burbuja"
+
+index.Bajada = require "entities.map_object.bajada"
+
 return index

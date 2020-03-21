@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="85">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="97">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
@@ -28,10 +28,10 @@
   <object id="73" name="Pared" type="2" x="748" y="887.584">
    <polygon points="-4.1875,4.40624 -4.06781,-711.63 30.7631,-711.566 30.3256,4.53575"/>
   </object>
-  <object id="75" name="Plataforma" x="134" y="656">
+  <object id="75" name="Plataforma" x="151" y="656">
    <properties>
     <property name="radio" type="int" value="0"/>
-    <property name="scale_x" type="float" value="0.22"/>
+    <property name="scale_x" type="float" value="0.27"/>
     <property name="scale_y" type="float" value="0.4"/>
    </properties>
    <point/>
@@ -70,16 +70,20 @@
    </properties>
    <point/>
   </object>
-  <object id="84" name="NPC" x="825.333" y="862.667">
+  <object id="84" name="NPC" x="870.666" y="863">
    <properties>
     <property name="a" type="float" value="0"/>
     <property name="ayuda" value="Estoy muriendo"/>
     <property name="b" type="float" value="0"/>
     <property name="frase" value="Hola xd"/>
+    <property name="frase2" value="Que tal?"/>
     <property name="g" type="float" value="0"/>
     <property name="r" type="float" value="0.4"/>
    </properties>
    <point/>
+  </object>
+  <object id="87" name="Bajada" x="248.799" y="655">
+   <polyline points="26.2014,0 91.5347,0.3333"/>
   </object>
  </objectgroup>
  <objectgroup id="3" name="Borrador_Capa2">
@@ -103,6 +107,6 @@
  <objectgroup id="5" name="Borrador_Capa4"/>
  <objectgroup id="6" name="Borrador_Capa5">
   <object id="77" name="Arma" type="2" x="58.6667" y="600.833" width="68" height="41"/>
-  <object id="78" name="Movible" x="263.333" y="811.5" width="76" height="81"/>
+  <object id="78" name="Movible" x="32.333" y="811.5" width="76" height="81"/>
  </objectgroup>
 </map>

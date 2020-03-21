@@ -10,7 +10,7 @@ function liquido:init(entidad,poligono,img,radio,tipo)
   
   texture = img.texturas.liquido[tonumber(tipo)]
   
-  self.mesh = self:poly2mesh(poligono,2)
+  self.mesh = self:poly2mesh(poligono,4)
   self.mesh:setTexture(texture)
   
   

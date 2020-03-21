@@ -7,7 +7,7 @@ function acciones:init(x,y,w,h)
   
   self.w,self.h =w, h
   
-  self.movimiento = {a=false,d=false}
+  self.movimiento = {a=false,d=false,s=false}
   self.ground = true
   self.acciones = {moviendo = false, saltando = false, invulnerable = false}
   
@@ -91,7 +91,7 @@ function acciones:draw_player()
   
   
   if arma then
-   -- love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.stock),self.ox,self.oy-150)
+    love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.funcion_arma_temp),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -169,25 +169,30 @@ function acciones:saltar()
 end
 
 function acciones:keypressed(key)
-  if key == "a" then
+  if key == _G.teclas.left then
     self.movimiento.a = true
     self.direccion=-1
   end
   
-  if key == "d" then
+  if key == _G.teclas.right then
     self.movimiento.d = true
     self.direccion=1
   end
   
-  if key == "w" and self.ground and not self.acciones.saltando and self.raycast_ground then
+  if key == _G.teclas.up and self.ground and not self.acciones.saltando and self.raycast_ground then
     self:saltar()
   end
   
-  if key == "s" and not self.ground then
-    self.body:applyLinearImpulse( 0, (self.jump*self.mass)/2 )
+  if key == _G.teclas.down then
+  
+    self.movimiento.s = true
+    
+    if not self.ground then
+      self.body:applyLinearImpulse( 0, (self.jump*self.mass)/2 )
+    end
   end
   
-  if key == "q" and not self.joint_movible then
+  if key == _G.teclas.change_weapon and not self.joint_movible then
     if self.arma_index_respaldo == 0 then
       self.arma_index_respaldo = self.arma_index
       self.arma_index = 0
@@ -197,9 +202,9 @@ function acciones:keypressed(key)
     end
   end
   
-  if key == "e" and self.item_touch and not self.joint_movible then
+  if key == _G.teclas.get and self.item_touch and not self.joint_movible then
     self.item_touch:usar(self)
-  elseif key == "e" and self.hay_puerta and self.data_puerta and self.ground and not self.joint_movible then
+  elseif key == _G.teclas.get and self.hay_puerta and self.data_puerta and self.ground and not self.joint_movible then
     
     if self.objetivo_movible and self.joint_movible  then
 
@@ -213,27 +218,32 @@ function acciones:keypressed(key)
     self.entidad:ir_a_otro_nivel(self.data_puerta)
   end
   
-  if key == "g" and self.objetivo_movible and self.ground and not self.joint_movible and self.arma_index==0 then
+  if key == _G.teclas.get_box and self.objetivo_movible and self.ground and not self.joint_movible and self.arma_index==0 then
+    self.objetivo_movible.obj.is_joint=true
     self.joint_movible = love.physics.newWeldJoint(self.body,self.objetivo_movible.obj.body,self.objetivo_movible.x,self.objetivo_movible.y,true)
   end
 end
 
 function acciones:keyreleased(key)
-  if key == "a" then
+  if key == _G.teclas.left then
     self.movimiento.a = false
   end
   
-  if key == "d" then
+  if key == _G.teclas.right then
     self.movimiento.d = false
   end
   
-  if key == "g" and self.objetivo_movible and self.joint_movible  then
-
+  if key == _G.teclas.get_box and self.objetivo_movible and self.joint_movible  then
+    self.objetivo_movible.obj.is_joint=false
     self.objetivo_movible = nil
     if not self.joint_movible:isDestroyed() then
       self.joint_movible:destroy( )
       self.joint_movible=nil
     end
+  end
+  
+  if key == _G.teclas.down then
+    self.movimiento.s = false
   end
 end
 
@@ -340,7 +350,8 @@ function acciones:cambiar_estado(tipo)
 end
 
 function acciones:limpiar_movimiento()
-  self.movimiento = {a=false,d=false}
+  self.movimiento = {a=false,d=false,s=false}
+  self:terminar_disparo_balas()
 end
 
 function acciones:crear_sprite_muerto()

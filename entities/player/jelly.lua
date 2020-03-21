@@ -66,7 +66,7 @@ function jelly:init(entidad,posicion,img)
       
       local tipo_obj=fixture:getUserData()
   
-      if tipo_obj and (tipo_obj.data=="map_object" or tipo_obj.data == "liquido" or tipo_obj.data == "movible") then
+      if tipo_obj and (tipo_obj.data=="map_object" or tipo_obj.data == "liquido" or tipo_obj.data == "movible" or tipo_obj.data == "bajada") then
         self.ground = true
         self.acciones.saltando=false
       end

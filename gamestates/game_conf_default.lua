@@ -7,7 +7,6 @@ local index_entidades = require "entities.index"
 local Timer = require "libs.chrono.Timer"
 
 local Box2d_conf = require "gamestates.box2d_conf"
-local UI_player = require "gamestates.ui_player"
 local max_decoration = require "entities.max_decoration"
 
 local Pausa = require "gamestates.pausa"
@@ -75,8 +74,6 @@ function game_conf_default:init(nombreMapa)
   
   self.vision={x=0,y=0,w=0,h=0}
   
-  UI_player.init(self)
-  
   self.body = love.physics.newBody(self.world,0,0,"static")
   local w_m=self.map.width*self.map.tilewidth
   local h_m=self.map.height*self.map.tileheight
@@ -119,6 +116,8 @@ function game_conf_default:init(nombreMapa)
   self.parallax_count = 0
   self.parallax_last = 0
   self.parallax_variable = 320
+  
+  self.contador_salvados = 0
   
   --send data values
   
@@ -173,10 +172,9 @@ function game_conf_default:draw_conf()
 
 end)
 
-
-  --self:draw_ui()
   
   love.graphics.print("FPS: "..tostring(love.timer.getFPS( )), 10,10)
+  love.graphics.print(self.contador_salvados,10,25)
 
 end
 
@@ -221,6 +219,17 @@ function game_conf_default:get_objects(objectlayer)
           end
           
           data_pos = polygon
+        elseif obj.shape == "polyline" then
+          
+          local line = {}
+
+          for _,data in ipairs(obj.polyline) do
+            table.insert(line,data.x)
+            table.insert(line,data.y)
+          end
+          
+          data_pos = line
+          
         elseif obj.shape == "rectangle" then
           
           data_pos = {obj.x,obj.y,obj.width,obj.height}

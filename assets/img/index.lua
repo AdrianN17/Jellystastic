@@ -240,4 +240,13 @@ index.meteorito.quad[6] = love.graphics.newQuad(1578,591,431,422,index.meteorito
 
 index.meteorito.fuego = love.graphics.newQuad(0,0,611,1026,index.meteorito.img:getDimensions())
 
+index.burbujas = {}
+index.burbujas[1] = love.graphics.newImage("assets/img/Efectos/AguaSprite1.png")
+index.burbujas[2] = love.graphics.newImage("assets/img/Efectos/AguaSprite2.png")
+index.burbujas[3] = love.graphics.newImage("assets/img/Efectos/AguaSprite3.png")
+
+index.ui = {}
+index.ui.boton_1 = love.graphics.newImage("assets/img/UI/icono_mundo.png")
+
+
 return  index

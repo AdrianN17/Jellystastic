@@ -27,11 +27,12 @@ function movible:init(entidad,posicion,img,radio,tipo,propiedad)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.radio = self.body:getAngle()
   
-  --self.joint = love.physics.newMouseJoint(self.body, self.ox,self.oy)
+  self.is_joint=false
+  
 end
 
 function movible:update(dt)
-  --self.joint:setTarget(self.entidad:get_mouse_pos())
+
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.radio = self.body:getAngle()
 end

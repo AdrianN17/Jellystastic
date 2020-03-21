@@ -10,12 +10,13 @@ orden.pierna = 7
 orden.terrain = 8
 orden.movible = 9
 orden.door=10
-orden.municion=11
-orden.vida=12
-orden.arma=13
-orden.explosion = 14
-orden.liquido = 15
-orden.bedrock = 16
-orden.meteorito = 17
+orden.bajada= 11
+orden.municion=12
+orden.vida=13
+orden.arma=14
+orden.explosion = 15
+orden.liquido = 16
+orden.bedrock = 17
+orden.meteorito = 18
 
 return orden

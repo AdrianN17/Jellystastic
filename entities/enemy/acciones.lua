@@ -226,7 +226,7 @@ function acciones:buscar_posibles_presas()
   
   
   
-  if obj_target and obj_target ~= self  and obj_name ~= "map_object" and obj_name ~= "bedrock" and obj_name ~= "movible" then
+  if obj_target and obj_target ~= self  and obj_name ~= "map_object" and obj_name ~= "bedrock" and obj_name ~= "movible" and obj_name ~="bajada"  then
     self.posicion_ataque=true
     self.obj_presa = obj_target
   end

@@ -25,6 +25,11 @@ function menu:init()
   
   self.X,self.Y = love.graphics.getDimensions()
   self.X,self.Y = self.X/2,self.Y/2
+  
+  self.iterador_nivel=1
+  
+  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", change_weapon = "q", get_box = "g"}  
+  
 end
 
 function menu:draw()
@@ -49,18 +54,40 @@ end
 function menu:update(dt)
   imgui.NewFrame()
   
-  imgui.SetNextWindowPos(self.X-100, self.Y-100)
-  imgui.SetNextWindowSize(200, 200)
+  imgui.SetNextWindowPos(self.X-250, self.Y-100)
+  imgui.SetNextWindowSize(250, 200)
   
-  imgui.Begin("",nil,"ImGuiWindowFlags_NoTitleBar")
+  imgui.Begin("Iniciar Juego",nil)
   
-    if imgui.Button("Empezar") then
-      _G.player_values = {self.hsla,self.iterador_accesorio}
-      
-      Gamestate.switch(Game,1,"crear")
-    end
+  self.iterador_nivel = imgui.SliderInt("Niveles", self.iterador_nivel, 1, 4)
+  
+  local index = self.iterador_nivel*3
+
+  if imgui.ImageButton(img_index.ui.boton_1, 65,50) then
+    _G.player_values = {self.hsla,self.iterador_accesorio}
     
+    Gamestate.switch(Game,index-2,"crear")
+  end
+  
+  imgui.SameLine()
+  
+  if imgui.ImageButton(img_index.ui.boton_1, 65,50) then
+    _G.player_values = {self.hsla,self.iterador_accesorio}
+    
+    Gamestate.switch(Game,index-1,"crear")
+  end
+  
+  imgui.SameLine()
+  
+  if imgui.ImageButton(img_index.ui.boton_1, 65,50) then
+    _G.player_values = {self.hsla,self.iterador_accesorio}
+    
+    Gamestate.switch(Game,index,"crear")
+  end
+  
   imgui.End()
+  
+  
   
   imgui.SetNextWindowPos(500, 175)
   imgui.SetNextWindowSize(200, 200)
