@@ -11,6 +11,7 @@ function bajada:init(entidad,posicion,img,radio,tipo,propiedad)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   
   self.fixture:setUserData( {data="bajada",obj=self, pos=orden.bajada} )
+  
 
 end
 

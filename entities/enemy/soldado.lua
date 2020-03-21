@@ -20,7 +20,7 @@ function soldado:init(entidad,posicion,img,radio,tipo)
   self.creador = 2
   self.hp = 12
   self.max_hp = self.hp
-  self.vel = 100
+  self.vel = 60
   self.limite_vision=1000
   self.giro_completo = true
   

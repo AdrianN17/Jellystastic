@@ -23,6 +23,7 @@ local poligono = {  -485 , 35,
 
   self.shape = love.physics.newPolygonShape(poligono)
   self.fixture = love.physics.newFixture(self.body,self.shape)
+
   
   self.fixture:setUserData( {data="map_object",obj=self, pos=orden.terrain} )
   

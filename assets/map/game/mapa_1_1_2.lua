@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.0",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 48,
+  width = 49,
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 4,
-  nextobjectid = 39,
+  nextlayerid = 7,
+  nextobjectid = 68,
   properties = {},
   tilesets = {},
   layers = {
@@ -54,7 +54,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = false,
+          visible = true,
           polygon = {
             { x = -2.06962, y = 2.19535 },
             { x = -2.00528, y = -373.817 },
@@ -68,21 +68,21 @@ return {
           name = "Casa",
           type = "4",
           shape = "polygon",
-          x = 784.447,
+          x = 784.473,
           y = 904.456,
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polygon = {
-            { x = -5.42725, y = 3.938 },
-            { x = -5.06903, y = -518.042 },
-            { x = 204.483, y = -518.887 },
-            { x = 449.38, y = -692.267 },
-            { x = 590.518, y = -692.931 },
-            { x = 591.095, y = -519.096 },
-            { x = 752.317, y = -518.741 },
-            { x = 751.872, y = 2.3947 }
+            { x = -5.45231, y = 3.938 },
+            { x = -5.59475, y = -518.105 },
+            { x = 205.427, y = -518.887 },
+            { x = 451.455, y = -692.267 },
+            { x = 593.245, y = -692.931 },
+            { x = 593.825, y = -519.096 },
+            { x = 755.791, y = -518.741 },
+            { x = 755.344, y = 2.3947 }
           },
           properties = {}
         },
@@ -91,17 +91,17 @@ return {
           name = "Gelatina",
           type = "",
           shape = "polygon",
-          x = 393.99,
+          x = 394.058,
           y = 908.008,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = -2.34836, y = 1.125 },
-            { x = 1142.06, y = -1.1863 },
-            { x = 1142.39, y = 692.533 },
-            { x = -1.91627, y = 692.959 }
+            { x = -2.41624, y = 1.125 },
+            { x = 1175.07, y = -1.1863 },
+            { x = 1175.41, y = 692.533 },
+            { x = -1.97166, y = 692.959 }
           },
           properties = {}
         },
@@ -123,40 +123,6 @@ return {
             { x = -4.60298, y = 339.529 }
           },
           properties = {}
-        },
-        {
-          id = 13,
-          name = "Plataforma",
-          type = "",
-          shape = "point",
-          x = 1185.5,
-          y = 416.667,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["radio"] = 0,
-            ["scale_x"] = 0.3,
-            ["scale_y"] = 0.4
-          }
-        },
-        {
-          id = 14,
-          name = "Plataforma",
-          type = "",
-          shape = "point",
-          x = 1402,
-          y = 416.667,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["radio"] = 0,
-            ["scale_x"] = 0.3,
-            ["scale_y"] = 0.4
-          }
         },
         {
           id = 15,
@@ -462,19 +428,6 @@ return {
           properties = {}
         },
         {
-          id = 33,
-          name = "Movible",
-          type = "",
-          shape = "rectangle",
-          x = 31.5,
-          y = 615.583,
-          width = 34.25,
-          height = 33.75,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 34,
           name = "Bajada",
           type = "",
@@ -511,34 +464,284 @@ return {
           properties = {}
         },
         {
-          id = 37,
-          name = "Municion",
-          type = "2",
-          shape = "rectangle",
-          x = 640.333,
-          y = 608.5,
-          width = 32,
-          height = 32,
+          id = 39,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 943.333,
+          y = 720,
+          width = 0,
+          height = 0,
           rotation = 0,
           visible = true,
           properties = {
-            ["stock"] = "16"
+            ["radio"] = 0,
+            ["scale_x"] = 0.35,
+            ["scale_y"] = 0.4
           }
         },
         {
-          id = 38,
-          name = "Municion",
-          type = "2",
-          shape = "rectangle",
-          x = 702,
-          y = 608.667,
-          width = 32,
-          height = 32,
+          id = 40,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1377,
+          y = 720,
+          width = 0,
+          height = 0,
           rotation = 0,
           visible = true,
           properties = {
-            ["stock"] = "16"
+            ["radio"] = 0,
+            ["scale_x"] = 0.35,
+            ["scale_y"] = 0.4
           }
+        },
+        {
+          id = 41,
+          name = "Bajada",
+          type = "",
+          shape = "polyline",
+          x = 1040.05,
+          y = 706,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 52.5363, y = 0 },
+            { x = 183.537, y = 0.3333 }
+          },
+          properties = {}
+        },
+        {
+          id = 42,
+          name = "Bajada",
+          type = "",
+          shape = "polyline",
+          x = 840.29,
+          y = 385,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 152.796, y = 0 },
+            { x = 533.797, y = 0.3333 }
+          },
+          properties = {}
+        },
+        {
+          id = 43,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 944,
+          y = 537.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.35,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 44,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1274.67,
+          y = 537.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.35,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 48,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1108,
+          y = 299,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 325,
+            ["scale_x"] = 0.33,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 49,
+          name = "Pared",
+          type = "2",
+          shape = "polygon",
+          x = 748,
+          y = 531.805,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 3.27273, y = 1.11314 },
+            { x = 3.17082, y = -145.355 },
+            { x = 31.0131, y = -145.386 },
+            { x = 31.0131, y = 1.15446 }
+          },
+          properties = {}
+        },
+        {
+          id = 50,
+          name = "Pared",
+          type = "2",
+          shape = "polygon",
+          x = 1538,
+          y = 904.725,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 3.27273, y = 2.85359 },
+            { x = 3.17082, y = -372.627 },
+            { x = 31.0131, y = -372.706 },
+            { x = 31.0131, y = 2.95952 }
+          },
+          properties = {}
+        },
+        {
+          id = 51,
+          name = "Pared",
+          type = "2",
+          shape = "polygon",
+          x = 1538,
+          y = 531,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 3.27273, y = 1.11314 },
+            { x = 3.17082, y = -145.355 },
+            { x = 31.0131, y = -145.386 },
+            { x = 31.0131, y = 1.15446 }
+          },
+          properties = {}
+        },
+        {
+          id = 52,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 883,
+          y = 386,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.23,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 53,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1460.67,
+          y = 386.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 55,
+          name = "Plataforma",
+          type = "",
+          shape = "point",
+          x = 1316.67,
+          y = 213.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["radio"] = 0,
+            ["scale_x"] = 0.2,
+            ["scale_y"] = 0.4
+          }
+        },
+        {
+          id = 56,
+          name = "NPC",
+          type = "",
+          shape = "point",
+          x = 436,
+          y = 859.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["a"] = 0,
+            ["ayuda"] = "Estoy muriendo",
+            ["b"] = 0,
+            ["frase"] = "Hola xd",
+            ["frase2"] = "Que tal?",
+            ["g"] = 0,
+            ["r"] = 0.2
+          }
+        },
+        {
+          id = 63,
+          name = "Pared",
+          type = "2",
+          shape = "polygon",
+          x = 1375,
+          y = 383.795,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 3.27273, y = 1.31064 },
+            { x = 3.17082, y = -171.145 },
+            { x = 31.0131, y = -171.181 },
+            { x = 31.0131, y = 1.35929 }
+          },
+          properties = {}
+        },
+        {
+          id = 64,
+          name = "Extra",
+          type = "helado",
+          shape = "rectangle",
+          x = 392.5,
+          y = 283.5,
+          width = 358,
+          height = 247,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -618,8 +821,8 @@ return {
           name = "Puerta",
           type = "2",
           shape = "rectangle",
-          x = 1291.73,
-          y = 277,
+          x = 1298.73,
+          y = 285,
           width = 60,
           height = 100,
           rotation = 0,
@@ -627,6 +830,154 @@ return {
           properties = {
             ["id"] = 8
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 4,
+      name = "Borrador_Capa3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 45,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 856,
+          y = 629,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 46,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 1272,
+          y = 630,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 65,
+          name = "Baba",
+          type = "",
+          shape = "point",
+          x = 880,
+          y = 485,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 5,
+      name = "Borrador_Capa4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 6,
+      name = "Borrador_Capa5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 47,
+          name = "Movible",
+          type = "",
+          shape = "rectangle",
+          x = 37.5417,
+          y = 800.458,
+          width = 34.25,
+          height = 33.75,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 59,
+          name = "Municion",
+          type = "2",
+          shape = "rectangle",
+          x = 637.666,
+          y = 613.75,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["stock"] = "8"
+          }
+        },
+        {
+          id = 60,
+          name = "Municion",
+          type = "2",
+          shape = "rectangle",
+          x = 699.333,
+          y = 613.917,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["stock"] = "8"
+          }
+        },
+        {
+          id = 61,
+          name = "Municion",
+          type = "5",
+          shape = "rectangle",
+          x = 1486.33,
+          y = 634.25,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["stock"] = "8"
+          }
+        },
+        {
+          id = 62,
+          name = "Arma",
+          type = "5",
+          shape = "rectangle",
+          x = 801.333,
+          y = 627.75,
+          width = 68,
+          height = 41,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     }

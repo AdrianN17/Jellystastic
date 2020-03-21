@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 7,
-  nextobjectid = 197,
+  nextobjectid = 198,
   properties = {},
   tilesets = {},
   layers = {
@@ -1666,6 +1666,19 @@ return {
           y = 2880,
           width = 184,
           height = 168,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 197,
+          name = "Extra",
+          type = "helado",
+          shape = "rectangle",
+          x = 1054,
+          y = 2284,
+          width = 229,
+          height = 179,
           rotation = 0,
           visible = true,
           properties = {}

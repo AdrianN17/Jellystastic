@@ -21,7 +21,7 @@ function zombie:init(entidad,posicion,img)
   self.creador = 3
   self.hp = 20
   self.max_hp = self.hp
-  self.vel = 160
+  self.vel = 125
   self.limite_vision=100
   self.dano_tocar = true
   self.posicion_ataque = false

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="97">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="35" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="113">
  <editorsettings>
   <export target="mapa_1_1_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="2" name="Borrador_Capa1">
-  <object id="1" name="Gelatina" x="-0.516775" y="892.864">
+  <object id="1" name="Gelatina" x="-0.516775" y="1052.86">
    <polygon points="0.517103,0 1120.74,-1.26883 1120.71,387.541 0.617789,387.272"/>
   </object>
-  <object id="55" name="Casa" type="1" x="32.2731" y="889.311">
+  <object id="55" name="Casa" type="1" x="32.2731" y="1049.31">
    <polygon points="-4.66703,3.02983 -4.16703,-425.183 307.73,-424.652 307.293,3.24276"/>
   </object>
-  <object id="56" name="Casa" type="2" x="373.042" y="888.106">
+  <object id="56" name="Casa" type="2" x="373.042" y="1048.11">
    <polygon points="-3.24836,4.64841 -2.49023,-713.967 370.906,-712.244 370.782,4.10382"/>
   </object>
-  <object id="57" name="Casa" type="1" x="782.057" y="888.819">
+  <object id="57" name="Casa" type="1" x="782.057" y="1048.82">
    <polygon points="-3.73025,3.61912 -3.45752,-426.673 307.304,-426.673 306.142,3.19222"/>
   </object>
-  <object id="66" name="Pared" type="1" x="-3.34498" y="889.606">
+  <object id="66" name="Pared" type="1" x="-3.34498" y="1049.61">
    <polygon points="3.27273,3.27273 3.17082,-427.36 31.0131,-427.451 31.0131,3.39423"/>
   </object>
-  <object id="71" name="Pared" type="1" x="1089" y="467">
+  <object id="71" name="Pared" type="1" x="1089" y="627">
    <polygon points="0.25,-4.81115 -1.19281,425.039 31.0304,424.959 31.0703,-5.07844"/>
   </object>
-  <object id="72" name="Pared" type="2" x="340.739" y="181.158">
+  <object id="72" name="Pared" type="2" x="340.739" y="341.158">
    <polygon points="-0.454545,-7.07687 -1.24679,711.394 29.6724,711.132 29.7981,-7.00087"/>
   </object>
-  <object id="73" name="Pared" type="2" x="748" y="887.584">
+  <object id="73" name="Pared" type="2" x="748" y="1047.58">
    <polygon points="-4.1875,4.40624 -4.06781,-711.63 30.7631,-711.566 30.3256,4.53575"/>
   </object>
-  <object id="75" name="Plataforma" x="151" y="656">
+  <object id="75" name="Plataforma" x="151" y="816">
    <properties>
     <property name="radio" type="int" value="0"/>
     <property name="scale_x" type="float" value="0.27"/>
@@ -36,7 +36,7 @@
    </properties>
    <point/>
   </object>
-  <object id="79" name="Plataforma" x="182.333" y="450">
+  <object id="79" name="Plataforma" x="182.333" y="610">
    <properties>
     <property name="radio" type="int" value="0"/>
     <property name="scale_x" type="float" value="0.38"/>
@@ -44,7 +44,7 @@
    </properties>
    <point/>
   </object>
-  <object id="80" name="Plataforma" x="564.667" y="165.333">
+  <object id="80" name="Plataforma" x="564.667" y="325.333">
    <properties>
     <property name="radio" type="int" value="0"/>
     <property name="scale_x" type="float" value="0.42"/>
@@ -52,7 +52,7 @@
    </properties>
    <point/>
   </object>
-  <object id="82" name="Caramelo" x="868.273" y="453.5">
+  <object id="82" name="Caramelo" x="868.273" y="613.5">
    <properties>
     <property name="direccion" type="int" value="1"/>
     <property name="radio" type="int" value="0"/>
@@ -61,7 +61,7 @@
    </properties>
    <point/>
   </object>
-  <object id="83" name="Caramelo" x="1002.5" y="453.5">
+  <object id="83" name="Caramelo" x="1002.5" y="613.5">
    <properties>
     <property name="direccion" type="int" value="-1"/>
     <property name="radio" type="int" value="0"/>
@@ -70,7 +70,83 @@
    </properties>
    <point/>
   </object>
-  <object id="84" name="NPC" x="870.666" y="863">
+  <object id="87" name="Bajada" x="248.799" y="815">
+   <polyline points="26.2014,0 91.5347,0.3333"/>
+  </object>
+  <object id="97" name="Bajada" x="652" y="855">
+   <polyline points="26.2014,0 91.5347,0.3333"/>
+  </object>
+  <object id="98" name="Plataforma" x="523" y="853">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.33"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="99" name="Plataforma" x="522" y="659">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.33"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="100" name="Bajada" x="650" y="653">
+   <polyline points="26.2014,0 91.5347,0.3333"/>
+  </object>
+  <object id="102" name="Plataforma" x="512" y="467">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.3"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="107" name="Bajada" x="992" y="864">
+   <polyline points="26.2014,0 91.5347,0.3333"/>
+  </object>
+  <object id="109" name="Plataforma" x="820" y="773">
+   <properties>
+    <property name="radio" type="int" value="0"/>
+    <property name="scale_x" type="float" value="0.1"/>
+    <property name="scale_y" type="float" value="0.4"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="Borrador_Capa2">
+  <object id="60" name="Puerta" type="1" x="162.667" y="951.667" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="61" name="Puerta" type="1" x="538" y="952" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="62" name="Puerta" type="1" x="919" y="952" width="60" height="100">
+   <properties>
+    <property name="id" type="int" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Borrador_Capa3"/>
+ <objectgroup id="5" name="Borrador_Capa4">
+  <object id="104" name="NPC" x="880.5" y="1024.5">
+   <properties>
+    <property name="a" type="float" value="0"/>
+    <property name="ayuda" value="Estoy muriendo"/>
+    <property name="b" type="float" value="0"/>
+    <property name="frase" value="Hola xd"/>
+    <property name="frase2" value="Que tal?"/>
+    <property name="g" type="float" value="0"/>
+    <property name="r" type="float" value="0.2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="105" name="NPC" x="517.333" y="420.667">
    <properties>
     <property name="a" type="float" value="0"/>
     <property name="ayuda" value="Estoy muriendo"/>
@@ -82,31 +158,25 @@
    </properties>
    <point/>
   </object>
-  <object id="87" name="Bajada" x="248.799" y="655">
-   <polyline points="26.2014,0 91.5347,0.3333"/>
+  <object id="106" name="NPC" x="818" y="740.667">
+   <properties>
+    <property name="a" type="float" value="0"/>
+    <property name="ayuda" value="Estoy muriendo"/>
+    <property name="b" type="float" value="0"/>
+    <property name="frase" value="Hola xd"/>
+    <property name="frase2" value="Que tal?"/>
+    <property name="g" type="float" value="0"/>
+    <property name="r" type="float" value="0.5"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Borrador_Capa2">
-  <object id="60" name="Puerta" type="1" x="162.667" y="791.667" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="61" name="Puerta" type="1" x="538" y="792" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="62" name="Puerta" type="1" x="919" y="792" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="3"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup id="4" name="Borrador_Capa3"/>
- <objectgroup id="5" name="Borrador_Capa4"/>
  <objectgroup id="6" name="Borrador_Capa5">
-  <object id="77" name="Arma" type="2" x="58.6667" y="600.833" width="68" height="41"/>
-  <object id="78" name="Movible" x="32.333" y="811.5" width="76" height="81"/>
+  <object id="77" name="Arma" type="2" x="58.6667" y="760.833" width="68" height="41"/>
+  <object id="78" name="Movible" x="32.333" y="971.5" width="76" height="81"/>
+  <object id="103" name="Movible" x="375" y="593.5" width="40" height="40"/>
+  <object id="110" name="Extra" type="helado" x="0.333333" y="377.167" width="341.333" height="247"/>
+  <object id="111" name="Extra" type="helado" x="340.333" y="88.5" width="439.083" height="247"/>
+  <object id="112" name="Extra" type="helado" x="779.667" y="374.833" width="341.333" height="247"/>
  </objectgroup>
 </map>

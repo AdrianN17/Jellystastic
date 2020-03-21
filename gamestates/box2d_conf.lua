@@ -148,7 +148,7 @@ function box2d_conf:callbacks()
         coll:setEnabled( false )
       elseif obj1.data == "player" and obj2.data == "liquido" then
         obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
-      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible" or obj2.data == "bajada") then
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible") then
         coll:setEnabled( false )
         local x,y = coll:getPositions()
         obj1.obj:remove(x,y)
@@ -186,7 +186,7 @@ function box2d_conf:callbacks()
         end
         
         coll:release( )
-      elseif (obj1.data == "map_object" or obj1.data == "bedrock" or obj2.data == "bajada") and obj2.data == "meteorito" then
+      elseif (obj1.data == "map_object" or obj1.data == "bedrock" or obj1.data == "movible") and obj2.data == "meteorito" then
         obj2.obj:mover()
       elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "npc") and obj2.data == "meteorito" then
         
@@ -209,7 +209,8 @@ function box2d_conf:callbacks()
         end
       elseif obj1.data == "player" and obj2.data == "bajada" then
         local x,y = coll:getNormal()
-        if y>0 then
+
+        if y>-0.01 then
           coll:setEnabled( false )
         else
           if obj1.obj.movimiento.s then
@@ -218,12 +219,15 @@ function box2d_conf:callbacks()
         end
       elseif obj1.data == "movible" and obj2.data == "bajada" then
         local x,y = coll:getNormal()
-        
         if obj1.obj.is_joint then
           coll:setEnabled( false )
-        elseif  y>0 then
+        elseif  y>-0.01 then
           coll:setEnabled( false )
         end
+      elseif obj1.data == "bullet" and obj2.data == "bajada" then
+        coll:setEnabled( false )
+      elseif obj1.data == "bajada" and obj2.data == "meteorito" then
+        coll:setEnabled( false )
       end
     end
   end

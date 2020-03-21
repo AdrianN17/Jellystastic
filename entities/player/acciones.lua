@@ -55,7 +55,7 @@ function acciones:init(x,y,w,h)
   
   self.cooldown_iterador = true
   
-  self.funcion_arma_temp =nil
+  --self.funcion_arma_temp =nil
   
   self.item_touch = nil
   
@@ -91,7 +91,7 @@ function acciones:draw_player()
   
   
   if arma then
-    love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(self.cooldown_timer) .. " , " .. tostring(arma.funcion_arma_temp),self.ox,self.oy-150)
+    love.graphics.print(tostring(self.cooldown) .. " , " .. tostring(arma.municion) .. " , " .. tostring(arma.stock),self.ox,self.oy-150)
   end
   
   self:draw_bala()
@@ -102,10 +102,10 @@ function acciones:update_player(dt)
   
   self.timer:update(dt)
   
-  if self.funcion_arma_temp and not self.cooldown then
+  --[[if self.funcion_arma_temp and not self.cooldown then
     self:funcion_arma_temp()
     self.funcion_arma_temp=nil
-  end
+  end]]
   
   self.acciones.moviendo = false
   
@@ -249,7 +249,7 @@ end
 
 function acciones:mousepressed(x,y,button)
   
-  if not self.funcion_arma_temp then
+  --[[if not self.funcion_arma_temp then
     self.funcion_arma_temp = function()
       if button == 1 then
         self:disparo_balas()
@@ -257,7 +257,7 @@ function acciones:mousepressed(x,y,button)
         self:recargar_arma()
       end
     end
-  end
+  end]]
 
   if button == 1 and not self.cooldown then
     self:disparo_balas()
@@ -268,16 +268,21 @@ function acciones:mousepressed(x,y,button)
 end
 
 function acciones:mousereleased(x,y,button)
-
+  
   if button == 1 and not self.cooldown and self.arma_index>0 then
+    local arma = self.armas_values[self.arma_index]
+    
     self:terminar_disparo_balas()
     
-    self.cooldown = true
-    
-    self.cooldown_timer = self.timer:after(self.armas_values[self.arma_index].tiempo, function()
-      self.cooldown = false
-      self.cooldown_timer=nil
-    end)
+    if arma.stock>0 then
+      
+      self.cooldown = true
+      
+      self.cooldown_timer = self.timer:after(arma.tiempo, function()
+        self.cooldown = false
+        self.cooldown_timer=nil
+      end)
+    end
   end
 
 end

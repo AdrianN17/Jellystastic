@@ -177,7 +177,7 @@ end
 function acciones:masa(x,y,tipo)
   self.joint = love.physics.newRevoluteJoint(self.body,self.body2,x,y,false)
   
-  self.fixture:setFriction(0.5)
+  self.fixture:setFriction(0)
   self.fixture:setDensity(1)
   self.body:setLinearDamping( 1 )
   self.body: setFixedRotation (true)

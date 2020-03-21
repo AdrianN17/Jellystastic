@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="197">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="198">
  <editorsettings>
-  <export target="mapa.lua" format="lua"/>
+  <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="2" name="Borrador_Capa1">
   <object id="1" name="Gelatina" x="9.09091" y="2948.48">
@@ -459,6 +459,7 @@
   <object id="194" name="Burbuja" x="2408" y="2874.33" width="184" height="170.667"/>
   <object id="195" name="Burbuja" x="2295" y="2868" width="184" height="178"/>
   <object id="196" name="Burbuja" x="2501" y="2880" width="184" height="168"/>
+  <object id="197" name="Extra" type="helado" x="1054" y="2284" width="229" height="179"/>
  </objectgroup>
  <objectgroup id="6" name="Borrador_Capa5"/>
 </map>
