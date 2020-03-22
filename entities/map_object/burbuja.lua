@@ -7,9 +7,11 @@ function burbuja:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.spritesheet = img.burbujas
   
+  
+  
   self.w,self.h = posicion[3],posicion[4]
   
-  self.wi,self.hi =  self.spritesheet[1]:getDimensions()
+  _,_,self.wi,self.hi =  self.spritesheet.quad[1]:getViewport()
   
   self.entidad:add_obj("extras",self)
   
@@ -37,7 +39,7 @@ function burbuja:update(dt)
 end
 
 function burbuja:draw()
-  love.graphics.draw(self.spritesheet[self.iterador],self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
+  love.graphics.draw(self.spritesheet.img,self.spritesheet.quad[self.iterador],self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
 end
 
 return burbuja

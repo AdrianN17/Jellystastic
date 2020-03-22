@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 7,
-  nextobjectid = 198,
+  nextobjectid = 199,
   properties = {},
   tilesets = {},
   layers = {
@@ -569,11 +569,11 @@ return {
           name = "Puerta",
           type = "1",
           shape = "rectangle",
-          x = 82,
-          y = 2846,
+          x = 72.7002,
+          y = 2836.44,
           width = 60,
           height = 100,
-          rotation = 0,
+          rotation = 48.635,
           visible = true,
           properties = {
             ["id"] = 1
@@ -697,6 +697,21 @@ return {
           visible = true,
           properties = {
             ["id"] = 8
+          }
+        },
+        {
+          id = 198,
+          name = "Puerta",
+          type = "1",
+          shape = "rectangle",
+          x = -3.25825,
+          y = 2881.18,
+          width = 60,
+          height = 100,
+          rotation = -50.4089,
+          visible = true,
+          properties = {
+            ["id"] = 1
           }
         }
       }

@@ -148,10 +148,17 @@ function box2d_conf:callbacks()
         coll:setEnabled( false )
       elseif obj1.data == "player" and obj2.data == "liquido" then
         obj2.obj:buoyancy(25,obj2.obj.fixture,obj1.obj.fixture,coll)
-      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object" or obj2.data == "movible") then
+      elseif obj1.data == "bullet" and (obj2.data == "bedrock" or obj2.data == "map_object") then
         coll:setEnabled( false )
         local x,y = coll:getPositions()
         obj1.obj:remove(x,y)
+        coll:release( )
+      elseif obj1.data == "bullet" and  obj2.data == "movible" then
+        
+        local x,y = coll:getPositions()
+        self.timer:after(0.02,function()
+            obj1.obj:remove(x,y)
+        end)
         coll:release( )
       elseif (obj1.data == "player" or obj1.data == "baba" or  obj1.data == "soldier" or obj1.data == "enemy_bullet"  or obj1.data=="npc") and obj2.data == "bullet" then
 

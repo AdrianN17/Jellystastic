@@ -233,8 +233,12 @@ function acciones:keyreleased(key)
     self.movimiento.d = false
   end
   
-  if key == _G.teclas.get_box and self.objetivo_movible and self.joint_movible  then
-    self.objetivo_movible.obj.is_joint=false
+  if key == _G.teclas.get_box and  self.joint_movible  then
+    
+    if self.objetivo_movible and self.objetivo_movible.obj then
+      self.objetivo_movible.obj.is_joint=false
+    end
+    
     self.objetivo_movible = nil
     if not self.joint_movible:isDestroyed() then
       self.joint_movible:destroy( )

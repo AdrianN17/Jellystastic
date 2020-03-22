@@ -7,7 +7,6 @@ local index_entidades = require "entities.index"
 local Timer = require "libs.chrono.Timer"
 
 local Box2d_conf = require "gamestates.box2d_conf"
-local max_decoration = require "entities.max_decoration"
 
 local Pausa = require "gamestates.pausa"
 
@@ -184,7 +183,7 @@ function game_conf_default:map_read()
   for _, layer in ipairs(self.map.layers) do
     
     if layer.type=="tilelayer" then
-      --self:get_tile(layer)
+      self:get_tile(layer)
     elseif layer.type=="objectgroup" then
       self:get_objects(layer)
     end
@@ -205,11 +204,7 @@ function game_conf_default:get_objects(objectlayer)
         local data_pos = nil
         
         if obj.shape =="point" then
-          if obj.name == "Decoration" then
-            table.insert(self.gameobject.decoration,{x=obj.x,y=obj.y,tipo = obj.type, propiedades = obj.properties})
-          else
-            data_pos = {obj.x,obj.y}
-          end
+          data_pos = {obj.x,obj.y}
         elseif obj.shape == "polygon" then
           local polygon = {}
 
@@ -231,7 +226,7 @@ function game_conf_default:get_objects(objectlayer)
           data_pos = line
           
         elseif obj.shape == "rectangle" then
-          
+
           data_pos = {obj.x,obj.y,obj.width,obj.height}
           
         elseif obj.shape == "ellipse" then
@@ -245,7 +240,7 @@ function game_conf_default:get_objects(objectlayer)
       end
     end
     
-    self:dividir_decoraciones()
+    
 end
 
 function game_conf_default:map_create()
@@ -266,209 +261,69 @@ function game_conf_default:map_create()
   
   
   player.draw = function(obj)
-    --[[for _, obj_data in ipairs(self.gameobject.muerte) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        
-        local spritesheet = img_index.personajes[1]
-        local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
-        
-        love.graphics.setShader(obj_data.shader)
-          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
-        love.graphics.setShader()
-      end
-    end]]
-    
-    for _, obj_data in ipairs(self.gameobject.player) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("player")
   end
   
   player.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.player) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("player", dt)
   end
   
   enemy.draw = function(obj)
-    --[[for _, obj_data in ipairs(self.gameobject.muerte_enemigo) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        
-        if obj_data.tipo == 1 then
-          local spritesheet = img_index.baba
-          local quad = spritesheet.quad[obj_data.iterador]
-          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
-        elseif obj_data.tipo == 2 then
-          local spritesheet = img_index.personajes[1]
-          local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
-        love.graphics.setShader(self.shader_enemigo)
-          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
-        love.graphics.setShader()
-        elseif obj_data.tipo == 3 then
-          local spritesheet = img_index.personajes[1]
-          local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
-          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
-        end
-      end
-    end]]
-    
-    for _, obj_data in ipairs(self.gameobject.enemy) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("enemy")
   end
   
   enemy.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.enemy) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("enemy", dt)
   end
   
   npc.draw = function(obj)
-    
-    --[[for _, obj_data in ipairs(self.gameobject.muerte_npc) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        
-        local spritesheet = img_index.personajes[1]
-        local quad = spritesheet.quad[obj_data.iterador][obj_data.iterador2]
-        
-        love.graphics.setShader(obj_data.shader)
-          love.graphics.draw(spritesheet.img,quad,obj_data.ox,obj_data.oy,obj_data.radio,obj_data.scale.x,obj_data.scale.y,obj_data.wi/2,obj_data.hi/2)
-        love.graphics.setShader()
-      end
-    end]]
-    
-    for _, obj_data in ipairs(self.gameobject.npc) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("npc")
   end
   
   npc.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.npc) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("npc", dt)
   end
   
   muerte.draw = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.muerte) do
-       if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("muerte")
   end
   
   muerte.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.muerte) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("muerte",dt)
   end
   
   object.draw = function(obj)
-    for _, obj_data in ipairs(self.gameobject.object) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("object")
   end
   
   object.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.object) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("object",dt)
   end
   
   map_object.draw = function(obj)
-
-    love.graphics.stencil(stencil, "replace", 1)
-   
-
-    love.graphics.setStencilTest("equal", 0)
      
-    for _, obj_data in ipairs(self.gameobject.map_object) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    love.graphics.setStencilTest()
-    
-    
-    for _, obj_data in ipairs(self.gameobject.liquid) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    for _,obj_data in ipairs(self.gameobject.extras) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox,obj_data.oy,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-
-    
-    for _, obj_data in pairs(self.gameobject.decoration) do
-      for _, obj_data2 in ipairs(obj_data) do
-        local img = img_index.cosas[obj_data2.tipo][obj_data2.id]
-        local scale = img_index.cosas[obj_data2.tipo .. "_data"]
-        local w,h = img:getWidth()/2,img:getHeight()/2
-        if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data2.x,obj_data2.y,w,h)) then
-          love.graphics.draw(img,obj_data2.x,obj_data2.y,obj_data2.r,scale.x,scale.y,w,h)
-        end
-      end
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.door) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.movible) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.platform) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.meteorito) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.bullet) do
-      if(self:CheckCollision(self.vision.x,self.vision.y,self.vision.w,self.vision.h,obj_data.ox-obj_data.w/2,obj_data.oy-obj_data.h/2,obj_data.w,obj_data.h)) then
-        obj_data:draw()
-      end
-    end
+    self:draw_gameobjects("map_object")
+    self:draw_gameobjects("liquid")
+    self:draw_gameobjects("extras")
+    self:draw_gameobjects("decoration")
+    self:draw_gameobjects("door")
+    self:draw_gameobjects("movible")
+    self:draw_gameobjects("platform")
+    self:draw_gameobjects("meteorito")
+    self:draw_gameobjects("bullet")
     
   end
   
   map_object.update = function(obj,dt)
-    for _, obj_data in ipairs(self.gameobject.map_object) do
-      obj_data:update()
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.movible) do
-      obj_data:update(dt)
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.meteorito) do
-      obj_data:update(dt)
-    end
-    
-    for _, obj_data in ipairs(self.gameobject.bullet) do
-      obj_data:update(dt)
-    end
+    self:update_gameobjects("map_object",dt)
+    self:update_gameobjects("liquid",dt)
+    self:update_gameobjects("extras",dt)
+    self:update_gameobjects("decoration",dt)
+    self:update_gameobjects("door",dt)
+    self:update_gameobjects("movible",dt)
+    self:update_gameobjects("platform",dt)
+    self:update_gameobjects("meteorito",dt)
+    self:update_gameobjects("bullet",dt)
   end
   
   
@@ -732,6 +587,18 @@ function game_conf_default:get_mouse_pos()
   local x,y = love.mouse.getPosition()
   local cx,cy = self.cam:toWorld(x,y)
   return cx,cy
+end
+
+function game_conf_default:update_gameobjects(nombre,dt)
+  for _, obj_data in ipairs(self.gameobject[nombre]) do
+    obj_data:update(dt)
+  end
+end
+
+function game_conf_default:draw_gameobjects(nombre)
+  for _, obj_data in ipairs(self.gameobject[nombre]) do
+    obj_data:draw()
+  end
 end
 
 return game_conf_default

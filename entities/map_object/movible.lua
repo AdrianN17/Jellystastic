@@ -40,7 +40,7 @@ end
 function movible:draw()
   
   love.graphics.draw(self.img,self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
-  
+  love.graphics.circle("fill",self.ox,self.oy,10)
 end
 
 return movible

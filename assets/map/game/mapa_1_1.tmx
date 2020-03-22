@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="198">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="2000" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="199">
  <editorsettings>
   <export target="mapa_1_1.lua" format="lua"/>
  </editorsettings>
@@ -132,7 +132,7 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="Borrador_Capa2">
-  <object id="70" name="Puerta" type="1" x="82" y="2846" width="60" height="100">
+  <object id="70" name="Puerta" type="1" x="72.7002" y="2836.44" width="60" height="100" rotation="48.635">
    <properties>
     <property name="id" type="int" value="1"/>
    </properties>
@@ -175,6 +175,11 @@
   <object id="122" name="Puerta" type="3" x="3324.75" y="2882.25" width="60" height="100">
    <properties>
     <property name="id" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="198" name="Puerta" type="1" x="-3.25825" y="2881.18" width="60" height="100" rotation="-50.4089">
+   <properties>
+    <property name="id" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>

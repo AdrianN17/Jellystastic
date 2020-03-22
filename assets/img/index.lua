@@ -122,41 +122,33 @@ index.texturas.liquido[1]:setWrap("repeat")
 
 index.cosas = {}
 
-index.cosas["ventana"]={}
-index.cosas["ventana"][1] = love.graphics.newImage("assets/img/Objetos/ventana.png")
-index.cosas["ventana"][2] = love.graphics.newImage("assets/img/Objetos/ventana2.png")
-index.cosas["ventana"][3] = love.graphics.newImage("assets/img/Objetos/ventana3.png")
-index.cosas["ventana"][4] = love.graphics.newImage("assets/img/Objetos/ventana4.png")
+index.cosas.img = love.graphics.newImage("assets/img/Adornos/spritesheet.png")
+index.cosas.quad = {}
 
-index.cosas["ventana_data"] = {}
-index.cosas["ventana_data"].x = 0.12
-index.cosas["ventana_data"].y = 0.12
 
-index.cosas["confite"]={}
-index.cosas["confite"][1] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto.png")
-index.cosas["confite"][2] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto2.png")
-index.cosas["confite"][3] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto3.png")
-index.cosas["confite"][4] = love.graphics.newImage("assets/img/Efectos/ladrilloEfecto4.png")
+index.cosas.quad["dulce_1"] = love.graphics.newQuad(144,2710,82,73,index.cosas.img:getDimensions())
+index.cosas.quad["dulce_2"] = love.graphics.newQuad(0,2710,64,68,index.cosas.img:getDimensions())
+index.cosas.quad["dulce_3"] = love.graphics.newQuad(69,2710,70,69,index.cosas.img:getDimensions())
+index.cosas.quad["reflejo"] = love.graphics.newQuad(0,2205,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["pared_1"] = love.graphics.newQuad(0,2788,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["pared_2"] = love.graphics.newQuad(0,3638,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["pared_3"] = love.graphics.newQuad(0,4143,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["pared_4"] = love.graphics.newQuad(0,4648,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["suelo_1"] = love.graphics.newQuad(0,5153,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["suelo_2"] = love.graphics.newQuad(0,6003,500,500,index.cosas.img:getDimensions())
+index.cosas.quad["ventana_1"] = love.graphics.newQuad(0,1010,500,340,index.cosas.img:getDimensions())
+index.cosas.quad["ventana_2"] = love.graphics.newQuad(0,1355,500,340,index.cosas.img:getDimensions())
+index.cosas.quad["ventana_3"] = love.graphics.newQuad(0,3293,500,340,index.cosas.img:getDimensions())
+index.cosas.quad["ventana_4"] = love.graphics.newQuad(0,5658,500,340,index.cosas.img:getDimensions())
 
-index.cosas["confite_data"] = {}
-index.cosas["confite_data"].x = 0.1
-index.cosas["confite_data"].y = 0.1
+index.cosas.scale = {}
 
-index.cosas["puerta"] = {}
-index.cosas["puerta"][1] = love.graphics.newImage("assets/img/Objetos/puertas.png")
+index.cosas.scale["dulce"] = {0.5,0.5}
+index.cosas.scale["reflejo"] = {0.2,0.2}
+index.cosas.scale["pared"] = {0.1,0.1}
+index.cosas.scale["suelo"] = {0.2,0.2}
+index.cosas.scale["ventana"] = {x=0.12,y=0.12}
 
-index.cosas["puerta_data"] = {}
-index.cosas["puerta_data"].x = 0.2
-index.cosas["puerta_data"].y = 0.2
-
-index.cosas["adorno_mapa"] = {}
-index.cosas["adorno_mapa"][1] = love.graphics.newImage("assets/img/Efectos/efectoestandar.png")
-index.cosas["adorno_mapa"][2] = love.graphics.newImage("assets/img/Efectos/sueloefecto1.png")
-index.cosas["adorno_mapa"][3] = love.graphics.newImage("assets/img/Efectos/sueloefecto2.png")
-
-index.cosas["adorno_mapa_data"] = {}
-index.cosas["adorno_mapa_data"].x = 0.2
-index.cosas["adorno_mapa_data"].y = 0.2
 
 index.objetos_mapa = {}
 index.objetos_mapa.img = love.graphics.newImage("assets/img/Objetos/Adornos_Mapa.png")
@@ -241,12 +233,15 @@ index.meteorito.quad[6] = love.graphics.newQuad(1578,591,431,422,index.meteorito
 index.meteorito.fuego = love.graphics.newQuad(0,0,611,1026,index.meteorito.img:getDimensions())
 
 index.burbujas = {}
-index.burbujas[1] = love.graphics.newImage("assets/img/Efectos/AguaSprite1.png")
-index.burbujas[2] = love.graphics.newImage("assets/img/Efectos/AguaSprite2.png")
-index.burbujas[3] = love.graphics.newImage("assets/img/Efectos/AguaSprite3.png")
+index.burbujas.img = index.cosas.img
+index.burbujas.quad = {}
+index.burbujas.quad[1] = love.graphics.newQuad(0,0,500,500,index.burbujas.img:getDimensions())
+index.burbujas.quad[2] = love.graphics.newQuad(0,505,500,500,index.burbujas.img:getDimensions())
+index.burbujas.quad[3] = love.graphics.newQuad(0,1700,500,500,index.burbujas.img:getDimensions())
 
 index.ui = {}
 index.ui.boton_1 = love.graphics.newImage("assets/img/UI/icono_mundo.png")
 
+index.puerta = love.graphics.newImage("assets/img/Objetos/puertas.png")
 
 return  index

@@ -95,9 +95,8 @@ function menu:update(dt)
     
     imgui.Text("Colores")
   
-    for i=1,3,1 do
+    for i=1,2,1 do
       self.hsla[i],self.hsla_status[i] = imgui.SliderFloat(self.hsla_text[i], self.hsla[i], 0, 1,string.format("%0.2f", self.hsla[i]))
-      self.hsla[i] = math.floor(self.hsla[i]*10)/10
     end
     
 

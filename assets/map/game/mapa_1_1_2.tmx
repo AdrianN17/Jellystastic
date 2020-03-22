@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="49" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="68">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="49" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="68">
  <editorsettings>
   <export target="mapa_1_1_2.lua" format="lua"/>
  </editorsettings>
@@ -200,7 +200,7 @@
   <object id="63" name="Pared" type="2" x="1375" y="383.795">
    <polygon points="3.27273,1.31064 3.17082,-171.145 31.0131,-171.181 31.0131,1.35929"/>
   </object>
-  <object id="64" name="Extra" type="helado" x="392.5" y="283.5" width="358" height="247"/>
+  <object id="64" name="Extra" type="helado" x="392.5" y="291.5" width="358" height="247"/>
  </objectgroup>
  <objectgroup id="3" name="Borrador_Capa2">
   <object id="6" name="Puerta" type="2" x="124" y="1160.14" width="60" height="100">

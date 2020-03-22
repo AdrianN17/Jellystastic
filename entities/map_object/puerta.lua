@@ -1,22 +1,27 @@
 local Class = require "libs.hump.class"
+
 local puerta = Class{}
 
 function puerta:init(entidad,posicion,img,radio,tipo,propiedad)
+  
   self.entidad = entidad
   
-  self.img = img.cosas.puerta[1]
-  self.img_data = img.cosas.puerta_data
+  self.img = img.puerta
   self.radio = math.rad(radio)
   
-  self.w = self.img:getWidth()
-  self.h = self.img:getHeight()
+  self.w,self.h = posicion[3],posicion[4]
+  
+  self.wi,self.hi = self.img:getDimensions()
+
+  self.scale_x = self.w/self.wi
+  self.scale_y = self.h/self.hi
   
   self.id_mapa = tonumber(tipo)
   
   self.id_puerta = propiedad.id
   
-  self.body = love.physics.newBody(entidad.world,posicion[1]+(self.w*self.img_data.x)/2,posicion[2]+(self.h*self.img_data.y)/2,"static")
-  self.shape = love.physics.newRectangleShape(self.w*self.img_data.x,self.h*self.img_data.y)
+  self.body = love.physics.newBody(entidad.world,posicion[1]+posicion[3]/2,posicion[2]+posicion[4]/2,"static")
+  self.shape = love.physics.newRectangleShape(self.w,self.h)
   self.fixture = love.physics.newFixture(self.body,self.shape)
   self.fixture:setSensor(true)
   
@@ -28,16 +33,18 @@ function puerta:init(entidad,posicion,img,radio,tipo,propiedad)
   
   self.entidad:add_obj("door",self)
   
-  self.ox,self.oy = self.body:getX(), self.body:getY()
+  self.ox,self.oy = self.body:getX(),self.body:getY()
+  self.radio = self.body:getAngle()
+  
   
 end
 
 function puerta:draw()
-  love.graphics.draw(self.img,self.ox,self.oy,self.radio,self.img_data.x,self.img_data.y,self.w/2,self.h/2)
+  love.graphics.draw(self.img,self.ox,self.oy,self.radio,self.scale_x,self.scale_y,self.wi/2,self.hi/2)
 end
 
 function puerta:update(dt)
-  
+
 end
 
 function puerta:colisiona_centro(fixture)

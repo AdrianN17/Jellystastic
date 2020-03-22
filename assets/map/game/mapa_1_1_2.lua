@@ -736,7 +736,7 @@ return {
           type = "helado",
           shape = "rectangle",
           x = 392.5,
-          y = 283.5,
+          y = 291.5,
           width = 358,
           height = 247,
           rotation = 0,
