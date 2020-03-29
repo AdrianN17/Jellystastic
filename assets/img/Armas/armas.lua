@@ -20,7 +20,7 @@ armas.scale[6] = {x = 0.25,y=0.25}
 
 armas.viewport = {}
 
-for i,quad in ipairs(armas.quad) do
+for i,quad in pairs(armas.quad) do
   local _,_,w,h = quad:getViewport()
   armas.viewport[i] = {w=w,h=h}
 end

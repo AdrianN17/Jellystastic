@@ -9,7 +9,7 @@ burbujas.quad[3] = love.graphics.newQuad(0,1010,500,500 ,burbujas.img:getDimensi
 
 burbujas.viewport = {}
 
-for i,quad in ipairs(burbujas.quad) do
+for i,quad in pairs(burbujas.quad) do
   local _,_,w,h = quad:getViewport()
   burbujas.viewport[i] = {w=w,h=h}
 end

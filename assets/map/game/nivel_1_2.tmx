@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="71">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="72">
  <editorsettings>
   <export target="nivel_1_2.lua" format="lua"/>
  </editorsettings>
@@ -57,12 +57,6 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
    <polygon points="0,0 272.25,-187.875 271.436,-0.250834"/>
-  </object>
-  <object id="34" name="Chicle" x="-8" y="994.667">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-   </properties>
-   <polyline points="46.053,0 160.886,0.3333"/>
   </object>
   <object id="43" name="Casa" x="377" y="776" width="38.5" height="52.25"/>
  </objectgroup>
@@ -139,9 +133,14 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="31" name="Chicle" x="216.701" y="1185">
+  <object id="31" name="Chicle" type="static" x="216.701" y="1185">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="46.053,0 160.886,0.3333"/>
   </object>
@@ -155,27 +154,47 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="36" name="Chicle" x="213.451" y="830.667">
+  <object id="36" name="Chicle" type="static" x="213.451" y="830.667">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="46.053,0 160.886,0.3333"/>
   </object>
-  <object id="38" name="Chicle" x="121.982" y="665">
+  <object id="38" name="Chicle" type="static" x="121.982" y="665">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="72.5219,0 253.355,0.3333"/>
   </object>
-  <object id="45" name="Chicle" x="640" y="801.333">
+  <object id="45" name="Chicle" type="static" x="640" y="801.333">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="46.053,0 160.886,0.3333"/>
   </object>
-  <object id="46" name="Chicle" x="897.822" y="507.333">
+  <object id="46" name="Chicle" type="static" x="897.822" y="507.333">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="174.897,0 611.003,0.3333"/>
   </object>
@@ -204,9 +223,14 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="54" name="Chicle" x="1145.15" y="819.5">
+  <object id="54" name="Chicle" type="static" x="1145.15" y="819.5">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="74.5271,0 260.36,0.3333"/>
   </object>
@@ -219,6 +243,17 @@
    <properties>
     <property name="sensor" type="bool" value="true"/>
    </properties>
+  </object>
+  <object id="71" name="Chicle" type="static" x="-12.3086" y="991.75">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
+   </properties>
+   <polyline points="49.3616,0 172.445,0.3333"/>
   </object>
  </objectgroup>
  <objectgroup id="6" name="Capa de Objetos 5">

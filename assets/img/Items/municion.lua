@@ -4,7 +4,7 @@ municion.img = love.graphics.newImage("assets/img/Items/Municion.png")
 
 municion.quad = {}
 
-municion.quad[1] = love.graphics.newQuad(0,0,233,206,municion.img:getDimensions())
+municion.quad["municion_1"] = love.graphics.newQuad(0,0,233,206,municion.img:getDimensions())
 
 municion.viewport = {}
 

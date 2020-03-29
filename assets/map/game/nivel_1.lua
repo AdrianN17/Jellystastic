@@ -8,8 +8,8 @@ return {
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 11,
-  nextobjectid = 162,
+  nextlayerid = 12,
+  nextobjectid = 181,
   properties = {},
   tilesets = {},
   layers = {
@@ -22,7 +22,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 1,
@@ -35,7 +37,12 @@ return {
           height = 257.333,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "suelo",
+            ["img"] = "1",
+            ["uv"] = 2
+          }
         },
         {
           id = 2,
@@ -48,7 +55,12 @@ return {
           height = 461.333,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "suelo",
+            ["img"] = "1",
+            ["uv"] = 2
+          }
         }
       }
     },
@@ -61,7 +73,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 3,
@@ -74,7 +88,11 @@ return {
           height = 291.847,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 6,
@@ -87,7 +105,11 @@ return {
           height = 461.191,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 7,
@@ -100,7 +122,11 @@ return {
           height = 291.847,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 12,
@@ -113,7 +139,11 @@ return {
           height = 457.191,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 14,
@@ -144,7 +174,14 @@ return {
             { x = 138.614, y = -127.378 },
             { x = 138.667, y = 0.0703125 }
           },
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["heightArreglo"] = 1.5,
+            ["img"] = "1",
+            ["tipoCalculoDimensiones"] = "triangular",
+            ["widthArreglo"] = 1.5
+          }
         },
         {
           id = 17,
@@ -157,7 +194,11 @@ return {
           height = 244,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 18,
@@ -170,7 +211,11 @@ return {
           height = 337.667,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 19,
@@ -183,7 +228,11 @@ return {
           height = 127,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
+          }
         },
         {
           id = 20,
@@ -201,7 +250,14 @@ return {
             { x = 139.948, y = -127.378 },
             { x = 140.001, y = 0.0703125 }
           },
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["heightArreglo"] = 1.5,
+            ["img"] = "1",
+            ["tipoCalculoDimensiones"] = "triangular",
+            ["widthArreglo"] = 1.5
+          }
         }
       }
     },
@@ -214,7 +270,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 29,
@@ -228,7 +286,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 1,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -244,7 +305,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 2,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -260,7 +324,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 3,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -276,7 +343,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 4,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -292,7 +362,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 6,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -308,7 +381,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 7,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -324,7 +400,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 8,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         },
@@ -340,7 +419,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "objetoFisico",
             ["id"] = 5,
+            ["img"] = "objetos",
+            ["quad"] = "puerta",
             ["sensor"] = true
           }
         }
@@ -355,7 +437,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 147,
@@ -372,8 +456,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -391,8 +474,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -410,8 +492,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -429,8 +510,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -454,8 +534,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tabla"] = "objetosMapa",
-            ["tipoCalculoDimensiones"] = "rectangulo_1"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -479,8 +558,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tabla"] = "objetosMapa",
-            ["tipoCalculoDimensiones"] = "rectangulo_1"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -504,8 +582,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tabla"] = "objetosMapa",
-            ["tipoCalculoDimensiones"] = "rectangulo_1"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -529,8 +606,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tabla"] = "objetosMapa",
-            ["tipoCalculoDimensiones"] = "rectangulo_1"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -554,8 +630,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tabla"] = "objetosMapa",
-            ["tipoCalculoDimensiones"] = "rectangulo_1"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         }
       }
@@ -569,7 +644,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 155,
@@ -585,8 +662,7 @@ return {
           properties = {
             ["clase"] = "objeto",
             ["img"] = "arbol",
-            ["quad"] = "arbol_1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "1"
           }
         }
       }
@@ -600,7 +676,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 45,
@@ -614,7 +692,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -629,7 +709,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -644,7 +726,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -659,7 +743,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -674,7 +760,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -689,7 +777,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -704,7 +794,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -719,7 +811,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -734,7 +828,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -749,7 +845,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -764,7 +862,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -779,7 +879,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -794,7 +896,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -809,7 +913,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         },
         {
@@ -824,7 +930,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "ventanas",
+            ["quad"] = "1"
           }
         }
       }
@@ -838,7 +946,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 61,
@@ -851,7 +961,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 62,
@@ -864,7 +978,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 63,
@@ -877,7 +995,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 64,
@@ -890,7 +1012,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 65,
@@ -903,7 +1029,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 66,
@@ -916,7 +1046,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 67,
@@ -929,7 +1063,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 68,
@@ -942,7 +1080,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 69,
@@ -955,7 +1097,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 70,
@@ -968,7 +1114,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 71,
@@ -981,7 +1131,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 72,
@@ -994,7 +1148,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 73,
@@ -1007,7 +1165,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 74,
@@ -1020,7 +1182,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 75,
@@ -1033,7 +1199,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 76,
@@ -1046,7 +1216,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 77,
@@ -1059,7 +1233,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 78,
@@ -1072,7 +1250,11 @@ return {
           height = 29,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "dulce_ladrillo_1"
+          }
         },
         {
           id = 84,
@@ -1086,7 +1268,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "luz"
           }
         },
         {
@@ -1101,7 +1285,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "luz"
           }
         },
         {
@@ -1116,7 +1302,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "luz"
           }
         },
         {
@@ -1131,7 +1319,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "luz"
           }
         },
         {
@@ -1146,7 +1336,69 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "objeto",
+            ["img"] = "adornos",
+            ["quad"] = "luz"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 11,
+      name = "Capa de Objetos 10",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "enemigos"
+      },
+      objects = {
+        {
+          id = 175,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 652.653,
+          y = 1252.98,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["hp"] = 12
+          }
+        },
+        {
+          id = 176,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1540.65,
+          y = 1049.31,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["hp"] = 12
+          }
+        },
+        {
+          id = 177,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1745.98,
+          y = 1047.98,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["hp"] = 12
           }
         }
       }
@@ -1160,7 +1412,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "jugadores"
+      },
       objects = {
         {
           id = 79,
@@ -1174,52 +1428,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "player",
             ["hp"] = 25
-          }
-        },
-        {
-          id = 80,
-          name = "Baba",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 381,
-          y = 1254,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["hp"] = 12
-          }
-        },
-        {
-          id = 81,
-          name = "Baba",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 1269,
-          y = 1050.33,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["hp"] = 12
-          }
-        },
-        {
-          id = 82,
-          name = "Baba",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 1474.33,
-          y = 1049,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["hp"] = 12
           }
         }
       }
@@ -1233,7 +1443,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "objetosMapa"
+      },
       objects = {
         {
           id = 89,
@@ -1249,8 +1461,7 @@ return {
           properties = {
             ["clase"] = "objeto",
             ["img"] = "sundae",
-            ["quad"] = "sundae_1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "1"
           }
         },
         {
@@ -1267,8 +1478,7 @@ return {
           properties = {
             ["clase"] = "objeto",
             ["img"] = "sundae",
-            ["quad"] = "sundae_1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "1"
           }
         },
         {
@@ -1285,8 +1495,7 @@ return {
           properties = {
             ["clase"] = "objeto",
             ["img"] = "sundae",
-            ["quad"] = "sundae_1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "1"
           }
         },
         {
@@ -1303,26 +1512,7 @@ return {
           properties = {
             ["clase"] = "objeto",
             ["img"] = "sundae",
-            ["quad"] = "sundae_1",
-            ["tabla"] = "objetosMapa"
-          }
-        },
-        {
-          id = 161,
-          name = "Helado",
-          type = "none",
-          shape = "rectangle",
-          x = 13.6665,
-          y = 10.6665,
-          width = 234.667,
-          height = 132.667,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clase"] = "objeto",
-            ["img"] = "sundae",
-            ["quad"] = "sundae_1",
-            ["tabla"] = "objetosMapa"
+            ["quad"] = "1"
           }
         }
       }

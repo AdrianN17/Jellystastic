@@ -14,7 +14,7 @@ accesorios.scale[2] = {x = 0.2,y=0.2}
 
 accesorios.viewport = {}
 
-for i,quad in ipairs(accesorios.quad) do
+for i,quad in pairs(accesorios.quad) do
   local _,_,w,h = quad:getViewport()
   accesorios.viewport[i] = {w=w,h=h}
 end

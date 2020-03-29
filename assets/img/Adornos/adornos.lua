@@ -17,7 +17,7 @@ adornos.quad["suelo_2"] = love.graphics.newQuad(0,3108,500,500,adornos.img:getDi
 
 adornos.viewport = {}
 
-for i,quad in ipairs(adornos.quad) do
+for i,quad in pairs(adornos.quad) do
   local _,_,w,h = quad:getViewport()
   adornos.viewport[i] = {w=w,h=h}
 end

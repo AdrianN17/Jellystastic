@@ -4,7 +4,7 @@ arbol.img = love.graphics.newImage("assets/img/Objetos/arbol_spritesheet.png")
 
 arbol.quad = {}
 
-arbol.quad["arbol_1"] = love.graphics.newQuad(31,17,254,400,arbol.img:getDimensions())
+arbol.quad[1] = love.graphics.newQuad(31,17,254,400,arbol.img:getDimensions())
 
 
 arbol.viewport = {}

@@ -22,7 +22,7 @@ balas.scale[6] = {x = 0.35,y=0.35}
 
 balas.viewport = {}
 
-for i,quad in ipairs(balas.quad) do
+for i,quad in pairs(balas.quad) do
   local _,_,w,h = quad:getViewport()
   balas.viewport[i] = {w=w,h=h}
 end

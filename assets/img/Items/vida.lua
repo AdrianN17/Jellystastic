@@ -8,7 +8,7 @@ vida.quad[2] = love.graphics.newQuad(416,37,183,152,vida.img:getDimensions())
 
 vida.viewport = {}
 
-for i,quad in ipairs(vida.quad) do
+for i,quad in pairs(vida.quad) do
   local _,_,w,h = quad:getViewport()
   vida.viewport[i] = {w=w,h=h}
 end

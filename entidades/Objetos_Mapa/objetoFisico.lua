@@ -1,34 +1,17 @@
-local objetoFisico = Class{}
+local objeto = require "entidades.Objetos_Mapa.objeto"
+
+local objetoFisico = Class{
+  __includes = {objeto}
+}
 
 function objetoFisico:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   self.body = body
   self.shape = shape
   self.fixture = fixture
   
-  self.ox,self.oy = ox,oy
   
-  self.spritesheet = Index_img[properties.img]
-  self.dimension = self.spritesheet.viewport[properties.quad]
-  self.img = self.spritesheet.img
-  self.quad = self.spritesheet.quad[properties.quad]
+  objeto.init(self,entidad,ox,oy,radio,shapeTableClear,properties,width,height)
   
-  self.direccion_x = properties.direccion_x
-  self.direccion_y = properties.direccion_y
-  
-  local wi,hi =width,height
-  
-  self.wi,self.hi = wi/self.dimension.w,hi/self.dimension.h 
-  
-  self.radio = radio
-
-  entidad:add(properties.tabla,self)
-  
-end
-
-function objetoFisico:draw()
-  love.graphics.draw(self.img,self.quad,self.ox,self.oy,self.radio,self.wi*(self.direccion_x or 1),self.hi*(self.direccion_y or 1),self.dimension.w/2,self.dimension.h/2)
-  
-  love.graphics.circle("fill",self.ox,self.oy,6)
 end
 
 return objetoFisico

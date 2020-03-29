@@ -48,57 +48,14 @@ end
 function mundoGenerico:draw()
   
   local cx,cy,cw,ch=self.cam:getViewport()
+  
+  self.map:draw(-cx,-cy,self.scale,self.scale)
+  
+  self.cam:attach()
 
-  for _,objData in pairs(self.gameobject.objetosMapa) do
-    objData:draw()
-  end
+  self:drawBox2d()
   
-  --self.cam:attach()
-
-  --self.map:draw(-cx,-cy,self.scale,self.scale)
-  
-  --[[for _, object in ipairs(self.map.layers[1].objects) do
-
-    if object.rectangle then
-      local t = {}
-      local ox,oy=0,0
-      for i=1,#object.rectangle,1 do
-        table.insert(t,object.rectangle[i].x)
-        table.insert(t,object.rectangle[i].y)
-        
-        ox = ox +object.rectangle[i].x
-        oy = oy + object.rectangle[i].y
-        
-      end
-      
-      ox , oy = ox/#object.rectangle, oy/#object.rectangle
-      
-      
-      
-      love.graphics.polygon("line",t)
-      love.graphics.circle("fill",ox,oy,5)
-    end
-  end]]
-  
-
-  
-  for _, body in pairs(self.world:getBodies()) do
-    for _, fixture in pairs(body:getFixtures()) do
-        local shape = fixture:getShape()
- 
-        if shape:typeOf("CircleShape") then
-            local cx, cy = body:getWorldPoints(shape:getPoint())
-            love.graphics.circle("line", cx, cy, shape:getRadius())
-        elseif shape:typeOf("PolygonShape") then
-            love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
-        else
-            love.graphics.line(body:getWorldPoints(shape:getPoints()))
-        end
-    end
-  end
-  
-  
-  --self.cam:detach()
+  self.cam:detach()
 end
 
 function mundoGenerico:keypressed(key)

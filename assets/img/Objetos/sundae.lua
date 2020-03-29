@@ -4,10 +4,10 @@ sundae.img = love.graphics.newImage("assets/img/Objetos/sundae_spritesheet.png")
 
 sundae.quad = {}
 
-sundae.quad["sundae_1"] = love.graphics.newQuad(21,23,244,338,sundae.img:getDimensions())
-sundae.quad["sundae_2"] = love.graphics.newQuad(21,410,244,338,sundae.img:getDimensions())
-sundae.quad["sundae_3"] = love.graphics.newQuad(21,797,244,338,sundae.img:getDimensions())
-sundae.quad["sundae_4"] = love.graphics.newQuad(21,1184,244,338,sundae.img:getDimensions())
+sundae.quad[1] = love.graphics.newQuad(21,23,244,338,sundae.img:getDimensions())
+sundae.quad[2] = love.graphics.newQuad(21,410,244,338,sundae.img:getDimensions())
+sundae.quad[3] = love.graphics.newQuad(21,797,244,338,sundae.img:getDimensions())
+sundae.quad[4] = love.graphics.newQuad(21,1184,244,338,sundae.img:getDimensions())
 
 sundae.viewport = {}
 

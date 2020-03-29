@@ -1,5 +1,10 @@
 local texturas = {}
 
+texturas.suelo = {}
+
+texturas.suelo[1] = love.graphics.newImage("assets/img/Texturas/suelo3.png")
+texturas.suelo[1]:setWrap("repeat")
+
 texturas.casa = {}
 
 texturas.casa[1] = love.graphics.newImage("assets/img/Texturas/wafer.png")

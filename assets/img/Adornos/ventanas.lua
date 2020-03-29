@@ -10,7 +10,7 @@ ventanas.quad[4] = love.graphics.newQuad(0,1065,500,340 ,ventanas.img:getDimensi
 
 ventanas.viewport = {}
 
-for i,quad in ipairs(ventanas.quad) do
+for i,quad in pairs(ventanas.quad) do
   local _,_,w,h = quad:getViewport()
   ventanas.viewport[i] = {w=w,h=h}
 end
