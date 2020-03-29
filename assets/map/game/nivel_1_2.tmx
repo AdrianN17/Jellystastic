@@ -21,15 +21,41 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="Capa de Objetos 2">
-  <object id="3" name="Casa" x="35.5" y="662.5" width="342.818" height="717"/>
-  <object id="4" name="Casa" x="203.5" y="475.5" width="174.727" height="187"/>
+  <object id="3" name="Casa" x="35.5" y="662.5" width="342.818" height="717">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="4" name="Casa" x="203.5" y="475.5" width="174.727" height="187">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="5" name="Casa" x="36.5" y="663.125">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
    <polygon points="0,0 167.25,-187.875 166.75,-0.250834"/>
   </object>
-  <object id="15" name="Casa" x="448.955" y="663.833" width="352.454" height="365"/>
-  <object id="19" name="Casa" x="875.591" y="506.5" width="788.818" height="521"/>
-  <object id="20" name="Casa" x="1333.64" y="319.5" width="174.727" height="187"/>
+  <object id="15" name="Casa" x="448.955" y="663.833" width="352.454" height="365">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="19" name="Casa" x="875.591" y="506.5" width="788.818" height="521">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="20" name="Casa" x="1333.64" y="319.5" width="174.727" height="187">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="21" name="Casa" x="1061.64" y="507.125">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
    <polygon points="0,0 272.25,-187.875 271.436,-0.250834"/>
   </object>
   <object id="34" name="Chicle" x="-8" y="994.667">
@@ -231,7 +257,11 @@
   <object id="67" name="Baba" x="1234" y="551" width="70" height="90"/>
  </objectgroup>
  <objectgroup id="7" name="Capa de Objetos 6">
-  <object id="42" name="Caja" x="37.75" y="775.25" width="33.5" height="37.5"/>
+  <object id="42" name="Caja" x="37.75" y="775.25" width="33.5" height="37.5">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="8" name="Capa de Objetos 7">
   <object id="57" name="Arma" x="879" y="776.5" width="68" height="41">
@@ -275,6 +305,10 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="Capa de Objetos 10">
-  <object id="64" name="Helado" x="449.917" y="511.917" width="352.167" height="156.667"/>
+  <object id="64" name="Helado" x="449.917" y="511.917" width="352.167" height="156.667">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -41,11 +41,15 @@ return {
 
 			if userdata.properties.dynamic == true then
 				currentBody = love.physics.newBody(world, map.offsetx, map.offsety, 'dynamic')
+			elseif userdata.properties.static == true then
+				currentBody = love.physics.newBody(world, map.offsetx, map.offsety, 'static')
+			elseif userdata.properties.kinematic == true then
+				currentBody = love.physics.newBody(world, map.offsetx, map.offsety, 'dynamic')
 			end
 
 			local fixture = love.physics.newFixture(currentBody, shape)
 			fixture:setUserData(userdata)
-
+      
 			-- Set some custom properties from userdata (or use default set by box2d)
 			fixture:setFriction(userdata.properties.friction       or 0.2)
 			fixture:setRestitution(userdata.properties.restitution or 0.0)
@@ -88,7 +92,8 @@ return {
 
 			local userdata = {
 				object     = o,
-				properties = object.properties
+				properties = object.properties,
+        name = object.name
 			}
 
 			if o.shape == "rectangle" then

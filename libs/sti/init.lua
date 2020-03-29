@@ -905,7 +905,9 @@ function Map:drawObjectLayer(layer)
 
 	local function drawShape(obj, shape)
 		local vertex = sortVertices(obj)
-
+    
+    
+    
 		if shape == "polyline" then
 			lg.setColor(line)
 			lg.line(vertex)
@@ -922,6 +924,7 @@ function Map:drawObjectLayer(layer)
 			end
 		else
 			lg.setColor(fill)
+      
 			lg.polygon("fill", vertex)
 		end
 
@@ -936,6 +939,7 @@ function Map:drawObjectLayer(layer)
 			drawShape(object.ellipse, "ellipse")
 		elseif object.shape == "polygon" then
 			drawShape(object.polygon, "polygon")
+      
 		elseif object.shape == "polyline" then
 			drawShape(object.polyline, "polyline")
 		elseif object.shape == "point" then

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 10,
-  nextobjectid = 44,
+  nextobjectid = 48,
   properties = {},
   tilesets = {},
   layers = {
@@ -257,21 +257,6 @@ return {
           }
         },
         {
-          id = 19,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 820.333,
-          y = 477.667,
-          width = 346,
-          height = 50,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
-        {
           id = 20,
           name = "Puerta",
           type = "",
@@ -474,6 +459,66 @@ return {
             { x = 36.6285, y = 0 },
             { x = 127.962, y = 0.3333 }
           },
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 44,
+          name = "Caramelo",
+          type = "",
+          shape = "rectangle",
+          x = 800.091,
+          y = 495.562,
+          width = 191.895,
+          height = 47.2827,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 45,
+          name = "Caramelo",
+          type = "",
+          shape = "rectangle",
+          x = 992.013,
+          y = 497.098,
+          width = 191.897,
+          height = 45.8054,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 46,
+          name = "Caramelo",
+          type = "",
+          shape = "rectangle",
+          x = 1126.21,
+          y = 453.312,
+          width = 57.613,
+          height = 44.3177,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        },
+        {
+          id = 47,
+          name = "Caramelo",
+          type = "",
+          shape = "rectangle",
+          x = 800.472,
+          y = 451.096,
+          width = 57.613,
+          height = 44.3177,
+          rotation = 0,
+          visible = true,
           properties = {
             ["collidable"] = true
           }

@@ -93,7 +93,9 @@ return {
           height = 717,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 4,
@@ -106,7 +108,9 @@ return {
           height = 187,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 5,
@@ -124,7 +128,9 @@ return {
             { x = 167.25, y = -187.875 },
             { x = 166.75, y = -0.250834 }
           },
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 15,
@@ -137,7 +143,9 @@ return {
           height = 365,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 19,
@@ -150,7 +158,9 @@ return {
           height = 521,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 20,
@@ -163,7 +173,9 @@ return {
           height = 187,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 21,
@@ -181,7 +193,9 @@ return {
             { x = 272.25, y = -187.875 },
             { x = 271.436, y = -0.250834 }
           },
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         },
         {
           id = 34,
@@ -373,7 +387,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -388,7 +402,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -403,7 +417,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -418,7 +432,7 @@ return {
           rotation = -34.4361,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -433,7 +447,7 @@ return {
           rotation = -47.5854,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -448,7 +462,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -482,7 +496,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -497,7 +511,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -588,7 +602,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -603,7 +617,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -618,7 +632,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -633,7 +647,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -648,7 +662,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -682,7 +696,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         },
         {
@@ -697,7 +711,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["collidable"] = true
           }
         }
       }
@@ -856,7 +870,9 @@ return {
           height = 37.5,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["collidable"] = true
+          }
         }
       }
     },
@@ -1026,7 +1042,9 @@ return {
           height = 156.667,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["sensor"] = true
+          }
         }
       }
     }
