@@ -18,10 +18,10 @@ function objeto:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height
   self.posicion_x = properties.posicion_x
   self.posicion_y = properties.posicion_y
   
-  self.width,self.heigth = width,height
+  self.width,self.height = width,height
   self.widthArreglo,self.heightArreglo = properties.widthArreglo,properties.heightArreglo
   
-  self.wi,self.hi = self.width/self.dimension.w,self.heigth/self.dimension.h 
+  self.wi,self.hi = self.width/self.dimension.w,self.height/self.dimension.h 
   
   self.radio = radio
 

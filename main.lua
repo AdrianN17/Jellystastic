@@ -8,6 +8,7 @@ Sti = require "libs.sti"
 Timer = require "libs.chrono.Timer"
 Switch = require "libs.lua-switch.lua-switch"
 Camera = require "libs.cam11.cam11"
+Gamera = require "libs.gamera.gamera"
 
 require "imgui"
 

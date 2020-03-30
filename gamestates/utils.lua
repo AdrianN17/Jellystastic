@@ -7,8 +7,8 @@ end
 function utils:create_objects(entidades)
 
   local lon = #self.map.layers
-  
-  for index = lon,1,-1 do
+
+  for index = 1,lon,1 do
     
     local layer = self.map.layers[index]
     
@@ -62,7 +62,7 @@ function utils:create_objects(entidades)
         end
       end
     end
-    
+
     self:crearNuevoLayer(index,layerProperties.tabla)
   end
 end

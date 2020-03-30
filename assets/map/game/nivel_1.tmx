@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="181">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="70" height="47" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="181">
  <editorsettings>
   <export target="nivel_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="2" name="Capa de Objetos 1">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="sueloMapa"/>
   </properties>
-  <object id="1" name="Gelatina" type="static" x="0.547286" y="1342.94" width="1060" height="257.333">
+  <object id="1" name="Gelatina" type="static" x="0.547286" y="1342.94" width="1060" height="162">
    <properties>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
@@ -15,7 +15,7 @@
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
-  <object id="2" name="Gelatina" type="static" x="1060.54" y="1139.94" width="773.333" height="461.333">
+  <object id="2" name="Gelatina" type="static" x="1060.54" y="1139.94" width="773.333" height="365.333">
    <properties>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
@@ -26,7 +26,7 @@
  </objectgroup>
  <objectgroup id="3" name="Capa de Objetos 2">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="casaMapa"/>
   </properties>
   <object id="3" name="Casa" type="none" x="1" y="1052.15" width="236" height="291.847">
    <properties>
@@ -39,21 +39,21 @@
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="2"/>
    </properties>
   </object>
   <object id="7" name="Casa" type="none" x="473" y="1051.55" width="236" height="291.847">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="5"/>
    </properties>
   </object>
   <object id="12" name="Casa" type="none" x="826" y="887.405" width="236" height="457.191">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="2"/>
    </properties>
   </object>
   <object id="14" name="Casa" type="none" x="964.667" y="760.304" width="97.3333" height="127"/>
@@ -72,14 +72,14 @@
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="3"/>
    </properties>
   </object>
   <object id="18" name="Casa" type="none" x="1350" y="802.667" width="488.667" height="337.667">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="4"/>
    </properties>
   </object>
   <object id="19" name="Casa" type="none" x="1661.33" y="675.167" width="96" height="127">
@@ -103,7 +103,7 @@
  </objectgroup>
  <objectgroup id="4" name="Capa de Objetos 3">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="puertas"/>
   </properties>
   <object id="29" name="Puerta" type="static" x="83.3333" y="1243.17" width="60" height="100">
    <properties>
@@ -178,91 +178,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="5" name="Capa de Objetos 4">
-  <properties>
-   <property name="tabla" value="objetosMapa"/>
-  </properties>
-  <object id="147" name="Baston" type="static" x="467.082" y="1065.24" width="129.9" height="32.0071">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="direccion_x" type="int" value="1"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="dulce_parte2"/>
-   </properties>
-  </object>
-  <object id="148" name="Baston" type="static" x="596.009" y="1066.73" width="129.901" height="31.0071">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="direccion_x" type="int" value="-1"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="dulce_parte2"/>
-   </properties>
-  </object>
-  <object id="150" name="Baston" type="static" x="466.682" y="1024.59" width="42.5909" height="40">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="direccion_x" type="int" value="1"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="dulce_parte1"/>
-   </properties>
-  </object>
-  <object id="152" name="Baston" type="static" x="683.038" y="1026.33" width="42.5909" height="40">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="direccion_x" type="int" value="-1"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="dulce_parte1"/>
-   </properties>
-  </object>
-  <object id="153" name="Chocolate" type="static" x="-7.333" y="1075">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="chocolate"/>
-    <property name="tipoCalculoDimensiones" value="romboide"/>
-   </properties>
-   <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
-  </object>
-  <object id="156" name="Chocolate" type="static" x="225.333" y="906">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="chocolate"/>
-    <property name="tipoCalculoDimensiones" value="romboide"/>
-   </properties>
-   <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
-  </object>
-  <object id="157" name="Chocolate" type="static" x="811.333" y="912">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="chocolate"/>
-    <property name="tipoCalculoDimensiones" value="romboide"/>
-   </properties>
-   <polygon points="0,0 12.2751,-26.0151 258.682,-26.0151 269.875,-0.199003"/>
-  </object>
-  <object id="158" name="Chocolate" type="static" x="1048" y="916.667">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="chocolate"/>
-    <property name="tipoCalculoDimensiones" value="romboide"/>
-   </properties>
-   <polygon points="0,0 14.4584,-24.6818 304.692,-24.6818 317.875,-0.188804"/>
-  </object>
-  <object id="160" name="Chocolate" type="static" x="1512.58" y="819.727">
-   <properties>
-    <property name="clase" value="objetoFisico"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="chocolate"/>
-    <property name="tipoCalculoDimensiones" value="romboide"/>
-   </properties>
-   <polygon points="0,0 12.5177,-21.3485 263.795,-21.3485 275.208,-0.163305"/>
-  </object>
- </objectgroup>
  <objectgroup id="6" name="Capa de Objetos 5">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="objetosEscenario"/>
   </properties>
   <object id="155" name="Arbol" type="none" x="712.5" y="1212.25" width="111" height="132">
    <properties>
@@ -274,7 +192,7 @@
  </objectgroup>
  <objectgroup id="7" name="Capa de Objetos 6">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="Ventanas"/>
   </properties>
   <object id="45" name="Ventana" type="none" x="15.3333" y="1156" width="60" height="40">
    <properties>
@@ -384,7 +302,7 @@
  </objectgroup>
  <objectgroup id="8" name="Capa de Objetos 7">
   <properties>
-   <property name="tabla" value="objetosMapa"/>
+   <property name="tabla" value="adornosMapa"/>
   </properties>
   <object id="61" name="Dulce" type="none" x="97" y="1105" width="38" height="29">
    <properties>
@@ -512,7 +430,7 @@
     <property name="quad" value="dulce_ladrillo_1"/>
    </properties>
   </object>
-  <object id="84" name="Reflejo" type="none" x="257.667" y="1459.5" width="66" height="49">
+  <object id="84" name="Reflejo" type="none" x="262.334" y="1423.5" width="66" height="49">
    <properties>
     <property name="clase" value="objeto"/>
     <property name="img" value="adornos"/>
@@ -548,6 +466,131 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup id="10" name="Capa de Objetos 9">
+  <properties>
+   <property name="tabla" value="helados"/>
+  </properties>
+  <object id="89" name="Helado" type="none" x="2.66667" y="934.333" width="234.667" height="132.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="1"/>
+   </properties>
+  </object>
+  <object id="90" name="Helado" type="none" x="237" y="764.333" width="234.667" height="132.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="2"/>
+   </properties>
+  </object>
+  <object id="91" name="Helado" type="none" x="477.333" y="947.667" width="234.667" height="132.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="3"/>
+   </properties>
+  </object>
+  <object id="92" name="Helado" type="none" x="1062.67" y="757.666" width="288" height="140.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Capa de Objetos 4">
+  <properties>
+   <property name="tabla" value="Plataformas"/>
+  </properties>
+  <object id="147" name="Baston" type="static" x="467.082" y="1065.24" width="129.9" height="32.0071">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte2"/>
+   </properties>
+  </object>
+  <object id="148" name="Baston" type="static" x="596.009" y="1066.73" width="129.901" height="31.0071">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="-1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte2"/>
+   </properties>
+  </object>
+  <object id="150" name="Baston" type="static" x="466.682" y="1024.59" width="42.5909" height="40">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte1"/>
+   </properties>
+  </object>
+  <object id="152" name="Baston" type="static" x="683.038" y="1026.33" width="42.5909" height="40">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="-1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte1"/>
+   </properties>
+  </object>
+  <object id="153" name="Chocolate" type="static" x="-7.333" y="1075">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+   </properties>
+   <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
+  </object>
+  <object id="156" name="Chocolate" type="static" x="225.333" y="906">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+   </properties>
+   <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
+  </object>
+  <object id="157" name="Chocolate" type="static" x="811.333" y="912">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+   </properties>
+   <polygon points="0,0 12.2751,-26.0151 258.682,-26.0151 269.875,-0.199003"/>
+  </object>
+  <object id="158" name="Chocolate" type="static" x="1048" y="916.667">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+   </properties>
+   <polygon points="0,0 14.4584,-24.6818 304.692,-24.6818 317.875,-0.188804"/>
+  </object>
+  <object id="160" name="Chocolate" type="static" x="1512.58" y="819.727">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+   </properties>
+   <polygon points="0,0 12.5177,-21.3485 263.795,-21.3485 275.208,-0.163305"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="13" name="Capa de Objetos 12">
+  <properties>
+   <property name="tabla" value="items"/>
+  </properties>
+ </objectgroup>
+ <objectgroup id="12" name="Capa de Objetos 11">
+  <properties>
+   <property name="tabla" value="balas"/>
+  </properties>
+ </objectgroup>
  <objectgroup id="11" name="Capa de Objetos 10">
   <properties>
    <property name="tabla" value="enemigos"/>
@@ -576,39 +619,10 @@
    <properties>
     <property name="clase" value="player"/>
     <property name="hp" type="int" value="25"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup id="10" name="Capa de Objetos 9">
-  <properties>
-   <property name="tabla" value="objetosMapa"/>
-  </properties>
-  <object id="89" name="Helado" type="none" x="2.66667" y="934.333" width="234.667" height="132.667">
-   <properties>
-    <property name="clase" value="objeto"/>
-    <property name="img" value="sundae"/>
-    <property name="quad" value="1"/>
-   </properties>
-  </object>
-  <object id="90" name="Helado" type="none" x="237" y="764.333" width="234.667" height="132.667">
-   <properties>
-    <property name="clase" value="objeto"/>
-    <property name="img" value="sundae"/>
-    <property name="quad" value="1"/>
-   </properties>
-  </object>
-  <object id="91" name="Helado" type="none" x="477.333" y="947.667" width="234.667" height="132.667">
-   <properties>
-    <property name="clase" value="objeto"/>
-    <property name="img" value="sundae"/>
-    <property name="quad" value="1"/>
-   </properties>
-  </object>
-  <object id="92" name="Helado" type="none" x="1062.67" y="757.666" width="288" height="140.667">
-   <properties>
-    <property name="clase" value="objeto"/>
-    <property name="img" value="sundae"/>
-    <property name="quad" value="1"/>
+    <property name="img" value="jugador"/>
+    <property name="imgAccesorio" value="accesorios"/>
+    <property name="salto" type="int" value="30"/>
+    <property name="velocidad" type="int" value="175"/>
    </properties>
   </object>
  </objectgroup>
