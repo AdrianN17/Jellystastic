@@ -12,6 +12,7 @@
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
+    <property name="userdataNombre" value="piso"/>
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
@@ -20,6 +21,7 @@
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
+    <property name="userdataNombre" value="piso"/>
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
@@ -56,13 +58,19 @@
     <property name="img" value="2"/>
    </properties>
   </object>
-  <object id="14" name="Casa" type="none" x="964.667" y="760.304" width="97.3333" height="127"/>
+  <object id="14" name="Casa" type="none" x="964.667" y="760.304" width="97.3333" height="127">
+   <properties>
+    <property name="clase" value="textura"/>
+    <property name="grupo" value="casa"/>
+    <property name="img" value="2"/>
+   </properties>
+  </object>
   <object id="15" name="Casa" type="none" x="825.999" y="887.333">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
     <property name="heightArreglo" type="float" value="1.5"/>
-    <property name="img" value="1"/>
+    <property name="img" value="2"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
     <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
@@ -86,7 +94,7 @@
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
-    <property name="img" value="1"/>
+    <property name="img" value="4"/>
    </properties>
   </object>
   <object id="20" name="Casa" type="none" x="1521.33" y="802.197">
@@ -94,7 +102,7 @@
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
     <property name="heightArreglo" type="float" value="1.5"/>
-    <property name="img" value="1"/>
+    <property name="img" value="4"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
     <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
@@ -509,6 +517,7 @@
     <property name="direccion_x" type="int" value="1"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="dulce_parte2"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
   <object id="148" name="Baston" type="static" x="596.009" y="1066.73" width="129.901" height="31.0071">
@@ -517,6 +526,7 @@
     <property name="direccion_x" type="int" value="-1"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="dulce_parte2"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
   <object id="150" name="Baston" type="static" x="466.682" y="1024.59" width="42.5909" height="40">
@@ -525,6 +535,7 @@
     <property name="direccion_x" type="int" value="1"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="dulce_parte1"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
   <object id="152" name="Baston" type="static" x="683.038" y="1026.33" width="42.5909" height="40">
@@ -533,6 +544,7 @@
     <property name="direccion_x" type="int" value="-1"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="dulce_parte1"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
   <object id="153" name="Chocolate" type="static" x="-7.333" y="1075">
@@ -541,6 +553,7 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
   </object>
@@ -550,6 +563,7 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 11.608,-32.6818 244.624,-32.6818 255.208,-0.25"/>
   </object>
@@ -559,6 +573,7 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.2751,-26.0151 258.682,-26.0151 269.875,-0.199003"/>
   </object>
@@ -568,6 +583,7 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 14.4584,-24.6818 304.692,-24.6818 317.875,-0.188804"/>
   </object>
@@ -577,6 +593,7 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.5177,-21.3485 263.795,-21.3485 275.208,-0.163305"/>
   </object>

@@ -1,6 +1,9 @@
 local Timer = require "libs.chrono.Timer"
+local tipoBala = require "entidades.Balas.tipoBala"
 
-local player = Class{}
+local player = Class{
+  __includes = {tipoBala}
+}
 
 function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   self.body = body
@@ -48,9 +51,61 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.direccion = 1
   
   self:masa()
+  
+  self.ground = true
+  
+  self.timer = Timer()
+  
+  self.timer:every(0.25, function()
+    if self.acciones.moviendo and not self.acciones.saltando then
+      
+      self.iterador = self.iterador +1
+      
+      if self.iterador>3 then
+        self.iterador=1
+      end
+      
+    elseif self.acciones.saltando then
+      self.iterador=4
+    else
+      self.iterador=1
+    end
+  end)
+
+  self.timer:every(0.1, function()
+    local contacts = self.body:getContacts()
+    
+    for _,contact in ipairs(contacts) do
+      
+      
+      if self.entidad:getUserData(contact,"piso") then
+        local x,y = contact:getNormal()
+        
+        if y<0 then
+          self.ground = true
+          
+          self.acciones.saltando=false
+        end
+      end
+      
+    end
+  end)
+
+  tipoBala.init(self)
+
+  self.armaIndex = properties.armaIndex or 1
+  
+  
+  self.cooldownTimer = nil
+  self.cooldownArma = false
+  
+
 end
 
 function player:update(dt)
+  
+  self.timer:update(dt)
+  
   self.acciones.moviendo = false
   
   local x=0
@@ -80,20 +135,26 @@ function player:update(dt)
 end
 
 function player:draw()
-  local dimension = self.dimension[self.iterador][self.iteradorEstado]
+  local dimension = self.dimension[1][1]
+
   local wi,hi = self.width/dimension.w,self.height/dimension.h 
   
   love.graphics.setShader(self.shaderPlayer)
-    love.graphics.draw(self.img,self.quad[self.iterador][self.iteradorEstado],self.ox,self.oy,self.radio,wi,hi,dimension.w/2,dimension.h/2)
+    love.graphics.draw(self.img,self.quad[self.iteradorEstado][self.iterador],self.ox,self.oy,self.radio,wi,hi,dimension.w/2,dimension.h/2)
   love.graphics.setShader()
   
   if self.idAccesorio>0 then
     local dimensionAccesorio = self.dimensionAccesorio[self.idAccesorio]
     local scaleAccesorio = self.scaleAccesorio[self.idAccesorio]
     
-    local y = hi*dimension.h/2.2
-    love.graphics.draw(self.imgAccesorio,self.quadAccesorio[self.idAccesorio],self.ox,self.oy-y,self.radio,scaleAccesorio.x*self.direccion,scaleAccesorio.y,dimensionAccesorio.w/2,dimensionAccesorio.h/2)
+    local ox,oy = math.getPointAngle(self.ox,self.oy,self.radio,35,-90)
+    love.graphics.draw(self.imgAccesorio,self.quadAccesorio[self.idAccesorio],ox,oy,self.radio,scaleAccesorio.x*self.direccion,scaleAccesorio.y,dimensionAccesorio.w/2,dimensionAccesorio.h/2)
   end
+  
+  self:drawArma()
+  
+  
+  
 end
 
 function player:keypressed(key)
@@ -105,6 +166,10 @@ function player:keypressed(key)
   if key == _G.teclas.right then
     self.movimiento.d = true
     self.direccion=1
+  end
+  
+  if key == _G.teclas.up and self.ground and not self.acciones.saltando then
+    self:saltar()
   end
 end
 
@@ -119,11 +184,29 @@ function player:keyreleased(key)
 end
 
 function player:mousepressed(x,y,button)
-  
+  if button == 1 and not self.cooldownArma then
+    self:dispararArma()
+  elseif button == 2 and not self.cooldownArma then
+    self:recargarArma()
+  end
 end
 
 function player:mousereleased(x,y,button)
-  
+  if button == 1 and not self.cooldownArma and self.armaIndex>0 then
+    local arma = self.armasValues[self.armaIndex]
+    
+    self:terminarDisparoArma()
+    
+    if arma.stock>0 then
+      
+      self.cooldown = true
+      
+      self.cooldownTimer = self.timer:after(arma.tiempo, function()
+        self.cooldown = false
+        self.cooldownTimer=nil
+      end)
+    end
+  end
 end
 
 function player:setPlayerValues(tabla)
@@ -134,11 +217,30 @@ function player:setPlayerValues(tabla)
 end
 
 function player:masa()
-  
+  self.body:setLinearDamping( 1 )
   self.body:resetMassData ()
+  self.body: setFixedRotation (true)
   self.body:setMass(20)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
+end
+
+function player:saltar()
+  self.body:applyLinearImpulse( 0, -self.salto*self.mass )
+    
+    self.acciones.saltando=true
+    self.ground = false
+    
+    self.timer:after(0.1,function()
+      if not self.acciones.saltando then
+        self.acciones.saltando=true
+        self.ground = false
+      end
+    end)
+    
+    self.timer:after(0.5,function()
+      self.raycast_ground=true
+    end)
 end
 
 

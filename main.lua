@@ -133,3 +133,12 @@ function poly2mesh(points,uv_scale)
   mesh:setVertexMap(vnums)
   return mesh
 end
+
+function math.getPointAngle(cx,cy,cr,distancia,radio)
+  local r = math.rad(radio)+cr
+
+  local ox = cx + math.cos(r) * distancia
+  local oy = cy + math.sin(r) * distancia
+  
+  return ox,oy
+end

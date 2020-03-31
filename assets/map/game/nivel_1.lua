@@ -41,6 +41,7 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
+            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         },
@@ -59,6 +60,7 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
+            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         }
@@ -156,7 +158,11 @@ return {
           height = 127,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "2"
+          }
         },
         {
           id = 15,
@@ -178,7 +184,7 @@ return {
             ["clase"] = "textura",
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
-            ["img"] = "1",
+            ["img"] = "2",
             ["tipoCalculoDimensiones"] = "triangular",
             ["widthArreglo"] = 1.5
           }
@@ -231,7 +237,7 @@ return {
           properties = {
             ["clase"] = "textura",
             ["grupo"] = "casa",
-            ["img"] = "1"
+            ["img"] = "4"
           }
         },
         {
@@ -254,7 +260,7 @@ return {
             ["clase"] = "textura",
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
-            ["img"] = "1",
+            ["img"] = "4",
             ["tipoCalculoDimensiones"] = "triangular",
             ["widthArreglo"] = 1.5
           }
@@ -1247,7 +1253,8 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2"
+            ["quad"] = "dulce_parte2",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1265,7 +1272,8 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2"
+            ["quad"] = "dulce_parte2",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1283,7 +1291,8 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1"
+            ["quad"] = "dulce_parte1",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1301,7 +1310,8 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1"
+            ["quad"] = "dulce_parte1",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1325,7 +1335,8 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide"
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1349,7 +1360,8 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide"
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1373,7 +1385,8 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide"
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1397,7 +1410,8 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide"
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
           }
         },
         {
@@ -1421,7 +1435,8 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide"
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
           }
         }
       }

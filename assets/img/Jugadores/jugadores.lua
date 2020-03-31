@@ -46,16 +46,19 @@ jugadores.quad[6][3] = love.graphics.newQuad(839,1699,233,97,jugadores.img:getDi
 
 jugadores.viewport = {}
 
-for i,quad_list in ipairs(jugadores.quad) do
-  for j, quad in ipairs(quad_list) do
+for i,quad_list in pairs(jugadores.quad) do
+  
+  for j, quad in pairs(quad_list) do
     
     if jugadores.viewport[i] == nil then
       jugadores.viewport[i] = {}
     end
     
     local _,_,w,h = quad:getViewport()
+    
     jugadores.viewport[i][j] = {w=w,h=h}
   end
 end
+
 
 return jugadores

@@ -57,8 +57,13 @@ function utils:create_objects(entidades)
             fixture:setSensor(true)
           end
           
-          entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
-      
+          local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
+          
+          if properties.userdataNombre then
+            
+            fixture:setUserData({obj = obj, nombre = properties.userdataNombre})
+          end
+          
         end
       end
     end
@@ -139,6 +144,18 @@ function utils:drawBox2d()
             love.graphics.line(body:getWorldPoints(shape:getPoints()))
         end
     end
+  end
+end
+
+function utils:getUserData(contact,nombre)
+  local a,b = contact:getFixtures()
+  local u1 = a:getUserData()
+  local u2 = b:getUserData()
+  
+  if u1 and u1.nombre == nombre then
+    return u1
+  elseif u2 and u2.nombre == nombre then
+    return u2
   end
 end
 
