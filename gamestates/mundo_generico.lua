@@ -65,8 +65,6 @@ function mundoGenerico:draw()
   self.map:draw(-cx,-cy,self.scale,self.scale)
   
   --self.cam:attach()
-
-  self:drawBox2d()
   
   self.cam:draw(function(l,t,w,h)
     self:drawBox2d()

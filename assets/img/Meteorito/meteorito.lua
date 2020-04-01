@@ -4,7 +4,7 @@ meteorito.img = love.graphics.newImage("assets/img/Meteorito/meteorito_spriteshe
 
 meteorito.quad = {}
 
-meteorito.quad["fuego"] = love.graphics.newQuad(0,0,611,1026,meteorito.img:getDimensions())
+meteorito.quad["estela_1"] = love.graphics.newQuad(0,0,611,1026,meteorito.img:getDimensions())
 
 meteorito.quad[1] = love.graphics.newQuad(634,29,431,422,meteorito.img:getDimensions())
 meteorito.quad[2] = love.graphics.newQuad(1106,29,431,422,meteorito.img:getDimensions())
@@ -17,7 +17,7 @@ meteorito.quad[6] = love.graphics.newQuad(1578,591,431,422,meteorito.img:getDime
 
 meteorito.viewport = {}
 
-for i,quad in ipairs(meteorito.quad) do
+for i,quad in pairs(meteorito.quad) do
   local _,_,w,h = quad:getViewport()
   meteorito.viewport[i] = {w=w,h=h}
 end

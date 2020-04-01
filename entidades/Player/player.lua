@@ -56,6 +56,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.timer = Timer()
   
+  self.puertaValues = nil
+  
   self.timer:every(0.25, function()
     if self.acciones.moviendo and not self.acciones.saltando then
       
@@ -72,11 +74,13 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     end
   end)
 
-  self.timer:every(0.1, function()
+  self.timer:every(0.005, function()
     local contacts = self.body:getContacts()
     
+    self.puertaValues = nil
+    self.ground = false
+    
     for _,contact in ipairs(contacts) do
-      
       
       if self.entidad:getUserData(contact,"piso") then
         local x,y = contact:getNormal()
@@ -87,24 +91,33 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
           self.acciones.saltando=false
         end
       end
+        
+      local puerta = self.entidad:getUserData(contact,"puerta")
+      
+      if puerta and self.ground then
+        self.puertaValues = puerta.obj.puertaValues
+      end
       
     end
+    
   end)
 
   tipoBala.init(self)
 
-  self.armaIndex = properties.armaIndex or 1
+  self.armaIndex = properties.armaIndex or 0
+  self:recargar_max()
   
   
   self.cooldownTimer = nil
   self.cooldownArma = false
   
-
 end
 
 function player:update(dt)
   
   self.timer:update(dt)
+  
+  self:updateBala(dt)
   
   self.acciones.moviendo = false
   
@@ -152,9 +165,7 @@ function player:draw()
   end
   
   self:drawArma()
-  
-  
-  
+
 end
 
 function player:keypressed(key)
@@ -170,6 +181,14 @@ function player:keypressed(key)
   
   if key == _G.teclas.up and self.ground and not self.acciones.saltando then
     self:saltar()
+  end
+  
+  if key == _G.teclas.down and not self.ground then
+    self:caer()
+  end
+  
+  if key == _G.teclas.get and self.puertaValues then
+    self.entidad:cambiarNivel(self.puertaValues)
   end
 end
 
@@ -221,6 +240,7 @@ function player:masa()
   self.body:resetMassData ()
   self.body: setFixedRotation (true)
   self.body:setMass(20)
+  self.fixture:setFriction(0)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
 end
@@ -241,6 +261,10 @@ function player:saltar()
     self.timer:after(0.5,function()
       self.raycast_ground=true
     end)
+end
+
+function player:caer()
+  self.body:applyLinearImpulse( 0, (self.salto*self.mass)/2 )
 end
 
 

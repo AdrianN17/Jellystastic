@@ -45,8 +45,10 @@ function utils:create_objects(entidades)
           local body = love.physics.newBody(self.world,ox,oy,object.type)
           local shape = nil
           
-          if object.shape == "rectangle" or object.shape == "polygon" or object.shape == "ellipse" then
+          if object.shape == "rectangle" or object.shape == "polygon" then
             shape = love.physics.newPolygonShape(shapeTableClear)
+          elseif object.shape == "ellipse" then
+            shape = love.physics.newChainShape(true,shapeTableClear)
           elseif object.shape == "polyline" then
             shape = love.physics.newEdgeShape(shapeTableClear[1],shapeTableClear[2],shapeTableClear[3],shapeTableClear[4])
           end
