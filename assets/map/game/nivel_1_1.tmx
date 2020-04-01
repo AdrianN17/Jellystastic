@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="57">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="59">
  <editorsettings>
   <export target="nivel_1_1.lua" format="lua"/>
  </editorsettings>
@@ -336,9 +336,23 @@
   </properties>
   <object id="35" name="Arma" type="static" x="47" y="633.5" width="55.5" height="33">
    <properties>
-    <property name="clase" value="objetoFisico"/>
+    <property name="clase" value="arma"/>
     <property name="img" value="armas"/>
     <property name="quad" value="2"/>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="13" name="Capa de Objetos 12">
+  <properties>
+   <property name="tabla" value="Objetos"/>
+  </properties>
+  <object id="57" name="Vida" type="static" x="296.667" y="833.333" width="50" height="50">
+   <properties>
+    <property name="clase" value="vida"/>
+    <property name="img" value="vida"/>
+    <property name="quad" value="1"/>
+    <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>

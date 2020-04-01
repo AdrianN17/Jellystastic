@@ -6,5 +6,6 @@ return {
   player = require "entidades.Player.player",
   meteorito = require "entidades.Objetos_Mapa.meteorito",
   puerta = require "entidades.Objetos_Mapa.puerta",
-  movible = require "entidades.Objetos_Mapa.movible"
+  movible = require "entidades.Objetos_Mapa.movible",
+  enemigo1 = require "entidades.Enemigos.enemigo1"
 }

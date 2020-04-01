@@ -1546,7 +1546,11 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["hp"] = 12
+            ["clase"] = "enemigo1",
+            ["hp"] = 12,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 100
           }
         },
         {

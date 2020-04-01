@@ -512,11 +512,12 @@
   <properties>
    <property name="tabla" value="Armas"/>
   </properties>
-  <object id="57" name="Arma" type="static" x="879" y="776.5" width="88" height="34.5">
+  <object id="57" name="Arma" type="static" x="879" y="776.5" width="105.333" height="34.5">
    <properties>
-    <property name="clase" value="objetoFisico"/>
+    <property name="clase" value="arma"/>
     <property name="img" value="armas"/>
     <property name="quad" value="5"/>
+    <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
@@ -526,30 +527,41 @@
   </properties>
   <object id="59" name="Municion" type="static" x="687" y="770" width="40" height="30">
    <properties>
-    <property name="clase" value="objetoFisico"/>
+    <property name="clase" value="municion"/>
     <property name="img" value="municion"/>
     <property name="quad" value="1"/>
+    <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
   <object id="60" name="Municion" type="static" x="746" y="770" width="40" height="30">
    <properties>
-    <property name="clase" value="objetoFisico"/>
+    <property name="clase" value="municion"/>
     <property name="img" value="municion"/>
     <property name="quad" value="1"/>
-   </properties>
-  </object>
-  <object id="61" name="Municion" x="887" y="607" width="40" height="30">
-   <properties>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="69" name="Vida" x="904" y="979" width="30" height="35">
+  <object id="61" name="Municion" type="static" x="887" y="607" width="40" height="30">
    <properties>
+    <property name="clase" value="municion"/>
+    <property name="img" value="municion"/>
+    <property name="quad" value="1"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="70" name="Vida" x="1606" y="975.5" width="30" height="35">
+  <object id="69" name="Vida" type="static" x="904" y="979" width="30" height="35">
    <properties>
+    <property name="clase" value="vida"/>
+    <property name="img" value="vida"/>
+    <property name="quad" value="1"/>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="70" name="Vida" type="static" x="1606" y="975.5" width="30" height="35">
+   <properties>
+    <property name="clase" value="vida"/>
+    <property name="img" value="vida"/>
+    <property name="quad" value="1"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>

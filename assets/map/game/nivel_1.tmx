@@ -647,7 +647,11 @@
   </properties>
   <object id="175" name="Baba" type="dynamic" x="652.653" y="708.98" width="70" height="90">
    <properties>
+    <property name="clase" value="enemigo1"/>
     <property name="hp" type="int" value="12"/>
+    <property name="img" value="baba"/>
+    <property name="limiteVision" type="int" value="350"/>
+    <property name="velocidad" type="int" value="100"/>
    </properties>
   </object>
   <object id="176" name="Baba" type="dynamic" x="1540.65" y="505.31" width="70" height="90">

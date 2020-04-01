@@ -1268,14 +1268,15 @@ return {
           shape = "rectangle",
           x = 879,
           y = 776.5,
-          width = 88,
+          width = 105.333,
           height = 34.5,
           rotation = 0,
           visible = true,
           properties = {
-            ["clase"] = "objetoFisico",
+            ["clase"] = "arma",
             ["img"] = "armas",
-            ["quad"] = "5"
+            ["quad"] = "5",
+            ["sensor"] = true
           }
         }
       }
@@ -1305,9 +1306,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["clase"] = "objetoFisico",
+            ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "1"
+            ["quad"] = "1",
+            ["sensor"] = true
           }
         },
         {
@@ -1322,15 +1324,16 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["clase"] = "objetoFisico",
+            ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "1"
+            ["quad"] = "1",
+            ["sensor"] = true
           }
         },
         {
           id = 61,
           name = "Municion",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 887,
           y = 607,
@@ -1339,13 +1342,16 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "municion",
+            ["img"] = "municion",
+            ["quad"] = "1",
             ["sensor"] = true
           }
         },
         {
           id = 69,
           name = "Vida",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 904,
           y = 979,
@@ -1354,13 +1360,16 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "vida",
+            ["img"] = "vida",
+            ["quad"] = "1",
             ["sensor"] = true
           }
         },
         {
           id = 70,
           name = "Vida",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 1606,
           y = 975.5,
@@ -1369,6 +1378,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["clase"] = "vida",
+            ["img"] = "vida",
+            ["quad"] = "1",
             ["sensor"] = true
           }
         }
@@ -1400,30 +1412,7 @@ return {
       properties = {
         ["tabla"] = "jugadores"
       },
-      objects = {
-        {
-          id = 87,
-          name = "Player",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 318.333,
-          y = 325.333,
-          width = 50,
-          height = 80,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["armaIndex"] = 1,
-            ["clase"] = "player",
-            ["hp"] = 25,
-            ["img"] = "jugador",
-            ["imgAccesorio"] = "accesorios",
-            ["salto"] = 30,
-            ["userdataNombre"] = "player",
-            ["velocidad"] = 175
-          }
-        }
-      }
+      objects = {}
     }
   }
 }

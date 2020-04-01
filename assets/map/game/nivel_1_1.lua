@@ -8,8 +8,8 @@ return {
   height = 35,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 13,
-  nextobjectid = 57,
+  nextlayerid = 14,
+  nextobjectid = 59,
   properties = {},
   tilesets = {},
   layers = {
@@ -810,7 +810,41 @@ return {
           properties = {
             ["clase"] = "objetoFisico",
             ["img"] = "armas",
-            ["quad"] = "2"
+            ["quad"] = "2",
+            ["sensor"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 13,
+      name = "Capa de Objetos 12",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "Objetos"
+      },
+      objects = {
+        {
+          id = 57,
+          name = "Vida",
+          type = "static",
+          shape = "rectangle",
+          x = 296.667,
+          y = 833.333,
+          width = 50,
+          height = 50,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "vida",
+            ["quad"] = "1",
+            ["sensor"] = true
           }
         }
       }

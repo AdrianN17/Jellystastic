@@ -14,7 +14,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.velocidad = properties.velocidad
   self.salto = properties.salto
-  self.radio = 0
+  self.radio = radio
   
   self.spritesheet = Index_img[properties.img]
   
