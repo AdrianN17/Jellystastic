@@ -94,7 +94,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
         
       local puerta = self.entidad:getUserData(contact,"puerta")
       
-      if puerta and self.ground then
+      if puerta then
         self.puertaValues = puerta.obj.puertaValues
       end
       
@@ -114,6 +114,10 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 end
 
 function player:update(dt)
+  
+  self.radio = self.body:getAngle()
+  
+  self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.timer:update(dt)
   
@@ -140,9 +144,7 @@ function player:update(dt)
     self.body:applyForce(mx,0)
   end
   
-  self.radio = self.body:getAngle()
   
-  self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.entidad.cam:setPosition(self.ox, self.oy)
 end
@@ -187,7 +189,7 @@ function player:keypressed(key)
     self:caer()
   end
   
-  if key == _G.teclas.get and self.puertaValues then
+  if key == _G.teclas.get and self.puertaValues and self.ground then
     self.entidad:cambiarNivel(self.puertaValues)
   end
 end

@@ -26,6 +26,8 @@ function mundoGenerico:init(mapa)
   
   local x,y=love.graphics.getDimensions( )
   
+  self.screenX, self.screenY = x,y
+  
   self.map:resize(x/self.scale,y/self.scale)
   
   --self.cam = Camera.new(0, 0, self.scale, 0,0,0,x,y,0.5,0.5)
@@ -43,7 +45,27 @@ function mundoGenerico:init(mapa)
   
   love.graphics.setLineWidth( 2 )
   
+  self.vision = {x=0,y=0,w=0,h=0}
   
+  self.parallaxCount = 0
+  self.parallaxLast = 0
+  self.parallaxVariable = 320
+  
+  self.spritesheetFondo = Index_img.capa3
+  self.imgFondo = self.spritesheetFondo.img[1]
+  self.dimensionFondo =  self.spritesheetFondo.dimensions[1]
+  
+  self.spritesheetFondoMovible = Index_img.capa2
+  self.imgFondoMovible= self.spritesheetFondoMovible.img[1]
+  self.dimensionFondoMovible =  self.spritesheetFondoMovible.dimensions[1]
+  
+  self.skyboxX = self.screenX/ self.dimensionFondo.w
+
+  self.skyboxY = self.screenY/ self.dimensionFondo.h
+  
+  self.parallaxX = self.screenX/ self.dimensionFondoMovible.w
+
+  self.parallaxY = self.screenY/ self.dimensionFondoMovible.h
   
 end
 
@@ -61,6 +83,18 @@ end
 function mundoGenerico:draw()
   
   local cx,cy,cw,ch=self.cam:getVisible()
+  
+  self.vision.x,self.vision.y,self.vision.w,self.vision.h = cx,cy,cw,ch
+  
+  self.vision.x = self.vision.x - self.vision.w/2
+  self.vision.y = self.vision.y - self.vision.h/2
+  
+ 
+  self.vision.w = self.vision.w + self.vision.w
+  self.vision.h = self.vision.h + self.vision.h
+  
+  self:skybox()
+  self:parallax()
   
   self.map:draw(-cx,-cy,self.scale,self.scale)
   
@@ -95,6 +129,44 @@ function mundoGenerico:mousereleased(x,y,button)
   if self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:mousereleased(x,y,button)
   end
+end
+
+function mundoGenerico:skybox()
+  love.graphics.draw(self.imgFondo, 0, 0, 0, self.skyboxX, self.skyboxY)
+end
+
+function mundoGenerico:parallax()
+  
+  xc,yc,hc,wc=self.cam:getVisible()
+  
+  local x = xc/wc
+  
+  local dif = x - self.parallaxLast
+
+  if dif~=0 then
+    self.parallaxCount = self.parallaxCount + dif
+  end
+  
+  self.parallaxLast = x
+  
+  local xp = math.floor(self.parallaxCount*self.parallaxVariable)
+  
+  love.graphics.draw(self.imgFondoMovible,xp , 0, 0, self.parallaxX, self.parallaxY)
+  
+  if self.parallaxCount ~= 0 then
+    if self.parallaxCount*self.parallaxVariable>0 then
+      love.graphics.draw(self.imgFondoMovible, xp-self.screenX , 0, 0, self.parallaxX, self.parallaxY)
+    end
+    
+    if self.parallaxCount*self.parallaxVariable<0 then
+      love.graphics.draw(self.imgFondoMovible, xp+self.screenX, 0, 0, self.parallaxX, self.parallaxY)
+    end
+  end
+    
+  if self.parallaxCount*self.parallaxVariable>self.screenX or self.parallaxCount*self.parallaxVariable<-self.screenX then
+    self.parallaxCount = 0
+  end
+  
 end
 
 return mundoGenerico

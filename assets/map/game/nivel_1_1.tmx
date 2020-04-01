@@ -1,179 +1,351 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="48">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="57">
  <editorsettings>
   <export target="nivel_1_1.lua" format="lua"/>
  </editorsettings>
  <objectgroup id="2" name="Capa de Objetos 1">
-  <object id="2" name="Gelatina" x="-4.44089e-16" y="896" width="1184.67" height="221">
+  <properties>
+   <property name="tabla" value="sueloMapa"/>
+  </properties>
+  <object id="2" name="Gelatina" type="static" x="-4.44089e-16" y="896" width="1184.67" height="221">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="suelo"/>
+    <property name="img" value="1"/>
+    <property name="userdataNombre" value="piso"/>
+    <property name="uv" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="3" name="Capa de Objetos 2">
-  <object id="4" name="Casa" x="32.0455" y="512.091" width="320.25" height="384">
+  <properties>
+   <property name="tabla" value="casaMapa"/>
+  </properties>
+  <object id="4" name="Casa" type="none" x="32.0455" y="512.091" width="320.25" height="384">
    <properties>
-    <property name="sensor" type="bool" value="true"/>
+    <property name="clase" value="textura"/>
+    <property name="grupo" value="casa"/>
+    <property name="img" value="1"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="4" name="Capa de Objetos 3">
-  <object id="7" name="Pared" x="0.299242" y="480.917" width="32" height="415">
+  <properties>
+   <property name="tabla" value="paredMapa"/>
+  </properties>
+  <object id="7" name="Pared" type="static" x="0.299242" y="480.917" width="32" height="415">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="1"/>
    </properties>
   </object>
-  <object id="8" name="Pared" x="352.549" y="481.104" width="31.7778" height="415">
+  <object id="8" name="Pared" type="static" x="352.549" y="481.104" width="31.7778" height="415">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="1"/>
    </properties>
   </object>
-  <object id="10" name="Pared" x="384.333" y="192" width="32" height="704">
+  <object id="10" name="Pared" type="static" x="384.333" y="192" width="32" height="704">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="2"/>
    </properties>
   </object>
-  <object id="11" x="416.417" y="226.971" width="349.333" height="668.985">
+  <object id="11" type="none" x="416.417" y="226.971" width="349.333" height="668.985">
    <properties>
-    <property name="sensor" type="bool" value="true"/>
+    <property name="clase" value="textura"/>
+    <property name="grupo" value="casa"/>
+    <property name="img" value="2"/>
    </properties>
   </object>
-  <object id="13" name="Pared" x="765.769" y="192.136" width="32" height="704">
+  <object id="13" name="Pared" type="static" x="765.769" y="192.136" width="32" height="704">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="2"/>
    </properties>
   </object>
-  <object id="14" name="Casa" x="829.732" y="512.217" width="320.25" height="384">
+  <object id="14" name="Casa" type="none" x="829.732" y="512.217" width="320.25" height="384">
    <properties>
-    <property name="sensor" type="bool" value="true"/>
+    <property name="clase" value="textura"/>
+    <property name="grupo" value="casa"/>
+    <property name="img" value="5"/>
    </properties>
   </object>
-  <object id="15" name="Pared" x="797.986" y="481.043" width="32" height="415">
+  <object id="15" name="Pared" type="static" x="797.986" y="481.043" width="32" height="415">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="3"/>
    </properties>
   </object>
-  <object id="16" name="Pared" x="1150.24" y="481.23" width="34.2778" height="415">
+  <object id="16" name="Pared" type="static" x="1150.24" y="481.23" width="34.2778" height="415">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="pared"/>
+    <property name="img" value="3"/>
    </properties>
   </object>
-  <object id="43" name="Helado" x="415.666" y="32.6665" width="351.667" height="208.667"/>
+  <object id="43" name="Helado" type="none" x="412.999" y="32.6665" width="351.667" height="187.334">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="Capa de Objetos 8">
+  <properties>
+   <property name="tabla" value="helados"/>
+  </properties>
+  <object id="41" name="Helado" type="none" x="33.6665" y="339.667" width="321.167" height="159.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="1"/>
+   </properties>
+  </object>
+  <object id="42" name="Helado" type="none" x="833.667" y="362.667" width="316.667" height="156.667">
+   <properties>
+    <property name="clase" value="objeto"/>
+    <property name="img" value="sundae"/>
+    <property name="quad" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="5" name="Capa de Objetos 4">
-  <object id="17" name="Chocolate" x="18.6665" y="471" width="346" height="50">
+  <properties>
+   <property name="tabla" value="Plataformas"/>
+  </properties>
+  <object id="27" name="Chicle" type="static" x="191.948" y="688">
    <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="18" name="Chocolate" x="411" y="184.667" width="363.333" height="50">
-   <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="20" name="Puerta" x="148.667" y="796.667" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="1"/>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="21" name="Puerta" x="528.667" y="792.667" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="2"/>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="22" name="Puerta" x="956.667" y="795.333" width="60" height="100">
-   <properties>
-    <property name="id" type="int" value="3"/>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="23" name="Chocolate" x="30" y="675" width="206" height="25">
-   <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="24" name="Chocolate" x="419" y="703.5" width="206" height="25">
-   <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="25" name="Chocolate" x="419" y="529.5" width="206" height="25">
-   <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="27" name="Chicle" x="191.948" y="688">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="46.2535,0 161.587,0.3333"/>
   </object>
-  <object id="28" name="Chicle" x="569.974" y="717">
+  <object id="28" name="Chicle" type="static" x="569.974" y="717">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="56.2795,0 196.613,0.3333"/>
   </object>
-  <object id="29" name="Chicle" x="570.375" y="540">
+  <object id="29" name="Chicle" type="static" x="570.375" y="540">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="55.8785,0 195.212,0.3333"/>
   </object>
-  <object id="30" name="Chicle" x="362.108" y="353.667">
+  <object id="30" name="Chicle" type="static" x="362.108" y="353.667">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="56.1459,0 196.146,0.3333"/>
   </object>
-  <object id="37" name="Chicle" x="987" y="735">
+  <object id="37" name="Chicle" type="static" x="987" y="735">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="46.2535,0 161.587,0.3333"/>
   </object>
-  <object id="38" name="Chicle" x="797.625" y="655">
+  <object id="38" name="Chicle" type="static" x="797.625" y="655">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="height" type="int" value="10"/>
+    <property name="img" value="objetos"/>
+    <property name="posicion_y" type="int" value="0"/>
+    <property name="quad" value="chicle"/>
+    <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
    <polyline points="36.6285,0 127.962,0.3333"/>
   </object>
-  <object id="44" name="Baston" x="800.091" y="495.562" width="191.895" height="47.2827">
+  <object id="44" name="Baston" type="static" x="800.091" y="495.562" width="191.895" height="47.2827">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte2"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
-  <object id="45" name="Baston" x="992.013" y="497.098" width="191.897" height="45.8054">
+  <object id="45" name="Baston" type="static" x="992.013" y="497.098" width="191.897" height="45.8054">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte2"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
-  <object id="46" name="Baston" x="1126.21" y="453.312" width="57.613" height="44.3177">
+  <object id="46" name="Baston" type="static" x="1126.21" y="453.312" width="57.613" height="44.3177">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="-1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte1"/>
+    <property name="userdataNombre" value="piso"/>
    </properties>
   </object>
-  <object id="47" name="Baston" x="800.472" y="451.096" width="57.613" height="44.3177">
+  <object id="47" name="Baston" type="static" x="800.472" y="451.096" width="57.613" height="44.3177">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="objetoFisico"/>
+    <property name="direccion_x" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="dulce_parte1"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+  </object>
+  <object id="48" name="Chocolate" type="static" x="24" y="700">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+   <polygon points="0,0 9.83411,-24.6818 207.241,-24.6818 216.208,-0.188804"/>
+  </object>
+  <object id="49" name="Chocolate" type="static" x="408" y="734">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+   <polygon points="0,0 9.97055,-24.6818 210.117,-24.6818 219.208,-0.188804"/>
+  </object>
+  <object id="50" name="Chocolate" type="static" x="411" y="560">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+   <polygon points="0,0 9.97056,-24.6818 210.117,-24.6818 219.208,-0.188804"/>
+  </object>
+  <object id="51" name="Chocolate" type="static" x="16" y="518.667">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+   <polygon points="0,0 16.0352,-38.0151 337.921,-38.0151 352.541,-0.290798"/>
+  </object>
+  <object id="52" name="Chocolate" type="static" x="397.333" y="229.333">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="chocolate"/>
+    <property name="tipoCalculoDimensiones" value="romboide"/>
+    <property name="userdataNombre" value="piso"/>
+   </properties>
+   <polygon points="0,0 17.8546,-47.3484 376.262,-47.3484 392.541,-0.362194"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="12" name="Capa de Objetos 11">
+  <properties>
+   <property name="tabla" value="puertas"/>
+  </properties>
+  <object id="54" name="Puerta" type="static" x="167.333" y="794.667" width="60" height="100">
+   <properties>
+    <property name="clase" value="puerta"/>
+    <property name="id" type="int" value="1"/>
+    <property name="img" value="objetos"/>
+    <property name="nivel" type="int" value="1"/>
+    <property name="quad" value="puerta"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="userdataNombre" value="puerta"/>
+   </properties>
+  </object>
+  <object id="55" name="Puerta" type="static" x="547.333" y="790.667" width="60" height="100">
+   <properties>
+    <property name="clase" value="puerta"/>
+    <property name="id" type="int" value="2"/>
+    <property name="img" value="objetos"/>
+    <property name="nivel" type="int" value="1"/>
+    <property name="quad" value="puerta"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="userdataNombre" value="puerta"/>
+   </properties>
+  </object>
+  <object id="56" name="Puerta" type="static" x="975.333" y="793.333" width="60" height="100">
+   <properties>
+    <property name="clase" value="puerta"/>
+    <property name="id" type="int" value="3"/>
+    <property name="img" value="objetos"/>
+    <property name="nivel" type="int" value="1"/>
+    <property name="quad" value="puerta"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="6" name="Capa de Objetos 5">
-  <object id="33" name="Caja" x="37" y="822.667" width="70" height="75">
+  <properties>
+   <property name="tabla" value="movibles"/>
+  </properties>
+  <object id="33" name="Caja" type="dynamic" x="37" y="822.667" width="70" height="75">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="movible"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="caja"/>
    </properties>
   </object>
-  <object id="36" name="Caja" x="422" y="478.5" width="46" height="49">
+  <object id="36" name="Caja" type="dynamic" x="422" y="478.5" width="46" height="49">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="clase" value="movible"/>
+    <property name="img" value="objetos"/>
+    <property name="quad" value="caja"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="Capa de Objetos 7">
+  <properties>
+   <property name="tabla" value="Armas"/>
+  </properties>
+  <object id="35" name="Arma" type="static" x="47" y="633.5" width="55.5" height="33">
+   <properties>
+    <property name="clase" value="objetoFisico"/>
+    <property name="img" value="armas"/>
+    <property name="quad" value="2"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="7" name="Capa de Objetos 6">
+  <properties>
+   <property name="tabla" value="npcs"/>
+  </properties>
   <object id="32" name="Npc" x="429.667" y="260" width="50" height="80">
    <properties>
     <property name="collidable" type="bool" value="true"/>
@@ -190,15 +362,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="8" name="Capa de Objetos 7">
-  <object id="35" name="Arma" x="47" y="633.5" width="68" height="41">
-   <properties>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
+ <objectgroup id="11" name="Capa de Objetos 10">
+  <properties>
+   <property name="tabla" value="balas"/>
+  </properties>
  </objectgroup>
- <objectgroup id="9" name="Capa de Objetos 8">
-  <object id="41" name="Helado" x="33.6665" y="339.667" width="321.167" height="159.667"/>
-  <object id="42" name="Helado" x="833.667" y="362.667" width="316.667" height="156.667"/>
+ <objectgroup id="10" name="Capa de Objetos 9">
+  <properties>
+   <property name="tabla" value="jugadores"/>
+  </properties>
  </objectgroup>
 </map>

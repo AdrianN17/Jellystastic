@@ -83,10 +83,15 @@ end
 
 function math.calcularDimensiones(tipo,tabla)
   if tipo == "romboide" then
-    return math.abs(tabla[1] - tabla[7]), math.abs(tabla[2] - tabla[4])
+    return math.calcularDistancia(tabla[1],tabla[2],tabla[7],tabla[8]), math.calcularDistancia(tabla[1],tabla[2],tabla[3],tabla[4])
   elseif tipo =="triangular" then
-    return math.abs(tabla[3]-tabla[1]), math.abs(tabla[4]-tabla[2])
+    return math.calcularDistancia(tabla[1],tabla[2],tabla[5],tabla[6]), math.calcularDistancia(tabla[3],tabla[4],tabla[5],tabla[6])
   end
+end
+
+function math.calcularDistancia(x1,y1,x2,y2)
+  local a,b = x2 - x1, y2 - y1
+  return math.sqrt(math.pow(a,2)+math.pow(b,2))
 end
 
 function poly2mesh(points,uv_scale)

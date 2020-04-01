@@ -8,8 +8,8 @@ return {
   height = 35,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 10,
-  nextobjectid = 48,
+  nextlayerid = 13,
+  nextobjectid = 57,
   properties = {},
   tilesets = {},
   layers = {
@@ -22,12 +22,14 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "sueloMapa"
+      },
       objects = {
         {
           id = 2,
           name = "Gelatina",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = -4.44089e-16,
           y = 896,
@@ -36,7 +38,11 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "suelo",
+            ["img"] = "1",
+            ["userdataNombre"] = "piso",
+            ["uv"] = 2
           }
         }
       }
@@ -50,12 +56,14 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "casaMapa"
+      },
       objects = {
         {
           id = 4,
           name = "Casa",
-          type = "",
+          type = "none",
           shape = "rectangle",
           x = 32.0455,
           y = 512.091,
@@ -64,7 +72,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "1"
           }
         }
       }
@@ -78,12 +88,14 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "paredMapa"
+      },
       objects = {
         {
           id = 7,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 0.299242,
           y = 480.917,
@@ -92,13 +104,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "1"
           }
         },
         {
           id = 8,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 352.549,
           y = 481.104,
@@ -107,13 +121,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "1"
           }
         },
         {
           id = 10,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 384.333,
           y = 192,
@@ -122,13 +138,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "2"
           }
         },
         {
           id = 11,
           name = "",
-          type = "",
+          type = "none",
           shape = "rectangle",
           x = 416.417,
           y = 226.971,
@@ -137,13 +155,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "2"
           }
         },
         {
           id = 13,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 765.769,
           y = 192.136,
@@ -152,13 +172,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "2"
           }
         },
         {
           id = 14,
           name = "Casa",
-          type = "",
+          type = "none",
           shape = "rectangle",
           x = 829.732,
           y = 512.217,
@@ -167,13 +189,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["sensor"] = true
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "5"
           }
         },
         {
           id = 15,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 797.986,
           y = 481.043,
@@ -182,13 +206,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "3"
           }
         },
         {
           id = 16,
           name = "Pared",
-          type = "",
+          type = "static",
           shape = "rectangle",
           x = 1150.24,
           y = 481.23,
@@ -197,21 +223,76 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "pared",
+            ["img"] = "3"
           }
         },
         {
           id = 43,
           name = "Helado",
-          type = "",
+          type = "none",
           shape = "rectangle",
-          x = 415.666,
+          x = 412.999,
           y = 32.6665,
           width = 351.667,
-          height = 208.667,
+          height = 187.334,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "sundae",
+            ["quad"] = "2"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 9,
+      name = "Capa de Objetos 8",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "helados"
+      },
+      objects = {
+        {
+          id = 41,
+          name = "Helado",
+          type = "none",
+          shape = "rectangle",
+          x = 33.6665,
+          y = 339.667,
+          width = 321.167,
+          height = 159.667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "sundae",
+            ["quad"] = "1"
+          }
+        },
+        {
+          id = 42,
+          name = "Helado",
+          type = "none",
+          shape = "rectangle",
+          x = 833.667,
+          y = 362.667,
+          width = 316.667,
+          height = 156.667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "objeto",
+            ["img"] = "sundae",
+            ["quad"] = "3"
+          }
         }
       }
     },
@@ -224,135 +305,14 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "Plataformas"
+      },
       objects = {
-        {
-          id = 17,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 18.6665,
-          y = 471,
-          width = 346,
-          height = 50,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 18,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 411,
-          y = 184.667,
-          width = 363.333,
-          height = 50,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 20,
-          name = "Puerta",
-          type = "",
-          shape = "rectangle",
-          x = 148.667,
-          y = 796.667,
-          width = 60,
-          height = 100,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["id"] = 1,
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 21,
-          name = "Puerta",
-          type = "",
-          shape = "rectangle",
-          x = 528.667,
-          y = 792.667,
-          width = 60,
-          height = 100,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["id"] = 2,
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 22,
-          name = "Puerta",
-          type = "",
-          shape = "rectangle",
-          x = 956.667,
-          y = 795.333,
-          width = 60,
-          height = 100,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["id"] = 3,
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 23,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 30,
-          y = 675,
-          width = 206,
-          height = 25,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 24,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 419,
-          y = 703.5,
-          width = 206,
-          height = 25,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
-        {
-          id = 25,
-          name = "Chocolate",
-          type = "",
-          shape = "rectangle",
-          x = 419,
-          y = 529.5,
-          width = 206,
-          height = 25,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        },
         {
           id = 27,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 191.948,
           y = 688,
@@ -365,13 +325,18 @@ return {
             { x = 161.587, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 28,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 569.974,
           y = 717,
@@ -384,13 +349,18 @@ return {
             { x = 196.613, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 29,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 570.375,
           y = 540,
@@ -403,13 +373,18 @@ return {
             { x = 195.212, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 30,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 362.108,
           y = 353.667,
@@ -422,13 +397,18 @@ return {
             { x = 196.146, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 37,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 987,
           y = 735,
@@ -441,13 +421,18 @@ return {
             { x = 161.587, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 38,
           name = "Chicle",
-          type = "",
+          type = "static",
           shape = "polyline",
           x = 797.625,
           y = 655,
@@ -460,13 +445,18 @@ return {
             { x = 127.962, y = 0.3333 }
           },
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["height"] = 10,
+            ["img"] = "objetos",
+            ["posicion_y"] = 0,
+            ["quad"] = "chicle",
+            ["tipoCalculoDimensiones"] = "linea"
           }
         },
         {
           id = 44,
-          name = "Caramelo",
-          type = "",
+          name = "Baston",
+          type = "static",
           shape = "rectangle",
           x = 800.091,
           y = 495.562,
@@ -475,13 +465,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["direccion_x"] = 1,
+            ["img"] = "objetos",
+            ["quad"] = "dulce_parte2",
+            ["userdataNombre"] = "piso"
           }
         },
         {
           id = 45,
-          name = "Caramelo",
-          type = "",
+          name = "Baston",
+          type = "static",
           shape = "rectangle",
           x = 992.013,
           y = 497.098,
@@ -490,13 +484,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["direccion_x"] = 1,
+            ["img"] = "objetos",
+            ["quad"] = "dulce_parte2",
+            ["userdataNombre"] = "piso"
           }
         },
         {
           id = 46,
-          name = "Caramelo",
-          type = "",
+          name = "Baston",
+          type = "static",
           shape = "rectangle",
           x = 1126.21,
           y = 453.312,
@@ -505,13 +503,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["direccion_x"] = -1,
+            ["img"] = "objetos",
+            ["quad"] = "dulce_parte1",
+            ["userdataNombre"] = "piso"
           }
         },
         {
           id = 47,
-          name = "Caramelo",
-          type = "",
+          name = "Baston",
+          type = "static",
           shape = "rectangle",
           x = 800.472,
           y = 451.096,
@@ -520,7 +522,214 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "objetoFisico",
+            ["direccion_x"] = 1,
+            ["img"] = "objetos",
+            ["quad"] = "dulce_parte1",
+            ["userdataNombre"] = "piso"
+          }
+        },
+        {
+          id = 48,
+          name = "Chocolate",
+          type = "static",
+          shape = "polygon",
+          x = 24,
+          y = 700,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 9.83411, y = -24.6818 },
+            { x = 207.241, y = -24.6818 },
+            { x = 216.208, y = -0.188804 }
+          },
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "objetos",
+            ["quad"] = "chocolate",
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
+          }
+        },
+        {
+          id = 49,
+          name = "Chocolate",
+          type = "static",
+          shape = "polygon",
+          x = 408,
+          y = 734,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 9.97055, y = -24.6818 },
+            { x = 210.117, y = -24.6818 },
+            { x = 219.208, y = -0.188804 }
+          },
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "objetos",
+            ["quad"] = "chocolate",
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
+          }
+        },
+        {
+          id = 50,
+          name = "Chocolate",
+          type = "static",
+          shape = "polygon",
+          x = 411,
+          y = 560,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 9.97056, y = -24.6818 },
+            { x = 210.117, y = -24.6818 },
+            { x = 219.208, y = -0.188804 }
+          },
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "objetos",
+            ["quad"] = "chocolate",
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
+          }
+        },
+        {
+          id = 51,
+          name = "Chocolate",
+          type = "static",
+          shape = "polygon",
+          x = 16,
+          y = 518.667,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 16.0352, y = -38.0151 },
+            { x = 337.921, y = -38.0151 },
+            { x = 352.541, y = -0.290798 }
+          },
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "objetos",
+            ["quad"] = "chocolate",
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
+          }
+        },
+        {
+          id = 52,
+          name = "Chocolate",
+          type = "static",
+          shape = "polygon",
+          x = 397.333,
+          y = 229.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 17.8546, y = -47.3484 },
+            { x = 376.262, y = -47.3484 },
+            { x = 392.541, y = -0.362194 }
+          },
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "objetos",
+            ["quad"] = "chocolate",
+            ["tipoCalculoDimensiones"] = "romboide",
+            ["userdataNombre"] = "piso"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 12,
+      name = "Capa de Objetos 11",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "puertas"
+      },
+      objects = {
+        {
+          id = 54,
+          name = "Puerta",
+          type = "static",
+          shape = "rectangle",
+          x = 167.333,
+          y = 794.667,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "puerta",
+            ["id"] = 1,
+            ["img"] = "objetos",
+            ["nivel"] = 1,
+            ["quad"] = "puerta",
+            ["sensor"] = true,
+            ["userdataNombre"] = "puerta"
+          }
+        },
+        {
+          id = 55,
+          name = "Puerta",
+          type = "static",
+          shape = "rectangle",
+          x = 547.333,
+          y = 790.667,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "puerta",
+            ["id"] = 2,
+            ["img"] = "objetos",
+            ["nivel"] = 1,
+            ["quad"] = "puerta",
+            ["sensor"] = true,
+            ["userdataNombre"] = "puerta"
+          }
+        },
+        {
+          id = 56,
+          name = "Puerta",
+          type = "static",
+          shape = "rectangle",
+          x = 975.333,
+          y = 793.333,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "puerta",
+            ["id"] = 3,
+            ["img"] = "objetos",
+            ["nivel"] = 1,
+            ["quad"] = "puerta",
+            ["sensor"] = true,
+            ["userdataNombre"] = "puerta"
           }
         }
       }
@@ -534,12 +743,14 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "movibles"
+      },
       objects = {
         {
           id = 33,
           name = "Caja",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
           x = 37,
           y = 822.667,
@@ -548,13 +759,15 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "movible",
+            ["img"] = "objetos",
+            ["quad"] = "caja"
           }
         },
         {
           id = 36,
           name = "Caja",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
           x = 422,
           y = 478.5,
@@ -563,7 +776,41 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["clase"] = "movible",
+            ["img"] = "objetos",
+            ["quad"] = "caja"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 8,
+      name = "Capa de Objetos 7",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "Armas"
+      },
+      objects = {
+        {
+          id = 35,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 47,
+          y = 633.5,
+          width = 55.5,
+          height = 33,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "objetoFisico",
+            ["img"] = "armas",
+            ["quad"] = "2"
           }
         }
       }
@@ -577,7 +824,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["tabla"] = "npcs"
+      },
       objects = {
         {
           id = 32,
@@ -628,70 +877,31 @@ return {
     },
     {
       type = "objectgroup",
-      id = 8,
-      name = "Capa de Objetos 7",
+      id = 11,
+      name = "Capa de Objetos 10",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 35,
-          name = "Arma",
-          type = "",
-          shape = "rectangle",
-          x = 47,
-          y = 633.5,
-          width = 68,
-          height = 41,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["sensor"] = true
-          }
-        }
-      }
+      properties = {
+        ["tabla"] = "balas"
+      },
+      objects = {}
     },
     {
       type = "objectgroup",
-      id = 9,
-      name = "Capa de Objetos 8",
+      id = 10,
+      name = "Capa de Objetos 9",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 41,
-          name = "Helado",
-          type = "",
-          shape = "rectangle",
-          x = 33.6665,
-          y = 339.667,
-          width = 321.167,
-          height = 159.667,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 42,
-          name = "Helado",
-          type = "",
-          shape = "rectangle",
-          x = 833.667,
-          y = 362.667,
-          width = 316.667,
-          height = 156.667,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        }
-      }
+      properties = {
+        ["tabla"] = "jugadores"
+      },
+      objects = {}
     }
   }
 }

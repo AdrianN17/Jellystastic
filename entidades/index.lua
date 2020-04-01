@@ -5,5 +5,6 @@ return {
   texturaFisica = require "entidades.Objetos_Mapa.texturaFisica",
   player = require "entidades.Player.player",
   meteorito = require "entidades.Objetos_Mapa.meteorito",
-  puerta = require "entidades.Objetos_Mapa.puerta"
+  puerta = require "entidades.Objetos_Mapa.puerta",
+  movible = require "entidades.Objetos_Mapa.movible"
 }

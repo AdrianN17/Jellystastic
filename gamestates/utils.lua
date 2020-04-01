@@ -159,6 +159,8 @@ function utils:getUserData(contact,nombre)
   elseif u2 and u2.nombre == nombre then
     return u2
   end
+  
+  return nil
 end
 
 
