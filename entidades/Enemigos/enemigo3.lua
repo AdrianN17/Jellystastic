@@ -63,6 +63,21 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self:recargarMax()
   
+  self.radioBalaDireccion = 1
+  self.minAngle = {}
+  self.minAngle[-1] =  math.rad(110)
+  self.minAngle[1] =  math.rad(-70)
+  self.maxAngle = {}
+  self.maxAngle[-1] = math.rad(250)
+  self.maxAngle[1] = math.rad(70)
+  
+  if self.direccion == -1 then
+    self.radioBala = math.rad(180)
+  else
+    self.radioBala = math.rad(0)
+  end
+
+  
   self.automata = Fsm.create({
    initial = 'mover',
     events ={
@@ -73,9 +88,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
     callbacks = {
       onFatacar = function(_,event,from,to)
-
         self:dispararArma()
-
       end,
       onFmover = function(_,event,from,to)
  
@@ -135,7 +148,6 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
     return 0
   end
 
-  
   self.timer:every(0.025,function() 
     self.posicionAtaque=false
     
@@ -148,23 +160,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
       self.posicionAtaque=false
     end
   end)
-  
-  
-  self.radioBalaDireccion = 1
-  self.minAngle = {}
-  self.minAngle[-1] =  math.rad(110)
-  self.minAngle[1] =  math.rad(-70)
-  self.maxAngle = {}
-  self.maxAngle[-1] = math.rad(250)
-  self.maxAngle[1] = math.rad(70)
-  
-  if self.direccion == -1 then
-    self.radioBala = math.rad(180)
-  else
-    self.radioBala = math.rad(0)
-  end
 
-  
 end
 
 function enemigo3:draw()
@@ -187,9 +183,13 @@ function enemigo3:draw()
   
   self:drawArma()
   
+  local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
+  love.graphics.line(self.oxBala,self.oyBala, cx,cy)
+  
 end
 
 function enemigo3:update(dt)
+  
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
@@ -199,6 +199,8 @@ function enemigo3:update(dt)
   self.timer:update(dt)
   
   self:updateEnemigo(dt)
+  
+  
 end
 
 function enemigo3:voltear()
