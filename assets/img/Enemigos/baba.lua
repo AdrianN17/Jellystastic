@@ -10,9 +10,11 @@ baba.quad[4]=love.graphics.newQuad(21,558,309,377,baba.img:getDimensions())
 baba.quad[5]=love.graphics.newQuad(381,558,323,377,baba.img:getDimensions())
 baba.quad[6]=love.graphics.newQuad(756,838,263,103,baba.img:getDimensions())
 
+baba.quad["baba"]=love.graphics.newQuad(879,588,103,119,baba.img:getDimensions())
+
 baba.viewport = {}
 
-for i,quad in ipairs(baba.quad) do
+for i,quad in pairs(baba.quad) do
   local _,_,w,h = quad:getViewport()
   baba.viewport[i] = {w=w,h=h}
 end

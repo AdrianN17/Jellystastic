@@ -8,7 +8,6 @@ xg,yg = 0,0
 
 function mundoGenerico:init(mapa)
 
-  
   Utils.init(self)
   
   self.indexPlayer = 1
@@ -66,6 +65,10 @@ function mundoGenerico:init(mapa)
   self.parallaxX = self.screenX/ self.dimensionFondoMovible.w
 
   self.parallaxY = self.screenY/ self.dimensionFondoMovible.h
+  
+  self.shaderEnemigo = love.graphics.newShader(Shader_index.shader_player)
+  self.vec4Shader = {0.7,-0.4,0,0}
+  self.shaderEnemigo:send("color_player",self.vec4Shader)
   
 end
 

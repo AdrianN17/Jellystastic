@@ -43,7 +43,7 @@ function tipoBala:drawArma()
     local dimensionArmas = self.dimensionArmas[self.armaIndex]
     local scaleArmas = self.scaleArmas[self.armaIndex]
     
-    
+    self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
     
     love.graphics.draw(self.imgArmas,self.quadArmas[self.armaIndex],self.oxBala,self.oyBala,self.radioBala,scaleArmas.x,scaleArmas.y*self.vistaX,dimensionArmas.w/2,dimensionArmas.h/2)
   end
@@ -51,8 +51,6 @@ end
 
 function tipoBala:updateBala(dt)
   if self.armaIndex>0 then
-    
-    self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
     
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     
@@ -138,7 +136,7 @@ function tipoBala:disparoIndividual(arma)
   end
 end
 
-function tipoBala:recargar_max()
+function tipoBala:recargarMax()
   local bala = self.armasValues[self.armaIndex]
   self.armasValues[self.armaIndex].stock = bala.max_stock
   self.armasValues[self.armaIndex].municion = bala.max_municion

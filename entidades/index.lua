@@ -7,5 +7,7 @@ return {
   meteorito = require "entidades.Objetos_Mapa.meteorito",
   puerta = require "entidades.Objetos_Mapa.puerta",
   movible = require "entidades.Objetos_Mapa.movible",
-  enemigo1 = require "entidades.Enemigos.enemigo1"
+  enemigo1 = require "entidades.Enemigos.enemigo1",
+  enemigo2 = require "entidades.Enemigos.enemigo2",
+  enemigo3 = require "entidades.Enemigos.enemigo3"
 }

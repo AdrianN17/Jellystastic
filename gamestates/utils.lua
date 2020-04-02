@@ -62,7 +62,7 @@ function utils:create_objects(entidades)
           local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
           
           if properties.userdataNombre then
-            
+            self:addproperties(obj,properties)
             fixture:setUserData({obj = obj, nombre = properties.userdataNombre})
           end
           
@@ -163,5 +163,26 @@ function utils:getUserData(contact,nombre)
   return nil
 end
 
+function utils:getUserDataValue(contact,value)
+  local a,b = contact:getFixtures()
+  local u1 = a:getUserData()
+  local u2 = b:getUserData()
+
+  if u1 and u1.obj and u1.obj[value] then
+    return u1
+  elseif u2 and u2.obj and u2.obj[value] then
+    return u2
+  end
+  
+  return nil
+end
+
+function utils:addproperties(obj,properties)
+  for str,k in pairs(properties) do
+    if string.match(str, "Es_") then
+      obj[str] = k
+    end
+  end
+end
 
 return utils

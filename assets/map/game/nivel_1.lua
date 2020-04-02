@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 187,
+  nextobjectid = 190,
   properties = {},
   tilesets = {},
   layers = {
@@ -38,6 +38,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -57,6 +58,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -1302,6 +1304,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
@@ -1321,6 +1324,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
@@ -1340,6 +1344,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
@@ -1359,6 +1364,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
@@ -1384,6 +1390,7 @@ return {
             { x = 255.208, y = -0.25 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1409,6 +1416,7 @@ return {
             { x = 255.208, y = -0.25 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1434,6 +1442,7 @@ return {
             { x = 269.875, y = -0.199003 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1459,6 +1468,7 @@ return {
             { x = 317.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1484,6 +1494,7 @@ return {
             { x = 275.208, y = -0.163305 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1539,15 +1550,15 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 652.653,
-          y = 708.98,
+          x = 1352.65,
+          y = 491.647,
           width = 70,
           height = 90,
           rotation = 0,
           visible = true,
           properties = {
             ["clase"] = "enemigo1",
-            ["hp"] = 12,
+            ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
             ["velocidad"] = 100
@@ -1565,7 +1576,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["hp"] = 12
+            ["hp"] = 15
           }
         },
         {
@@ -1580,7 +1591,48 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["hp"] = 12
+            ["hp"] = 15
+          }
+        },
+        {
+          id = 187,
+          name = "Zombie",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1191.67,
+          y = 483,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "enemigo2",
+            ["hp"] = 20,
+            ["img"] = "jugador",
+            ["limiteVision"] = 100,
+            ["velocidad"] = 130
+          }
+        },
+        {
+          id = 189,
+          name = "Soldado",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 519,
+          y = 682,
+          width = 50,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["arma"] = 1,
+            ["clase"] = "enemigo3",
+            ["hp"] = 12,
+            ["img"] = "jugador",
+            ["imgAccesorio"] = "accesorios",
+            ["limiteVision"] = 1000,
+            ["quadImgAccesorio"] = "1",
+            ["velocidad"] = 80
           }
         }
       }

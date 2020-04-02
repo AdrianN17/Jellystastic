@@ -82,7 +82,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     
     for _,contact in ipairs(contacts) do
       
-      if self.entidad:getUserData(contact,"piso") then
+      if self.entidad:getUserDataValue(contact,"Es_tierra") then
+        
         local x,y = contact:getNormal()
         
         if y<0 then
@@ -105,7 +106,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   tipoBala.init(self)
 
   self.armaIndex = properties.armaIndex or 0
-  self:recargar_max()
+  self:recargarMax()
   
   
   self.cooldownTimer = nil
