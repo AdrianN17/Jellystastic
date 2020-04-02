@@ -74,7 +74,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
     callbacks = {
       onFatacar = function(_,event,from,to)
 
-          self:dispararArma()
+        self:dispararArma()
 
       end,
       onFmover = function(_,event,from,to)
@@ -121,9 +121,6 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
     end
     
   end)
-
-
-  self.oxAtaque,self.oyAtaque = math.getPointAngle(self.ox,self.oy,self.radio,self.limiteVision,self.direccionAngulo[self.direccion])
   
   local raycastAtacar = function (fixture, x, y, xn, yn, fraction)
     local tipoObj=fixture:getUserData()
@@ -142,7 +139,9 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.timer:every(0.025,function() 
     self.posicionAtaque=false
     
-    self.entidad.world:rayCast(self.ox,self.oy,self.oxAtaque,self.oyAtaque,raycastAtacar)
+    local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
+    self.entidad.world:rayCast(self.oxBala,self.oyBala,cx,cy,raycastAtacar)
+    
     if self.posicionAtaque and self.automata.current == "mover" then
       self.automata:Fatacar()
       self.iterador = 1
