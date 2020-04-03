@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 190,
+  nextobjectid = 193,
   properties = {},
   tilesets = {},
   layers = {
@@ -1520,20 +1520,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 12,
-      name = "Capa de Objetos 11",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["tabla"] = "balas"
-      },
-      objects = {}
-    },
-    {
-      type = "objectgroup",
       id = 11,
       name = "Capa de Objetos 10",
       visible = true,
@@ -1550,17 +1536,19 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 1352.65,
-          y = 491.647,
+          x = 1400.65,
+          y = 503.647,
           width = 70,
           height = 90,
           rotation = 0,
           visible = true,
           properties = {
             ["clase"] = "enemigo1",
+            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["userdataNombre"] = "enemigo",
             ["velocidad"] = 100
           }
         },
@@ -1576,7 +1564,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["hp"] = 15
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["userdataNombre"] = "enemigo"
           }
         },
         {
@@ -1591,7 +1581,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["hp"] = 15
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["userdataNombre"] = "enemigo"
           }
         },
         {
@@ -1599,17 +1591,19 @@ return {
           name = "Zombie",
           type = "dynamic",
           shape = "rectangle",
-          x = 1191.67,
-          y = 483,
+          x = 1271.67,
+          y = 492.333,
           width = 60,
           height = 100,
           rotation = 0,
           visible = true,
           properties = {
             ["clase"] = "enemigo2",
+            ["grupo"] = "infectado",
             ["hp"] = 20,
             ["img"] = "jugador",
             ["limiteVision"] = 100,
+            ["userdataNombre"] = "enemigo",
             ["velocidad"] = 130
           }
         },
@@ -1627,11 +1621,13 @@ return {
           properties = {
             ["arma"] = 1,
             ["clase"] = "enemigo3",
+            ["grupo"] = "humano_enemigo",
             ["hp"] = 12,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
             ["limiteVision"] = 1000,
             ["quadImgAccesorio"] = "1",
+            ["userdataNombre"] = "enemigo",
             ["velocidad"] = 80
           }
         }
@@ -1664,6 +1660,7 @@ return {
           properties = {
             ["armaIndex"] = 1,
             ["clase"] = "player",
+            ["grupo"] = "humano",
             ["hp"] = 25,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
@@ -1673,6 +1670,20 @@ return {
           }
         }
       }
+    },
+    {
+      type = "objectgroup",
+      id = 12,
+      name = "Capa de Objetos 11",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "balas"
+      },
+      objects = {}
     }
   }
 }

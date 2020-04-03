@@ -54,13 +54,11 @@ function tipoBala:updateBala(dt)
     
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     
-    
     if self.bx>self.oxBala then
       self.vistaX = 1
     else
       self.vistaX = -1
     end
-    
     
     self.radioBala = math.atan2(self.oyBala-self.by,self.oxBala-self.bx)+math.pi
   end
@@ -126,10 +124,10 @@ end
 
 function tipoBala:disparoIndividual(arma)
   if arma.stock>=1 then
-    arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala,self.dano,self.armaIndex)
+    arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.armaIndex)
     
     if arma.funcion then
-      arma.funcion(arma.clase,self.entidad,self,self.oxBala,self.oyBala,self.radioBala,self.dano,self.armaIndex)
+      arma.funcion(arma.clase,self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.armaIndex)
     end
     
     arma.stock = arma.stock-1

@@ -1,8 +1,9 @@
 local baba = require "entidades.Balas.baba"
 local estandarEnemigos =  require "entidades.Enemigos.estandarEnemigos"
+local remove = require "entidades.remove"
 
 local enemigo1 = Class{
-  __includes = {estandarEnemigos}
+  __includes = {estandarEnemigos,remove}
 }
 
 function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -16,6 +17,9 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.velocidad = properties.velocidad
   
   self.radio = radio
+  
+  self.grupo = properties.grupo
+  self.hp = properties.hp
   
   self.limiteVision = properties.limiteVision
   
@@ -52,7 +56,7 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.timer = Timer()
   
-  self.direccion = properties.direccion or 1
+  self.direccion = properties.direccion or -1
   
   estandarEnemigos.init(self)
   
@@ -87,32 +91,45 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.oxDisparo,self.oyDisparo = math.getPointAngle(self.ox,self.oy,self.radio,30,self.direccionAngulo[self.direccion]-20*self.direccion)
   
   self.oxAtaque,self.oyAtaque = math.getPointAngle(self.ox,self.oy,self.radio,self.limiteVision,self.direccionAngulo[self.direccion])
+
   
   local raycastAtacar = function (fixture, x, y, xn, yn, fraction)
-    local tipoObj=fixture:getUserData()
     
-    if tipoObj and tipoObj.obj and tipoObj.nombre == "player" then
+    if not fixture:isSensor() and not fixture:getBody():isBullet() then
       
-      self.objPresa = tipoObj.obj
-      self.posicionAtaque=true
-
+      local tipoObj=fixture:getUserData()
+      
+      if self.fractionRaycast<fraction then
+        
+        self.prePresa = tipoObj
+        
+        self.fractionRaycast = fraction
+      end 
     end
     
-    return 0
+    return 1
   end
   
   self.timer:every(0.1,function() 
     self.posicionAtaque=false
     
     self.entidad.world:rayCast(self.ox,self.oy,self.oxAtaque,self.oyAtaque,raycastAtacar)
+    
+    self:checkPresa()
+    
     if self.posicionAtaque and self.automata.current == "mover" then
       self.automata:Fatacar()
       self.iterador = 4
-      self.posicionAtaque=false
+    elseif not self.posicionAtaque and self.automata.current == "atacar" then
+      self.objPresa = nil
+      self.automata:Fmover()
     end
+    
   end)
   
+  self.objetivosEnemigos = {"humano","humano_enemigo"}
   
+  remove.init(self,entidad,properties.tabla)
 end
 
 function enemigo1:draw()
@@ -137,10 +154,7 @@ function enemigo1:update(dt)
   
   self:updateEnemigo(dt)
   
-  
+  self:checkVida()
 end
-
-
-
 
 return enemigo1

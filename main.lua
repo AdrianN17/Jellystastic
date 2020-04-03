@@ -147,3 +147,21 @@ function math.getPointAngle(cx,cy,cr,distancia,radio)
   
   return ox,oy
 end
+
+function math.sign(number)
+  if number>0 then
+    return 1
+  else
+    return -1
+  end
+end
+
+function checkStringInTable(string,tabla)
+  for i,k in ipairs(tabla) do
+    if k == string then
+      return true
+    end
+  end
+  
+  return false
+end

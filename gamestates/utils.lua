@@ -1,7 +1,7 @@
 local utils = Class{}
 
 function utils:init()
-  self.multiple = {}
+
 end
 
 function utils:create_objects(entidades)
@@ -184,5 +184,71 @@ function utils:addproperties(obj,properties)
     end
   end
 end
+
+function utils:setCallbacks()
+  
+  local beginContact =  function(a, b, coll)
+    local u1 = a:getUserData()
+    local u2 = b:getUserData()
+    
+    if u1 and u1.obj and u2 and u2.obj then
+      if u1.obj.beginContact then
+        u1.obj:beginContact(u2.nombre,u2.obj,coll)
+      end
+      if u2.obj.beginContact then
+        u2.obj:beginContact(u1.nombre,u1.obj,coll)
+      end
+    end
+  end
+  
+  local endContact =  function(a, b, coll)
+    local u1 = a:getUserData()
+    local u2 = b:getUserData()
+    
+    if u1 and u1.obj and u2 and u2.obj then
+      if u1.obj.endContact then
+        u1.obj:endContact(u2.nombre,u2.obj,coll)
+      end
+      if u2.obj.endContact then
+        u2.obj:endContact(u1.nombre,u1.obj,coll)
+      end
+    end
+  end
+  
+  local preSolve =  function(a, b, coll)
+    local u1 = a:getUserData()
+    local u2 = b:getUserData()
+
+    if u1 and u1.obj and u2 and u2.obj then
+      if u1.obj.preSolve then
+        u1.obj:preSolve(u2.nombre,u2.obj,coll)
+      end
+      if u2.obj.preSolve then
+        u2.obj:preSolve(u1.nombre,u1.obj,coll)
+      end
+    end
+  end
+  
+  local postSolve =  function(a, b, coll, normalimpulse, tangentimpulse)
+    local u1 = a:getUserData()
+    local u2 = b:getUserData()
+    
+     if u1 and u1.obj and u2 and u2.obj then
+      if u1.obj.postSolve then
+        u1.obj:postSolve(u2.nombre,u2.obj,coll)
+      end
+      if u2.obj.postSolve then
+        u2.obj:postSolve(u1.nombre,u1.obj,coll)
+      end
+    end
+  end
+  
+  self.world:setCallbacks(beginContact,endContact,preSolve,postSolve)
+end
+
+function utils:dano(obj,dano)
+  obj.hp = obj.hp - dano
+end
+
 
 return utils

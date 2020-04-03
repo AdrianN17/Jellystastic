@@ -1,9 +1,10 @@
 local estandarEnemigos =  require "entidades.Enemigos.estandarEnemigos"
 local Timer = require "libs.chrono.Timer"
 local tipoBala = require "entidades.Balas.tipoBala"
+local remove = require "entidades.remove"
 
 local enemigo3 = Class{
-  __includes = {estandarEnemigos,tipoBala}
+  __includes = {estandarEnemigos,tipoBala,remove}
 }
 
 function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -14,6 +15,9 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.entidad = entidad
   
   self.velocidad = properties.velocidad
+  
+  self.grupo = properties.grupo
+  self.hp = properties.hp
   
   self.radio = radio
   
@@ -53,7 +57,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self.timer = Timer()
   
-  self.direccion = properties.direccion or 1
+  self.direccion = properties.direccion or -1
   
   self.armaIndex = properties.arma
   
@@ -134,32 +138,51 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
     end
     
   end)
-  
-  local raycastAtacar = function (fixture, x, y, xn, yn, fraction)
-    local tipoObj=fixture:getUserData()
-    
-    if tipoObj and tipoObj.obj and tipoObj.nombre == "player" then
-      
-      self.objPresa = tipoObj.obj
-      self.posicionAtaque=true
 
+
+  local raycastAtacar = function (fixture, x, y, xn, yn, fraction)
+    
+    if not fixture:isSensor() and not fixture:getBody():isBullet() then
+      
+      local tipoObj=fixture:getUserData()
+      
+      
+      if self.fractionRaycast>fraction then
+        
+        self.prePresa = tipoObj
+        
+        self.fractionRaycast = fraction
+        
+      end 
     end
     
-    return 0
+    return 1
   end
 
-  self.timer:every(0.025,function() 
+  self.timer:every(0.1,function() 
     self.posicionAtaque=false
     
     local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
+    
     self.entidad.world:rayCast(self.oxBala,self.oyBala,cx,cy,raycastAtacar)
     
-    if self.posicionAtaque and self.automata.current == "mover" then
+    self:checkPresa()
+    
+    if self.posicionAtaque and self.automata.current == "mover" and self.objPresa then
       self.automata:Fatacar()
       self.iterador = 1
-      self.posicionAtaque=false
+    elseif not self.posicionAtaque and self.automata.current == "atacar" and self.objPresa then
+      self.objPresa = nil
+      self.automata:Fmover()
     end
+
   end)
+
+  self.acciones = {invulnerable =false}
+  
+  self.objetivosEnemigos = {"humano","infectado"}
+  
+  remove.init(self,entidad,properties.tabla)
 
 end
 
@@ -186,6 +209,8 @@ function enemigo3:draw()
   local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
   love.graphics.line(self.oxBala,self.oyBala, cx,cy)
   
+  love.graphics.print(tostring(self.objPresa) .. " , " .. self.automata.current,self.ox,self.oy-100)
+  
 end
 
 function enemigo3:update(dt)
@@ -200,7 +225,7 @@ function enemigo3:update(dt)
   
   self:updateEnemigo(dt)
   
-  
+  self:checkVida()
 end
 
 function enemigo3:voltear()
@@ -240,7 +265,5 @@ function enemigo3:restaurarRadio()
     self.radioBala = math.rad(0)
   end
 end
-
-
 
 return enemigo3

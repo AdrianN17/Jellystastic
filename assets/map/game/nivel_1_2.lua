@@ -1388,20 +1388,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 12,
-      name = "Capa de Objetos 11",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["tabla"] = "balas"
-      },
-      objects = {}
-    },
-    {
-      type = "objectgroup",
       id = 13,
       name = "Capa de Objetos 12",
       visible = true,
@@ -1411,6 +1397,20 @@ return {
       draworder = "topdown",
       properties = {
         ["tabla"] = "jugadores"
+      },
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 12,
+      name = "Capa de Objetos 11",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "balas"
       },
       objects = {}
     }

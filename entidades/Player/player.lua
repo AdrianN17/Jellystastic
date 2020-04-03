@@ -1,8 +1,10 @@
 local Timer = require "libs.chrono.Timer"
 local tipoBala = require "entidades.Balas.tipoBala"
+local remove = require "entidades.remove"
+
 
 local player = Class{
-  __includes = {tipoBala}
+  __includes = {tipoBala,remove}
 }
 
 function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -15,6 +17,9 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.velocidad = properties.velocidad
   self.salto = properties.salto
   self.radio = radio
+  
+  self.grupo = properties.grupo
+  self.hp = properties.hp
   
   self.spritesheet = Index_img[properties.img]
   
@@ -112,6 +117,10 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.cooldownTimer = nil
   self.cooldownArma = false
   
+  self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
+  
+  remove.init(self,entidad,properties.tabla)
+  
 end
 
 function player:update(dt)
@@ -145,9 +154,8 @@ function player:update(dt)
     self.body:applyForce(mx,0)
   end
   
-  
-  
   self.entidad.cam:setPosition(self.ox, self.oy)
+  self:checkVida()
 end
 
 function player:draw()

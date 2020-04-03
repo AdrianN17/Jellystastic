@@ -808,7 +808,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["clase"] = "objetoFisico",
+            ["clase"] = "arma",
             ["img"] = "armas",
             ["quad"] = "2",
             ["sensor"] = true
@@ -841,7 +841,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["clase"] = "objetoFisico",
+            ["clase"] = "vida",
             ["img"] = "vida",
             ["quad"] = "1",
             ["sensor"] = true
@@ -911,20 +911,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 11,
-      name = "Capa de Objetos 10",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["tabla"] = "balas"
-      },
-      objects = {}
-    },
-    {
-      type = "objectgroup",
       id = 10,
       name = "Capa de Objetos 9",
       visible = true,
@@ -934,6 +920,20 @@ return {
       draworder = "topdown",
       properties = {
         ["tabla"] = "jugadores"
+      },
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 11,
+      name = "Capa de Objetos 10",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "balas"
       },
       objects = {}
     }

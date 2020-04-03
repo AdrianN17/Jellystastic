@@ -1,4 +1,8 @@
-local baba = Class{}
+local remove = require "entidades.remove"
+
+local baba = Class{
+  __includes = {remove}
+}
 
 function baba:init(entidad,objeto,ox,oy,radio)
   self.entidad = entidad
@@ -23,8 +27,9 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.body = love.physics.newBody(entidad.world,ox,oy,"dynamic")
   self.shape = love.physics.newCircleShape(18)
   self.fixture = love.physics.newFixture(self.body,self.shape)
-  self.fixture:setRestitution(0.5)
+  self.fixture:setUserData({obj=self,nombre = "bala"})
   
+  self.fixture:setRestitution(0.5)
   self.body:setBullet(true)
   self.body:setMass(0)
   self.body:setLinearDamping( 1 )
@@ -32,8 +37,13 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.fixture:setDensity(1)
   self.body: setFixedRotation (true)
   
-  self.body:applyLinearImpulse(self.velocidad*math.cos(radio),self.velocidad*math.sin(radio))
+  local cx,cy = math.cos(radio),math.sin(radio)
+  self.body:applyLinearImpulse(self.velocidad*cx,self.velocidad*cy)
   
+  remove.init(self,entidad,"balas")
+  
+  self.direccion = math.sign(cx)
+  self.grupo = "bala"
 end
 
 function baba:draw()

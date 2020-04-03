@@ -70,6 +70,8 @@ function mundoGenerico:init(mapa)
   self.vec4Shader = {0.7,-0.4,0,0}
   self.shaderEnemigo:send("color_player",self.vec4Shader)
   
+  self:setCallbacks()
+  
 end
 
 function mundoGenerico:enter()

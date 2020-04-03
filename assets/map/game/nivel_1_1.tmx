@@ -376,14 +376,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="11" name="Capa de Objetos 10">
-  <properties>
-   <property name="tabla" value="balas"/>
-  </properties>
- </objectgroup>
  <objectgroup id="10" name="Capa de Objetos 9">
   <properties>
    <property name="tabla" value="jugadores"/>
+  </properties>
+ </objectgroup>
+ <objectgroup id="11" name="Capa de Objetos 10">
+  <properties>
+   <property name="tabla" value="balas"/>
   </properties>
  </objectgroup>
 </map>

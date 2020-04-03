@@ -13,6 +13,9 @@ function estandarEnemigos:init()
   self.cambiarDireccion=false
   self.posicionAtaque = false
   
+  self.fractionRaycast = -1
+  self.prePresa = nil
+  
   local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
       
     local tipoObj=fixture:getUserData()
@@ -129,6 +132,16 @@ end
 function estandarEnemigos:terminarSeguimiento()
   self.objpresa=nil
   self.automata:Fmover()
+end
+
+function estandarEnemigos:checkPresa()
+  if self.prePresa and self.prePresa.obj and checkStringInTable(self.prePresa.obj.grupo,self.objetivosEnemigos) then
+    self.objPresa = self.prePresa.obj
+    self.posicionAtaque=true
+  end
+  
+  self.fractionRaycast = 9999
+  self.prePresa = nil
 end
 
 return estandarEnemigos
