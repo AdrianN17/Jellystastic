@@ -2,6 +2,8 @@ local estandarEnemigos = Class{}
 
 function estandarEnemigos:init()
   
+  self.maxHp = self.hp
+  
   self.direccionAngulo = {}
   self.direccionAngulo[1] = 0
   self.direccionAngulo[-1] = -180

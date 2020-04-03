@@ -20,6 +20,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.grupo = properties.grupo
   self.hp = properties.hp
+  self.maxHp = self.hp
   
   self.spritesheet = Index_img[properties.img]
   
@@ -120,6 +121,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
   
   remove.init(self,entidad,properties.tabla)
+  
+  self.cooldownIterador = true
   
 end
 
@@ -278,6 +281,37 @@ function player:caer()
   self.body:applyLinearImpulse( 0, (self.salto*self.mass)/2 )
 end
 
+function player:get()
+  return {armasValues = self.armasValues,armaIndex = self.armaIndex, hp = self.hp, iterador = self.iterador,
+      cooldown = self.cooldown, cooldownIterador = self.cooldownIterador, armaIndexRespaldo = self.armaIndexRespaldo}
+end
 
+function player:set(tabla)
+  for i,k in pairs(tabla) do
+    self[i] = k
+  end
+end
+
+function player:cambiarEstado(tipo)
+  local hp = self.maxHp*0.5
+
+  if self.hp<hp and self.cooldownIterador then
+    
+    if tipo == "semizombie" then
+      self.iteradorEstado = 4
+    elseif tipo == "agujereado" then
+      self.iteradorEstado = 2
+    elseif tipo == "canon" then
+      self.iteradorEstado = 3
+    end
+    
+    self.cooldownIterador = false
+    
+  elseif self.hp>hp and not self.cooldownIterador then
+    
+    self.iteradorEstado = 1
+    self.cooldownIterador = true
+  end
+end
 
 return player

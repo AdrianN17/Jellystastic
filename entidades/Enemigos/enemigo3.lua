@@ -182,7 +182,9 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.objetivosEnemigos = {"humano","infectado"}
   
   remove.init(self,entidad,properties.tabla)
-
+  
+  self.radioCooldown = false
+  self.radioCooldownTimer=nil
 end
 
 function enemigo3:draw()
@@ -241,7 +243,29 @@ function enemigo3:updateBalaAutomatica(dt)
     self.radioBala = self.radioBala +dt*self.radioBalaDireccion
     
     if self.radioBala>self.maxAngle[self.direccion] or self.radioBala<self.minAngle[self.direccion] then
-      self.radioBalaDireccion = self.radioBalaDireccion*-1
+      if not self.radioCooldown then
+        self.radioBalaDireccion = self.radioBalaDireccion*-1
+        self.radioCooldown = true
+        
+        if not self.radioCooldownTimer then
+          self.radioCooldownTimer = self.timer:after(0.1,function()
+            self.radioCooldown = false
+            self.radioCooldownTimer = nil
+          end)
+        end
+        
+      else
+        if self.radioCooldown then
+          self:restaurarRadio()
+          self.radioCooldown = false
+          
+          if self.radioCooldownTimer then
+            self.timer:cancel(self.radioCooldownTimer)
+          end
+          
+          self.radioCooldownTimer = nil
+        end
+      end
     end
     
   elseif self.automata.current == "atacar" then

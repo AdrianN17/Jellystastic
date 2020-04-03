@@ -75,6 +75,10 @@ function bala:preSolve(nombre,obj,coll)
         self.entidad:dano(obj,self.dano)
         self:remove()
         
+        if obj.cambiarEstado then
+          obj:cambiarEstado("agujereado")
+        end
+        
         if obj.direccion == self.direccion then
           if obj.grupo ~= "player" then
             obj.direccion=obj.direccion*-1
