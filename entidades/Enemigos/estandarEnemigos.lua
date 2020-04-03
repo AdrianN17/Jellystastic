@@ -13,7 +13,7 @@ function estandarEnemigos:init()
   self.cambiarDireccion=false
   self.posicionAtaque = false
   
-  self.fractionRaycast = -1
+  self.fractionRaycast = 9999
   self.prePresa = nil
   
   local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
