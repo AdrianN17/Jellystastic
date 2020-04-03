@@ -135,6 +135,7 @@ function estandarEnemigos:terminarSeguimiento()
 end
 
 function estandarEnemigos:checkPresa()
+
   if self.prePresa and self.prePresa.obj and checkStringInTable(self.prePresa.obj.grupo,self.objetivosEnemigos) then
     self.objPresa = self.prePresa.obj
     self.posicionAtaque=true

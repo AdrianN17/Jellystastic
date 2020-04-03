@@ -79,7 +79,7 @@ function enemigo2:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
       
       local tipoObj=fixture:getUserData()
       
-      if self.fractionRaycast<fraction then
+      if self.fractionRaycast>fraction then
         
         self.prePresa = tipoObj
         
