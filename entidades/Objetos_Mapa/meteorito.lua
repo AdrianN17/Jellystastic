@@ -1,6 +1,6 @@
 local meteorito = Class{}
 
-function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
+function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,height)
   self.body = body
   self.shape = shape
   self.fixture = fixture
@@ -27,6 +27,8 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,p
   self.wi,self.hi = self.width/self.dimension.w,self.height/self.dimension.h 
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  self.oxInicial,self.oyInicial = ox,oy
 end
 
 function meteorito:draw()

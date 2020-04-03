@@ -24,10 +24,15 @@ function utils:create_objects(entidades)
         for nombreParametro,valor in pairs(layerProperties) do
           object.properties[nombreParametro] = valor
         end
+
+        local shapeTableClear,ox,oy,radio
+        if shapeData then
+          shapeTableClear,ox,oy= math.clearPolygonCenter(shapeData)
+          radio = math.rad(object.rotation)
+        end
         
-        local shapeTableClear,ox,oy = math.clearPolygonCenter(shapeData)
         local properties = object.properties
-        local radio = math.rad(object.rotation)
+        
         
         
         if properties.tipoCalculoDimensiones then
@@ -38,8 +43,10 @@ function utils:create_objects(entidades)
             object.width,object.height = math.calcularDimensiones(tipoDimension,shapeTableClear)
           end
         end
-
-        if object.type == "none" then
+        
+        if object.type == "manager" then
+          entidades[clase](self,object.x,object.y,properties)
+        elseif object.type == "none" then
           entidades[clase](self,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
         else
           local body = love.physics.newBody(self.world,ox,oy,object.type)

@@ -4,7 +4,7 @@ return {
   textura = require "entidades.Objetos_Mapa.textura",
   texturaFisica = require "entidades.Objetos_Mapa.texturaFisica",
   player = require "entidades.Player.player",
-  meteorito = require "entidades.Objetos_Mapa.meteorito",
+  meteoritoCreador = require "entidades.Objetos_Mapa.meteoritoCreador",
   puerta = require "entidades.Objetos_Mapa.puerta",
   movible = require "entidades.Objetos_Mapa.movible",
   enemigo1 = require "entidades.Enemigos.enemigo1",
