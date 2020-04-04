@@ -81,13 +81,6 @@ function math.clearPolygonCenter(tabla)
   return t, ox,oy
 end
 
-function math.calcularDimensiones(tipo,tabla)
-  if tipo == "romboide" then
-    return math.calcularDistancia(tabla[1],tabla[2],tabla[7],tabla[8]), math.calcularDistancia(tabla[1],tabla[2],tabla[3],tabla[4])
-  elseif tipo =="triangular" then
-    return math.calcularDistancia(tabla[1],tabla[2],tabla[5],tabla[6]), math.calcularDistancia(tabla[3],tabla[4],tabla[5],tabla[6])
-  end
-end
 
 function math.calcularDistancia(x1,y1,x2,y2)
   local a,b = x2 - x1, y2 - y1

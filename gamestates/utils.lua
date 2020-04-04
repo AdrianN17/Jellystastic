@@ -4,81 +4,109 @@ function utils:init()
 
 end
 
-function utils:create_objects(entidades)
-
+function utils:createObjects(entidades)
   local lon = #self.map.layers
-
   for index = 1,lon,1 do
     
     local layer = self.map.layers[index]
-    
     local layerProperties = layer.properties
     
     for _,object in pairs(layer.objects) do
       local clase = object.properties.clase
 
       if entidades[clase] then
-
-        local shapeData = object[object.shape]
-        
-        for nombreParametro,valor in pairs(layerProperties) do
-          object.properties[nombreParametro] = valor
-        end
-
-        local shapeTableClear,ox,oy,radio
-        if shapeData then
-          shapeTableClear,ox,oy= math.clearPolygonCenter(shapeData)
-          radio = math.rad(object.rotation)
-        end
-        
-        local properties = object.properties
-        
-        
-        
-        if properties.tipoCalculoDimensiones then
-          local tipoDimension = properties.tipoCalculoDimensiones
-          if tipoDimension == "linea" then
-            object.width,object.height = properties.width or math.abs(shapeTableClear[1]-shapeTableClear[3]),properties.height or math.abs(shapeTableClear[2]-shapeTableClear[4])
-          else
-            object.width,object.height = math.calcularDimensiones(tipoDimension,shapeTableClear)
-          end
-        end
-        
-        if object.type == "manager" then
-          entidades[clase](self,object.x,object.y,properties)
-        elseif object.type == "none" then
-          entidades[clase](self,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
-        else
-          local body = love.physics.newBody(self.world,ox,oy,object.type)
-          local shape = nil
-          
-          if object.shape == "rectangle" or object.shape == "polygon" then
-            shape = love.physics.newPolygonShape(shapeTableClear)
-          elseif object.shape == "ellipse" then
-            shape = love.physics.newChainShape(true,shapeTableClear)
-          elseif object.shape == "polyline" then
-            shape = love.physics.newEdgeShape(shapeTableClear[1],shapeTableClear[2],shapeTableClear[3],shapeTableClear[4])
-          end
-
-          local fixture = love.physics.newFixture(body,shape)
-          
-          if properties.sensor then
-            fixture:setSensor(true)
-          end
-          
-          local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
-          
-          if properties.userdataNombre then
-            self:addproperties(obj,properties)
-            fixture:setUserData({obj = obj, nombre = properties.userdataNombre})
-          end
-          
-        end
+        self:createObject(entidades,clase,object,layerProperties)
       end
     end
-
+    
     self:crearNuevoLayer(index,layerProperties.tabla)
   end
+end
+
+function utils:createObject(entidades,clase,object,layerProperties)
+  local shapeData = object[object.shape]
+  
+  for nombreParametro,valor in pairs(layerProperties) do
+    object.properties[nombreParametro] = valor
+  end
+
+  local shapeTableClear,ox,oy,radio
+  if shapeData then
+    shapeTableClear,ox,oy= math.clearPolygonCenter(shapeData)
+    radio = math.rad(object.rotation)
+  end
+  
+  local properties = object.properties
+  
+  if properties.tipoCalculoDimensiones then
+    local tipoDimension = properties.tipoCalculoDimensiones
+
+    Switch(tipoDimension, {
+        linea = function()
+          object.width,object.height = properties.width or math.abs(shapeTableClear[1]-shapeTableClear[3]),properties.height or math.abs(shapeTableClear[2]-shapeTableClear[4])
+        end,
+        
+        romboide = function()
+          object.width,object.height = math.calcularDistancia(shapeTableClear[1],shapeTableClear[2],shapeTableClear[7],shapeTableClear[8]), math.calcularDistancia(shapeTableClear[1],shapeTableClear[2],shapeTableClear[3],shapeTableClear[4])
+        end,
+        
+        triangular = function()
+          object.width,object.height = math.calcularDistancia(shapeTableClear[1],shapeTableClear[2],shapeTableClear[5],shapeTableClear[6]), math.calcularDistancia(shapeTableClear[3],shapeTableClear[4],shapeTableClear[5],shapeTableClear[6])
+        end
+      })
+
+  end
+
+  Switch(object.type, {
+      
+    manager = function()
+      entidades[clase](self,object.x,object.y,properties)
+    end,
+    
+    none = function()
+      entidades[clase](self,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
+    end,
+    
+    [Switch.default] = function()
+      
+      local body = love.physics.newBody(self.world,ox,oy,object.type)
+      local shape = nil
+      
+      Switch(object.shape, {
+          
+        rectangle = function()
+          shape = love.physics.newPolygonShape(shapeTableClear)
+        end,
+        
+        polygon = function()
+          shape = love.physics.newPolygonShape(shapeTableClear)
+        end,
+        
+        ellipse = function()
+          shape = love.physics.newChainShape(true,shapeTableClear)
+        end,
+        
+        polyline = function()
+          shape = love.physics.newEdgeShape(shapeTableClear[1],shapeTableClear[2],shapeTableClear[3],shapeTableClear[4])
+        end
+      })
+
+      local fixture = love.physics.newFixture(body,shape)
+      
+      if properties.sensor then
+        fixture:setSensor(true)
+      end
+      
+      local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
+      
+      if properties.userdataNombre then
+        self:addproperties(obj,properties)
+        fixture:setUserData({obj = obj, nombre = properties.userdataNombre})
+      end
+      
+    end
+  })
+  
 end
 
 function utils:add(name,tabla)

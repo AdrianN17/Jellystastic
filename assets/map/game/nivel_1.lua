@@ -187,8 +187,7 @@ return {
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
             ["img"] = "2",
-            ["tipoCalculoDimensiones"] = "triangular",
-            ["widthArreglo"] = 1.5
+            ["tipoCalculoDimensiones"] = "triangular"
           }
         },
         {
@@ -263,44 +262,7 @@ return {
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
             ["img"] = "4",
-            ["tipoCalculoDimensiones"] = "triangular",
-            ["widthArreglo"] = 1.5
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      id = 14,
-      name = "Capa de Objetos 13",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["tabla"] = "meteorito"
-      },
-      objects = {
-        {
-          id = 193,
-          name = "MeteoritoCreador",
-          type = "manager",
-          shape = "point",
-          x = 781.333,
-          y = 471.333,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clase"] = "meteoritoCreador",
-            ["direccion"] = 1,
-            ["img"] = "meteorito",
-            ["quad"] = "1",
-            ["quadEstela"] = "estela_1",
-            ["sensor"] = true,
-            ["userdataNombre"] = "meteorito"
+            ["tipoCalculoDimensiones"] = "triangular"
           }
         }
       }
@@ -1684,6 +1646,43 @@ return {
         ["tabla"] = "balas"
       },
       objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 14,
+      name = "Capa de Objetos 13",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "meteorito"
+      },
+      objects = {
+        {
+          id = 193,
+          name = "MeteoritoCreador",
+          type = "manager",
+          shape = "point",
+          x = 605.333,
+          y = 313.333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "meteoritoCreador",
+            ["direccion"] = 1,
+            ["hp"] = 5,
+            ["img"] = "meteorito",
+            ["quad"] = "1",
+            ["quadEstela"] = "estela_1",
+            ["sensor"] = true,
+            ["userdataNombre"] = "meteorito"
+          }
+        }
+      }
     }
   }
 }

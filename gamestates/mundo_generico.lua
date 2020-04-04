@@ -35,7 +35,7 @@ function mundoGenerico:init(mapa)
   self.cam:setScale(self.scale)
   
   
-  self:create_objects(Entities_index)
+  self:createObjects(Entities_index)
   
   if self.gameobject.jugadores[self.indexPlayer] then
     local player = self.gameobject.jugadores[self.indexPlayer]

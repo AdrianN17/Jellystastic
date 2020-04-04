@@ -60,7 +60,6 @@
     <property name="heightArreglo" type="float" value="1.5"/>
     <property name="img" value="2"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
-    <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
    <polygon points="0,0 167.25,-187.875 166.75,-0.250834"/>
   </object>
@@ -92,7 +91,6 @@
     <property name="heightArreglo" type="float" value="1.5"/>
     <property name="img" value="4"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
-    <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
    <polygon points="0,0 272.25,-187.875 271.436,-0.250834"/>
   </object>

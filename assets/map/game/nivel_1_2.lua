@@ -153,8 +153,7 @@ return {
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
             ["img"] = "2",
-            ["tipoCalculoDimensiones"] = "triangular",
-            ["widthArreglo"] = 1.5
+            ["tipoCalculoDimensiones"] = "triangular"
           }
         },
         {
@@ -229,8 +228,7 @@ return {
             ["grupo"] = "casa",
             ["heightArreglo"] = 1.5,
             ["img"] = "4",
-            ["tipoCalculoDimensiones"] = "triangular",
-            ["widthArreglo"] = 1.5
+            ["tipoCalculoDimensiones"] = "triangular"
           }
         },
         {

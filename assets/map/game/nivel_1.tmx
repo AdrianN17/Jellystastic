@@ -74,7 +74,6 @@
     <property name="heightArreglo" type="float" value="1.5"/>
     <property name="img" value="2"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
-    <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
    <polygon points="0.00466957,0.0703125 138.614,-127.378 138.667,0.0703125"/>
   </object>
@@ -106,26 +105,8 @@
     <property name="heightArreglo" type="float" value="1.5"/>
     <property name="img" value="4"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
-    <property name="widthArreglo" type="float" value="1.5"/>
    </properties>
    <polygon points="0.00471447,0.0703125 139.948,-127.378 140.001,0.0703125"/>
-  </object>
- </objectgroup>
- <objectgroup id="14" name="Capa de Objetos 13">
-  <properties>
-   <property name="tabla" value="meteorito"/>
-  </properties>
-  <object id="193" name="MeteoritoCreador" type="manager" x="781.333" y="471.333">
-   <properties>
-    <property name="clase" value="meteoritoCreador"/>
-    <property name="direccion" type="int" value="1"/>
-    <property name="img" value="meteorito"/>
-    <property name="quad" value="1"/>
-    <property name="quadEstela" value="estela_1"/>
-    <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="meteorito"/>
-   </properties>
-   <point/>
   </object>
  </objectgroup>
  <objectgroup id="4" name="Capa de Objetos 3">
@@ -724,5 +705,23 @@
   <properties>
    <property name="tabla" value="balas"/>
   </properties>
+ </objectgroup>
+ <objectgroup id="14" name="Capa de Objetos 13">
+  <properties>
+   <property name="tabla" value="meteorito"/>
+  </properties>
+  <object id="193" name="MeteoritoCreador" type="manager" x="605.333" y="313.333">
+   <properties>
+    <property name="clase" value="meteoritoCreador"/>
+    <property name="direccion" type="int" value="1"/>
+    <property name="hp" type="int" value="5"/>
+    <property name="img" value="meteorito"/>
+    <property name="quad" value="1"/>
+    <property name="quadEstela" value="estela_1"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="userdataNombre" value="meteorito"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
 </map>
