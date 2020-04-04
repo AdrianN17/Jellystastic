@@ -51,7 +51,6 @@ end
 
 function tipoBala:updateBala(dt)
   if self.armaIndex>0 then
-    
     self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
     
     if self.bx>self.oxBala then

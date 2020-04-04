@@ -1,6 +1,6 @@
 local estandarEnemigos = Class{}
 
-function estandarEnemigos:init()
+function estandarEnemigos:init(properties)
   
   self.maxHp = self.hp
   
@@ -18,43 +18,45 @@ function estandarEnemigos:init()
   self.fractionRaycast = 9999
   self.prePresa = nil
   
-  local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
+  if not properties.camper then
+    local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
+        
+      local tipoObj=fixture:getUserData()
       
-    local tipoObj=fixture:getUserData()
-    
-    if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
-      self.cambiarDireccion=false
-    end
-    
-    return 1
-  end
-  
-  local raycastPared = function (fixture, x, y, xn, yn, fraction)
-    
-    local tipoObj=fixture:getUserData()
-    
-    if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
-      self.cambiarDireccion=true
-    end
-    
-    return 1
-  end
-  
-  self.timer:every(0.1,function() 
-    self.cambiarDireccion=true
-
-    self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
-    
-    self.entidad.world:rayCast(self.ox,self.oy,self.oxPared,self.oyPared,raycastPared)
-  
-    if self.cambiarDireccion then
-      self.direccion=self.direccion*-1
-      
-      if self.voltear then
-        self:voltear()
+      if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
+        self.cambiarDireccion=false
       end
+      
+      return 1
     end
-  end)
+    
+    local raycastPared = function (fixture, x, y, xn, yn, fraction)
+      
+      local tipoObj=fixture:getUserData()
+      
+      if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
+        self.cambiarDireccion=true
+      end
+      
+      return 1
+    end
+    
+    self.timer:every(0.1,function() 
+      self.cambiarDireccion=true
+
+      self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
+      
+      self.entidad.world:rayCast(self.ox,self.oy,self.oxPared,self.oyPared,raycastPared)
+    
+      if self.cambiarDireccion then
+        self.direccion=self.direccion*-1
+        
+        if self.voltear then
+          self:voltear()
+        end
+      end
+    end)
+  end
 
 end
 
@@ -145,6 +147,15 @@ function estandarEnemigos:checkPresa()
   
   self.fractionRaycast = 9999
   self.prePresa = nil
+end
+
+function estandarEnemigos:preSolve(nombre,obj,coll)
+  
+  if obj.grupo == self.grupo then
+    coll:setEnabled(false)
+  else
+    
+  end
 end
 
 return estandarEnemigos

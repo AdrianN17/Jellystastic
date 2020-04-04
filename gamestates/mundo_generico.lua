@@ -72,6 +72,8 @@ function mundoGenerico:init(mapa)
   
   self:setCallbacks()
   
+  self.timer = Timer()
+  
 end
 
 function mundoGenerico:enter()
@@ -79,6 +81,7 @@ function mundoGenerico:enter()
 end
 
 function mundoGenerico:update(dt)
+  self.timer:update(dt)
   self.world:update(dt)
   self.map:update(dt)
   

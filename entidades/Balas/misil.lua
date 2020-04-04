@@ -59,37 +59,41 @@ function misil:update(dt)
 end
 
 function misil:preSolve(nombre,obj,coll)
+  
+  coll:setEnabled(false)
+  
   if obj.Es_tierra then
     self:remove()
-  end
-  
-  if obj == self.objeto then
-    coll:setEnabled(false)
-  else
-    for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
-      if obj.grupo == grupo then
-        self.entidad:dano(obj,self.dano)
-        self:remove()
-        
-        if obj.direccion == self.direccion then
-          if obj.grupo ~= "player" then
-            obj.direccion=obj.direccion*-1
+  elseif obj.grupo == self.grupo and obj ~= self.objeto then
+    self:remove()
+    obj:remove()
+  elseif obj.grupo ~= self.grupo and obj ~= self.objeto then
+    
+    if obj.grupo == "meteorito" then
+      self.entidad:dano(obj,self.dano)
+    else
+      for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
+        if obj.grupo == grupo then
+          self.entidad:dano(obj,self.dano)
+          self:remove()
+          
+          if obj.cambiarEstado then
+            obj:cambiarEstado("agujereado")
           end
           
-          if obj.voltear then
-            obj:voltear()
+          if obj.direccion == self.direccion then
+            if obj.grupo ~= "player" then
+              obj.direccion=obj.direccion*-1
+            end
+            
+            if obj.voltear then
+              obj:voltear()
+            end
           end
         end
-        
       end
     end
   end
-  
-   if obj.grupo == self.grupo then
-    self:remove()
-    obj:remove()
-  end
-  
 end
 
 return misil

@@ -25,7 +25,7 @@ function Menu:init()
   self.X,self.Y = love.graphics.getDimensions()
   self.X,self.Y = self.X/2,self.Y/2
   
-  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", change_weapon = "q", get_box = "g"}  
+  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g"}  
   
 end
 

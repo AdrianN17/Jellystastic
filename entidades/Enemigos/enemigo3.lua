@@ -14,7 +14,11 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self.entidad = entidad
   
-  self.velocidad = properties.velocidad
+  if properties.camper then
+    self.velocidad = 0
+  else
+    self.velocidad = properties.velocidad
+  end
   
   self.grupo = properties.grupo
   self.hp = properties.hp
@@ -61,7 +65,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self.armaIndex = properties.arma
   
-  estandarEnemigos.init(self)
+  estandarEnemigos.init(self,properties)
   
   tipoBala.init(self)
   
@@ -185,6 +189,14 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self.radioCooldown = false
   self.radioCooldownTimer=nil
+  
+  
+  if properties.camper then
+    self.timerRastreo = self.timer:every(20, function()
+      self.direccion = self.direccion * -1
+      self:voltear()
+    end)
+  end
 end
 
 function enemigo3:draw()
@@ -230,10 +242,11 @@ function enemigo3:update(dt)
 end
 
 function enemigo3:voltear()
-  self.radioBala = math.atan2(math.sin(self.radioBala),math.cos(self.radioBala)*-1)
-      
+  
   if self.direccion == -1 then
-    self.radioBala = math.abs(self.radioBala)
+    self.radioBala = math.atan2(math.sin(self.radioBala),math.cos(self.radioBala)*-1)
+  else
+    self.radioBala = math.atan2(math.sin(self.radioBala),math.abs(math.cos(self.radioBala)))
   end
 end
 
@@ -256,6 +269,7 @@ function enemigo3:updateBalaAutomatica(dt)
         
       else
         if self.radioCooldown then
+
           self:restaurarRadio()
           self.radioCooldown = false
           

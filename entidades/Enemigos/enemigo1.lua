@@ -58,7 +58,7 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   self.direccion = properties.direccion or -1
   
-  estandarEnemigos.init(self)
+  estandarEnemigos.init(self,properties)
   
   self.timer:every(0.5,function () 
       

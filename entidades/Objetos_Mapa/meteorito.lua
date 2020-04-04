@@ -1,4 +1,8 @@
-local meteorito = Class{}
+local remove = require "entidades.remove"
+
+local meteorito = Class{
+  __includes ={remove}
+}
 
 function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,height)
   self.body = body
@@ -29,6 +33,10 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   self.ox,self.oy = self.body:getX(),self.body:getY()
   
   self.oxInicial,self.oyInicial = ox,oy
+  
+  self.grupo = properties.grupo
+  
+  remove.init(self,entidad,properties.tabla)
 end
 
 function meteorito:draw()

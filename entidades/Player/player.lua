@@ -112,6 +112,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   tipoBala.init(self)
 
   self.armaIndex = properties.armaIndex or 0
+  self.armaIndexRespaldo = 0
+  
   self:recargarMax()
   
   
@@ -123,6 +125,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   remove.init(self,entidad,properties.tabla)
   
   self.cooldownIterador = true
+  
+  self.jointMovible = nil
   
 end
 
@@ -204,6 +208,16 @@ function player:keypressed(key)
   if key == _G.teclas.get and self.puertaValues and self.ground then
     self.entidad:cambiarNivel(self.puertaValues)
   end
+  
+   if key == _G.teclas.changeWeapon and not self.jointMovible then
+    if self.armaIndexRespaldo == 0 then
+      self.armaIndexRespaldo = self.armaIndex
+      self.armaIndex = 0
+    else
+      self.armaIndex = self.armaIndexRespaldo 
+      self.armaIndexRespaldo = 0
+    end
+  end
 end
 
 function player:keyreleased(key) 
@@ -214,6 +228,8 @@ function player:keyreleased(key)
   if key == _G.teclas.right then
     self.movimiento.d = false
   end
+  
+  
 end
 
 function player:mousepressed(x,y,button)

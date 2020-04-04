@@ -9,7 +9,7 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.objeto = objeto
   self.ox,self.oy = ox,oy
   self.radio = radio
-  self.dano = dano
+  self.dano = 2
   
   self.velocidad = 200
   
@@ -41,9 +41,11 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.body:applyLinearImpulse(self.velocidad*cx,self.velocidad*cy)
   
   remove.init(self,entidad,"balas")
-  
   self.direccion = math.sign(cx)
   self.grupo = "bala"
+  
+  self.Es_dispersable = true
+  self.timerRemove = nil
 end
 
 function baba:draw()
@@ -55,6 +57,47 @@ function baba:update(dt)
   self.radio = self.body:getAngle()
   
   self.ox,self.oy = self.body:getX(),self.body:getY()
+end
+
+function baba:preSolve(nombre,obj,coll)
+
+  if obj.Es_tierra then
+    
+    if not self.timerRemove and not self.body:isDestroyed() then
+      self.timerRemove = self.entidad.timer:after(10,function()  
+        self:remove()
+      end)
+    end
+  else
+    
+    coll:setEnabled(false)
+    
+    if obj.grupo == self.grupo and obj ~= self.objeto and obj.Es_dispersable ~= self.Es_dispersable  then
+      self:remove()
+      obj:remove()
+    elseif obj.grupo ~= self.grupo and obj ~= self.objeto then
+      for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
+        if obj.grupo == grupo then
+          self.entidad:dano(obj,self.dano)
+          self:remove()
+          
+          if obj.cambiarEstado then
+            obj:cambiarEstado("semizombie")
+          end
+          
+          if obj.direccion == self.direccion then
+            if obj.grupo ~= "player" then
+              obj.direccion=obj.direccion*-1
+            end
+            
+            if obj.voltear then
+              obj:voltear()
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
 return baba
