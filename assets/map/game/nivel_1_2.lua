@@ -38,6 +38,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -57,6 +58,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -76,6 +78,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -292,6 +295,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -309,6 +313,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -326,6 +331,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "2"
@@ -343,6 +349,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "2"
@@ -360,6 +367,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -377,6 +385,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -394,6 +403,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -411,6 +421,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -428,6 +439,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "2"
@@ -496,6 +508,8 @@ return {
             { x = 160.886, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -520,6 +534,8 @@ return {
             { x = 160.886, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -544,6 +560,8 @@ return {
             { x = 253.355, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -568,6 +586,8 @@ return {
             { x = 160.886, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -592,6 +612,8 @@ return {
             { x = 611.003, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -616,6 +638,8 @@ return {
             { x = 260.36, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -640,6 +664,8 @@ return {
             { x = 172.445, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -666,6 +692,7 @@ return {
             { x = 238.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -691,6 +718,7 @@ return {
             { x = 231.542, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -716,6 +744,7 @@ return {
             { x = 238.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -741,6 +770,7 @@ return {
             { x = 208.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -766,6 +796,7 @@ return {
             { x = 282.489, y = -0.160304 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -791,6 +822,7 @@ return {
             { x = 387.875, y = -0.288248 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -816,6 +848,7 @@ return {
             { x = 370.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -841,6 +874,7 @@ return {
             { x = 283.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -866,6 +900,7 @@ return {
             { x = 283.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -891,6 +926,7 @@ return {
             { x = 283.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -916,6 +952,7 @@ return {
             { x = 160.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -941,6 +978,7 @@ return {
             { x = 160.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -966,6 +1004,7 @@ return {
             { x = 210.875, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -991,6 +1030,7 @@ return {
             { x = 208.375, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1016,6 +1056,7 @@ return {
             { x = 341.874, y = -0.22818 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -1209,6 +1250,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_movible"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "movible",
             ["img"] = "objetos",
             ["quad"] = "caja"

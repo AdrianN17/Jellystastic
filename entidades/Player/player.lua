@@ -128,6 +128,16 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.jointMovible = nil
   
+  self.dataCreacion = {
+    ox = ox,
+    oy = oy,
+    radio = radio,
+    shapeTableClear = shapeTableClear,
+    properties = properties,
+    width = width,
+    height = height
+  }
+  
 end
 
 function player:update(dt)
@@ -206,7 +216,7 @@ function player:keypressed(key)
   end
   
   if key == _G.teclas.get and self.puertaValues and self.ground then
-    self.entidad:cambiarNivel(self.puertaValues)
+    self.entidad:cambiarSubnivel(self.puertaValues)
   end
   
    if key == _G.teclas.changeWeapon and not self.jointMovible then
@@ -298,8 +308,18 @@ function player:caer()
 end
 
 function player:get()
-  return {armasValues = self.armasValues,armaIndex = self.armaIndex, hp = self.hp, iterador = self.iterador,
-      cooldown = self.cooldown, cooldownIterador = self.cooldownIterador, armaIndexRespaldo = self.armaIndexRespaldo}
+  local t = {}
+  
+  t.armasValues = self.armasValues
+  t.armaIndex = self.armaIndex
+  t.hp = self.hp
+  t.iterador = self.iterador
+  t.cooldown = self.cooldown
+  t.cooldownIterador = self.cooldownIterador
+  t.armaIndexRespaldo = self.armaIndexRespaldo
+  t.dataCreacion = self.dataCreacion
+  
+  return t
 end
 
 function player:set(tabla)
@@ -328,6 +348,15 @@ function player:cambiarEstado(tipo)
     self.iteradorEstado = 1
     self.cooldownIterador = true
   end
+end
+
+function player:clearPuerta()
+  self.puertaValues=nil
+end
+
+function player:limpiarMovimiento()
+  self.movimiento = {a=false,d=false}
+  self:terminarDisparoArma()
 end
 
 return player

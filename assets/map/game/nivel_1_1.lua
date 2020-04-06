@@ -38,6 +38,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
@@ -104,6 +105,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -121,6 +123,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "1"
@@ -138,6 +141,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "2"
@@ -145,7 +149,7 @@ return {
         },
         {
           id = 11,
-          name = "",
+          name = "Casa",
           type = "none",
           shape = "rectangle",
           x = 416.417,
@@ -172,6 +176,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "2"
@@ -206,6 +211,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "3"
@@ -223,6 +229,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "texturaFisica",
             ["grupo"] = "pared",
             ["img"] = "3"
@@ -325,6 +332,8 @@ return {
             { x = 161.587, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -349,6 +358,8 @@ return {
             { x = 196.613, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -373,6 +384,8 @@ return {
             { x = 195.212, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -397,6 +410,8 @@ return {
             { x = 196.146, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -421,6 +436,8 @@ return {
             { x = 161.587, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -445,6 +462,8 @@ return {
             { x = 127.962, y = 0.3333 }
           },
           properties = {
+            ["Es_pasable"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["height"] = 10,
             ["img"] = "objetos",
@@ -465,6 +484,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
@@ -484,6 +504,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
@@ -503,6 +524,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
@@ -522,6 +544,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
@@ -547,6 +570,7 @@ return {
             { x = 216.208, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -572,6 +596,7 @@ return {
             { x = 219.208, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -597,6 +622,7 @@ return {
             { x = 219.208, y = -0.188804 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -622,6 +648,7 @@ return {
             { x = 352.541, y = -0.290798 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -647,6 +674,7 @@ return {
             { x = 392.541, y = -0.362194 }
           },
           properties = {
+            ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
@@ -695,8 +723,8 @@ return {
           name = "Puerta",
           type = "static",
           shape = "rectangle",
-          x = 547.333,
-          y = 790.667,
+          x = 550.333,
+          y = 795.667,
           width = 60,
           height = 100,
           rotation = 0,
@@ -716,8 +744,8 @@ return {
           name = "Puerta",
           type = "static",
           shape = "rectangle",
-          x = 975.333,
-          y = 793.333,
+          x = 975.833,
+          y = 797.333,
           width = 60,
           height = 100,
           rotation = 0,
@@ -759,6 +787,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_movible"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "movible",
             ["img"] = "objetos",
             ["quad"] = "caja"
@@ -776,6 +806,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_movible"] = true,
+            ["Es_tierra"] = true,
             ["clase"] = "movible",
             ["img"] = "objetos",
             ["quad"] = "caja"

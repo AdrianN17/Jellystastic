@@ -37,7 +37,7 @@ function mundoGenerico:init(mapa)
   
   self:createObjects(Entities_index)
   
-  if self.gameobject.jugadores[self.indexPlayer] then
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     local player = self.gameobject.jugadores[self.indexPlayer]
     player:setPlayerValues(_G.playerValues)
   end
@@ -116,25 +116,25 @@ function mundoGenerico:draw()
 end
 
 function mundoGenerico:keypressed(key)
-  if self.gameobject.jugadores[self.indexPlayer] then
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:keypressed(key)
   end
 end
 
 function mundoGenerico:keyreleased(key)
-  if self.gameobject.jugadores[self.indexPlayer] then
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:keyreleased(key)
   end
 end
 
 function mundoGenerico:mousepressed(x,y,button)
-  if self.gameobject.jugadores[self.indexPlayer] then
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:mousepressed(x,y,button)
   end
 end
 
 function mundoGenerico:mousereleased(x,y,button)
-  if self.gameobject.jugadores[self.indexPlayer] then
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:mousereleased(x,y,button)
   end
 end
@@ -175,6 +175,17 @@ function mundoGenerico:parallax()
     self.parallaxCount = 0
   end
   
+end
+
+function mundoGenerico:limpiarEscenario()
+  self.map = nil
+  self.cam = nil
+  
+  self.timer:destroy()
+  
+  self.gameobject = {}
+
+  self.world:destroy()
 end
 
 return mundoGenerico

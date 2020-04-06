@@ -285,5 +285,17 @@ function utils:dano(obj,dano)
   obj.hp = obj.hp - dano
 end
 
+function utils:buscarPuertas(obj)
+  if self.gameobject.puertas then
+    for _,puerta in ipairs(self.gameobject.puertas) do
+      if obj.id == puerta.puertaValues.id then
+        return puerta
+      end
+    end
+  end
+  
+  return nil
+end
+
 
 return utils

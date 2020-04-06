@@ -9,6 +9,10 @@ function remove:init(entidad,tabla,funcion)
         funcion()
       end
       
+      if self.timer then
+        self.timer:destroy()
+      end
+      
       entidad:remove(tabla,self)
     end
   end

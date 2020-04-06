@@ -9,6 +9,7 @@
   </properties>
   <object id="1" name="Gelatina" type="static" x="-0.0688468" y="1379.22" width="415.337" height="221">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
@@ -18,6 +19,7 @@
   </object>
   <object id="12" name="Gelatina" type="static" x="414.998" y="1377.5" width="1283.34" height="221">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
@@ -27,6 +29,7 @@
   </object>
   <object id="13" name="Gelatina" type="static" x="415.665" y="1028.17" width="1282" height="351.667">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
@@ -115,6 +118,7 @@
   </properties>
   <object id="8" name="Pared" type="static" x="-0.375183" y="662.334" width="35.6667" height="717">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -122,6 +126,7 @@
   </object>
   <object id="9" name="Pared" type="static" x="378.125" y="827.167" width="35.6667" height="552.5">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -129,6 +134,7 @@
   </object>
   <object id="10" name="Pared" type="static" x="413.712" y="845.886" width="35.6667" height="182">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="2"/>
@@ -136,6 +142,7 @@
   </object>
   <object id="16" name="Pared" type="static" x="801.621" y="663.083" width="37.394" height="364.833">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="2"/>
@@ -143,6 +150,7 @@
   </object>
   <object id="18" name="Pared" type="static" x="839.167" y="505.834" width="35.6667" height="522.583">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -150,6 +158,7 @@
   </object>
   <object id="22" name="Pared" type="static" x="1666.83" y="506.709" width="29.6667" height="522.583">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -157,6 +166,7 @@
   </object>
   <object id="27" name="Pared" type="static" x="1508.83" y="316.25" width="35.6667" height="194.166">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -164,6 +174,7 @@
   </object>
   <object id="40" name="Pared" type="static" x="378.833" y="447.583" width="35.6667" height="329.5">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="1"/>
@@ -171,6 +182,7 @@
   </object>
   <object id="88" name="Pared" type="static" x="414.833" y="665" width="35.6667" height="99.3333">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="pared"/>
     <property name="img" value="2"/>
@@ -195,6 +207,8 @@
   </properties>
   <object id="31" name="Chicle" type="static" x="216.701" y="1185">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -206,6 +220,8 @@
   </object>
   <object id="36" name="Chicle" type="static" x="213.451" y="830.667">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -217,6 +233,8 @@
   </object>
   <object id="38" name="Chicle" type="static" x="121.982" y="665">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -228,6 +246,8 @@
   </object>
   <object id="45" name="Chicle" type="static" x="640" y="801.333">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -239,6 +259,8 @@
   </object>
   <object id="46" name="Chicle" type="static" x="897.822" y="507.333">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -250,6 +272,8 @@
   </object>
   <object id="54" name="Chicle" type="static" x="1145.15" y="819.5">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -261,6 +285,8 @@
   </object>
   <object id="71" name="Chicle" type="static" x="-12.3086" y="991.75">
    <properties>
+    <property name="Es_pasable" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="height" type="int" value="10"/>
     <property name="img" value="objetos"/>
@@ -272,6 +298,7 @@
   </object>
   <object id="72" name="Chocolate" type="static" x="27.3333" y="1193.33">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -282,6 +309,7 @@
   </object>
   <object id="73" name="Chocolate" type="static" x="154.667" y="1005.33">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -292,6 +320,7 @@
   </object>
   <object id="74" name="Chocolate" type="static" x="24" y="840.667">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -302,6 +331,7 @@
   </object>
   <object id="75" name="Chocolate" type="static" x="187" y="476">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -312,6 +342,7 @@
   </object>
   <object id="76" name="Chocolate" type="static" x="35.5059" y="670.612" rotation="-49.3721">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -322,6 +353,7 @@
   </object>
   <object id="77" name="Chocolate" type="static" x="431" y="687">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -332,6 +364,7 @@
   </object>
   <object id="78" name="Chocolate" type="static" x="867" y="844.5">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -342,6 +375,7 @@
   </object>
   <object id="79" name="Chocolate" type="static" x="1395" y="844.5">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -352,6 +386,7 @@
   </object>
   <object id="80" name="Chocolate" type="static" x="867" y="667">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -362,6 +397,7 @@
   </object>
   <object id="81" name="Chocolate" type="static" x="1123" y="667">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -372,6 +408,7 @@
   </object>
   <object id="82" name="Chocolate" type="static" x="1366" y="667">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -382,6 +419,7 @@
   </object>
   <object id="83" name="Chocolate" type="static" x="1518" y="509">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -392,6 +430,7 @@
   </object>
   <object id="84" name="Chocolate" type="static" x="1308.5" y="324">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -402,6 +441,7 @@
   </object>
   <object id="85" name="Chocolate" type="static" x="860" y="511.5">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -412,6 +452,7 @@
   </object>
   <object id="86" name="Chocolate" type="static" x="1063.68" y="508.649" rotation="-34.3864">
    <properties>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
@@ -490,6 +531,8 @@
   </properties>
   <object id="42" name="Caja" type="dynamic" x="98.4167" y="766.583" width="33.5" height="37.5">
    <properties>
+    <property name="Es_movible" type="bool" value="true"/>
+    <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="movible"/>
     <property name="img" value="objetos"/>
     <property name="quad" value="caja"/>
