@@ -99,10 +99,11 @@ function utils:createObject(entidades,clase,object,layerProperties)
       
       local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
       
-      if properties.userdataNombre then
-        self:addproperties(obj,properties)
-        fixture:setUserData({obj = obj, nombre = properties.userdataNombre})
-      end
+
+      self:addproperties(obj,properties)
+      
+      
+      fixture:setUserData({obj = obj})
       
     end
   })
@@ -184,20 +185,6 @@ function utils:drawBox2d()
   end
 end
 
-function utils:getUserData(contact,nombre)
-  local a,b = contact:getFixtures()
-  local u1 = a:getUserData()
-  local u2 = b:getUserData()
-  
-  if u1 and u1.nombre == nombre then
-    return u1
-  elseif u2 and u2.nombre == nombre then
-    return u2
-  end
-  
-  return nil
-end
-
 function utils:getUserDataValue(contact,value)
   local a,b = contact:getFixtures()
   local u1 = a:getUserData()
@@ -214,6 +201,7 @@ end
 
 function utils:addproperties(obj,properties)
   for str,k in pairs(properties) do
+    
     if string.match(str, "Es_") then
       obj[str] = k
     end
@@ -228,10 +216,10 @@ function utils:setCallbacks()
     
     if u1 and u1.obj and u2 and u2.obj then
       if u1.obj.beginContact then
-        u1.obj:beginContact(u2.nombre,u2.obj,coll)
+        u1.obj:beginContact(u2.obj,coll)
       end
       if u2.obj.beginContact then
-        u2.obj:beginContact(u1.nombre,u1.obj,coll)
+        u2.obj:beginContact(u1.obj,coll)
       end
     end
   end
@@ -242,10 +230,10 @@ function utils:setCallbacks()
     
     if u1 and u1.obj and u2 and u2.obj then
       if u1.obj.endContact then
-        u1.obj:endContact(u2.nombre,u2.obj,coll)
+        u1.obj:endContact(u2.obj,coll)
       end
       if u2.obj.endContact then
-        u2.obj:endContact(u1.nombre,u1.obj,coll)
+        u2.obj:endContact(u1.obj,coll)
       end
     end
   end
@@ -256,10 +244,10 @@ function utils:setCallbacks()
 
     if u1 and u1.obj and u2 and u2.obj then
       if u1.obj.preSolve then
-        u1.obj:preSolve(u2.nombre,u2.obj,coll)
+        u1.obj:preSolve(u2.obj,coll)
       end
       if u2.obj.preSolve then
-        u2.obj:preSolve(u1.nombre,u1.obj,coll)
+        u2.obj:preSolve(u1.obj,coll)
       end
     end
   end
@@ -270,10 +258,10 @@ function utils:setCallbacks()
     
      if u1 and u1.obj and u2 and u2.obj then
       if u1.obj.postSolve then
-        u1.obj:postSolve(u2.nombre,u2.obj,coll)
+        u1.obj:postSolve(u2.obj,coll)
       end
       if u2.obj.postSolve then
-        u2.obj:postSolve(u1.nombre,u1.obj,coll)
+        u2.obj:postSolve(u1.obj,coll)
       end
     end
   end

@@ -27,7 +27,7 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.body = love.physics.newBody(entidad.world,ox,oy,"dynamic")
   self.shape = love.physics.newCircleShape(18)
   self.fixture = love.physics.newFixture(self.body,self.shape)
-  self.fixture:setUserData({obj=self,nombre = "bala"})
+  self.fixture:setUserData({obj=self})
   
   self.fixture:setRestitution(0.5)
   self.body:setBullet(true)
@@ -59,7 +59,7 @@ function baba:update(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
 end
 
-function baba:preSolve(nombre,obj,coll)
+function baba:preSolve(obj,coll)
 
   if obj.Es_tierra then
     
@@ -85,15 +85,18 @@ function baba:preSolve(nombre,obj,coll)
             obj:cambiarEstado("semizombie")
           end
           
+          
           if obj.direccion == self.direccion then
-            if obj.grupo ~= "player" then
-              obj.direccion=obj.direccion*-1
+            
+            if obj.cambiarDeDireccion then
+              obj:cambiarDeDireccion()
             end
             
             if obj.voltear then
               obj:voltear()
             end
           end
+          
         end
       end
     end

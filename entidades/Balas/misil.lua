@@ -22,7 +22,7 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
   self.body = love.physics.newBody(self.entidad.world,ox,oy,"dynamic")
   self.shape = love.physics.newRectangleShape(self.w,self.h)
   self.fixture = love.physics.newFixture(self.body,self.shape, 5)
-  self.fixture:setUserData({obj=self,nombre = "bala"})
+  self.fixture:setUserData({obj=self})
   
   self.body:setAngle(self.radio)
   self.body:setBullet(true)
@@ -58,7 +58,7 @@ function misil:update(dt)
   self.radio = self.body:getAngle()
 end
 
-function misil:preSolve(nombre,obj,coll)
+function misil:preSolve(obj,coll)
   
   coll:setEnabled(false)
   
@@ -81,15 +81,17 @@ function misil:preSolve(nombre,obj,coll)
             obj:cambiarEstado("agujereado")
           end
           
-          if obj.direccion == self.direccion then
-            if obj.grupo ~= "player" then
-              obj.direccion=obj.direccion*-1
+          if obj.direccion == self.direccion  then
+            
+            if obj.cambiarDeDireccion then
+              obj:cambiarDeDireccion()
             end
             
             if obj.voltear then
               obj:voltear()
             end
           end
+          
         end
       end
     end

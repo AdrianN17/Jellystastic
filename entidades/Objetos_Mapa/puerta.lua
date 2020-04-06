@@ -8,6 +8,8 @@ function puerta:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   objetoFisico.init(self,entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   
   self.puertaValues = {id = properties.id, nivel = properties.nivel}
+  
+
 end
 
 return puerta

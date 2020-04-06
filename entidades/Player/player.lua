@@ -12,6 +12,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.shape = shape
   self.fixture = fixture
   
+  
   self.entidad = entidad
   
   self.velocidad = properties.velocidad
@@ -38,7 +39,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.ox,self.oy = ox,oy
   
   self.movimiento = {a = false,b = false}
-  self.acciones = {moviendo = false, saltando = false, invulnerable = false}
+  self.acciones = {moviendo = false, saltando = false, invulnerable = false,pasarPlataformas=false,coger = false}
   
   self.vec4Shader = {0,0,0,0}
   
@@ -88,6 +89,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     
     for _,contact in ipairs(contacts) do
       
+      
       if self.entidad:getUserDataValue(contact,"Es_tierra") then
         
         local x,y = contact:getNormal()
@@ -98,9 +100,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
           self.acciones.saltando=false
         end
       end
-        
-      local puerta = self.entidad:getUserData(contact,"puerta")
       
+      local puerta = self.entidad:getUserDataValue(contact,"Es_portal")
       if puerta then
         self.puertaValues = puerta.obj.puertaValues
       end
@@ -193,6 +194,8 @@ function player:draw()
   end
   
   self:drawArma()
+  
+  love.graphics.print(tostring(self.acciones.pasarPlataformas),self.ox,self.oy-100)
 
 end
 
@@ -213,6 +216,7 @@ function player:keypressed(key)
   
   if key == _G.teclas.down and not self.ground then
     self:caer()
+    self.acciones.pasarPlataformas = true
   end
   
   if key == _G.teclas.get and self.puertaValues and self.ground then
@@ -357,6 +361,34 @@ end
 function player:limpiarMovimiento()
   self.movimiento = {a=false,d=false}
   self:terminarDisparoArma()
+end
+
+function player:preSolve(obj,coll)
+  
+  if obj.Es_pasable then
+    local x,y = coll:getNormal()
+
+    if y>-0.01 then
+      coll:setEnabled( false )
+    else
+      if self.acciones.pasarPlataformas  then
+        
+        coll:setEnabled( false )
+      end
+    end
+  end
+end
+
+function player:postSolve(obj,coll)
+  
+end
+
+function player:endContact(obj,coll)
+  if obj.Es_pasable then
+    if self.acciones.pasarPlataformas then
+      self.acciones.pasarPlataformas=false
+    end
+  end
 end
 
 return player

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="92">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="92">
  <editorsettings>
   <export target="nivel_1_2.lua" format="lua"/>
  </editorsettings>
- <objectgroup id="2" name="Capa de Objetos 1">
+ <objectgroup id="2" name="SueloMapa">
   <properties>
    <property name="tabla" value="sueloMapa"/>
   </properties>
@@ -13,7 +13,6 @@
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
-    <property name="userdataNombre" value="piso"/>
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
@@ -23,7 +22,6 @@
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
-    <property name="userdataNombre" value="piso"/>
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
@@ -33,12 +31,11 @@
     <property name="clase" value="texturaFisica"/>
     <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
-    <property name="userdataNombre" value="piso"/>
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Capa de Objetos 2">
+ <objectgroup id="3" name="CasaMapa">
   <properties>
    <property name="tabla" value="casaMapa"/>
   </properties>
@@ -112,7 +109,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="4" name="Capa de Objetos 3">
+ <objectgroup id="4" name="ParedMapa">
   <properties>
    <property name="tabla" value="paredMapa"/>
   </properties>
@@ -189,7 +186,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="11" name="Capa de Objetos 10">
+ <objectgroup id="11" name="Helados">
   <properties>
    <property name="tabla" value="helados"/>
   </properties>
@@ -201,7 +198,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="5" name="Capa de Objetos 4">
+ <objectgroup id="5" name="Plataformas">
   <properties>
    <property name="tabla" value="Plataformas"/>
   </properties>
@@ -303,7 +300,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 10.8651,-24.6818 228.968,-24.6818 238.875,-0.188804"/>
   </object>
@@ -314,7 +310,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 10.5315,-24.6818 221.939,-24.6818 231.542,-0.188804"/>
   </object>
@@ -325,7 +320,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 10.8651,-24.6818 228.968,-24.6818 238.875,-0.188804"/>
   </object>
@@ -336,7 +330,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 9.50057,-24.6818 200.212,-24.6818 208.875,-0.188804"/>
   </object>
@@ -347,7 +340,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.8489,-20.956 270.773,-20.956 282.489,-0.160304"/>
   </object>
@@ -358,7 +350,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 17.6423,-37.6818 371.788,-37.6818 387.875,-0.288248"/>
   </object>
@@ -369,7 +360,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 16.869,-24.6818 355.493,-24.6818 370.875,-0.188804"/>
   </object>
@@ -380,7 +370,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.9119,-24.6818 272.102,-24.6818 283.875,-0.188804"/>
   </object>
@@ -391,7 +380,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.9119,-24.6818 272.102,-24.6818 283.875,-0.188804"/>
   </object>
@@ -402,7 +390,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 12.9119,-24.6818 272.102,-24.6818 283.875,-0.188804"/>
   </object>
@@ -413,7 +400,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 7.31731,-24.6818 154.203,-24.6818 160.875,-0.188804"/>
   </object>
@@ -424,7 +410,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 7.31731,-24.6818 154.203,-24.6818 160.875,-0.188804"/>
   </object>
@@ -435,7 +420,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 9.59153,-24.6818 202.129,-24.6818 210.875,-0.188804"/>
   </object>
@@ -446,7 +430,6 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 9.47782,-24.6818 199.733,-24.6818 208.375,-0.188804"/>
   </object>
@@ -457,75 +440,71 @@
     <property name="img" value="objetos"/>
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
-    <property name="userdataNombre" value="piso"/>
    </properties>
    <polygon points="0,0 15.55,-29.8293 327.696,-29.8293 341.874,-0.22818"/>
   </object>
  </objectgroup>
- <objectgroup id="6" name="Capa de Objetos 5">
+ <objectgroup id="6" name="Puertas">
   <properties>
    <property name="tabla" value="puertas"/>
   </properties>
   <object id="32" name="Puerta" type="static" x="160" y="1279" width="60" height="100">
    <properties>
+    <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
     <property name="id" type="int" value="4"/>
     <property name="img" value="objetos"/>
     <property name="nivel" type="int" value="2"/>
     <property name="quad" value="puerta"/>
     <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
   <object id="39" name="Puerta" type="static" x="298" y="559.333" width="60" height="100">
    <properties>
+    <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
     <property name="id" type="int" value="5"/>
     <property name="img" value="objetos"/>
     <property name="nivel" type="int" value="2"/>
     <property name="quad" value="puerta"/>
     <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
   <object id="44" name="Puerta" type="static" x="590" y="924.667" width="60" height="100">
    <properties>
+    <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
     <property name="id" type="int" value="6"/>
     <property name="img" value="objetos"/>
     <property name="nivel" type="int" value="2"/>
     <property name="quad" value="puerta"/>
     <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
   <object id="47" name="Puerta" type="static" x="1231.33" y="927.333" width="60" height="100">
    <properties>
+    <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
     <property name="id" type="int" value="7"/>
     <property name="img" value="objetos"/>
     <property name="nivel" type="int" value="2"/>
     <property name="quad" value="puerta"/>
     <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
   <object id="48" name="Puerta" type="static" x="1408.67" y="406" width="60" height="100">
    <properties>
+    <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
     <property name="id" type="int" value="8"/>
     <property name="img" value="objetos"/>
     <property name="nivel" type="int" value="2"/>
     <property name="quad" value="puerta"/>
     <property name="sensor" type="bool" value="true"/>
-    <property name="userdataNombre" value="puerta"/>
    </properties>
   </object>
-  <object id="65" name="Baba" x="1038" y="726" width="70" height="90"/>
-  <object id="66" name="Baba" x="1421" y="724" width="70" height="90"/>
-  <object id="67" name="Baba" x="1234" y="551" width="70" height="90"/>
  </objectgroup>
- <objectgroup id="7" name="Capa de Objetos 6">
+ <objectgroup id="7" name="Movibles">
   <properties>
    <property name="tabla" value="movibles"/>
   </properties>
@@ -539,17 +518,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="Capa de Objetos 9">
-  <properties>
-   <property name="tabla" value="npcs"/>
-  </properties>
-  <object id="63" name="Npc" x="465.667" y="950" width="50" height="80">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup id="8" name="Capa de Objetos 7">
+ <objectgroup id="8" name="Armas">
   <properties>
    <property name="tabla" value="Armas"/>
   </properties>
@@ -562,7 +531,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="9" name="Capa de Objetos 8">
+ <objectgroup id="9" name="Objetos">
   <properties>
    <property name="tabla" value="Objetos"/>
   </properties>
@@ -607,12 +576,30 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="13" name="Capa de Objetos 12">
+ <objectgroup id="14" name="Enemigos">
+  <properties>
+   <property name="tabla" value="enemigos"/>
+  </properties>
+  <object id="65" name="Baba" x="1038" y="726" width="70" height="90"/>
+  <object id="66" name="Baba" x="1421" y="724" width="70" height="90"/>
+  <object id="67" name="Baba" x="1234" y="551" width="70" height="90"/>
+ </objectgroup>
+ <objectgroup id="10" name="NPCS">
+  <properties>
+   <property name="tabla" value="npcs"/>
+  </properties>
+  <object id="63" name="Npc" x="465.667" y="950" width="50" height="80">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="13" name="Jugadores">
   <properties>
    <property name="tabla" value="jugadores"/>
   </properties>
  </objectgroup>
- <objectgroup id="12" name="Capa de Objetos 11">
+ <objectgroup id="12" name="Balas">
   <properties>
    <property name="tabla" value="balas"/>
   </properties>

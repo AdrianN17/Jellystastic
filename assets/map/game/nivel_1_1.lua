@@ -16,7 +16,7 @@ return {
     {
       type = "objectgroup",
       id = 2,
-      name = "Capa de Objetos 1",
+      name = "SueloMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -42,7 +42,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         }
@@ -51,7 +50,7 @@ return {
     {
       type = "objectgroup",
       id = 3,
-      name = "Capa de Objetos 2",
+      name = "CasaMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -83,7 +82,7 @@ return {
     {
       type = "objectgroup",
       id = 4,
-      name = "Capa de Objetos 3",
+      name = "ParedMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -257,7 +256,7 @@ return {
     {
       type = "objectgroup",
       id = 9,
-      name = "Capa de Objetos 8",
+      name = "Helados",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -306,7 +305,7 @@ return {
     {
       type = "objectgroup",
       id = 5,
-      name = "Capa de Objetos 4",
+      name = "Plataformas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -488,8 +487,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -506,10 +504,9 @@ return {
           properties = {
             ["Es_tierra"] = true,
             ["clase"] = "objetoFisico",
-            ["direccion_x"] = 1,
+            ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -528,8 +525,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -548,8 +544,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -574,8 +569,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -600,8 +594,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -626,8 +619,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -652,8 +644,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -678,8 +669,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         }
       }
@@ -687,7 +677,7 @@ return {
     {
       type = "objectgroup",
       id = 12,
-      name = "Capa de Objetos 11",
+      name = "Puertas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -709,13 +699,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 1,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -730,13 +720,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 2,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -751,13 +741,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 3,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         }
       }
@@ -765,7 +755,7 @@ return {
     {
       type = "objectgroup",
       id = 6,
-      name = "Capa de Objetos 5",
+      name = "Movibles",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -818,7 +808,7 @@ return {
     {
       type = "objectgroup",
       id = 8,
-      name = "Capa de Objetos 7",
+      name = "Armas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -851,7 +841,7 @@ return {
     {
       type = "objectgroup",
       id = 13,
-      name = "Capa de Objetos 12",
+      name = "Objetos",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -884,7 +874,7 @@ return {
     {
       type = "objectgroup",
       id = 7,
-      name = "Capa de Objetos 6",
+      name = "NPCS",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -944,7 +934,7 @@ return {
     {
       type = "objectgroup",
       id = 10,
-      name = "Capa de Objetos 9",
+      name = "Jugadores",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -958,7 +948,7 @@ return {
     {
       type = "objectgroup",
       id = 11,
-      name = "Capa de Objetos 10",
+      name = "Balas",
       visible = true,
       opacity = 1,
       offsetx = 0,

@@ -9,14 +9,14 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 196,
+  nextobjectid = 198,
   properties = {},
   tilesets = {},
   layers = {
     {
       type = "objectgroup",
       id = 2,
-      name = "Capa de Objetos 1",
+      name = "SueloMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -42,7 +42,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         },
@@ -62,7 +61,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         }
@@ -71,7 +69,7 @@ return {
     {
       type = "objectgroup",
       id = 3,
-      name = "Capa de Objetos 2",
+      name = "CasaMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -270,7 +268,7 @@ return {
     {
       type = "objectgroup",
       id = 4,
-      name = "Capa de Objetos 3",
+      name = "Puertas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -292,13 +290,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 1,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -313,13 +311,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 2,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -334,13 +332,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 3,
             ["img"] = "objetos",
             ["nivel"] = 1,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -355,13 +353,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 4,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -376,13 +374,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 6,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -397,13 +395,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 7,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -418,13 +416,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 8,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -439,13 +437,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 5,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         }
       }
@@ -453,7 +451,7 @@ return {
     {
       type = "objectgroup",
       id = 6,
-      name = "Capa de Objetos 5",
+      name = "ObjetosEscenario",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -485,7 +483,7 @@ return {
     {
       type = "objectgroup",
       id = 7,
-      name = "Capa de Objetos 6",
+      name = "Ventanas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -755,7 +753,7 @@ return {
     {
       type = "objectgroup",
       id = 8,
-      name = "Capa de Objetos 7",
+      name = "AdornosMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1161,7 +1159,7 @@ return {
     {
       type = "objectgroup",
       id = 10,
-      name = "Capa de Objetos 9",
+      name = "Helados",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1244,7 +1242,7 @@ return {
     {
       type = "objectgroup",
       id = 5,
-      name = "Capa de Objetos 4",
+      name = "Plataformas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1270,8 +1268,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -1290,8 +1287,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte2",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte2"
           }
         },
         {
@@ -1310,8 +1306,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = 1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -1330,8 +1325,7 @@ return {
             ["clase"] = "objetoFisico",
             ["direccion_x"] = -1,
             ["img"] = "objetos",
-            ["quad"] = "dulce_parte1",
-            ["userdataNombre"] = "piso"
+            ["quad"] = "dulce_parte1"
           }
         },
         {
@@ -1356,8 +1350,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1382,8 +1375,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1408,8 +1400,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1434,8 +1425,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1460,8 +1450,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         }
       }
@@ -1469,7 +1458,7 @@ return {
     {
       type = "objectgroup",
       id = 13,
-      name = "Capa de Objetos 12",
+      name = "Items",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1483,7 +1472,7 @@ return {
     {
       type = "objectgroup",
       id = 11,
-      name = "Capa de Objetos 10",
+      name = "Enemigos",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1498,16 +1487,20 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 1540.65,
-          y = 505.31,
+          x = 1455.32,
+          y = 512.643,
           width = 70,
           height = 90,
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoFisico"] = true,
+            ["clase"] = "enemigo1",
             ["grupo"] = "infectado",
             ["hp"] = 15,
-            ["userdataNombre"] = "enemigo"
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
           }
         },
         {
@@ -1515,16 +1508,20 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 1745.98,
-          y = 503.98,
+          x = 1359.98,
+          y = 517.647,
           width = 70,
           height = 90,
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoFisico"] = true,
+            ["clase"] = "enemigo1",
             ["grupo"] = "infectado",
             ["hp"] = 15,
-            ["userdataNombre"] = "enemigo"
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
           }
         },
         {
@@ -1532,19 +1529,20 @@ return {
           name = "Zombie",
           type = "dynamic",
           shape = "rectangle",
-          x = 1335.67,
-          y = 478.333,
+          x = 281.17,
+          y = 695.5,
           width = 60,
           height = 100,
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_colisionableAtaque"] = true,
+            ["Es_danoFisico"] = true,
             ["clase"] = "enemigo2",
             ["grupo"] = "infectado",
             ["hp"] = 20,
             ["img"] = "jugador",
             ["limiteVision"] = 100,
-            ["userdataNombre"] = "enemigo",
             ["velocidad"] = 130
           }
         },
@@ -1553,15 +1551,15 @@ return {
           name = "Soldado",
           type = "dynamic",
           shape = "rectangle",
-          x = 16.3334,
-          y = 1073.17,
+          x = 525.333,
+          y = 716.17,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
             ["arma"] = 1,
-            ["camper"] = true,
+            ["camper"] = false,
             ["clase"] = "enemigo3",
             ["grupo"] = "humano_enemigo",
             ["hp"] = 12,
@@ -1569,8 +1567,29 @@ return {
             ["imgAccesorio"] = "accesorios",
             ["limiteVision"] = 1000,
             ["quadImgAccesorio"] = "1",
-            ["userdataNombre"] = "enemigo",
             ["velocidad"] = 80
+          }
+        },
+        {
+          id = 197,
+          name = "Zombie",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 585,
+          y = 696,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_colisionableAtaque"] = true,
+            ["Es_danoFisico"] = true,
+            ["clase"] = "enemigo2",
+            ["grupo"] = "infectado",
+            ["hp"] = 20,
+            ["img"] = "jugador",
+            ["limiteVision"] = 100,
+            ["velocidad"] = 130
           }
         }
       }
@@ -1578,7 +1597,7 @@ return {
     {
       type = "objectgroup",
       id = 9,
-      name = "Capa de Objetos 8",
+      name = "Jugadores",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1593,8 +1612,8 @@ return {
           name = "Player",
           type = "dynamic",
           shape = "rectangle",
-          x = 49.3333,
-          y = 710,
+          x = 462.333,
+          y = 714,
           width = 50,
           height = 80,
           rotation = 0,
@@ -1607,7 +1626,6 @@ return {
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
             ["salto"] = 30,
-            ["userdataNombre"] = "player",
             ["velocidad"] = 175
           }
         }
@@ -1616,7 +1634,7 @@ return {
     {
       type = "objectgroup",
       id = 12,
-      name = "Capa de Objetos 11",
+      name = "Balas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1630,7 +1648,7 @@ return {
     {
       type = "objectgroup",
       id = 14,
-      name = "Capa de Objetos 13",
+      name = "Meteorito",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1659,8 +1677,7 @@ return {
             ["img"] = "meteorito",
             ["quad"] = "1",
             ["quadEstela"] = "estela_1",
-            ["sensor"] = true,
-            ["userdataNombre"] = "meteorito"
+            ["sensor"] = true
           }
         }
       }

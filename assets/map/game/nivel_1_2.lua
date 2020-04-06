@@ -8,7 +8,7 @@ return {
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 14,
+  nextlayerid = 15,
   nextobjectid = 92,
   properties = {},
   tilesets = {},
@@ -16,7 +16,7 @@ return {
     {
       type = "objectgroup",
       id = 2,
-      name = "Capa de Objetos 1",
+      name = "SueloMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -42,7 +42,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         },
@@ -62,7 +61,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         },
@@ -82,7 +80,6 @@ return {
             ["clase"] = "texturaFisica",
             ["grupo"] = "suelo",
             ["img"] = "1",
-            ["userdataNombre"] = "piso",
             ["uv"] = 2
           }
         }
@@ -91,7 +88,7 @@ return {
     {
       type = "objectgroup",
       id = 3,
-      name = "Capa de Objetos 2",
+      name = "CasaMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -273,7 +270,7 @@ return {
     {
       type = "objectgroup",
       id = 4,
-      name = "Capa de Objetos 3",
+      name = "ParedMapa",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -450,7 +447,7 @@ return {
     {
       type = "objectgroup",
       id = 11,
-      name = "Capa de Objetos 10",
+      name = "Helados",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -482,7 +479,7 @@ return {
     {
       type = "objectgroup",
       id = 5,
-      name = "Capa de Objetos 4",
+      name = "Plataformas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -696,8 +693,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -722,8 +718,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -748,8 +743,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -774,8 +768,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -800,8 +793,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -826,8 +818,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -852,8 +843,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -878,8 +868,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -904,8 +893,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -930,8 +918,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -956,8 +943,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -982,8 +968,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1008,8 +993,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1034,8 +1018,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         },
         {
@@ -1060,8 +1043,7 @@ return {
             ["clase"] = "objetoFisico",
             ["img"] = "objetos",
             ["quad"] = "chocolate",
-            ["tipoCalculoDimensiones"] = "romboide",
-            ["userdataNombre"] = "piso"
+            ["tipoCalculoDimensiones"] = "romboide"
           }
         }
       }
@@ -1069,7 +1051,7 @@ return {
     {
       type = "objectgroup",
       id = 6,
-      name = "Capa de Objetos 5",
+      name = "Puertas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1091,13 +1073,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 4,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -1112,13 +1094,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 5,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -1133,13 +1115,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 6,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -1154,13 +1136,13 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 7,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
         },
         {
@@ -1175,60 +1157,21 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_portal"] = true,
             ["clase"] = "puerta",
             ["id"] = 8,
             ["img"] = "objetos",
             ["nivel"] = 2,
             ["quad"] = "puerta",
-            ["sensor"] = true,
-            ["userdataNombre"] = "puerta"
+            ["sensor"] = true
           }
-        },
-        {
-          id = 65,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1038,
-          y = 726,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 66,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1421,
-          y = 724,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 67,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1234,
-          y = 551,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
       id = 7,
-      name = "Capa de Objetos 6",
+      name = "Movibles",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1261,38 +1204,8 @@ return {
     },
     {
       type = "objectgroup",
-      id = 10,
-      name = "Capa de Objetos 9",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["tabla"] = "npcs"
-      },
-      objects = {
-        {
-          id = 63,
-          name = "Npc",
-          type = "",
-          shape = "rectangle",
-          x = 465.667,
-          y = 950,
-          width = 50,
-          height = 80,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["collidable"] = true
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
       id = 8,
-      name = "Capa de Objetos 7",
+      name = "Armas",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1325,7 +1238,7 @@ return {
     {
       type = "objectgroup",
       id = 9,
-      name = "Capa de Objetos 8",
+      name = "Objetos",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1429,8 +1342,92 @@ return {
     },
     {
       type = "objectgroup",
+      id = 14,
+      name = "Enemigos",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "enemigos"
+      },
+      objects = {
+        {
+          id = 65,
+          name = "Baba",
+          type = "",
+          shape = "rectangle",
+          x = 1038,
+          y = 726,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 66,
+          name = "Baba",
+          type = "",
+          shape = "rectangle",
+          x = 1421,
+          y = 724,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 67,
+          name = "Baba",
+          type = "",
+          shape = "rectangle",
+          x = 1234,
+          y = 551,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 10,
+      name = "NPCS",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "npcs"
+      },
+      objects = {
+        {
+          id = 63,
+          name = "Npc",
+          type = "",
+          shape = "rectangle",
+          x = 465.667,
+          y = 950,
+          width = 50,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       id = 13,
-      name = "Capa de Objetos 12",
+      name = "Jugadores",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1444,7 +1441,7 @@ return {
     {
       type = "objectgroup",
       id = 12,
-      name = "Capa de Objetos 11",
+      name = "Balas",
       visible = true,
       opacity = 1,
       offsetx = 0,

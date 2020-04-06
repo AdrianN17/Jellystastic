@@ -49,6 +49,7 @@ function estandarEnemigos:init(properties)
       self.entidad.world:rayCast(self.ox,self.oy,self.oxPared,self.oyPared,raycastPared)
     
       if self.cambiarDireccion then
+        
         self.direccion=self.direccion*-1
         
         if self.voltear then
@@ -138,6 +139,10 @@ function estandarEnemigos:terminarSeguimiento()
   self.automata:Fmover()
 end
 
+function estandarEnemigos:cambiarDeDireccion()
+  self.direccion=self.direccion*-1
+end
+
 function estandarEnemigos:checkPresa()
 
   if self.prePresa and self.prePresa.obj and checkStringInTable(self.prePresa.obj.grupo,self.objetivosEnemigos) then
@@ -149,12 +154,64 @@ function estandarEnemigos:checkPresa()
   self.prePresa = nil
 end
 
-function estandarEnemigos:preSolve(nombre,obj,coll)
+function estandarEnemigos:preSolve(obj,coll)
   
   if obj.grupo == self.grupo then
     coll:setEnabled(false)
   else
     
+    for _,grupo in ipairs(self.objetivosEnemigos) do
+    
+      
+      if obj.grupo == grupo and self.Es_colisionableAtaque and not obj.Es_colisionableAtaque then
+        
+        if self.automata.current=="mover" then
+          coll:setEnabled(false)
+        else
+          if self.automata.current=="seguir" then
+          
+            coll:setEnabled(true)
+          end
+        end
+        
+        if not obj.acciones.invulnerable then
+          self.entidad:dano(obj,2)
+          
+          
+          if obj.cambiarEstado then
+            obj:cambiarEstado("semizombie")
+          end
+          
+          obj.acciones.invulnerable = true
+          
+          self.timer:after(1,function() 
+            if obj then
+              obj.acciones.invulnerable=false
+            end
+          end)
+          
+          
+        end
+        
+        
+        
+        
+        if obj.direccion == self.direccion and obj.grupo ~= "humano" and obj.automata and obj.automata.current=="mover" then
+          if obj.cambiarDeDireccion then
+            obj:cambiarDeDireccion()
+          end
+          
+          if obj.voltear then
+            obj:voltear()
+          end
+        end
+        
+      elseif obj.grupo == grupo and not self.Es_colisionableAtaque and not obj.Es_colisionableAtaque then
+        coll:setEnabled(false)
+      end
+    
+    end
+  
   end
 end
 
