@@ -10,6 +10,9 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
   self.shape = shape
   self.fixture = fixture
   
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+  
   self.entidad = entidad
   
   self.radio = radio

@@ -4,7 +4,6 @@ return {
   textura = require "entidades.Objetos_Mapa.textura",
   texturaFisica = require "entidades.Objetos_Mapa.texturaFisica",
   player = require "entidades.Player.player",
-  meteoritoCreador = require "entidades.Objetos_Mapa.meteoritoCreador",
   puerta = require "entidades.Objetos_Mapa.puerta",
   movible = require "entidades.Objetos_Mapa.movible",
   enemigo1 = require "entidades.Enemigos.enemigo1",
@@ -14,4 +13,7 @@ return {
   arma = require "entidades.Objetos.arma",
   municion = require "entidades.Objetos.municion",
   vida = require "entidades.Objetos.vida",
+  meteorito = require "entidades.Objetos_Mapa.meteorito",
+  meteoritoCreador = require "entidades.Creador.meteoritoCreador",
+  zombieCreador = require "entidades.Creador.zombieCreador",
 }

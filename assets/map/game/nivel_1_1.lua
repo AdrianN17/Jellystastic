@@ -880,6 +880,7 @@ return {
           visible = true,
           properties = {
             ["Es_salvable"] = true,
+            ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
             ["grupo"] = "humano",
             ["h"] = 0.1,
@@ -902,6 +903,7 @@ return {
           visible = true,
           properties = {
             ["Es_salvable"] = true,
+            ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
             ["grupo"] = "humano",
             ["h"] = 0.2,
@@ -924,6 +926,7 @@ return {
           visible = true,
           properties = {
             ["Es_salvable"] = true,
+            ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
             ["grupo"] = "humano",
             ["h"] = 0.3,

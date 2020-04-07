@@ -60,7 +60,12 @@ function utils:createObject(entidades,clase,object,layerProperties)
   Switch(object.type, {
       
     manager = function()
-      entidades[clase](self,object.x,object.y,properties)
+      local obj = entidades[clase](self,object.x,object.y,properties)
+      
+      if properties.Es_unico then
+        self.entidadesUnicas[clase] = obj
+      end
+      
     end,
     
     none = function()
@@ -99,9 +104,7 @@ function utils:createObject(entidades,clase,object,layerProperties)
       
       local obj = entidades[clase](self,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,object.width,object.height)
       
-
       self:addproperties(obj,properties)
-      
       
       fixture:setUserData({obj = obj})
       

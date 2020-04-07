@@ -12,6 +12,9 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.shape = shape
   self.fixture = fixture
   
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+  
   self.entidad = entidad
   
   if properties.camper then

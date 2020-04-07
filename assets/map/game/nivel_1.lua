@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 199,
+  nextobjectid = 200,
   properties = {},
   tilesets = {},
   layers = {
@@ -1529,8 +1529,8 @@ return {
           name = "Zombie",
           type = "dynamic",
           shape = "rectangle",
-          x = 361.17,
-          y = 699.5,
+          x = 929.17,
+          y = 702.167,
           width = 60,
           height = 100,
           rotation = 0,
@@ -1551,13 +1551,14 @@ return {
           name = "Soldado",
           type = "dynamic",
           shape = "rectangle",
-          x = 818.333,
-          y = 721.17,
+          x = 467.666,
+          y = 718.503,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_transformarZombie"] = true,
             ["arma"] = 1,
             ["camper"] = false,
             ["clase"] = "enemigo3",
@@ -1568,6 +1569,30 @@ return {
             ["limiteVision"] = 1000,
             ["quadImgAccesorio"] = "1",
             ["velocidad"] = 80
+          }
+        },
+        {
+          id = 199,
+          name = "ZombieCreador",
+          type = "manager",
+          shape = "point",
+          x = 32,
+          y = 41.3333,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_colisionableAtaque"] = true,
+            ["Es_danoFisico"] = true,
+            ["Es_unico"] = true,
+            ["clase"] = "zombieCreador",
+            ["grupo"] = "infectado",
+            ["hp"] = 20,
+            ["img"] = "jugador",
+            ["limiteVision"] = 100,
+            ["subclase"] = "enemigo2",
+            ["velocidad"] = 130
           }
         }
       }
@@ -1590,13 +1615,14 @@ return {
           name = "Player",
           type = "dynamic",
           shape = "rectangle",
-          x = 462.333,
-          y = 714,
+          x = 6.333,
+          y = 718,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_transformarZombie"] = true,
             ["armaIndex"] = 1,
             ["clase"] = "player",
             ["grupo"] = "humano",
@@ -1655,7 +1681,8 @@ return {
             ["img"] = "meteorito",
             ["quad"] = "1",
             ["quadEstela"] = "estela_1",
-            ["sensor"] = true
+            ["sensor"] = true,
+            ["subclase"] = "meteorito"
           }
         }
       }

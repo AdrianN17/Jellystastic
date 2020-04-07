@@ -20,7 +20,13 @@ end
 
 function remove:checkVida()
   if self.hp < 0.1 then
+    
+    if self.Es_transformarZombie and self.iteradorEstado and self.iteradorEstado == 4  then
+      self.entidad.entidadesUnicas.zombieCreador:crearZombie(self)
+    end
+    
     self:remove()
+    
   end
 end
 

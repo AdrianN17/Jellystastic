@@ -377,7 +377,9 @@
   </properties>
   <object id="32" name="Npc" type="dynamic" x="429.667" y="293" width="50" height="80">
    <properties>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_salvable" type="bool" value="true"/>
+    <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
     <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.1"/>
@@ -389,7 +391,9 @@
   </object>
   <object id="59" name="Npc" type="dynamic" x="852" y="572" width="50" height="80">
    <properties>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_salvable" type="bool" value="true"/>
+    <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
     <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.2"/>
@@ -401,7 +405,9 @@
   </object>
   <object id="60" name="Npc" type="dynamic" x="850" y="814" width="50" height="80">
    <properties>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_salvable" type="bool" value="true"/>
+    <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
     <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.3"/>

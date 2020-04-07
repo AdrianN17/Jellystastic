@@ -13,6 +13,7 @@ function mundoGenerico:init(mapa)
   self.indexPlayer = 1
 
   self.gameobject = {}
+  self.entidadesUnicas = {}
   
   self.map = Sti(mapa)
   

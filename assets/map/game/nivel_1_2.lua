@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 93,
+  nextobjectid = 95,
   properties = {},
   tilesets = {},
   layers = {
@@ -1264,7 +1264,7 @@ return {
             ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "1",
+            ["quad"] = "2",
             ["sensor"] = true
           }
         },
@@ -1283,7 +1283,7 @@ return {
             ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "1",
+            ["quad"] = "2",
             ["sensor"] = true
           }
         },
@@ -1397,6 +1397,31 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 94,
+          name = "ZombieCreador",
+          type = "manager",
+          shape = "point",
+          x = 20,
+          y = 32,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_colisionableAtaque"] = true,
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["Es_unico"] = true,
+            ["clase"] = "zombieCreador",
+            ["grupo"] = "infectado",
+            ["hp"] = 20,
+            ["img"] = "jugador",
+            ["limiteVision"] = 100,
+            ["subclase"] = "enemigo2",
+            ["velocidad"] = 130
+          }
         }
       }
     },
@@ -1425,7 +1450,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
+            ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
             ["grupo"] = "humano",
             ["h"] = 0.4,

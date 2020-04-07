@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="58" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="199">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="58" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="200">
  <editorsettings>
   <export target="nivel_1.lua" format="lua"/>
  </editorsettings>
@@ -624,6 +624,7 @@
   <object id="176" name="Baba" type="dynamic" x="1455.32" y="512.643" width="70" height="90">
    <properties>
     <property name="Es_danoFisico" type="bool" value="true"/>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
     <property name="grupo" value="infectado"/>
     <property name="hp" type="int" value="15"/>
@@ -635,6 +636,7 @@
   <object id="177" name="Baba" type="dynamic" x="1359.98" y="517.647" width="70" height="90">
    <properties>
     <property name="Es_danoFisico" type="bool" value="true"/>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
     <property name="grupo" value="infectado"/>
     <property name="hp" type="int" value="15"/>
@@ -643,10 +645,11 @@
     <property name="velocidad" type="int" value="80"/>
    </properties>
   </object>
-  <object id="187" name="Zombie" type="dynamic" x="361.17" y="699.5" width="60" height="100">
+  <object id="187" name="Zombie" type="dynamic" x="929.17" y="702.167" width="60" height="100">
    <properties>
     <property name="Es_colisionableAtaque" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo2"/>
     <property name="grupo" value="infectado"/>
     <property name="hp" type="int" value="20"/>
@@ -655,8 +658,10 @@
     <property name="velocidad" type="int" value="130"/>
    </properties>
   </object>
-  <object id="189" name="Soldado" type="dynamic" x="818.333" y="721.17" width="50" height="80">
+  <object id="189" name="Soldado" type="dynamic" x="467.666" y="718.503" width="50" height="80">
    <properties>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
+    <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="arma" type="int" value="1"/>
     <property name="camper" type="bool" value="false"/>
     <property name="clase" value="enemigo3"/>
@@ -669,13 +674,31 @@
     <property name="velocidad" type="int" value="80"/>
    </properties>
   </object>
+  <object id="199" name="ZombieCreador" type="manager" x="32" y="41.3333">
+   <properties>
+    <property name="Es_colisionableAtaque" type="bool" value="true"/>
+    <property name="Es_danoFisico" type="bool" value="true"/>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
+    <property name="Es_unico" type="bool" value="true"/>
+    <property name="clase" value="zombieCreador"/>
+    <property name="grupo" value="infectado"/>
+    <property name="hp" type="int" value="20"/>
+    <property name="img" value="jugador"/>
+    <property name="limiteVision" type="int" value="100"/>
+    <property name="subclase" value="enemigo2"/>
+    <property name="velocidad" type="int" value="130"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Jugadores">
   <properties>
    <property name="tabla" value="jugadores"/>
   </properties>
-  <object id="79" name="Player" type="dynamic" x="462.333" y="714" width="50" height="80">
+  <object id="79" name="Player" type="dynamic" x="6.333" y="718" width="50" height="80">
    <properties>
+    <property name="Es_explotaMorir" type="bool" value="true"/>
+    <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="armaIndex" type="int" value="1"/>
     <property name="clase" value="player"/>
     <property name="grupo" value="humano"/>
@@ -706,6 +729,7 @@
     <property name="quad" value="1"/>
     <property name="quadEstela" value="estela_1"/>
     <property name="sensor" type="bool" value="true"/>
+    <property name="subclase" value="meteorito"/>
    </properties>
    <point/>
   </object>
