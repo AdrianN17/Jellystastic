@@ -18,6 +18,7 @@ Gamestate = require "libs.hump.gamestate"
 Map_index = require "assets.map.index"
 Entities_index = require "entidades.index"
 
+require "libs.utils"
 
 Menu = require "gamestates.menu"
 

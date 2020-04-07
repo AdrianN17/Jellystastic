@@ -133,6 +133,8 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.objetivosEnemigos = {"humano","humano_enemigo"}
   
   remove.init(self,entidad,properties.tabla)
+  
+  self.acciones = {invulnerable =false}
 end
 
 function enemigo1:draw()

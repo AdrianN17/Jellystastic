@@ -100,6 +100,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     
     for _,contact in ipairs(contacts) do
       local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
+      local liquidoObj =  self.entidad:getUserDataValue(contact,"Es_liquido")
       
       if sueloObj then
         
@@ -108,7 +109,13 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 
         if y<0 and math.abs(x) < 0.1 then
           self.ground = true
-          
+          self.acciones.saltando=false
+        end
+      elseif liquidoObj then
+        local x,y = contact:getNormal()
+
+        if y<-0.1 then
+          self.ground = true
           self.acciones.saltando=false
         end
       end
@@ -220,6 +227,7 @@ function player:update(dt)
   
   self.entidad.cam:setPosition(self.ox, self.oy)
   self:checkVida()
+  
 end
 
 function player:draw()
@@ -256,8 +264,13 @@ function player:keypressed(key)
     self.direccion=1
   end
   
+  
+  
   if key == _G.teclas.up and self.ground and not self.acciones.saltando then
-    self:saltar()
+    local x,y = self.body:getLinearVelocity()
+    if y> -10 then
+      self:saltar()
+    end
   end
   
   if key == _G.teclas.down and not self.ground then

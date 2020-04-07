@@ -4,12 +4,12 @@ return {
   tiledversion = "1.3.0",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 58,
+  width = 76,
   height = 30,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 15,
-  nextobjectid = 200,
+  nextlayerid = 17,
+  nextobjectid = 208,
   properties = {},
   tilesets = {},
   layers = {
@@ -63,8 +63,55 @@ return {
             ["img"] = "1",
             ["uv"] = 2
           }
+        },
+        {
+          id = 203,
+          name = "Gaseosa",
+          type = "static",
+          shape = "rectangle",
+          x = 1833.33,
+          y = 594.333,
+          width = 766.333,
+          height = 365.333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_liquido"] = true,
+            ["clase"] = "liquido",
+            ["densidad"] = 25,
+            ["grupo"] = "liquido",
+            ["img"] = "1"
+          }
         }
       }
+    },
+    {
+      type = "objectgroup",
+      id = 15,
+      name = "Liquido",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "liquidoMapa"
+      },
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 16,
+      name = "Animacion",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "animacionMapa"
+      },
+      objects = {}
     },
     {
       type = "objectgroup",
@@ -1467,7 +1514,76 @@ return {
       properties = {
         ["tabla"] = "items"
       },
-      objects = {}
+      objects = {
+        {
+          id = 202,
+          name = "Burbujas",
+          type = "none",
+          shape = "rectangle",
+          x = 1840,
+          y = 593,
+          width = 185,
+          height = 363,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "animacion",
+            ["img"] = "burbujas",
+            ["tiempo"] = 0.5
+          }
+        },
+        {
+          id = 204,
+          name = "Burbujas",
+          type = "none",
+          shape = "rectangle",
+          x = 1945.5,
+          y = 596.5,
+          width = 185,
+          height = 363,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "animacion",
+            ["img"] = "burbujas",
+            ["tiempo"] = 0.5
+          }
+        },
+        {
+          id = 205,
+          name = "Burbujas",
+          type = "none",
+          shape = "rectangle",
+          x = 2210.83,
+          y = 595.167,
+          width = 221,
+          height = 363,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "animacion",
+            ["img"] = "burbujas",
+            ["tiempo"] = 0.5
+          }
+        },
+        {
+          id = 206,
+          name = "Burbujas",
+          type = "none",
+          shape = "rectangle",
+          x = 2128.83,
+          y = 597.833,
+          width = 185,
+          height = 363,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "animacion",
+            ["img"] = "burbujas",
+            ["tiempo"] = 0.5
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -1487,8 +1603,8 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 1455.32,
-          y = 512.643,
+          x = 789.32,
+          y = 706.643,
           width = 70,
           height = 90,
           rotation = 0,
@@ -1501,77 +1617,6 @@ return {
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
-            ["velocidad"] = 80
-          }
-        },
-        {
-          id = 177,
-          name = "Baba",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 1359.98,
-          y = 517.647,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_danoFisico"] = true,
-            ["Es_explotaMorir"] = true,
-            ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
-            ["hp"] = 15,
-            ["img"] = "baba",
-            ["limiteVision"] = 350,
-            ["velocidad"] = 80
-          }
-        },
-        {
-          id = 187,
-          name = "Zombie",
-          type = "dynamic",
-          shape = "rectangle",
-          x = -120.163,
-          y = 799.5,
-          width = 60,
-          height = 100,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_colisionableAtaque"] = true,
-            ["Es_danoFisico"] = true,
-            ["Es_explotaMorir"] = true,
-            ["clase"] = "enemigo2",
-            ["grupo"] = "infectado",
-            ["hp"] = 20,
-            ["img"] = "jugador",
-            ["limiteVision"] = 100,
-            ["velocidad"] = 130
-          }
-        },
-        {
-          id = 189,
-          name = "Soldado",
-          type = "dynamic",
-          shape = "rectangle",
-          x = -172.334,
-          y = 813.17,
-          width = 50,
-          height = 80,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_explotaMorir"] = true,
-            ["Es_transformarZombie"] = true,
-            ["arma"] = 1,
-            ["camper"] = false,
-            ["clase"] = "enemigo3",
-            ["grupo"] = "humano_enemigo",
-            ["hp"] = 12,
-            ["img"] = "jugador",
-            ["imgAccesorio"] = "accesorios",
-            ["limiteVision"] = 1000,
-            ["quadImgAccesorio"] = "1",
             ["velocidad"] = 80
           }
         },
@@ -1599,6 +1644,28 @@ return {
             ["subclase"] = "enemigo2",
             ["velocidad"] = 130
           }
+        },
+        {
+          id = 201,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1258.33,
+          y = 505.667,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo1",
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
+          }
         }
       }
     },
@@ -1620,8 +1687,8 @@ return {
           name = "Player",
           type = "dynamic",
           shape = "rectangle",
-          x = 6.333,
-          y = 718,
+          x = 1765.33,
+          y = 513,
           width = 50,
           height = 80,
           rotation = 0,

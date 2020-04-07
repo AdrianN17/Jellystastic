@@ -44,6 +44,8 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   remove.init(self,entidad,properties.tabla)
   
   self.timerPosicionamiento = nil
+  
+  self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
 end
 
 function meteorito:draw()
@@ -72,6 +74,36 @@ function meteorito:preSolve(obj,coll)
       end
     end)
   end 
+  
+  if obj.grupo == self.grupo then
+    coll:setEnabled(false)
+  else
+    for _,grupo in ipairs(self.objetivosEnemigos) do
+      if grupo == obj.grupo then
+        
+        coll:setEnabled(false)
+        
+        if obj.acciones and not obj.acciones.invulnerable then
+          self.entidad:dano(obj,5)
+
+          if obj.cambiarEstado then
+            obj:cambiarEstado("canon")
+          end
+          
+          obj.acciones.invulnerable = true
+          
+          self.entidad.timer:after(1,function() 
+            if obj then
+              obj.acciones.invulnerable=false
+            end
+          end)
+          
+        end
+      end
+    end
+  end
+  
 end
+
 
 return meteorito

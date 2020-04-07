@@ -16,4 +16,6 @@ return {
   meteorito = require "entidades.Objetos_Mapa.meteorito",
   meteoritoCreador = require "entidades.Creador.meteoritoCreador",
   zombieCreador = require "entidades.Creador.zombieCreador",
+  animacion = require "entidades.Objetos_Mapa.animacion",
+  liquido = require "entidades.Objetos_Mapa.liquido"
 }

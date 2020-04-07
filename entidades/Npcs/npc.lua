@@ -32,6 +32,8 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
   
   entidad:add(properties.tabla,self)
   
+  self.timer = Timer()
+  
   remove.init(self,entidad,properties.tabla)
   
   self.width,self.height = width,height
@@ -44,6 +46,10 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
   
   self.shaderPlayer = love.graphics.newShader(Shader_index.shader_player)
   self.shaderPlayer:send("color_player",self.vec4Shader)
+  
+  self.acciones = {invulnerable =false}
+  
+  self.cooldownIterador = true
   
 end
 
@@ -60,6 +66,33 @@ end
 function npc:update(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
   self.radio = self.body:getAngle()
+  
+  self.timer:update(dt)
+  
+  self:checkVida()
+  
+end
+
+function npc:cambiarEstado(tipo)
+  local hp = self.maxHp*0.5
+
+  if self.hp<hp and self.cooldownIterador then
+    
+    if tipo == "semizombie" then
+      self.iteradorEstado = 4
+    elseif tipo == "agujereado" then
+      self.iteradorEstado = 2
+    elseif tipo == "canon" then
+      self.iteradorEstado = 3
+    end
+    
+    self.cooldownIterador = false
+    
+  elseif self.hp>hp and not self.cooldownIterador then
+    
+    self.iteradorEstado = 1
+    self.cooldownIterador = true
+  end
 end
 
 return npc

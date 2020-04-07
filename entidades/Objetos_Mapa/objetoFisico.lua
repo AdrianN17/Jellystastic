@@ -9,6 +9,7 @@ function objetoFisico:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClea
   self.shape = shape
   self.fixture = fixture
   
+  self.entidad = entidad
   
   objeto.init(self,entidad,ox,oy,radio,shapeTableClear,properties,width,height)
   
