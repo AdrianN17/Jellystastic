@@ -12,10 +12,11 @@ return  {
   vida = require "assets.img.Items.vida",
   jugador = require "assets.img.Jugadores.jugadores",
   meteorito = require "assets.img.Meteorito.meteorito",
-  arbol = require "assets.img.Objetos.arbol",
+  plantas = require "assets.img.Objetos.plantas",
   helado = require "assets.img.Objetos.helado",
   objetos = require "assets.img.Objetos.objetos",
   sundae = require "assets.img.Objetos.sundae",
   texturas = require "assets.img.Texturas.texturas",
-  ui = require "assets.img.UI.ui" 
+  piedra = require "assets.img.Objetos.piedra",
+  ui = require "assets.img.UI.ui"
 }

@@ -70,7 +70,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.armaIndex = properties.armaIndex or 0
   self.armaIndexRespaldo = 0
   
-  self:recargarMax()
+  self:recargarDoble()
   
   self.funcionCambiarMovible = nil
   
@@ -455,10 +455,6 @@ function player:preSolve(obj,coll)
   if obj.grupo == self.grupo then
     coll:setEnabled( false )
   end
-end
-
-function player:postSolve(obj,coll)
-  
 end
 
 function player:endContact(obj,coll)

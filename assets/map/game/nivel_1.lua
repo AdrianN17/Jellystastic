@@ -8,11 +8,106 @@ return {
   height = 30,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 17,
-  nextobjectid = 208,
+  nextlayerid = 18,
+  nextobjectid = 215,
   properties = {},
   tilesets = {},
   layers = {
+    {
+      type = "objectgroup",
+      id = 17,
+      name = "ParedBase",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "paredBase"
+      },
+      objects = {
+        {
+          id = 210,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1126.13 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 211,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 2432.04, y = 0 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 213,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 2432.11,
+          y = 0.219697,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1126.13 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 214,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 0,
+          y = 1116,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 2432.04, y = 0 }
+          },
+          properties = {
+            ["Es_muerte"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        }
+      }
+    },
     {
       type = "objectgroup",
       id = 2,
@@ -71,7 +166,7 @@ return {
           shape = "rectangle",
           x = 1833.33,
           y = 594.333,
-          width = 766.333,
+          width = 596.636,
           height = 365.333,
           rotation = 0,
           visible = true,
@@ -230,7 +325,6 @@ return {
           properties = {
             ["clase"] = "textura",
             ["grupo"] = "casa",
-            ["heightArreglo"] = 1.5,
             ["img"] = "2",
             ["tipoCalculoDimensiones"] = "triangular"
           }
@@ -305,7 +399,6 @@ return {
           properties = {
             ["clase"] = "textura",
             ["grupo"] = "casa",
-            ["heightArreglo"] = 1.5,
             ["img"] = "4",
             ["tipoCalculoDimensiones"] = "triangular"
           }
@@ -521,7 +614,7 @@ return {
           visible = true,
           properties = {
             ["clase"] = "objeto",
-            ["img"] = "arbol",
+            ["img"] = "plantas",
             ["quad"] = "1"
           }
         }
@@ -1687,8 +1780,8 @@ return {
           name = "Player",
           type = "dynamic",
           shape = "rectangle",
-          x = 1765.33,
-          y = 513,
+          x = 85.33,
+          y = 723.667,
           width = 50,
           height = 80,
           rotation = 0,

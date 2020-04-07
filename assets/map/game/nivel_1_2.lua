@@ -8,11 +8,86 @@ return {
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 15,
-  nextobjectid = 95,
+  nextlayerid = 17,
+  nextobjectid = 109,
   properties = {},
   tilesets = {},
   layers = {
+    {
+      type = "objectgroup",
+      id = 16,
+      name = "ParedBase",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "paredBase"
+      },
+      objects = {
+        {
+          id = 103,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = -0.00390625,
+          y = -0.0117188,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1600.1 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 104,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 1696,
+          y = -0.03125,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1602.13 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 107,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 1690.87, y = 0 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        }
+      }
+    },
     {
       type = "objectgroup",
       id = 2,
@@ -151,7 +226,6 @@ return {
           properties = {
             ["clase"] = "textura",
             ["grupo"] = "casa",
-            ["heightArreglo"] = 1.5,
             ["img"] = "2",
             ["tipoCalculoDimensiones"] = "triangular"
           }
@@ -226,7 +300,6 @@ return {
           properties = {
             ["clase"] = "textura",
             ["grupo"] = "casa",
-            ["heightArreglo"] = 1.5,
             ["img"] = "4",
             ["tipoCalculoDimensiones"] = "triangular"
           }
@@ -1264,8 +1337,9 @@ return {
             ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "2",
-            ["sensor"] = true
+            ["quad"] = "1",
+            ["sensor"] = true,
+            ["tipo"] = 2
           }
         },
         {
@@ -1283,8 +1357,9 @@ return {
             ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
-            ["quad"] = "2",
-            ["sensor"] = true
+            ["quad"] = "1",
+            ["sensor"] = true,
+            ["tipo"] = 2
           }
         },
         {
@@ -1303,7 +1378,8 @@ return {
             ["clase"] = "municion",
             ["img"] = "municion",
             ["quad"] = "1",
-            ["sensor"] = true
+            ["sensor"] = true,
+            ["tipo"] = 5
           }
         },
         {
@@ -1360,45 +1436,6 @@ return {
       },
       objects = {
         {
-          id = 65,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1038,
-          y = 726,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 66,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1421,
-          y = 724,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 67,
-          name = "Baba",
-          type = "",
-          shape = "rectangle",
-          x = 1234,
-          y = 551,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 94,
           name = "ZombieCreador",
           type = "manager",
@@ -1422,6 +1459,72 @@ return {
             ["subclase"] = "enemigo2",
             ["velocidad"] = 130
           }
+        },
+        {
+          id = 96,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1449,
+          y = 731,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo1",
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
+          }
+        },
+        {
+          id = 97,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1058.33,
+          y = 730.333,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo1",
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
+          }
+        },
+        {
+          id = 98,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 1155.67,
+          y = 553,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo1",
+            ["grupo"] = "infectado",
+            ["hp"] = 15,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["velocidad"] = 80
+          }
         }
       }
     },
@@ -1439,12 +1542,12 @@ return {
       },
       objects = {
         {
-          id = 92,
+          id = 99,
           name = "Npc",
           type = "dynamic",
           shape = "rectangle",
-          x = 463,
-          y = 950,
+          x = 450,
+          y = 949.5,
           width = 50,
           height = 80,
           rotation = 0,
@@ -1455,7 +1558,7 @@ return {
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
             ["grupo"] = "humano",
-            ["h"] = 0.4,
+            ["h"] = 0.1,
             ["hp"] = 8,
             ["img"] = "jugador",
             ["quad"] = "2",

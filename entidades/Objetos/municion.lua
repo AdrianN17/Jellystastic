@@ -11,7 +11,7 @@ function municion:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   
   remove.init(self,entidad,properties.tabla)
   
-  self.tipo = tonumber(properties.quad)
+  self.tipo = properties.tipo
   self.cantidad = nil
 end
 

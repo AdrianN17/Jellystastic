@@ -8,11 +8,86 @@ return {
   height = 35,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 14,
-  nextobjectid = 61,
+  nextlayerid = 15,
+  nextobjectid = 64,
   properties = {},
   tilesets = {},
   layers = {
+    {
+      type = "objectgroup",
+      id = 14,
+      name = "ParedBase",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "paredBase"
+      },
+      objects = {
+        {
+          id = 61,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = -0.0342093,
+          y = -1.16323,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1124.34 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 62,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = 1184.22,
+          y = -1.15152,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0.0078125, y = 1126.28 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        },
+        {
+          id = 63,
+          name = "ParedBase",
+          type = "static",
+          shape = "polyline",
+          x = -0.0381155,
+          y = -0.0187027,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 1184.05, y = 0 }
+          },
+          properties = {
+            ["Es_tierra"] = true,
+            ["clase"] = "objetoFisicoSolo"
+          }
+        }
+      }
+    },
     {
       type = "objectgroup",
       id = 2,
@@ -879,6 +954,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
@@ -902,6 +978,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
@@ -925,6 +1002,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",

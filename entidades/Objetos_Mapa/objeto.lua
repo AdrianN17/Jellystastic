@@ -9,6 +9,7 @@ function objeto:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height
   local quadNombre = tonumber(properties.quad) or properties.quad
   
   self.dimension = self.spritesheet.viewport[quadNombre]
+  
   self.img = self.spritesheet.img
   self.quad = self.spritesheet.quad[quadNombre]
   

@@ -75,6 +75,10 @@ function mundoGenerico:init(mapa)
   
   self:setCallbacks()
   
+  self.spritesheetIconoAliados = Index_img.ui
+  self.imgIconoAliados= self.spritesheetIconoAliados.img["aliadosSalvados"]
+  self.dimensionIconoAliados =  self.spritesheetIconoAliados.dimensions["aliadosSalvados"]
+  
 end
 
 function mundoGenerico:enter()
@@ -106,6 +110,8 @@ function mundoGenerico:draw()
   self:parallax()
   
   self.map:draw(-cx,-cy,self.scale,self.scale)
+  
+  self:dibujarIconos()
   
   --self.cam:attach()
   
@@ -188,6 +194,18 @@ function mundoGenerico:limpiarEscenario()
   self.gameobject = {}
 
   self.world:destroy()
+end
+
+function mundoGenerico:dibujarIconos()
+  local x,y = self.screenX - 100  ,50
+  love.graphics.draw(self.imgIconoAliados,x,y,0,0.10,0.10,self.dimensionIconoAliados.w/2,self.dimensionIconoAliados.h/2)
+  local contador = 0
+  
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+    contador = self.gameobject.jugadores[self.indexPlayer].npcsSalvados 
+  end
+  
+  love.graphics.print(contador, x+50,y)
 end
 
 

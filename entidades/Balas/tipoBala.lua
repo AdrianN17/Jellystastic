@@ -147,4 +147,12 @@ function tipoBala:recargarMax()
   self.armasValues[self.armaIndex].enable = true
 end
 
+function tipoBala:recargarDoble()
+  local bala = self.armasValues[self.armaIndex]
+  self.armasValues[self.armaIndex].stock = bala.max_stock
+  self.armasValues[self.armaIndex].municion = bala.max_stock
+  
+  self.armasValues[self.armaIndex].enable = true
+end
+
 return tipoBala
