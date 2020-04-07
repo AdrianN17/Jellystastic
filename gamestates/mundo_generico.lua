@@ -8,9 +8,11 @@ xg,yg = 0,0
 
 function mundoGenerico:init(mapa)
 
-  Utils.init(self)
+  self.timer = Timer()
   
   self.indexPlayer = 1
+  
+  Utils.init(self)
 
   self.gameobject = {}
   self.entidadesUnicas = {}
@@ -72,8 +74,6 @@ function mundoGenerico:init(mapa)
   self.shaderEnemigo:send("color_player",self.vec4Shader)
   
   self:setCallbacks()
-  
-  self.timer = Timer()
   
 end
 

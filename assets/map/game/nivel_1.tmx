@@ -645,7 +645,7 @@
     <property name="velocidad" type="int" value="80"/>
    </properties>
   </object>
-  <object id="187" name="Zombie" type="dynamic" x="929.17" y="702.167" width="60" height="100">
+  <object id="187" name="Zombie" type="dynamic" x="-120.163" y="799.5" width="60" height="100">
    <properties>
     <property name="Es_colisionableAtaque" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
@@ -658,7 +658,7 @@
     <property name="velocidad" type="int" value="130"/>
    </properties>
   </object>
-  <object id="189" name="Soldado" type="dynamic" x="467.666" y="718.503" width="50" height="80">
+  <object id="189" name="Soldado" type="dynamic" x="-172.334" y="813.17" width="50" height="80">
    <properties>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
@@ -719,7 +719,7 @@
   <properties>
    <property name="tabla" value="meteorito"/>
   </properties>
-  <object id="193" name="MeteoritoCreador" type="manager" x="605.333" y="313.333">
+  <object id="193" name="MeteoritoCreador" type="manager" x="774.666" y="533.333">
    <properties>
     <property name="clase" value="meteoritoCreador"/>
     <property name="direccion" type="int" value="1"/>

@@ -73,6 +73,7 @@ function bala:preSolve(obj,coll)
     
     if obj.grupo == "meteorito" then
       self.entidad:dano(obj,self.dano)
+      self:remove()
     else
       for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
         if obj.grupo == grupo then

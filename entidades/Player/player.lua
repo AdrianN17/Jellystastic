@@ -326,10 +326,10 @@ function player:mousereleased(x,y,button)
     
     if arma.stock>0 then
       
-      self.cooldown = true
+      self.cooldownArma = true
       
       self.cooldownTimer = self.timer:after(arma.tiempo, function()
-        self.cooldown = false
+        self.cooldownArma = false
         self.cooldownTimer=nil
       end)
     end
@@ -382,7 +382,7 @@ function player:get()
   t.armaIndex = self.armaIndex
   t.hp = self.hp
   t.iterador = self.iterador
-  t.cooldown = self.cooldown
+  t.cooldownArma = self.cooldownArma
   t.cooldownIterador = self.cooldownIterador
   t.armaIndexRespaldo = self.armaIndexRespaldo
   t.dataCreacion = self.dataCreacion

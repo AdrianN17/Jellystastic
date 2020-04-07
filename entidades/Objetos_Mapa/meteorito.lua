@@ -5,11 +5,14 @@ local meteorito = Class{
 }
 
 function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,height)
+
   self.body = body
   self.shape = shape
   self.fixture = fixture
   
   self.radio = radio
+  
+  self.entidad = entidad
   
   entidad:add(properties.tabla,self)
   
@@ -36,7 +39,11 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   
   self.grupo = properties.grupo
   
+  self.hp = properties.hp
+  
   remove.init(self,entidad,properties.tabla)
+  
+  self.timerPosicionamiento = nil
 end
 
 function meteorito:draw()
@@ -48,6 +55,23 @@ end
 
 function meteorito:update(dt)
   self.ox,self.oy = self.body:getX(),self.body:getY()
+  
+  self:checkVida()
+  
+end
+
+function meteorito:preSolve(obj,coll)
+  
+  if obj.Es_tierra and not self.timerPosicionamiento then
+    self.timerPosicionamiento = self.entidad.timer:after(1, function()
+      if self and self.body and not self.body:isDestroyed() then
+        self.body:setPosition(self.oxInicial,self.oyInicial)
+        self.body:setLinearVelocity(0,0)
+        
+        self.timerPosicionamiento = nil
+      end
+    end)
+  end 
 end
 
 return meteorito
