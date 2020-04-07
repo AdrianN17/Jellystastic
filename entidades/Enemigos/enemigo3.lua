@@ -241,6 +241,7 @@ function enemigo3:update(dt)
   self:updateEnemigo(dt)
   
   self:checkVida()
+  
 end
 
 function enemigo3:voltear()

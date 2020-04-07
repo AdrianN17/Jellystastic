@@ -47,8 +47,6 @@ function bala:init(entidad,objeto,ox,oy,radio,dano,index)
   
   remove.init(self,entidad,"balas")
   
-  self.direccion = math.sign(self.cx)
-  
   self.grupo = "bala"
 end
 
@@ -85,8 +83,9 @@ function bala:preSolve(obj,coll)
             obj:cambiarEstado("agujereado")
           end
           
+          local x,y = coll:getPositions()
 
-          if obj.direccion == self.direccion then
+          if obj.direccion == math.sign(x-self.ox) then
             
             if obj.cambiarDeDireccion then
               obj:cambiarDeDireccion()

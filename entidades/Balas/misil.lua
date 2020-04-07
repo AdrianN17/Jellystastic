@@ -44,8 +44,6 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
   
   remove.init(self,entidad,"balas")
   
-  self.direccion = math.sign(cx)
-  
   self.grupo = "bala"
 end
 
@@ -81,7 +79,9 @@ function misil:preSolve(obj,coll)
             obj:cambiarEstado("agujereado")
           end
           
-          if obj.direccion == self.direccion  then
+          local x,y = coll:getPositions()
+
+          if obj.direccion == math.sign(x-self.ox) then
             
             if obj.cambiarDeDireccion then
               obj:cambiarDeDireccion()

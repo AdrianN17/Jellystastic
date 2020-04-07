@@ -112,6 +112,17 @@ function estandarEnemigos:updateEnemigo(dt)
     end
   })
 
+
+  if self.objPresa then
+    if self.objPresa.body:isDestroyed() then
+      self.objPresa=nil
+      
+      if self.automata.current =="seguir" or self.automata.current =="atacar" then
+        self.automata:Fmover()
+      end
+    end
+  end
+
 end
 
 function estandarEnemigos:updatePuntos()
@@ -163,7 +174,7 @@ function estandarEnemigos:preSolve(obj,coll)
     for _,grupo in ipairs(self.objetivosEnemigos) do
     
       
-      if obj.grupo == grupo and self.Es_colisionableAtaque and not obj.Es_colisionableAtaque then
+      if obj.grupo == grupo and ((self.Es_colisionableAtaque and not obj.Es_colisionableAtaque) or (self.Es_colisionableAtaque and  obj.Es_colisionableAtaque)) then
         
         if self.automata.current=="mover" then
           coll:setEnabled(false)
@@ -174,7 +185,7 @@ function estandarEnemigos:preSolve(obj,coll)
           end
         end
         
-        if not obj.acciones.invulnerable then
+        if obj.acciones and not obj.acciones.invulnerable then
           self.entidad:dano(obj,2)
           
           
@@ -189,14 +200,12 @@ function estandarEnemigos:preSolve(obj,coll)
               obj.acciones.invulnerable=false
             end
           end)
-          
-          
         end
         
-        
-        
-        
-        if obj.direccion == self.direccion and obj.grupo ~= "humano" and obj.automata and obj.automata.current=="mover" then
+        local x,y = coll:getPositions()
+
+        if obj.direccion == math.sign(x-self.ox) and self.automata and self.automata.current=="seguir" then
+
           if obj.cambiarDeDireccion then
             obj:cambiarDeDireccion()
           end
@@ -204,6 +213,7 @@ function estandarEnemigos:preSolve(obj,coll)
           if obj.voltear then
             obj:voltear()
           end
+
         end
         
       elseif obj.grupo == grupo and not self.Es_colisionableAtaque and not obj.Es_colisionableAtaque then

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 198,
+  nextobjectid = 199,
   properties = {},
   tilesets = {},
   layers = {
@@ -1529,8 +1529,8 @@ return {
           name = "Zombie",
           type = "dynamic",
           shape = "rectangle",
-          x = 281.17,
-          y = 695.5,
+          x = 361.17,
+          y = 699.5,
           width = 60,
           height = 100,
           rotation = 0,
@@ -1551,8 +1551,8 @@ return {
           name = "Soldado",
           type = "dynamic",
           shape = "rectangle",
-          x = 525.333,
-          y = 716.17,
+          x = 818.333,
+          y = 721.17,
           width = 50,
           height = 80,
           rotation = 0,
@@ -1568,28 +1568,6 @@ return {
             ["limiteVision"] = 1000,
             ["quadImgAccesorio"] = "1",
             ["velocidad"] = 80
-          }
-        },
-        {
-          id = 197,
-          name = "Zombie",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 585,
-          y = 696,
-          width = 60,
-          height = 100,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_colisionableAtaque"] = true,
-            ["Es_danoFisico"] = true,
-            ["clase"] = "enemigo2",
-            ["grupo"] = "infectado",
-            ["hp"] = 20,
-            ["img"] = "jugador",
-            ["limiteVision"] = 100,
-            ["velocidad"] = 130
           }
         }
       }

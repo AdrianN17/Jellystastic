@@ -137,6 +137,7 @@ function enemigo2:update(dt)
   self:updateEnemigo(dt)
   
   self:checkVida()
+  
 end
 
 return enemigo2

@@ -41,7 +41,6 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.body:applyLinearImpulse(self.velocidad*cx,self.velocidad*cy)
   
   remove.init(self,entidad,"balas")
-  self.direccion = math.sign(cx)
   self.grupo = "bala"
   
   self.Es_dispersable = true
@@ -86,7 +85,9 @@ function baba:preSolve(obj,coll)
           end
           
           
-          if obj.direccion == self.direccion then
+          local x,y = coll:getPositions()
+
+          if obj.direccion == math.sign(x-self.ox) then
             
             if obj.cambiarDeDireccion then
               obj:cambiarDeDireccion()

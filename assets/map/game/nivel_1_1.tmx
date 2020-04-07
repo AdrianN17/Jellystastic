@@ -79,7 +79,7 @@
     <property name="img" value="5"/>
    </properties>
   </object>
-  <object id="15" name="Pared" type="static" x="797.986" y="481.043" width="32" height="415">
+  <object id="15" name="Pared" type="static" x="797.986" y="511.543" width="32" height="384.5">
    <properties>
     <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
@@ -87,7 +87,7 @@
     <property name="img" value="3"/>
    </properties>
   </object>
-  <object id="16" name="Pared" type="static" x="1150.24" y="481.23" width="34.2778" height="415">
+  <object id="16" name="Pared" type="static" x="1150.24" y="511.73" width="34.2778" height="384.5">
    <properties>
     <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="texturaFisica"/>
@@ -95,7 +95,7 @@
     <property name="img" value="3"/>
    </properties>
   </object>
-  <object id="43" name="Helado" type="none" x="412.999" y="32.6665" width="351.667" height="187.334">
+  <object id="43" name="Helado" type="none" x="412.999" y="39.6665" width="351.667" height="187.334">
    <properties>
     <property name="clase" value="objeto"/>
     <property name="img" value="sundae"/>
@@ -126,7 +126,7 @@
   <properties>
    <property name="tabla" value="Plataformas"/>
   </properties>
-  <object id="27" name="Chicle" type="static" x="191.948" y="688">
+  <object id="27" name="Chicle" type="static" x="191.948" y="658">
    <properties>
     <property name="Es_pasable" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
@@ -165,7 +165,7 @@
    </properties>
    <polyline points="55.8785,0 195.212,0.3333"/>
   </object>
-  <object id="30" name="Chicle" type="static" x="362.108" y="353.667">
+  <object id="30" name="Chicle" type="static" x="362.108" y="381.667">
    <properties>
     <property name="Es_pasable" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
@@ -240,7 +240,7 @@
     <property name="quad" value="dulce_parte1"/>
    </properties>
   </object>
-  <object id="48" name="Chocolate" type="static" x="24" y="700">
+  <object id="48" name="Chocolate" type="static" x="24" y="670">
    <properties>
     <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
@@ -342,21 +342,12 @@
     <property name="quad" value="caja"/>
    </properties>
   </object>
-  <object id="36" name="Caja" type="dynamic" x="422" y="478.5" width="46" height="49">
-   <properties>
-    <property name="Es_movible" type="bool" value="true"/>
-    <property name="Es_tierra" type="bool" value="true"/>
-    <property name="clase" value="movible"/>
-    <property name="img" value="objetos"/>
-    <property name="quad" value="caja"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="8" name="Armas">
   <properties>
    <property name="tabla" value="Armas"/>
   </properties>
-  <object id="35" name="Arma" type="static" x="47" y="633.5" width="55.5" height="33">
+  <object id="35" name="Arma" type="static" x="47" y="603.5" width="55.5" height="33">
    <properties>
     <property name="clase" value="arma"/>
     <property name="img" value="armas"/>
@@ -382,7 +373,7 @@
   <properties>
    <property name="tabla" value="npcs"/>
   </properties>
-  <object id="32" name="Npc" x="429.667" y="260" width="50" height="80">
+  <object id="32" name="Npc" x="429.667" y="293" width="50" height="80">
    <properties>
     <property name="collidable" type="bool" value="true"/>
    </properties>

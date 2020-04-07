@@ -65,6 +65,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.puertaValues = nil
   
+  self.funcionCambiarMovible = nil
+  
   self.timer:every(0.25, function()
     if self.acciones.moviendo and not self.acciones.saltando then
       
@@ -89,6 +91,24 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     
     for _,contact in ipairs(contacts) do
       
+      local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
+      
+      if movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger then
+        local x,y = contact:getPositions()
+        local nx,ny = contact:getNormal()
+        
+        if x and y and nx and ny and math.abs(nx)>0.89 and math.abs(ny)<0.1 then
+          self.jointMovible = love.physics.newWeldJoint(self.body,movibleObj.obj.body,x,y,true)
+          movibleObj.obj.pasarPlataformas = true
+          
+          self.funcionCambiarMovible = function()
+            if movibleObj and movibleObj.obj and not movibleObj.obj.body:isDestroyed() and movibleObj.obj.pasarPlataformas then
+              movibleObj.obj.pasarPlataformas = false
+            end
+          end
+          
+        end
+      end
       
       if self.entidad:getUserDataValue(contact,"Es_tierra") then
         
@@ -219,7 +239,21 @@ function player:keypressed(key)
     self.acciones.pasarPlataformas = true
   end
   
-  if key == _G.teclas.get and self.puertaValues and self.ground then
+  if key == _G.teclas.getBox then
+    self.acciones.coger = not self.acciones.coger
+    
+    if not self.acciones.coger and self.jointMovible and not self.jointMovible:isDestroyed( ) then
+      self.jointMovible:destroy()
+      self.jointMovible = nil
+      
+      if self.funcionCambiarMovible then
+        self:funcionCambiarMovible()
+      end
+    end
+    
+  end
+  
+  if key == _G.teclas.get and self.puertaValues and self.ground and not self.jointMovible then
     self.entidad:cambiarSubnivel(self.puertaValues)
   end
   
@@ -242,7 +276,6 @@ function player:keyreleased(key)
   if key == _G.teclas.right then
     self.movimiento.d = false
   end
-  
   
 end
 

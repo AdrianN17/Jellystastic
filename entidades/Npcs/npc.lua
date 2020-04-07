@@ -7,4 +7,5 @@ return npc
 --[[
 
 Falta agregar para limpiar al enemigo objPresa cuando elimina su presa
+Mejorar volteado de bala
 ]]
