@@ -178,6 +178,7 @@ function mundoGenerico:parallax()
 end
 
 function mundoGenerico:limpiarEscenario()
+  
   self.map = nil
   self.cam = nil
   
@@ -187,5 +188,6 @@ function mundoGenerico:limpiarEscenario()
 
   self.world:destroy()
 end
+
 
 return mundoGenerico

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="92">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="53" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="93">
  <editorsettings>
   <export target="nivel_1_2.lua" format="lua"/>
  </editorsettings>
@@ -524,6 +524,7 @@
   </properties>
   <object id="57" name="Arma" type="static" x="879" y="776.5" width="105.333" height="34.5">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
     <property name="img" value="armas"/>
     <property name="quad" value="5"/>
@@ -537,22 +538,25 @@
   </properties>
   <object id="59" name="Municion" type="static" x="687" y="770" width="40" height="30">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="municion"/>
     <property name="img" value="municion"/>
-    <property name="quad" value="1"/>
+    <property name="quad" value="2"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
   <object id="60" name="Municion" type="static" x="746" y="770" width="40" height="30">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="municion"/>
     <property name="img" value="municion"/>
-    <property name="quad" value="1"/>
+    <property name="quad" value="2"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
   <object id="61" name="Municion" type="static" x="887" y="607" width="40" height="30">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="municion"/>
     <property name="img" value="municion"/>
     <property name="quad" value="1"/>
@@ -561,6 +565,7 @@
   </object>
   <object id="69" name="Vida" type="static" x="904" y="979" width="30" height="35">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="vida"/>
     <property name="img" value="vida"/>
     <property name="quad" value="1"/>
@@ -569,6 +574,7 @@
   </object>
   <object id="70" name="Vida" type="static" x="1606" y="975.5" width="30" height="35">
    <properties>
+    <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="vida"/>
     <property name="img" value="vida"/>
     <property name="quad" value="1"/>
@@ -588,9 +594,16 @@
   <properties>
    <property name="tabla" value="npcs"/>
   </properties>
-  <object id="63" name="Npc" x="465.667" y="950" width="50" height="80">
+  <object id="92" name="Npc" type="dynamic" x="463" y="950" width="50" height="80">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="Es_salvable" type="bool" value="true"/>
+    <property name="clase" value="npc"/>
+    <property name="grupo" value="humano"/>
+    <property name="h" type="float" value="0.4"/>
+    <property name="hp" type="int" value="8"/>
+    <property name="img" value="jugador"/>
+    <property name="quad" value="2"/>
+    <property name="s" type="float" value="0"/>
    </properties>
   </object>
  </objectgroup>

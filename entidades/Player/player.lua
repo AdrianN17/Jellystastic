@@ -12,7 +12,6 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.shape = shape
   self.fixture = fixture
   
-  
   self.entidad = entidad
   
   self.velocidad = properties.velocidad
@@ -39,7 +38,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.ox,self.oy = ox,oy
   
   self.movimiento = {a = false,b = false}
-  self.acciones = {moviendo = false, saltando = false, invulnerable = false,pasarPlataformas=false,coger = false}
+  self.acciones = {moviendo = false, saltando = false, invulnerable = false,pasarPlataformas=false,coger = false, usar = false}
   
   self.vec4Shader = {0,0,0,0}
   
@@ -63,9 +62,16 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   
   self.timer = Timer()
   
-  self.puertaValues = nil
+  tipoBala.init(self)
+
+  self.armaIndex = properties.armaIndex or 0
+  self.armaIndexRespaldo = 0
+  
+  self:recargarMax()
   
   self.funcionCambiarMovible = nil
+  
+  self.npcsSalvados = 0
   
   self.timer:every(0.25, function()
     if self.acciones.moviendo and not self.acciones.saltando then
@@ -83,17 +89,51 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     end
   end)
 
-  self.timer:every(0.005, function()
+  self.timer:every(0.01, function()
     local contacts = self.body:getContacts()
     
     self.puertaValues = nil
-    self.ground = false
+    
+    
+    for _,contact in ipairs(contacts) do
+      local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
+      
+      if sueloObj then
+        
+        local x,y = contact:getNormal()
+
+
+        if y<0 and math.abs(x) < 0.1 then
+          self.ground = true
+          
+          self.acciones.saltando=false
+        end
+      end
+    end
     
     for _,contact in ipairs(contacts) do
       
-      local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
       
-      if movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger then
+      local salvableObj = self.entidad:getUserDataValue(contact,"Es_salvable")
+      local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
+      local puertaObj = self.entidad:getUserDataValue(contact,"Es_portal")
+      local itemObj =  self.entidad:getUserDataValue(contact,"Es_usable")
+      
+      if itemObj and itemObj.obj and not itemObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
+
+        itemObj.obj:usar(self)
+        self.acciones.usar= false
+        
+      elseif salvableObj and salvableObj.obj and not salvableObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
+        
+        self.npcsSalvados = self.npcsSalvados+1
+        
+        salvableObj.obj:remove()
+        
+        self.acciones.usar= false
+        
+      elseif movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger and self.ground then
+        
         local x,y = contact:getPositions()
         local nx,ny = contact:getNormal()
         
@@ -108,34 +148,16 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
           end
           
         end
-      end
-      
-      if self.entidad:getUserDataValue(contact,"Es_tierra") then
         
-        local x,y = contact:getNormal()
+      elseif puertaObj and self.acciones.usar and not self.jointMovible and self.ground then
         
-        if y<0 then
-          self.ground = true
-          
-          self.acciones.saltando=false
-        end
-      end
-      
-      local puerta = self.entidad:getUserDataValue(contact,"Es_portal")
-      if puerta then
-        self.puertaValues = puerta.obj.puertaValues
-      end
-      
+        self.acciones.usar=false
+        self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
+        
+      end 
     end
     
   end)
-
-  tipoBala.init(self)
-
-  self.armaIndex = properties.armaIndex or 0
-  self.armaIndexRespaldo = 0
-  
-  self:recargarMax()
   
   
   self.cooldownTimer = nil
@@ -162,6 +184,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 end
 
 function player:update(dt)
+  self.ground = false
   
   self.radio = self.body:getAngle()
   
@@ -215,7 +238,7 @@ function player:draw()
   
   self:drawArma()
   
-  love.graphics.print(tostring(self.acciones.pasarPlataformas),self.ox,self.oy-100)
+  love.graphics.print(self.npcsSalvados,self.ox,self.oy-100)
 
 end
 
@@ -253,9 +276,10 @@ function player:keypressed(key)
     
   end
   
-  if key == _G.teclas.get and self.puertaValues and self.ground and not self.jointMovible then
-    self.entidad:cambiarSubnivel(self.puertaValues)
+  if key == _G.teclas.get then
+    self.acciones.usar = true
   end
+  
   
    if key == _G.teclas.changeWeapon and not self.jointMovible then
     if self.armaIndexRespaldo == 0 then
@@ -275,6 +299,10 @@ function player:keyreleased(key)
   
   if key == _G.teclas.right then
     self.movimiento.d = false
+  end
+  
+  if key == _G.teclas.get then
+    self.acciones.usar = false
   end
   
 end
@@ -355,6 +383,7 @@ function player:get()
   t.cooldownIterador = self.cooldownIterador
   t.armaIndexRespaldo = self.armaIndexRespaldo
   t.dataCreacion = self.dataCreacion
+  t.npcsSalvados = self.npcsSalvados
   
   return t
 end
@@ -387,10 +416,6 @@ function player:cambiarEstado(tipo)
   end
 end
 
-function player:clearPuerta()
-  self.puertaValues=nil
-end
-
 function player:limpiarMovimiento()
   self.movimiento = {a=false,d=false}
   self:terminarDisparoArma()
@@ -409,6 +434,10 @@ function player:preSolve(obj,coll)
         coll:setEnabled( false )
       end
     end
+  end
+  
+  if obj.grupo == self.grupo then
+    coll:setEnabled( false )
   end
 end
 

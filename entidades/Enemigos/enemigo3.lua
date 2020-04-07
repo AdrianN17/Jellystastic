@@ -105,10 +105,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
       end,
       
       onFrecargar= function(_, event, from, to) 
-        if self.timerBalas then
-          self.timer:cancel(self.timerBalas)
-          self.timerBalas = nil
-        end
+        self:terminarDisparoArma()
         
         self:recargarArma()
         
@@ -223,8 +220,6 @@ function enemigo3:draw()
   
   local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
   love.graphics.line(self.oxBala,self.oyBala, cx,cy)
-  
-  love.graphics.print(self.hp  .. " , " ..  self.automata.current,self.ox,self.oy-100)
   
 end
 

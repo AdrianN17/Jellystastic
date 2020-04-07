@@ -84,7 +84,6 @@ function mundoPrincipal:cambiarSubnivel(puertaData)
       
       if Map_index.campana[self.mapaIndex][puertaData.nivel] then
         
-        player:clearPuerta()
         Gamestate.switch(mundoSecundario,dataExtra)
         
       end

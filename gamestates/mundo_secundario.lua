@@ -84,8 +84,6 @@ function mundoSecundario:cambiarSubnivel(puertaData)
     
     local dataExtra = {playerData = player:get(),puertaData = puertaData}
     
-    player:clearPuerta()
-    
     Gamestate.push(self.mainMapa,{mapaIndex = index,accion = "cambiarPosicion"},dataExtra)
     
   end

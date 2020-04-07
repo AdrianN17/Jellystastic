@@ -87,8 +87,7 @@ function tipoBala:recargarArma()
       self.timerRecarga = nil
       self.timerRecarga = self.timer:after(balas.tiempo_recarga, function()
         self:recarga(self.armaIndex)
-        self.timer:cancel(self.timerRecarga)
-        self.timerRecarga = nil
+        self:terminarRecargaArma()
       end)
     end
   end
@@ -104,6 +103,13 @@ function tipoBala:terminarDisparoArma()
   if self.armaIndex > 0 and self.timerBalas then
     self.timer:cancel(self.timerBalas)
     self.timerBalas = nil
+  end
+end
+
+function tipoBala:terminarRecargaArma()
+  if self.timerRecarga then
+    self.timer:cancel(self.timerRecarga)
+    self.timerRecarga = nil
   end
 end
 

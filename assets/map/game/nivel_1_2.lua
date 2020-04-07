@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 92,
+  nextobjectid = 93,
   properties = {},
   tilesets = {},
   layers = {
@@ -1227,6 +1227,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "arma",
             ["img"] = "armas",
             ["quad"] = "5",
@@ -1260,6 +1261,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
             ["quad"] = "1",
@@ -1278,6 +1280,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
             ["quad"] = "1",
@@ -1296,6 +1299,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "municion",
             ["img"] = "municion",
             ["quad"] = "1",
@@ -1314,6 +1318,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "vida",
             ["img"] = "vida",
             ["quad"] = "1",
@@ -1332,6 +1337,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "vida",
             ["img"] = "vida",
             ["quad"] = "1",
@@ -1408,18 +1414,25 @@ return {
       },
       objects = {
         {
-          id = 63,
+          id = 92,
           name = "Npc",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
-          x = 465.667,
+          x = 463,
           y = 950,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["Es_salvable"] = true,
+            ["clase"] = "npc",
+            ["grupo"] = "humano",
+            ["h"] = 0.4,
+            ["hp"] = 8,
+            ["img"] = "jugador",
+            ["quad"] = "2",
+            ["s"] = 0
           }
         }
       }

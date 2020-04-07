@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 14,
-  nextobjectid = 59,
+  nextobjectid = 61,
   properties = {},
   tilesets = {},
   layers = {
@@ -811,6 +811,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "arma",
             ["img"] = "armas",
             ["quad"] = "2",
@@ -844,6 +845,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_usable"] = true,
             ["clase"] = "vida",
             ["img"] = "vida",
             ["quad"] = "1",
@@ -868,7 +870,7 @@ return {
         {
           id = 32,
           name = "Npc",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
           x = 429.667,
           y = 293,
@@ -877,37 +879,58 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["Es_salvable"] = true,
+            ["clase"] = "npc",
+            ["grupo"] = "humano",
+            ["h"] = 0.1,
+            ["hp"] = 8,
+            ["img"] = "jugador",
+            ["quad"] = "2",
+            ["s"] = 0
           }
         },
         {
-          id = 39,
+          id = 59,
           name = "Npc",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
-          x = 840,
-          y = 568,
+          x = 852,
+          y = 572,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["Es_salvable"] = true,
+            ["clase"] = "npc",
+            ["grupo"] = "humano",
+            ["h"] = 0.2,
+            ["hp"] = 8,
+            ["img"] = "jugador",
+            ["quad"] = "2",
+            ["s"] = 0
           }
         },
         {
-          id = 40,
+          id = 60,
           name = "Npc",
-          type = "",
+          type = "dynamic",
           shape = "rectangle",
-          x = 841,
-          y = 816,
+          x = 850,
+          y = 814,
           width = 50,
           height = 80,
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true
+            ["Es_salvable"] = true,
+            ["clase"] = "npc",
+            ["grupo"] = "humano",
+            ["h"] = 0.3,
+            ["hp"] = 8,
+            ["img"] = "jugador",
+            ["quad"] = "2",
+            ["s"] = 0
           }
         }
       }

@@ -120,8 +120,6 @@ function enemigo2:draw()
   local wi,hi = self.width/dimension.w,self.height/dimension.h 
 
   love.graphics.draw(self.img,self.quad[self.iterador],self.ox,self.oy,self.radio,wi*self.direccion,hi,dimension.w/2,dimension.h/2)
-  
-  love.graphics.print(self.grupo .. " , " .. self.automata.current,self.ox,self.oy-100)
 
 end
 

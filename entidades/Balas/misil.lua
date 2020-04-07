@@ -76,7 +76,7 @@ function misil:preSolve(obj,coll)
           self:remove()
           
           if obj.cambiarEstado then
-            obj:cambiarEstado("agujereado")
+            obj:cambiarEstado("canon")
           end
           
           local x,y = coll:getPositions()
