@@ -21,6 +21,7 @@ Entities_index = require "entidades.index"
 require "libs.utils"
 
 Menu = require "gamestates.menu"
+Pausa = require "gamestates.pausa"
 
 function love.load()
   

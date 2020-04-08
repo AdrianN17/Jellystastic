@@ -126,6 +126,10 @@ function mundoGenerico:keypressed(key)
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     self.gameobject.jugadores[self.indexPlayer]:keypressed(key)
   end
+  
+  if key == "p" then
+    Gamestate.switch(Pausa)
+  end
 end
 
 function mundoGenerico:keyreleased(key)

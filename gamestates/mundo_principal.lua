@@ -13,46 +13,48 @@ end
 
 function mundoPrincipal:enter(_,data,dataExtra)
 
-  Switch(data.accion, {
-    
-    crear = function()
-      if data.mapaIndex then
-        self.mapaIndex = data.mapaIndex
-        
-        mundoGenerico.init(self,Map_index.campana[self.mapaIndex]["main"])
-        
-      end
-    end,
-    
-    limpiar = function()
-      self:limpiar()
-    end,
-    
-    cambiarPosicion = function()
+  if data then
+    Switch(data.accion, {
       
-      local puertaData = dataExtra.puertaData
-      local playerData = dataExtra.playerData
-      
-      local puerta = self:buscarPuertas(puertaData)
-      
-      local player = self.gameobject.jugadores[self.indexPlayer]
-
-      if puerta then
-        local x,y = puerta.ox,puerta.oy
+      crear = function()
+        if data.mapaIndex then
+          self.mapaIndex = data.mapaIndex
           
-        if player then
-          player.body:setLinearVelocity(0,0)
-          player.body:setPosition( x, y )
+          mundoGenerico.init(self,Map_index.campana[self.mapaIndex]["main"])
+          
         end
+      end,
+      
+      limpiar = function()
+        self:limpiar()
+      end,
+      
+      cambiarPosicion = function()
+        
+        local puertaData = dataExtra.puertaData
+        local playerData = dataExtra.playerData
+        
+        local puerta = self:buscarPuertas(puertaData)
+        
+        local player = self.gameobject.jugadores[self.indexPlayer]
+
+        if puerta then
+          local x,y = puerta.ox,puerta.oy
+            
+          if player then
+            player.body:setLinearVelocity(0,0)
+            player.body:setPosition( x, y )
+          end
+        end
+        
+        if playerData then
+          player:set(playerData)
+        end
+        
       end
       
-      if playerData then
-        player:set(playerData)
-      end
-      
-    end
-    
-  })
+    })
+  end
     
 end
 
