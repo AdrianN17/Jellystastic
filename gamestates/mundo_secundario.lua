@@ -46,6 +46,10 @@ function mundoSecundario:enter(from,dataExtra)
           if player then
             player.body:setLinearVelocity(0,0)
             player.body:setPosition( x, y )
+            
+            
+            local player = self.gameobject.jugadores[self.indexPlayer]
+            player:setPlayerValues(_G.playerValues)
           end
           
         end

@@ -4,7 +4,7 @@ ui.img = {}
 ui.img[1] = love.graphics.newImage("assets/img/UI/icono_mundo.png")
 
 
-ui.img["aliadosSalvados"] = love.graphics.newImage("assets/img/UI/icono.png")
+ui.img["aliadosSalvados"] = love.graphics.newImage("assets/img/UI/Icono.png")
 
 ui.dimensions = {}
 

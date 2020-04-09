@@ -22,6 +22,11 @@ function mundoPrincipal:enter(_,data,dataExtra)
           
           mundoGenerico.init(self,Map_index.campana[self.mapaIndex]["main"])
           
+          if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+            local player = self.gameobject.jugadores[self.indexPlayer]
+            player:setPlayerValues(_G.playerValues)
+          end
+          
         end
       end,
       

@@ -40,11 +40,6 @@ function mundoGenerico:init(mapa)
   
   self:createObjects(Entities_index)
   
-  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
-    local player = self.gameobject.jugadores[self.indexPlayer]
-    player:setPlayerValues(_G.playerValues)
-  end
-  
   love.graphics.setLineWidth( 2 )
   
   self.vision = {x=0,y=0,w=0,h=0}
@@ -86,6 +81,8 @@ function mundoGenerico:enter()
 end
 
 function mundoGenerico:update(dt)
+  dt = math.min (dt, 1/30)
+  
   self.timer:update(dt)
   self.world:update(dt)
   self.map:update(dt)
