@@ -1,7 +1,8 @@
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 local baba = Class{
-  __includes = {remove}
+  __includes = {remove,visible}
 }
 
 function baba:init(entidad,objeto,ox,oy,radio)
@@ -45,6 +46,8 @@ function baba:init(entidad,objeto,ox,oy,radio)
   
   self.Es_dispersable = true
   self.timerRemove = nil
+  
+  visible.init(self)
 end
 
 function baba:draw()

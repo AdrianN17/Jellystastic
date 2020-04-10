@@ -1,7 +1,8 @@
 local textura = require "entidades.Objetos_Mapa.textura"
+local visible = require "entidades.visible" 
 
 local texturaFisica = Class{
-  __includes = {textura}
+  __includes = {textura,visible}
 }
 
 function texturaFisica:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -13,6 +14,7 @@ function texturaFisica:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableCle
 
   textura.init(self,entidad,ox,oy,radio,shapeTableClear,properties,width,height)
   
+  visible.init(self)
 end
 
 return texturaFisica

@@ -1,6 +1,13 @@
-local textura = Class{}
+local visible = require "entidades.visible" 
+
+local textura = Class{
+  __includes = {visible}
+}
 
 function textura:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height)
+
+  self.entidad = entidad
+  self.shapeTableClear = shapeTableClear
 
   self.ox,self.oy = ox,oy
 
@@ -10,6 +17,8 @@ function textura:init(entidad,ox,oy,radio,shapeTableClear,properties,width,heigh
   entidad:add(properties.tabla,self)
   
   self.width,self.heigth = width,height
+  
+  visible.init(self)
 
 end
 

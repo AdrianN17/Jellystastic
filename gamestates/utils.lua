@@ -163,7 +163,7 @@ function utils:drawGameobjects(nombre)
   
   if self.gameobject[nombre] ~= nil then
     for _, obj_data in ipairs(self.gameobject[nombre]) do
-      if obj_data.draw then
+      if obj_data.draw and obj_data.checkVisible and obj_data:checkVisible(self.vision.x,self.vision.y,self.vision.w,self.vision.h) then
         obj_data:draw()
       end
     end

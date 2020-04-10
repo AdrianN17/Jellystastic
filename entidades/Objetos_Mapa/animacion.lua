@@ -2,6 +2,9 @@ local animacion = Class{}
 
 function animacion:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height) 
   
+  self.entidad = entidad
+  self.shapeTableClear = shapeTableClear
+  
   self.ox,self.oy = ox,oy
   
   self.spritesheet = Index_img[properties.img]

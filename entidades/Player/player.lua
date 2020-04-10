@@ -1,10 +1,11 @@
 local Timer = require "libs.chrono.Timer"
 local tipoBala = require "entidades.Balas.tipoBala"
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 
 local player = Class{
-  __includes = {tipoBala,remove}
+  __includes = {tipoBala,remove,visible}
 }
 
 function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -191,6 +192,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     height = height
   }
   
+  visible.init(self)
+  
 end
 
 function player:update(dt)
@@ -330,7 +333,7 @@ function player:mousepressed(x,y,button)
 end
 
 function player:mousemoved(x,y)
-  print("a")
+
   if self.armaIndex>0 then
     if x>self.oxBala then
       self.vistaX = 1

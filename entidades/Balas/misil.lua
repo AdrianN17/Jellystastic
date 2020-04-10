@@ -1,7 +1,8 @@
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 local misil = Class{
-  __includes = {remove}
+  __includes = {remove,visible}
 }
 
 function misil:init(entidad,objeto,ox,oy,radio,dano,index)
@@ -45,6 +46,8 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
   remove.init(self,entidad,"balas")
   
   self.grupo = "bala"
+  
+  visible.init(self)
 end
 
 function misil:draw()

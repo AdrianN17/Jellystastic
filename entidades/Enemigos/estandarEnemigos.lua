@@ -1,4 +1,8 @@
-local estandarEnemigos = Class{}
+local visible = require "entidades.visible" 
+
+local estandarEnemigos = Class{
+  __includes = {visible}
+}
 
 function estandarEnemigos:init(properties)
   
@@ -122,6 +126,8 @@ function estandarEnemigos:updateEnemigo(dt)
       end
     end
   end
+  
+  visible.init(self)
 
 end
 

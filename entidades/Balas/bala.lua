@@ -1,7 +1,8 @@
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 local bala = Class{
-  __includes = {remove}
+  __includes = {remove,visible}
 }
 
 function bala:init(entidad,objeto,ox,oy,radio,dano,index)
@@ -48,6 +49,8 @@ function bala:init(entidad,objeto,ox,oy,radio,dano,index)
   remove.init(self,entidad,"balas")
   
   self.grupo = "bala"
+  
+  visible.init(self)
 end
 
 function bala:draw()

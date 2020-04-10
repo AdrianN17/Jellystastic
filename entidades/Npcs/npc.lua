@@ -1,8 +1,9 @@
 local Timer = require "libs.chrono.Timer"
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 local npc = Class{
-  __includes = {remove}
+  __includes = {remove,visible}
 }
 
 function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
@@ -51,6 +52,7 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
   
   self.cooldownIterador = true
   
+  visible.init(self)
 end
 
 function npc:draw()

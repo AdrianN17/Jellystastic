@@ -117,6 +117,8 @@ function mundoGenerico:draw()
   end)
   
   --self.cam:detach()
+  
+  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
 end
 
 function mundoGenerico:keypressed(key)
@@ -195,7 +197,7 @@ function mundoGenerico:parallax()
 end
 
 function mundoGenerico:limpiarEscenario()
-  
+  Sti:flush ()
   self.map = nil
   self.cam = nil
   

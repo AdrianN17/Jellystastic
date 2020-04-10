@@ -1,7 +1,8 @@
 local remove = require "entidades.remove"
+local visible = require "entidades.visible" 
 
 local meteorito = Class{
-  __includes ={remove}
+  __includes ={remove,visible}
 }
 
 function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,height)
@@ -46,6 +47,8 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   self.timerPosicionamiento = nil
   
   self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
+  
+  visible.init(self)
 end
 
 function meteorito:draw()

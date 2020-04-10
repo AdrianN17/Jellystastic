@@ -1,6 +1,13 @@
-local objeto = Class{}
+local visible = require "entidades.visible" 
+
+local objeto = Class{
+  __includes = {visible}
+}
 
 function objeto:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height) 
+  
+  self.entidad = entidad
+  self.shapeTableClear = shapeTableClear
   
   self.ox,self.oy = ox,oy
   
@@ -27,11 +34,13 @@ function objeto:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height
   self.radio = radio
 
   entidad:add(properties.tabla,self)
+  
+  visible.init(self)
 end
 
 function objeto:draw()
   love.graphics.draw(self.img,self.quad,self.ox,self.oy,self.radio,self.wi*(self.direccion_x or 1),self.hi*(self.direccion_y or 1),self.dimension.w/2 * (self.posicion_x or 1),self.dimension.h/2 * (self.posicion_y or 1))
-
+  
 end
 
 return objeto
