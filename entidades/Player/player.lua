@@ -202,8 +202,6 @@ function player:update(dt)
   
   self.timer:update(dt)
   
-  self:updateBala(dt)
-  
   self.acciones.moviendo = false
   
   local x=0
@@ -328,6 +326,19 @@ function player:mousepressed(x,y,button)
     self:dispararArma()
   elseif button == 2 and not self.cooldownArma then
     self:recargarArma()
+  end
+end
+
+function player:mousemoved(x,y)
+  print("a")
+  if self.armaIndex>0 then
+    if x>self.oxBala then
+      self.vistaX = 1
+    else
+      self.vistaX = -1
+    end
+    
+    self.radioBala = math.atan2(self.oyBala-y,self.oxBala-x)+math.pi
   end
 end
 

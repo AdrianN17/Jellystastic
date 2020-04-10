@@ -49,19 +49,6 @@ function tipoBala:drawArma()
   end
 end
 
-function tipoBala:updateBala(dt)
-  if self.armaIndex>0 then
-    self.bx,self.by = self.entidad.cam:toWorld(love.mouse.getX(),love.mouse.getY())
-    
-    if self.bx>self.oxBala then
-      self.vistaX = 1
-    else
-      self.vistaX = -1
-    end
-    
-    self.radioBala = math.atan2(self.oyBala-self.by,self.oxBala-self.bx)+math.pi
-  end
-end
 
 function tipoBala:recarga(armaIndex)
   local arma = self.armasValues[armaIndex]

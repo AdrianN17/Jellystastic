@@ -136,14 +136,23 @@ function mundoGenerico:keyreleased(key)
 end
 
 function mundoGenerico:mousepressed(x,y,button)
+  local cx,cy = self.cam:toWorld(x,y)
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
-    self.gameobject.jugadores[self.indexPlayer]:mousepressed(x,y,button)
+    self.gameobject.jugadores[self.indexPlayer]:mousepressed(cx,cy,button)
   end
 end
 
 function mundoGenerico:mousereleased(x,y,button)
+  local cx,cy = self.cam:toWorld(x,y)
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
-    self.gameobject.jugadores[self.indexPlayer]:mousereleased(x,y,button)
+    self.gameobject.jugadores[self.indexPlayer]:mousereleased(cx,cy,button)
+  end
+end
+
+function mundoGenerico:mousemoved( x, y, dx, dy, istouch )
+  local cx,cy = self.cam:toWorld(x,y)
+  if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+    self.gameobject.jugadores[self.indexPlayer]:mousemoved(cx,cy)
   end
 end
 
@@ -207,6 +216,12 @@ function mundoGenerico:dibujarIconos()
   end
   
   love.graphics.print(contador, x+50,y)
+end
+
+function mundoGenerico:focus(f)
+  if not f then
+    Gamestate.switch(Pausa)
+  end
 end
 
 
