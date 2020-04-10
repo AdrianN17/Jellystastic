@@ -36,6 +36,7 @@ function tipoBala:init()
   self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
   self.vistaX=1
 
+  self.radioBala = 0
 end
 
 function tipoBala:drawArma()

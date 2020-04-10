@@ -31,7 +31,13 @@ function mundoPrincipal:enter(_,data,dataExtra)
       end,
       
       limpiar = function()
+
         self:limpiar()
+        
+      end,
+      
+      cambiarMapa = function()
+        self:cambiarNivel()
       end,
       
       cambiarPosicion = function()
@@ -63,7 +69,7 @@ function mundoPrincipal:enter(_,data,dataExtra)
     
 end
 
-function mundoPrincipal:limpiar()
+function mundoPrincipal:limpiarSolo()
   for _,k in pairs(self.mundoGuardado) do
     if k then
       k:limpiarEscenario()
@@ -74,8 +80,12 @@ function mundoPrincipal:limpiar()
   
   self:limpiarEscenario()
   
-  self:enter(_,self.mapaIndex)
+end
+
+function mundoPrincipal:limpiar()
+  self:limpiarSolo()
   
+  self:enter(_,{accion="crear",mapaIndex=self.mapaIndex})
 end
 
 function mundoPrincipal:cambiarSubnivel(puertaData)
@@ -103,8 +113,10 @@ function mundoPrincipal:cambiarSubnivel(puertaData)
 end
 
 function mundoPrincipal:cambiarNivel()
-  if Map_index.campana[self.mapaIndex+1] and map_index.campana[self.mapaIndex+1]["main"] then
-    Gamestate.switch(mundoSecundario,self.mapaIndex+1)
+  
+  if Map_index.campana[self.mapaIndex+1] and Map_index.campana[self.mapaIndex+1]["main"] then
+    self:limpiarSolo()
+    Gamestate.switch(mundoPrincipal,{mapaIndex = self.mapaIndex+1,accion = "crear"})
   end
 end
 

@@ -88,7 +88,7 @@ function mundoSecundario:cambiarSubnivel(puertaData)
     
     local dataExtra = {playerData = player:get(),puertaData = puertaData}
     
-    Gamestate.push(self.mainMapa,{mapaIndex = index,accion = "cambiarPosicion"},dataExtra)
+    Gamestate.push(self.mainMapa,{mapaIndex = self.mainMapa.mapaIndex,accion = "cambiarPosicion"},dataExtra)
     
   end
   
@@ -96,7 +96,13 @@ end
 
 
 function mundoSecundario:limpiar()
-  Gamestate.push(self.mainMapa,_,"limpiar")
+  Gamestate.push(self.mainMapa,{mapaIndex = self.mainMapa.mapaIndex,accion = "limpiar"})
+end
+
+function mundoSecundario:cambiarNivel()
+  if Map_index.campana[self.mainMapa.mapaIndex+1] and Map_index.campana[self.mainMapa.mapaIndex+1]["main"] then
+    Gamestate.push(self.mainMapa,{mapaIndex = self.mainMapa.mapaIndex,accion = "cambiarMapa"})
+  end
 end
 
 return mundoSecundario

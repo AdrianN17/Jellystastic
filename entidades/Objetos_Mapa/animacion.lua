@@ -1,4 +1,8 @@
-local animacion = Class{}
+local visible = require "entidades.visible" 
+
+local animacion = Class{
+  __includes = {visible}
+}
 
 function animacion:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height) 
   
@@ -31,6 +35,8 @@ function animacion:init(entidad,ox,oy,radio,shapeTableClear,properties,width,hei
     end
     
   end)
+
+  visible.init(self)
   
 end
 

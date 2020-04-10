@@ -83,10 +83,11 @@ end
 function mundoGenerico:update(dt)
   dt = math.min (dt, 1/30)
   
+
   self.timer:update(dt)
   self.world:update(dt)
   self.map:update(dt)
-  
+
  
 end
 
@@ -129,6 +130,16 @@ function mundoGenerico:keypressed(key)
   if key == "p" then
     Gamestate.switch(Pausa)
   end
+  
+  if key == "0" then
+    
+    self:limpiar()
+  end
+  
+  if key == "9" then
+    self:cambiarNivel()
+  end
+  
 end
 
 function mundoGenerico:keyreleased(key)
@@ -138,23 +149,27 @@ function mundoGenerico:keyreleased(key)
 end
 
 function mundoGenerico:mousepressed(x,y,button)
-  local cx,cy = self.cam:toWorld(x,y)
+  
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+    local cx,cy = self.cam:toWorld(x,y)
     self.gameobject.jugadores[self.indexPlayer]:mousepressed(cx,cy,button)
   end
 end
 
 function mundoGenerico:mousereleased(x,y,button)
-  local cx,cy = self.cam:toWorld(x,y)
+  
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+    local cx,cy = self.cam:toWorld(x,y)
     self.gameobject.jugadores[self.indexPlayer]:mousereleased(cx,cy,button)
   end
 end
 
 function mundoGenerico:mousemoved( x, y, dx, dy, istouch )
-  local cx,cy = self.cam:toWorld(x,y)
+  
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
+    local cx,cy = self.cam:toWorld(x,y)
     self.gameobject.jugadores[self.indexPlayer]:mousemoved(cx,cy)
+    
   end
 end
 
@@ -197,9 +212,12 @@ function mundoGenerico:parallax()
 end
 
 function mundoGenerico:limpiarEscenario()
+  
   Sti:flush ()
   self.map = nil
   self.cam = nil
+  
+  
   
   self.timer:destroy()
   

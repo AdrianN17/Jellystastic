@@ -25,7 +25,7 @@ function bala:init(entidad,objeto,ox,oy,radio,dano,index)
   self.fixture = love.physics.newFixture(self.body,self.shape, 5)
   
   self.fixture:setUserData({obj=self})
-  
+
   self.body:setAngle(self.radio)
   self.body:setBullet(true)
   
