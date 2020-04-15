@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 18,
-  nextobjectid = 215,
+  nextobjectid = 220,
   properties = {},
   tilesets = {},
   layers = {
@@ -160,22 +160,22 @@ return {
           }
         },
         {
-          id = 203,
-          name = "Gaseosa",
+          id = 215,
+          name = "Gelatina",
           type = "static",
           shape = "rectangle",
           x = 1833.33,
-          y = 594.333,
-          width = 596.636,
-          height = 365.333,
+          y = 817.333,
+          width = 600.333,
+          height = 143.333,
           rotation = 0,
           visible = true,
           properties = {
-            ["Es_liquido"] = true,
-            ["clase"] = "liquido",
-            ["densidad"] = 25,
-            ["grupo"] = "liquido",
-            ["img"] = "1"
+            ["Es_tierra"] = true,
+            ["clase"] = "texturaFisica",
+            ["grupo"] = "suelo",
+            ["img"] = "1",
+            ["uv"] = 2
           }
         }
       }
@@ -192,7 +192,27 @@ return {
       properties = {
         ["tabla"] = "liquidoMapa"
       },
-      objects = {}
+      objects = {
+        {
+          id = 203,
+          name = "Gaseosa",
+          type = "static",
+          shape = "rectangle",
+          x = 1833.33,
+          y = 595.333,
+          width = 596.636,
+          height = 223.333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_liquido"] = true,
+            ["clase"] = "liquido",
+            ["densidad"] = 75,
+            ["grupo"] = "liquido",
+            ["img"] = "1"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -371,7 +391,7 @@ return {
           x = 1661.33,
           y = 131.167,
           width = 96,
-          height = 127,
+          height = 131.909,
           rotation = 0,
           visible = true,
           properties = {
@@ -385,16 +405,16 @@ return {
           name = "Casa",
           type = "none",
           shape = "polygon",
-          x = 1521.33,
-          y = 258.197,
+          x = 1515.51,
+          y = 263.285,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
-            { x = 0.00471447, y = 0.0703125 },
-            { x = 139.948, y = -127.378 },
-            { x = 140.001, y = 0.0703125 }
+            { x = 0.0049104, y = 0.0731211 },
+            { x = 145.764, y = -132.466 },
+            { x = 145.819, y = 0.0731211 }
           },
           properties = {
             ["clase"] = "textura",
@@ -1613,10 +1633,10 @@ return {
           name = "Burbujas",
           type = "none",
           shape = "rectangle",
-          x = 1840,
-          y = 593,
+          x = 1830.67,
+          y = 596.333,
           width = 185,
-          height = 363,
+          height = 221,
           rotation = 0,
           visible = true,
           properties = {
@@ -1631,9 +1651,9 @@ return {
           type = "none",
           shape = "rectangle",
           x = 1945.5,
-          y = 596.5,
+          y = 594.5,
           width = 185,
-          height = 363,
+          height = 224,
           rotation = 0,
           visible = true,
           properties = {
@@ -1648,9 +1668,9 @@ return {
           type = "none",
           shape = "rectangle",
           x = 2210.83,
-          y = 595.167,
+          y = 594.167,
           width = 221,
-          height = 363,
+          height = 223,
           rotation = 0,
           visible = true,
           properties = {
@@ -1665,9 +1685,9 @@ return {
           type = "none",
           shape = "rectangle",
           x = 2128.83,
-          y = 597.833,
+          y = 593.833,
           width = 185,
-          height = 363,
+          height = 226,
           rotation = 0,
           visible = true,
           properties = {
@@ -1788,6 +1808,7 @@ return {
           visible = true,
           properties = {
             ["Es_explotaMorir"] = true,
+            ["Es_moverLiquido"] = true,
             ["Es_transformarZombie"] = true,
             ["armaIndex"] = 1,
             ["clase"] = "player",

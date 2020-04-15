@@ -96,7 +96,9 @@ end
 
 function liquido:preSolve(obj,coll)
   if obj.fixture:getBody():getType() == "dynamic" then
-    self:buoyancy(self.densidad,self.fixture,obj.fixture,coll)
+    if obj.Es_moverLiquido then
+      self:buoyancy(self.densidad,self.fixture,obj.fixture,coll)
+    end
   end
 end
 

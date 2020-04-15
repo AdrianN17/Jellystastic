@@ -16,11 +16,7 @@ function tipoBala:init()
     --m4a1
   self.armasValues[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala,tipo = 4}
     --escopeta
-  self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, funcion = function(clase,entidad,objeto,cx,cy,radio,dano,index)
-      local dr = math.rad(2.5)
-      clase(entidad,objeto,cx,cy,radio,dano,index)
-      clase(entidad,objeto,cx,cy,radio,dano,index)
-    end}
+  self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, multibala = true, radios = {math.rad(-2.5),math.rad(2.5)} }
     
     --lanzagranadas
   self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
@@ -118,10 +114,13 @@ end
 function tipoBala:disparoIndividual(arma)
   if arma.stock>=1 then
     arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.armaIndex)
-    
-    if arma.funcion then
-      arma.funcion(arma.clase,self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.armaIndex)
+
+    if arma.multibala and arma.radios then
+      for i=1,#arma.radios,1 do
+        arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala+arma.radios[i],arma.dano,self.armaIndex)
+      end
     end
+    
     
     arma.stock = arma.stock-1
   end

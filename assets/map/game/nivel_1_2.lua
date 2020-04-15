@@ -295,7 +295,7 @@ return {
           polygon = {
             { x = 0, y = 0 },
             { x = 272.25, y = -187.875 },
-            { x = 271.436, y = -0.250834 }
+            { x = 272.219, y = -0.59866 }
           },
           properties = {
             ["clase"] = "textura",
@@ -1161,7 +1161,7 @@ return {
           type = "static",
           shape = "rectangle",
           x = 298,
-          y = 559.333,
+          y = 562.333,
           width = 60,
           height = 100,
           rotation = 0,
@@ -1182,7 +1182,7 @@ return {
           type = "static",
           shape = "rectangle",
           x = 590,
-          y = 924.667,
+          y = 929.667,
           width = 60,
           height = 100,
           rotation = 0,
@@ -1388,9 +1388,9 @@ return {
           type = "static",
           shape = "rectangle",
           x = 904,
-          y = 979,
-          width = 30,
-          height = 35,
+          y = 969,
+          width = 50,
+          height = 50,
           rotation = 0,
           visible = true,
           properties = {
@@ -1408,8 +1408,8 @@ return {
           shape = "rectangle",
           x = 1606,
           y = 975.5,
-          width = 30,
-          height = 35,
+          width = 50,
+          height = 50,
           rotation = 0,
           visible = true,
           properties = {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="76" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="215">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="76" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="220">
  <editorsettings>
   <export target="nivel_1.lua" format="lua"/>
  </editorsettings>
@@ -58,13 +58,13 @@
     <property name="uv" type="int" value="2"/>
    </properties>
   </object>
-  <object id="203" name="Gaseosa" type="static" x="1833.33" y="594.333" width="596.636" height="365.333">
+  <object id="215" name="Gelatina" type="static" x="1833.33" y="817.333" width="600.333" height="143.333">
    <properties>
-    <property name="Es_liquido" type="bool" value="true"/>
-    <property name="clase" value="liquido"/>
-    <property name="densidad" type="float" value="25"/>
-    <property name="grupo" value="liquido"/>
+    <property name="Es_tierra" type="bool" value="true"/>
+    <property name="clase" value="texturaFisica"/>
+    <property name="grupo" value="suelo"/>
     <property name="img" value="1"/>
+    <property name="uv" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
@@ -72,6 +72,15 @@
   <properties>
    <property name="tabla" value="liquidoMapa"/>
   </properties>
+  <object id="203" name="Gaseosa" type="static" x="1833.33" y="595.333" width="596.636" height="223.333">
+   <properties>
+    <property name="Es_liquido" type="bool" value="true"/>
+    <property name="clase" value="liquido"/>
+    <property name="densidad" type="float" value="75"/>
+    <property name="grupo" value="liquido"/>
+    <property name="img" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="16" name="Animacion">
   <properties>
@@ -140,21 +149,21 @@
     <property name="img" value="4"/>
    </properties>
   </object>
-  <object id="19" name="Casa" type="none" x="1661.33" y="131.167" width="96" height="127">
+  <object id="19" name="Casa" type="none" x="1661.33" y="131.167" width="96" height="131.909">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
     <property name="img" value="4"/>
    </properties>
   </object>
-  <object id="20" name="Casa" type="none" x="1521.33" y="258.197">
+  <object id="20" name="Casa" type="none" x="1515.51" y="263.285">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>
     <property name="img" value="4"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
    </properties>
-   <polygon points="0.00471447,0.0703125 139.948,-127.378 140.001,0.0703125"/>
+   <polygon points="0.0049104,0.0731211 145.764,-132.466 145.819,0.0731211"/>
   </object>
  </objectgroup>
  <objectgroup id="4" name="Puertas">
@@ -666,28 +675,28 @@
   <properties>
    <property name="tabla" value="items"/>
   </properties>
-  <object id="202" name="Burbujas" type="none" x="1840" y="593" width="185" height="363">
+  <object id="202" name="Burbujas" type="none" x="1830.67" y="596.333" width="185" height="221">
    <properties>
     <property name="clase" value="animacion"/>
     <property name="img" value="burbujas"/>
     <property name="tiempo" type="float" value="0.5"/>
    </properties>
   </object>
-  <object id="204" name="Burbujas" type="none" x="1945.5" y="596.5" width="185" height="363">
+  <object id="204" name="Burbujas" type="none" x="1945.5" y="594.5" width="185" height="224">
    <properties>
     <property name="clase" value="animacion"/>
     <property name="img" value="burbujas"/>
     <property name="tiempo" type="float" value="0.5"/>
    </properties>
   </object>
-  <object id="205" name="Burbujas" type="none" x="2210.83" y="595.167" width="221" height="363">
+  <object id="205" name="Burbujas" type="none" x="2210.83" y="594.167" width="221" height="223">
    <properties>
     <property name="clase" value="animacion"/>
     <property name="img" value="burbujas"/>
     <property name="tiempo" type="float" value="0.5"/>
    </properties>
   </object>
-  <object id="206" name="Burbujas" type="none" x="2128.83" y="597.833" width="185" height="363">
+  <object id="206" name="Burbujas" type="none" x="2128.83" y="593.833" width="185" height="226">
    <properties>
     <property name="clase" value="animacion"/>
     <property name="img" value="burbujas"/>
@@ -747,6 +756,7 @@
   <object id="79" name="Player" type="dynamic" x="85.33" y="723.667" width="50" height="80">
    <properties>
     <property name="Es_explotaMorir" type="bool" value="true"/>
+    <property name="Es_moverLiquido" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="armaIndex" type="int" value="1"/>
     <property name="clase" value="player"/>

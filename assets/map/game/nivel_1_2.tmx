@@ -116,7 +116,7 @@
     <property name="img" value="4"/>
     <property name="tipoCalculoDimensiones" value="triangular"/>
    </properties>
-   <polygon points="0,0 272.25,-187.875 271.436,-0.250834"/>
+   <polygon points="0,0 272.25,-187.875 272.219,-0.59866"/>
   </object>
   <object id="43" name="Casa" type="none" x="377" y="776" width="36.6818" height="52.25">
    <properties>
@@ -483,7 +483,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="39" name="Puerta" type="static" x="298" y="559.333" width="60" height="100">
+  <object id="39" name="Puerta" type="static" x="298" y="562.333" width="60" height="100">
    <properties>
     <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
@@ -494,7 +494,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="44" name="Puerta" type="static" x="590" y="924.667" width="60" height="100">
+  <object id="44" name="Puerta" type="static" x="590" y="929.667" width="60" height="100">
    <properties>
     <property name="Es_portal" type="bool" value="true"/>
     <property name="clase" value="puerta"/>
@@ -590,7 +590,7 @@
     <property name="tipo" type="int" value="5"/>
    </properties>
   </object>
-  <object id="69" name="Vida" type="static" x="904" y="979" width="30" height="35">
+  <object id="69" name="Vida" type="static" x="904" y="969" width="50" height="50">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="vida"/>
@@ -599,7 +599,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="70" name="Vida" type="static" x="1606" y="975.5" width="30" height="35">
+  <object id="70" name="Vida" type="static" x="1606" y="975.5" width="50" height="50">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="vida"/>

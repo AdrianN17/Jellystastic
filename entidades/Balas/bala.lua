@@ -69,7 +69,7 @@ function bala:preSolve(obj,coll)
   
   if obj.Es_tierra then
     self:remove()
-  elseif obj.grupo == self.grupo and obj ~= self.objeto then
+  elseif obj.grupo == self.grupo and obj ~= self.objeto and obj.objeto and obj.objeto ~= self.objeto then
     self:remove()
     obj:remove()
   elseif obj.grupo ~= self.grupo and obj ~= self.objeto then

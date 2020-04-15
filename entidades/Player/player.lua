@@ -42,7 +42,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.ox,self.oy = ox,oy
   
   self.movimiento = {a = false,b = false}
-  self.acciones = {moviendo = false, saltando = false, invulnerable = false,pasarPlataformas=false,coger = false, usar = false}
+  self.acciones = {moviendo = false, saltando = false,cayendo = false, invulnerable = false,pasarPlataformas=false,coger = false, usar = false}
   
   self.vec4Shader = {0,0,0,0}
   
@@ -111,6 +111,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
         if y<0 and math.abs(x) < 0.1 then
           self.ground = true
           self.acciones.saltando=false
+          self.acciones.cayendo = false
         end
       elseif liquidoObj then
         local x,y = contact:getNormal()
@@ -118,6 +119,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
         if y<-0.1 then
           self.ground = true
           self.acciones.saltando=false
+          self.acciones.cayendo = false
         end
       end
     end
@@ -247,7 +249,11 @@ function player:draw()
   
   self:drawArma()
   
-  love.graphics.print(self.npcsSalvados,self.ox,self.oy-100)
+  if self.armaIndex>0 then
+    local arma = self.armasValues[self.armaIndex]
+  
+    love.graphics.print(arma.stock,self.ox,self.oy-100)
+  end
 
 end
 
@@ -271,9 +277,10 @@ function player:keypressed(key)
     end
   end
   
-  if key == _G.teclas.down and not self.ground then
+  if key == _G.teclas.down and not self.ground and not self.acciones.cayendo then
     self:caer()
     self.acciones.pasarPlataformas = true
+    self.acciones.cayendo = true
   end
   
   if key == _G.teclas.getBox then
@@ -388,7 +395,7 @@ function player:saltar()
 end
 
 function player:caer()
-  self.body:applyLinearImpulse( 0, (self.salto*self.mass)/2 )
+  self.body:applyLinearImpulse( 0, (self.salto*self.mass)/4 )
 end
 
 function player:get()

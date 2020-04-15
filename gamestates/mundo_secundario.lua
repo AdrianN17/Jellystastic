@@ -10,74 +10,76 @@ end
 
 function mundoSecundario:enter(from,dataExtra)
 
-  self.mainMapa = from
+  if from.mundoGuardado then
+    self.mainMapa = from
   
-  if dataExtra then
-    
-    local puertaData = dataExtra.puertaData
-    local playerData = dataExtra.playerData
-    
-    if puertaData and  playerData then
+  
+    if dataExtra then
       
+      local puertaData = dataExtra.puertaData
+      local playerData = dataExtra.playerData
       
-      if not self.mainMapa.mundoGuardado[puertaData.nivel] then
+      if puertaData and  playerData then
         
-        self.mainMapa.mundoGuardado[puertaData.nivel] = self
         
-        mundoGenerico.init(self,Map_index.campana[self.mainMapa.mapaIndex][puertaData.nivel])
-        
-        local puerta = self:buscarPuertas(puertaData)
-        
-        if puerta then
+        if not self.mainMapa.mundoGuardado[puertaData.nivel] then
           
-          local x,y = puerta.ox,puerta.oy
-          local dataCreacion = playerData.dataCreacion 
+          self.mainMapa.mundoGuardado[puertaData.nivel] = self
           
-          local body = love.physics.newBody(self.world,dataCreacion.ox,dataCreacion.oy,"dynamic")
-          local shape = love.physics.newPolygonShape(dataCreacion.shapeTableClear)
-          local fixture = love.physics.newFixture(body,shape)
+          mundoGenerico.init(self,Map_index.campana[self.mainMapa.mapaIndex][puertaData.nivel])
           
-          local player = Entities_index.player(self,body,shape,fixture,dataCreacion.ox,dataCreacion.oy,dataCreacion.radio,dataCreacion.shapeTableClear,dataCreacion.properties,dataCreacion.width,dataCreacion.height)
+          local puerta = self:buscarPuertas(puertaData)
           
-          fixture:setUserData({obj = player, nombre = dataCreacion.properties.userdataNombre})
-          
-          local x,y = puerta.ox,puerta.oy
-          
-          if player then
-            player.body:setLinearVelocity(0,0)
-            player.body:setPosition( x, y )
+          if puerta then
             
+            local x,y = puerta.ox,puerta.oy
+            local dataCreacion = playerData.dataCreacion 
             
+            local body = love.physics.newBody(self.world,dataCreacion.ox,dataCreacion.oy,"dynamic")
+            local shape = love.physics.newPolygonShape(dataCreacion.shapeTableClear)
+            local fixture = love.physics.newFixture(body,shape)
+            
+            local player = Entities_index.player(self,body,shape,fixture,dataCreacion.ox,dataCreacion.oy,dataCreacion.radio,dataCreacion.shapeTableClear,dataCreacion.properties,dataCreacion.width,dataCreacion.height)
+            
+            fixture:setUserData({obj = player, nombre = dataCreacion.properties.userdataNombre})
+            
+            local x,y = puerta.ox,puerta.oy
+            
+            if player then
+              player.body:setLinearVelocity(0,0)
+              player.body:setPosition( x, y )
+              
+              
+              local player = self.gameobject.jugadores[self.indexPlayer]
+              player:setPlayerValues(_G.playerValues)
+            end
+            
+          end
+        else
+          local puerta = self:buscarPuertas(puertaData)
+          if puerta then
+            
+            local x,y = puerta.ox,puerta.oy
             local player = self.gameobject.jugadores[self.indexPlayer]
-            player:setPlayerValues(_G.playerValues)
+            
+            if player then
+              player.body:setLinearVelocity(0,0)
+              player.body:setPosition( x, y )
+            end
           end
           
-        end
-      else
-        local puerta = self:buscarPuertas(puertaData)
-        if puerta then
-          
-          local x,y = puerta.ox,puerta.oy
-          local player = self.gameobject.jugadores[self.indexPlayer]
-          
-          if player then
-            player.body:setLinearVelocity(0,0)
-            player.body:setPosition( x, y )
-          end
         end
         
+        local player = self.gameobject.jugadores[self.indexPlayer]
+        
+        if player then
+          player:set(playerData)
+        end
+        
+        
       end
-      
-      local player = self.gameobject.jugadores[self.indexPlayer]
-      
-      if player then
-        player:set(playerData)
-      end
-      
-      
     end
   end
-  
 end
 
 function mundoSecundario:cambiarSubnivel(puertaData)
