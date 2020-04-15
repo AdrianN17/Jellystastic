@@ -148,11 +148,11 @@ function mundoGenerico:keyreleased(key)
   end
 end
 
-function mundoGenerico:mousepressed(x,y,button)
+function mundoGenerico:mousepressed(x,y,button,istouch,presses)
   
   if self.gameobject.jugadores and self.gameobject.jugadores[self.indexPlayer] then
     local cx,cy = self.cam:toWorld(x,y)
-    self.gameobject.jugadores[self.indexPlayer]:mousepressed(cx,cy,button)
+    self.gameobject.jugadores[self.indexPlayer]:mousepressed(cx,cy,button,istouch,presses)
   end
 end
 

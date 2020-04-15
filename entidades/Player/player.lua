@@ -171,9 +171,6 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   end)
   
   
-  self.cooldownTimer = nil
-  self.cooldownArma = false
-  
   self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
   
   remove.init(self,entidad,properties.tabla)
@@ -324,11 +321,13 @@ function player:keyreleased(key)
   
 end
 
-function player:mousepressed(x,y,button)
-  if button == 1 and not self.cooldownArma then
-    self:dispararArma()
-  elseif button == 2 and not self.cooldownArma then
-    self:recargarArma()
+function player:mousepressed(x,y,button,istouch,presses)
+  if presses == 1 then
+      if button == 1 then
+        self:dispararArma()
+      elseif button == 2 then
+        self:recargarArma()
+      end
   end
 end
 
@@ -346,20 +345,10 @@ function player:mousemoved(x,y)
 end
 
 function player:mousereleased(x,y,button)
-  if button == 1 and not self.cooldownArma and self.armaIndex>0 then
+  if button == 1 and self.armaIndex>0 then
     local arma = self.armasValues[self.armaIndex]
     
     self:terminarDisparoArma()
-    
-    if arma.stock>0 then
-      
-      self.cooldownArma = true
-      
-      self.cooldownTimer = self.timer:after(arma.tiempo, function()
-        self.cooldownArma = false
-        self.cooldownTimer=nil
-      end)
-    end
   end
 end
 
@@ -409,8 +398,6 @@ function player:get()
   t.armaIndex = self.armaIndex
   t.hp = self.hp
   t.iterador = self.iterador
-  t.cooldownArma = self.cooldownArma
-  t.cooldownIterador = self.cooldownIterador
   t.armaIndexRespaldo = self.armaIndexRespaldo
   t.dataCreacion = self.dataCreacion
   t.npcsSalvados = self.npcsSalvados
