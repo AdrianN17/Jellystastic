@@ -88,7 +88,7 @@ function mundoGenerico:update(dt)
   self.world:update(dt)
   self.map:update(dt)
 
- 
+  --counter=collectgarbage('count')/1000
 end
 
 function mundoGenerico:draw()
@@ -120,6 +120,8 @@ function mundoGenerico:draw()
   --self.cam:detach()
   
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+  --love.graphics.print("RAM: "..tostring(counter), 10, 50)
+  
 end
 
 function mundoGenerico:keypressed(key)

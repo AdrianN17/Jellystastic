@@ -21,7 +21,6 @@ function mundoSecundario:enter(from,dataExtra)
       
       if puertaData and  playerData then
         
-        
         if not self.mainMapa.mundoGuardado[puertaData.nivel] then
           
           self.mainMapa.mundoGuardado[puertaData.nivel] = self
@@ -75,7 +74,6 @@ function mundoSecundario:enter(from,dataExtra)
         if player then
           player:set(playerData)
         end
-        
         
       end
     end

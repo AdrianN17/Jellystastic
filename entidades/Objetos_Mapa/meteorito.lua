@@ -41,6 +41,7 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   self.grupo = properties.grupo
   
   self.hp = properties.hp
+  self.maxHp = self.hp
   
   remove.init(self,entidad,properties.tabla)
   
@@ -72,7 +73,7 @@ function meteorito:preSolve(obj,coll)
       if self and self.body and not self.body:isDestroyed() then
         self.body:setPosition(self.oxInicial,self.oyInicial)
         self.body:setLinearVelocity(0,0)
-        
+        self.hp = self.maxHp
         self.timerPosicionamiento = nil
       end
     end)

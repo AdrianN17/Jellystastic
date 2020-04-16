@@ -142,7 +142,7 @@
     <property name="img" value="3"/>
    </properties>
   </object>
-  <object id="18" name="Casa" type="none" x="1350" y="258.667" width="488.667" height="337.667">
+  <object id="18" name="Casa" type="none" x="1349.31" y="258.667" width="489.354" height="337.667">
    <properties>
     <property name="clase" value="textura"/>
     <property name="grupo" value="casa"/>

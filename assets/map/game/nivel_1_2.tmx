@@ -357,7 +357,7 @@
    </properties>
    <polygon points="0,0 9.50057,-24.6818 200.212,-24.6818 208.875,-0.188804"/>
   </object>
-  <object id="76" name="Chocolate" type="static" x="35.5059" y="670.612" rotation="-49.3721">
+  <object id="76" name="Chocolate" type="static" x="18.9535" y="689.905" rotation="-49.3721">
    <properties>
     <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="objetoFisico"/>
@@ -365,7 +365,7 @@
     <property name="quad" value="chocolate"/>
     <property name="tipoCalculoDimensiones" value="romboide"/>
    </properties>
-   <polygon points="0,0 12.8489,-20.956 270.773,-20.956 282.489,-0.160304"/>
+   <polygon points="0,0 14.0051,-20.956 295.139,-20.956 307.91,-0.160304"/>
   </object>
   <object id="77" name="Chocolate" type="static" x="431" y="687">
    <properties>

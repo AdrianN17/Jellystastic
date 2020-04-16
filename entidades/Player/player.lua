@@ -112,6 +112,10 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
           self.ground = true
           self.acciones.saltando=false
           self.acciones.cayendo = false
+          contact:setFriction( 1 )
+        else
+          contact:setFriction( 0 )
+
         end
       elseif liquidoObj then
         local x,y = contact:getNormal()
@@ -248,12 +252,6 @@ function player:draw()
   end
   
   self:drawArma()
-  
-  if self.armaIndex>0 then
-    local arma = self.armasValues[self.armaIndex]
-  
-    love.graphics.print(arma.stock,self.ox,self.oy-100)
-  end
 
 end
 
@@ -371,7 +369,7 @@ function player:masa()
   self.body:resetMassData ()
   self.body: setFixedRotation (true)
   self.body:setMass(20)
-  self.fixture:setFriction(0)
+  self.fixture:setFriction(1)
   self.mass = self.body:getMass( )
   self.mass=self.mass*self.mass
 end
@@ -395,6 +393,11 @@ function player:saltar()
 end
 
 function player:caer()
+  
+  local x,y = self.body:getLinearVelocity()
+  
+  self.body:setLinearVelocity(x,0)
+  
   self.body:applyLinearImpulse( 0, (self.salto*self.mass)/4 )
 end
 

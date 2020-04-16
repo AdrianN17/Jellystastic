@@ -66,8 +66,8 @@ function Menu:update(dt)
         _G.playerValues = {self.hsla.vector,self.iteradorAccesorio}
         
         local index = self.iteradorMapa*3 - i+1
-        
-        Gamestate.switch(mundoPrincipal,{mapaIndex = index,accion = "crear"})
+        local nuevoEscenario = mundoPrincipal()
+        Gamestate.switch(nuevoEscenario,{mapaIndex = index,accion = "crear"})
       end
       imgui.SameLine()
     end

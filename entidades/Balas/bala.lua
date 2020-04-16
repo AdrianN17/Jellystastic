@@ -67,7 +67,7 @@ function bala:preSolve(obj,coll)
   
   coll:setEnabled(false)
   
-  if obj.Es_tierra then
+  if obj.Es_tierra and not obj.Es_pasable then
     self:remove()
   elseif obj.grupo == self.grupo and obj ~= self.objeto and obj.objeto and obj.objeto ~= self.objeto then
     self:remove()

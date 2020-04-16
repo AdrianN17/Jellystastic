@@ -97,16 +97,13 @@ function mundoPrincipal:cambiarSubnivel(puertaData)
     
     local dataExtra = {playerData = player:get(),puertaData = puertaData}
     
-    if not self.mundoGuardado[puertaData.id_mapa] then
-      
+    if not self.mundoGuardado[puertaData.nivel] then
       if Map_index.campana[self.mapaIndex][puertaData.nivel] then
-        
-        Gamestate.switch(mundoSecundario,dataExtra)
+        local nuevoEscenario = mundoSecundario()
+        Gamestate.switch(nuevoEscenario,dataExtra)
         
       end
     else
-      
-      player:clearPuerta()
       Gamestate.push(self.mundoGuardado[puertaData.nivel],dataExtra)
     end
   end
@@ -116,7 +113,8 @@ function mundoPrincipal:cambiarNivel()
   
   if Map_index.campana[self.mapaIndex+1] and Map_index.campana[self.mapaIndex+1]["main"] then
     self:limpiarSolo()
-    Gamestate.switch(mundoPrincipal,{mapaIndex = self.mapaIndex+1,accion = "crear"})
+    local nuevoEscenario = mundoPrincipal()
+    Gamestate.switch(nuevoEscenario,{mapaIndex = self.mapaIndex+1,accion = "crear"})
   end
 end
 

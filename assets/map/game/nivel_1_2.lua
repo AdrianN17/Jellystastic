@@ -849,17 +849,17 @@ return {
           name = "Chocolate",
           type = "static",
           shape = "polygon",
-          x = 35.5059,
-          y = 670.612,
+          x = 18.9535,
+          y = 689.905,
           width = 0,
           height = 0,
           rotation = -49.3721,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 12.8489, y = -20.956 },
-            { x = 270.773, y = -20.956 },
-            { x = 282.489, y = -0.160304 }
+            { x = 14.0051, y = -20.956 },
+            { x = 295.139, y = -20.956 },
+            { x = 307.91, y = -0.160304 }
           },
           properties = {
             ["Es_tierra"] = true,
