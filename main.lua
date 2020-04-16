@@ -6,7 +6,7 @@ Inspect = require "libs.inspect.inspect"
 Fsm = require "libs.statemachine.statemachine"
 Sti = require "libs.sti"
 Timer = require "libs.chrono.Timer"
-Switch = require "libs.lua-switch.lua-switch"
+Switch = require "libs.lua-switch.src.switch"
 Camera = require "libs.cam11.cam11"
 Gamera = require "libs.gamera.gamera"
 

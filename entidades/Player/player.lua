@@ -252,6 +252,8 @@ function player:draw()
   end
   
   self:drawArma()
+  
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 
 end
 
@@ -407,7 +409,8 @@ function player:get()
   t.armasValues = self.armasValues
   t.armaIndex = self.armaIndex
   t.hp = self.hp
-  t.iterador = self.iterador
+  t.iteradorEstado = self.iteradorEstado
+  t.cooldownIterador = self.cooldownIterador
   t.armaIndexRespaldo = self.armaIndexRespaldo
   t.dataCreacion = self.dataCreacion
   t.npcsSalvados = self.npcsSalvados

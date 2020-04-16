@@ -15,6 +15,11 @@ function arma:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,proper
 end
 
 function arma:usar(obj)
+  
+  if obj.armaIndex==0 and obj.armaIndexRespaldo>0 then
+    obj.armaIndex=obj.armaIndexRespaldo
+  end
+  
   if obj.armaIndex>0 and obj.armaIndex ~=  self.tipo then
     
     obj.armasValues[obj.armaIndex].enable = false
