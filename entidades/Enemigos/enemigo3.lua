@@ -224,6 +224,8 @@ function enemigo3:draw()
   local cx,cy = self.oxBala + math.cos(self.radioBala)*self.limiteVision,self.oyBala + math.sin(self.radioBala)*self.limiteVision
   love.graphics.line(self.oxBala,self.oyBala, cx,cy)
   
+  love.graphics.print(self.hp,self.ox,self.oy-100)
+
 end
 
 function enemigo3:update(dt)

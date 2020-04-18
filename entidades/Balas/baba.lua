@@ -90,7 +90,7 @@ function baba:preSolve(obj,coll)
           
           local x,y = coll:getPositions()
 
-          if obj.direccion == math.sign(x-self.ox) then
+          if obj.direccion == math.sign(x-self.ox) and not obj.objPresa then
             
             if obj.cambiarDeDireccion then
               obj:cambiarDeDireccion()

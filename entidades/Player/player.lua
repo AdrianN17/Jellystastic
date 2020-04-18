@@ -277,10 +277,14 @@ function player:keypressed(key)
     end
   end
   
-  if key == _G.teclas.down and not self.ground and not self.acciones.cayendo then
-    self:caer()
+  if key == _G.teclas.down  then
+    
     self.acciones.pasarPlataformas = true
-    self.acciones.cayendo = true
+    
+    if not self.ground and not self.acciones.cayendo then
+      self:caer()
+      self.acciones.cayendo = true
+    end
   end
   
   if key == _G.teclas.getBox then

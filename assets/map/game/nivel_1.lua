@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 18,
-  nextobjectid = 220,
+  nextobjectid = 224,
   properties = {},
   tilesets = {},
   layers = {
@@ -1716,8 +1716,8 @@ return {
           name = "Baba",
           type = "dynamic",
           shape = "rectangle",
-          x = 789.32,
-          y = 706.643,
+          x = 607.987,
+          y = 1004.64,
           width = 70,
           height = 90,
           rotation = 0,
@@ -1777,6 +1777,55 @@ return {
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["velocidad"] = 80
+          }
+        },
+        {
+          id = 221,
+          name = "Zombie",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 453.667,
+          y = 1000,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_colisionableAtaque"] = true,
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo2",
+            ["grupo"] = "infectado",
+            ["hp"] = 20,
+            ["img"] = "jugador",
+            ["limiteVision"] = 100,
+            ["velocidad"] = 130
+          }
+        },
+        {
+          id = 222,
+          name = "Soldado",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 270.667,
+          y = 1009.33,
+          width = 50,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_explotaMorir"] = true,
+            ["Es_transformarZombie"] = true,
+            ["arma"] = 1,
+            ["camper"] = false,
+            ["clase"] = "enemigo3",
+            ["grupo"] = "humano_enemigo",
+            ["hp"] = 12,
+            ["img"] = "jugador",
+            ["imgAccesorio"] = "accesorios",
+            ["limiteVision"] = 1000,
+            ["quadImgAccesorio"] = 1,
             ["velocidad"] = 80
           }
         }
