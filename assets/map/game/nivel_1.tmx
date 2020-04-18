@@ -708,8 +708,9 @@
   <properties>
    <property name="tabla" value="enemigos"/>
   </properties>
-  <object id="176" name="Baba" type="dynamic" x="607.987" y="1004.64" width="70" height="90">
+  <object id="176" name="Baba" type="dynamic" x="484.32" y="718.973" width="70" height="90">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
@@ -723,12 +724,13 @@
   <object id="199" name="ZombieCreador" type="manager" x="32" y="41.3333">
    <properties>
     <property name="Es_colisionableAtaque" type="bool" value="true"/>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_unico" type="bool" value="true"/>
     <property name="clase" value="zombieCreador"/>
     <property name="grupo" value="infectado"/>
-    <property name="hp" type="int" value="20"/>
+    <property name="hp" type="int" value="15"/>
     <property name="img" value="jugador"/>
     <property name="limiteVision" type="int" value="100"/>
     <property name="subclase" value="enemigo2"/>
@@ -738,6 +740,7 @@
   </object>
   <object id="201" name="Baba" type="dynamic" x="1258.33" y="505.667" width="70" height="90">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
@@ -748,21 +751,23 @@
     <property name="velocidad" type="int" value="80"/>
    </properties>
   </object>
-  <object id="221" name="Zombie" type="dynamic" x="453.667" y="1000" width="60" height="100">
+  <object id="221" name="Zombie" type="dynamic" x="358.334" y="995" width="60" height="100">
    <properties>
     <property name="Es_colisionableAtaque" type="bool" value="true"/>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo2"/>
     <property name="grupo" value="infectado"/>
-    <property name="hp" type="int" value="20"/>
+    <property name="hp" type="int" value="15"/>
     <property name="img" value="jugador"/>
     <property name="limiteVision" type="int" value="100"/>
     <property name="velocidad" type="int" value="130"/>
    </properties>
   </object>
-  <object id="222" name="Soldado" type="dynamic" x="270.667" y="1009.33" width="50" height="80">
+  <object id="222" name="Soldado" type="dynamic" x="624" y="1001.33" width="50" height="80">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="arma" type="int" value="1"/>
@@ -784,6 +789,7 @@
   </properties>
   <object id="79" name="Player" type="dynamic" x="85.33" y="723.667" width="50" height="80">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_moverLiquido" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>

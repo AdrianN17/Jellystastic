@@ -1472,6 +1472,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
@@ -1494,6 +1495,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
@@ -1516,6 +1518,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
@@ -1553,6 +1556,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,

@@ -18,6 +18,7 @@ function arma:usar(obj)
   
   if obj.armaIndex==0 and obj.armaIndexRespaldo>0 then
     obj.armaIndex=obj.armaIndexRespaldo
+    obj.armaIndexRespaldo = 0
   end
   
   if obj.armaIndex>0 and obj.armaIndex ~=  self.tipo then

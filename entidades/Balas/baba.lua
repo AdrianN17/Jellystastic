@@ -48,6 +48,8 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.timerRemove = nil
   
   visible.init(self)
+  
+  self.Es_danoExplosivo = true
 end
 
 function baba:draw()

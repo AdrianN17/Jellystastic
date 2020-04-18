@@ -86,7 +86,12 @@ function mundoGenerico:update(dt)
 
   self.timer:update(dt)
   self.world:update(dt)
+  
   self.map:update(dt)
+  
+  if self.updateFisicas then
+    self:updateFisicas(dt)
+  end
 
   --counter=collectgarbage('count')/1000
 end

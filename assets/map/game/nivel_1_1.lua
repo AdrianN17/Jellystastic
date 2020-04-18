@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 15,
-  nextobjectid = 64,
+  nextobjectid = 66,
   properties = {},
   tilesets = {},
   layers = {
@@ -926,6 +926,46 @@ return {
             ["quad"] = "1",
             ["sensor"] = true
           }
+        },
+        {
+          id = 64,
+          name = "Municion",
+          type = "static",
+          shape = "rectangle",
+          x = 424,
+          y = 681,
+          width = 40,
+          height = 30,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "municion",
+            ["img"] = "municion",
+            ["quad"] = "1",
+            ["sensor"] = true,
+            ["tipo"] = 2
+          }
+        },
+        {
+          id = 65,
+          name = "Municion",
+          type = "static",
+          shape = "rectangle",
+          x = 429.333,
+          y = 502.333,
+          width = 40,
+          height = 30,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "municion",
+            ["img"] = "municion",
+            ["quad"] = "1",
+            ["sensor"] = true,
+            ["tipo"] = 2
+          }
         }
       }
     },
@@ -954,6 +994,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
@@ -978,6 +1019,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
@@ -1002,6 +1044,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["Es_danoExplosivo"] = true,
             ["Es_explotaMorir"] = true,
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,

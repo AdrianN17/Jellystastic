@@ -88,6 +88,12 @@ function mundoPrincipal:limpiar()
   self:enter(_,{accion="crear",mapaIndex=self.mapaIndex})
 end
 
+function mundoPrincipal:updateFisicas(dt)
+  for _,mundo in ipairs(self.mundoGuardado) do
+    mundo.world:update(dt)
+  end
+end
+
 function mundoPrincipal:cambiarSubnivel(puertaData)
   local player = self.gameobject.jugadores[self.indexPlayer]
   

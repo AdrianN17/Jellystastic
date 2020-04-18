@@ -80,6 +80,10 @@ function mundoSecundario:enter(from,dataExtra)
   end
 end
 
+function mundoSecundario:updateFisicas(dt)
+  self.mainMapa.world:update(dt)
+end
+
 function mundoSecundario:cambiarSubnivel(puertaData)
   local player = self.gameobject.jugadores[self.indexPlayer]
   
@@ -91,7 +95,6 @@ function mundoSecundario:cambiarSubnivel(puertaData)
     Gamestate.push(self.mainMapa,{mapaIndex = self.mainMapa.mapaIndex,accion = "cambiarPosicion"},dataExtra)
     
   end
-  
 end
 
 

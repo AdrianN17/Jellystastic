@@ -1,5 +1,6 @@
 local remove = require "entidades.remove"
 local visible = require "entidades.visible" 
+local explosivo = require "entidades.Balas.explosion"
 
 local misil = Class{
   __includes = {remove,visible}
@@ -48,6 +49,10 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
   self.grupo = "bala"
   
   visible.init(self)
+  
+  self.Es_danoExplosivo = true
+  
+  self.timerExplosivo = nil
 end
 
 function misil:draw()
@@ -64,19 +69,23 @@ function misil:preSolve(obj,coll)
   coll:setEnabled(false)
   
   if obj.Es_tierra then
+    self:crearExplosion(coll)
     self:remove()
   elseif obj.grupo == self.grupo and obj ~= self.objeto then
+    self:crearExplosion(coll)
     self:remove()
     obj:remove()
   elseif obj.grupo ~= self.grupo and obj ~= self.objeto then
     
     if obj.grupo == "meteorito" then
       self.entidad:dano(obj,self.dano)
+      self:crearExplosion(coll)
       self:remove()
     else
       for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
         if obj.grupo == grupo then
           self.entidad:dano(obj,self.dano)
+          self:crearExplosion(coll)
           self:remove()
           
           if obj.cambiarEstado then
@@ -99,6 +108,15 @@ function misil:preSolve(obj,coll)
         end
       end
     end
+  end
+end
+
+function misil:crearExplosion(coll)
+  if not self.timerExplosivo then
+    local x,y = coll:getPositions()
+    self.timerExplosivo = self.entidad.timer:after(0.1, function()
+      explosivo(self.entidad,x,y)
+    end)
   end
 end
 

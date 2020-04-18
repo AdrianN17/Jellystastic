@@ -51,6 +51,8 @@ function bala:init(entidad,objeto,ox,oy,radio,dano,index)
   self.grupo = "bala"
   
   visible.init(self)
+  
+  self.Es_danoExplosivo = true
 end
 
 function bala:draw()

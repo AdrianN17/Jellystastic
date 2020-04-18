@@ -254,6 +254,7 @@ function player:draw()
   self:drawArma()
   
   love.graphics.print(self.hp,self.ox,self.oy-100)
+  love.graphics.print(tostring(self.acciones.invulnerable),self.ox,self.oy-200)
 
 end
 

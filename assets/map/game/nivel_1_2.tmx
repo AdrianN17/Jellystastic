@@ -631,6 +631,7 @@
   </object>
   <object id="96" name="Baba" type="dynamic" x="1449" y="731" width="70" height="90">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
@@ -643,6 +644,7 @@
   </object>
   <object id="97" name="Baba" type="dynamic" x="1058.33" y="730.333" width="70" height="90">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
@@ -655,6 +657,7 @@
   </object>
   <object id="98" name="Baba" type="dynamic" x="1155.67" y="553" width="70" height="90">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_danoFisico" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="clase" value="enemigo1"/>
@@ -672,6 +675,7 @@
   </properties>
   <object id="99" name="Npc" type="dynamic" x="450" y="949.5" width="50" height="80">
    <properties>
+    <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_salvable" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>

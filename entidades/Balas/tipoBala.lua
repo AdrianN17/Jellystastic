@@ -19,7 +19,7 @@ function tipoBala:init()
   self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, multibala = true, radios = {math.rad(-2.5),math.rad(2.5)} }
     
     --lanzagranadas
-  self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
+  self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 7.5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
   
   
   self.spritesheetArmas = Index_img.armas

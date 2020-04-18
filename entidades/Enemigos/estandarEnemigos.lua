@@ -222,7 +222,7 @@ function estandarEnemigos:preSolve(obj,coll)
           
           obj.acciones.invulnerable = true
           
-          self.timer:after(1,function() 
+          self.entidad.timer:after(1,function() 
             if obj then
               obj.acciones.invulnerable=false
             end
