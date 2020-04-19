@@ -1,30 +1,29 @@
 io.stdout:setvbuf("no")
 
-Class = require "libs.hump.class"
-math.vec = require "libs.hump.vector"
-Inspect = require "libs.inspect.inspect"
-Fsm = require "libs.statemachine.statemachine"
-Sti = require "libs.sti"
-Timer = require "libs.chrono.Timer"
-Switch = require "libs.lua-switch.src.switch"
-Camera = require "libs.cam11.cam11"
-Gamera = require "libs.gamera.gamera"
+_G.Class = require "libs.hump.class"
+_G.math.vec = require "libs.hump.vector"
+_G.Inspect = require "libs.inspect.inspect"
+_G.Fsm = require "libs.statemachine.statemachine"
+_G.Sti = require "libs.sti"
+_G.Timer = require "libs.chrono.Timer"
+_G.Switch = require "libs.lua-switch.src.switch"
+_G.Camera = require "libs.cam11.cam11"
+_G.Gamera = require "libs.gamera.gamera"
 
 require "imgui"
 
-Shader_index = require "assets/shader/index"
-Index_img = require "assets.img.index"
-Gamestate = require "libs.hump.gamestate" 
-Map_index = require "assets.map.index"
-Entities_index = require "entidades.index"
+_G.Shader_index = require "assets/shader/index"
+_G.Index_img = require "assets.img.index"
+_G.Gamestate = require "libs.hump.gamestate" 
+_G.Map_index = require "assets.map.index"
+_G.Entities_index = require "entidades.index"
 
 require "libs.utils"
 
-Menu = require "gamestates.menu"
-Pausa = require "gamestates.pausa"
+_G.Menu = require "gamestates.menu"
+_G.Pausa = require "gamestates.pausa"
 
 function love.load()
-  
   Gamestate.registerEvents()
   Gamestate.switch(Menu())
 end
