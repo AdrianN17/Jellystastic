@@ -6,7 +6,7 @@ local liquido = Class{
 
 function liquido:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   texturaFisica.init(self,entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
-  
+
   self.densidad = properties.densidad or 1
 end
 

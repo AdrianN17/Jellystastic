@@ -12,6 +12,8 @@ function arma:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,proper
   
   self.tipo = tonumber(properties.quad)
   
+  
+
 end
 
 function arma:usar(obj)

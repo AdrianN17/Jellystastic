@@ -5,9 +5,9 @@ function objetoFisicoSolo:init(entidad,body,shape,fixture,ox,oy,radio,shapeTable
   self.body = body
   self.shape = shape
   self.fixture = fixture
-  
+
   self.entidad = entidad
-  
+
 end
 
 function objetoFisicoSolo:preSolve(obj,coll)

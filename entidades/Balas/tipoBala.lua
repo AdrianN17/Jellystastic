@@ -17,18 +17,18 @@ function tipoBala:init()
   self.armasValues[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala,tipo = 4}
     --escopeta
   self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, multibala = true, radios = {math.rad(-2.5),math.rad(2.5)} }
-    
+
     --lanzagranadas
   self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 7.5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
-  
-  
+
+
   self.spritesheetArmas = Index_img.armas
-  self.imgArmas = self.spritesheetArmas.img 
+  self.imgArmas = self.spritesheetArmas.img
   self.quadArmas = self.spritesheetArmas.quad
   self.dimensionArmas = self.spritesheetArmas.viewport
   self.scaleArmas = self.spritesheetArmas.scale
-  
-  
+
+
   self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
   self.vistaX=1
 
@@ -39,9 +39,9 @@ function tipoBala:drawArma()
   if self.armaIndex > 0 and self.armasValues[self.armaIndex].enable then
     local dimensionArmas = self.dimensionArmas[self.armaIndex]
     local scaleArmas = self.scaleArmas[self.armaIndex]
-    
+
     self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
-    
+
     love.graphics.draw(self.imgArmas,self.quadArmas[self.armaIndex],self.oxBala,self.oyBala,self.radioBala,scaleArmas.x,scaleArmas.y*self.vistaX,dimensionArmas.w/2,dimensionArmas.h/2)
   end
 end
@@ -49,7 +49,7 @@ end
 
 function tipoBala:recarga(armaIndex)
   local arma = self.armasValues[armaIndex]
-    
+
     if arma.max_stock>arma.stock and arma.municion>0 then
       if arma.municion + arma.stock < arma.max_stock then
         arma.stock=arma.municion+arma.stock
@@ -63,10 +63,10 @@ function tipoBala:recarga(armaIndex)
 end
 
 function tipoBala:recargarArma()
-  
+
   if self.armaIndex > 0 and not self.timerRecarga and not self.timerBalas then
     local balas = self.armasValues[self.armaIndex]
-  
+
     if balas.stock<balas.max_stock and balas.municion>0 then
       self.timerRecarga = nil
       self.timerRecarga = self.timer:after(balas.tiempo_recarga, function()
@@ -99,9 +99,9 @@ end
 
 function tipoBala:disparo(armaIndex)
   local arma = self.armasValues[armaIndex]
-    
+
     self:disparoIndividual(arma)
-    
+
     if arma.tiempo ~= 0 then
       self.timerBalas = nil
       self.timerBalas = self.timer:every(arma.tiempo,
@@ -120,8 +120,8 @@ function tipoBala:disparoIndividual(arma)
         arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala+arma.radios[i],arma.dano,self.armaIndex)
       end
     end
-    
-    
+
+
     arma.stock = arma.stock-1
   end
 end
@@ -130,7 +130,7 @@ function tipoBala:recargarMax()
   local bala = self.armasValues[self.armaIndex]
   self.armasValues[self.armaIndex].stock = bala.max_stock
   self.armasValues[self.armaIndex].municion = bala.max_municion
-  
+
   self.armasValues[self.armaIndex].enable = true
 end
 
@@ -138,7 +138,7 @@ function tipoBala:recargarDoble()
   local bala = self.armasValues[self.armaIndex]
   self.armasValues[self.armaIndex].stock = bala.max_stock
   self.armasValues[self.armaIndex].municion = bala.max_stock
-  
+
   self.armasValues[self.armaIndex].enable = true
 end
 

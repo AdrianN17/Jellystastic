@@ -7,7 +7,7 @@ local movible = Class{
 
 function movible:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   objetoFisico.init(self,entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
-  
+
   self.pasarPlataformas = false
 end
 

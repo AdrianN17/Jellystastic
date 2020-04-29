@@ -8,9 +8,9 @@ local municion = Class{
 
 function municion:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
   objetoFisico.init(self,entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
-  
+
   remove.init(self,entidad,properties.tabla)
-  
+
   self.tipo = properties.tipo
   self.cantidad = nil
 end
@@ -37,7 +37,7 @@ function municion:recargar(armas)
       armas.municion = armas.municion + muni
       self.cantidad = self.cantidad - muni
     end
-    
+
   end
 end
 
