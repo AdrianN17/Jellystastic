@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="66">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="37" height="35" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="66">
  <editorsettings>
   <export target="nivel_1_1.lua" format="lua"/>
  </editorsettings>
@@ -428,12 +428,12 @@
     <property name="Es_salvable" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
-    <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.1"/>
     <property name="hp" type="int" value="8"/>
     <property name="img" value="jugador"/>
     <property name="quad" value="2"/>
     <property name="s" type="float" value="0"/>
+    <property name="tag" value="humano"/>
    </properties>
   </object>
   <object id="59" name="Npc" type="dynamic" x="852" y="572" width="50" height="80">
@@ -443,12 +443,12 @@
     <property name="Es_salvable" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
-    <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.2"/>
     <property name="hp" type="int" value="8"/>
     <property name="img" value="jugador"/>
     <property name="quad" value="2"/>
     <property name="s" type="float" value="0"/>
+    <property name="tag" value="humano"/>
    </properties>
   </object>
   <object id="60" name="Npc" type="dynamic" x="850" y="814" width="50" height="80">
@@ -458,12 +458,12 @@
     <property name="Es_salvable" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
     <property name="clase" value="npc"/>
-    <property name="grupo" value="humano"/>
     <property name="h" type="float" value="0.3"/>
     <property name="hp" type="int" value="8"/>
     <property name="img" value="jugador"/>
     <property name="quad" value="2"/>
     <property name="s" type="float" value="0"/>
+    <property name="tag" value="humano"/>
    </properties>
   </object>
  </objectgroup>

@@ -39,20 +39,27 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
 
   self.ox,self.oy = self.body:getX(),self.body:getY()
 
-  self.entidad:add("balas",self)
+  self.entidad:add("misil",self)
 
   local cx,cy = math.cos(radio), math.sin(radio)
   self.body:applyLinearImpulse( cx*self.mass*self.velocidad,cy*self.mass*self.velocidad)
 
   remove.init(self,entidad,"balas")
 
-  self.grupo = "bala"
+  self.tag = "bala"
 
   visible.init(self)
 
   self.Es_danoExplosivo = true
 
   self.timerExplosivo = nil
+
+  self.objetivosEnemigos = self.objeto.objetivosEnemigos
+  table.insert(self.objetivosEnemigos,"meteorito")
+
+  self.balasEnemigos = {"baba","bala"}
+
+  self.fixture:setGroupIndex(self.objeto.fixture:getGroupIndex())
 end
 
 function misil:draw()
@@ -66,49 +73,8 @@ end
 
 function misil:preSolve(obj,coll)
 
-  coll:setEnabled(false)
+  colisionadorObj:execute("bala","preSolve",coll,obj,self)
 
-  if obj.Es_tierra then
-    self:crearExplosion(coll)
-    self:remove()
-  elseif obj.grupo == self.grupo and obj ~= self.objeto then
-    self:crearExplosion(coll)
-    self:remove()
-    obj:remove()
-  elseif obj.grupo ~= self.grupo and obj ~= self.objeto then
-
-    if obj.grupo == "meteorito" then
-      self.entidad:dano(obj,self.dano)
-      self:crearExplosion(coll)
-      self:remove()
-    else
-      for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
-        if obj.grupo == grupo then
-          self.entidad:dano(obj,self.dano)
-          self:crearExplosion(coll)
-          self:remove()
-
-          if obj.cambiarEstado then
-            obj:cambiarEstado("canon")
-          end
-
-          local x,y = coll:getPositions()
-
-          if obj.direccion == math.sign(x-self.ox) and not obj.objPresa then
-
-            if obj.cambiarDeDireccion then
-              obj:cambiarDeDireccion()
-            end
-
-            if obj.voltear then
-              obj:voltear()
-            end
-          end
-
-        end
-      end
-    end
-  end
 end
 
 function misil:crearExplosion(coll)

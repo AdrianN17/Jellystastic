@@ -19,7 +19,7 @@ self.properties = properties
 
   self.velocidad = properties.velocidad
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
   self.hp = properties.hp
 
   self.radio = radio
@@ -116,6 +116,8 @@ self.properties = properties
   remove.init(self,entidad,properties.tabla)
 
   self.acciones = {invulnerable =false}
+
+  self.fixture:setGroupIndex(grupos.infectados)
 
 end
 

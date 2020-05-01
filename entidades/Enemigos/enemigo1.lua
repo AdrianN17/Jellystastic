@@ -21,7 +21,7 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.radio = radio
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
   self.hp = properties.hp
 
   self.limiteVision = properties.limiteVision
@@ -135,6 +135,8 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   remove.init(self,entidad,properties.tabla)
 
   self.acciones = {invulnerable =false}
+
+  self.fixture:setGroupIndex(grupos.infectados)
 end
 
 function enemigo1:draw()

@@ -23,7 +23,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
     self.velocidad = properties.velocidad
   end
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
   self.hp = properties.hp
 
   self.radio = radio
@@ -199,6 +199,8 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
       self:voltear()
     end)
   end
+
+  self.fixture:setGroupIndex(grupos.soldados)
 end
 
 function enemigo3:draw()

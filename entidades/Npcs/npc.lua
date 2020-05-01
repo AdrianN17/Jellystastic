@@ -18,7 +18,7 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
 
   self.radio = radio
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
   self.hp = properties.hp
   self.maxHp = self.hp
 
@@ -53,6 +53,8 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
   self.cooldownIterador = true
 
   visible.init(self)
+
+  self.fixture:setGroupIndex(grupos.npcs)
 end
 
 function npc:draw()

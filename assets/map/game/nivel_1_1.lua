@@ -999,12 +999,12 @@ return {
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
-            ["grupo"] = "humano",
             ["h"] = 0.1,
             ["hp"] = 8,
             ["img"] = "jugador",
             ["quad"] = "2",
-            ["s"] = 0
+            ["s"] = 0,
+            ["tag"] = "humano"
           }
         },
         {
@@ -1024,12 +1024,12 @@ return {
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
-            ["grupo"] = "humano",
             ["h"] = 0.2,
             ["hp"] = 8,
             ["img"] = "jugador",
             ["quad"] = "2",
-            ["s"] = 0
+            ["s"] = 0,
+            ["tag"] = "humano"
           }
         },
         {
@@ -1049,12 +1049,12 @@ return {
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
-            ["grupo"] = "humano",
             ["h"] = 0.3,
             ["hp"] = 8,
             ["img"] = "jugador",
             ["quad"] = "2",
-            ["s"] = 0
+            ["s"] = 0,
+            ["tag"] = "humano"
           }
         }
       }

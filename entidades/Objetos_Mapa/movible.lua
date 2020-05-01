@@ -16,7 +16,7 @@ function movible:update(dt)
   self.radio = self.body:getAngle()
 end
 
-function movible:preSolve(obj,coll)
+--[[function movible:preSolve(obj,coll)
   if obj.Es_pasable then
     local x,y = coll:getNormal()
 
@@ -28,6 +28,6 @@ function movible:preSolve(obj,coll)
       end
     end
   end
-end
+end]]
 
 return movible

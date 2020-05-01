@@ -1727,10 +1727,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["tag"] = "infectado",
             ["velocidad"] = 80
           }
         },
@@ -1752,11 +1752,11 @@ return {
             ["Es_explotaMorir"] = true,
             ["Es_unico"] = true,
             ["clase"] = "zombieCreador",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "jugador",
             ["limiteVision"] = 100,
             ["subclase"] = "enemigo2",
+            ["tag"] = "infectado",
             ["velocidad"] = 130
           }
         },
@@ -1776,10 +1776,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["tag"] = "infectado",
             ["velocidad"] = 80
           }
         },
@@ -1788,8 +1788,8 @@ return {
           name = "Zombie",
           type = "dynamic",
           shape = "rectangle",
-          x = 358.334,
-          y = 995,
+          x = 619.334,
+          y = 1016,
           width = 60,
           height = 100,
           rotation = 0,
@@ -1800,10 +1800,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo2",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "jugador",
             ["limiteVision"] = 100,
+            ["tag"] = "infectado",
             ["velocidad"] = 130
           }
         },
@@ -1812,8 +1812,8 @@ return {
           name = "Soldado",
           type = "dynamic",
           shape = "rectangle",
-          x = 624,
-          y = 1001.33,
+          x = 1502.79,
+          y = 1010.42,
           width = 50,
           height = 80,
           rotation = 0,
@@ -1825,12 +1825,12 @@ return {
             ["arma"] = 1,
             ["camper"] = false,
             ["clase"] = "enemigo3",
-            ["grupo"] = "humano_enemigo",
             ["hp"] = 12,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
             ["limiteVision"] = 1000,
             ["quadImgAccesorio"] = 1,
+            ["tag"] = "humano_enemigo",
             ["velocidad"] = 80
           }
         }
@@ -1867,11 +1867,11 @@ return {
             ["Es_transformarZombie"] = true,
             ["armaIndex"] = 1,
             ["clase"] = "player",
-            ["grupo"] = "humano",
             ["hp"] = 25,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
             ["salto"] = 30,
+            ["tag"] = "humano",
             ["velocidad"] = 175
           }
         }
@@ -1918,13 +1918,13 @@ return {
           properties = {
             ["clase"] = "meteoritoCreador",
             ["direccion"] = 1,
-            ["grupo"] = "meteorito",
             ["hp"] = 5,
             ["img"] = "meteorito",
             ["quad"] = "1",
             ["quadEstela"] = "estela_1",
             ["sensor"] = true,
-            ["subclase"] = "meteorito"
+            ["subclase"] = "meteorito",
+            ["tag"] = "meteorito"
           }
         }
       }

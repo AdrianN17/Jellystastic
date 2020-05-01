@@ -162,7 +162,7 @@ end
 
 function estandarEnemigos:checkPresa()
 
-  if self.prePresa and self.prePresa.obj and checkStringInTable(self.prePresa.obj.grupo,self.objetivosEnemigos) then
+  if self.prePresa and self.prePresa.obj and checkStringInTable(self.prePresa.obj.tag,self.objetivosEnemigos) then
     self.objPresa = self.prePresa.obj
     self.posicionAtaque=true
   end
@@ -172,68 +172,7 @@ function estandarEnemigos:checkPresa()
 end
 
 function estandarEnemigos:preSolve(obj,coll)
-
-  if obj.grupo == self.grupo then
-    coll:setEnabled(false)
-  else
-
-    for _,grupo in ipairs(self.objetivosEnemigos) do
-
-
-      if obj.grupo == grupo and ((self.Es_colisionableAtaque and not obj.Es_colisionableAtaque) or (self.Es_colisionableAtaque and  obj.Es_colisionableAtaque)) then
-
-        if self.automata.current=="mover" then
-          coll:setEnabled(false)
-        else
-          if self.automata.current=="seguir" then
-
-            coll:setEnabled(true)
-          end
-        end
-
-
-        local x,y = coll:getPositions()
-
-        if obj.direccion == math.sign(x-self.ox) and self.automata and self.automata.current=="seguir" then
-
-          if obj.cambiarDeDireccion then
-            obj:cambiarDeDireccion()
-          end
-
-          if obj.voltear then
-            obj:voltear()
-          end
-
-        end
-
-      elseif obj.grupo == grupo and not self.Es_colisionableAtaque and not obj.Es_colisionableAtaque then
-        coll:setEnabled(false)
-      end
-
-      if obj.grupo == grupo and self.Es_danoFisico and not obj.Es_danoFisico then
-
-        if obj.acciones and not obj.acciones.invulnerable then
-          self.entidad:dano(obj,2)
-
-
-          if obj.cambiarEstado then
-            obj:cambiarEstado("semizombie")
-          end
-
-          obj.acciones.invulnerable = true
-
-          self.entidad.timer:after(1,function()
-            if obj then
-              obj.acciones.invulnerable=false
-            end
-          end)
-        end
-
-      end
-
-    end
-
-  end
+  colisionadorObj:execute("enemigo","preSolve",coll,obj,self)
 end
 
 return estandarEnemigos

@@ -1452,11 +1452,11 @@ return {
             ["Es_explotaMorir"] = true,
             ["Es_unico"] = true,
             ["clase"] = "zombieCreador",
-            ["grupo"] = "infectado",
             ["hp"] = 20,
             ["img"] = "jugador",
             ["limiteVision"] = 100,
             ["subclase"] = "enemigo2",
+            ["tag"] = "infectado",
             ["velocidad"] = 130
           }
         },
@@ -1476,10 +1476,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["tag"] = "infectado",
             ["velocidad"] = 80
           }
         },
@@ -1499,10 +1499,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["tag"] = "infectado",
             ["velocidad"] = 80
           }
         },
@@ -1522,10 +1522,10 @@ return {
             ["Es_danoFisico"] = true,
             ["Es_explotaMorir"] = true,
             ["clase"] = "enemigo1",
-            ["grupo"] = "infectado",
             ["hp"] = 15,
             ["img"] = "baba",
             ["limiteVision"] = 350,
+            ["tag"] = "infectado",
             ["velocidad"] = 80
           }
         }
@@ -1561,12 +1561,12 @@ return {
             ["Es_salvable"] = true,
             ["Es_transformarZombie"] = true,
             ["clase"] = "npc",
-            ["grupo"] = "humano",
             ["h"] = 0.1,
             ["hp"] = 8,
             ["img"] = "jugador",
             ["quad"] = "2",
-            ["s"] = 0
+            ["s"] = 0,
+            ["tag"] = "humano"
           }
         }
       }

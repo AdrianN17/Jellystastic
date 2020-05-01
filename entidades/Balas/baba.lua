@@ -42,7 +42,7 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.body:applyLinearImpulse(self.velocidad*cx,self.velocidad*cy)
 
   remove.init(self,entidad,"balas")
-  self.grupo = "bala"
+  self.tag = "baba"
 
   self.Es_dispersable = true
   self.timerRemove = nil
@@ -50,6 +50,12 @@ function baba:init(entidad,objeto,ox,oy,radio)
   visible.init(self)
 
   self.Es_danoExplosivo = true
+
+  self.objetivosEnemigos = self.objeto.objetivosEnemigos
+  self.balasEnemigos = {"bala","misil"}
+
+  self.fixture:setGroupIndex(self.objeto.fixture:getGroupIndex())
+
 end
 
 function baba:draw()
@@ -64,49 +70,7 @@ function baba:update(dt)
 end
 
 function baba:preSolve(obj,coll)
-
-  if obj.Es_tierra then
-
-    if not self.timerRemove and not self.body:isDestroyed() then
-      self.timerRemove = self.entidad.timer:after(10,function()
-        self:remove()
-      end)
-    end
-  else
-
-    coll:setEnabled(false)
-
-    if obj.grupo == self.grupo and obj ~= self.objeto and obj.Es_dispersable ~= self.Es_dispersable  then
-      self:remove()
-      obj:remove()
-    elseif obj.grupo ~= self.grupo and obj ~= self.objeto then
-      for _,grupo in ipairs(self.objeto.objetivosEnemigos) do
-        if obj.grupo == grupo then
-          self.entidad:dano(obj,self.dano)
-          self:remove()
-
-          if obj.cambiarEstado then
-            obj:cambiarEstado("semizombie")
-          end
-
-
-          local x,y = coll:getPositions()
-
-          if obj.direccion == math.sign(x-self.ox) and not obj.objPresa then
-
-            if obj.cambiarDeDireccion then
-              obj:cambiarDeDireccion()
-            end
-
-            if obj.voltear then
-              obj:voltear()
-            end
-          end
-
-        end
-      end
-    end
-  end
+  colisionadorObj:execute("baba","preSolve",coll,obj,self)
 end
 
 return baba

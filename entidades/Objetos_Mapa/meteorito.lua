@@ -38,7 +38,7 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
 
   self.oxInicial,self.oyInicial = ox,oy
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
 
   self.hp = properties.hp
   self.maxHp = self.hp
@@ -50,6 +50,11 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
 
   visible.init(self)
+
+  self.Es_ingirableBala = false
+
+  self.fixture:setGroupIndex(grupos.meteorito)
+
 end
 
 function meteorito:draw()
@@ -68,44 +73,7 @@ end
 
 function meteorito:preSolve(obj,coll)
 
-  if obj.Es_tierra and not self.timerPosicionamiento then
-    self.timerPosicionamiento = self.entidad.timer:after(1, function()
-      if self and self.body and not self.body:isDestroyed() then
-        self.body:setPosition(self.oxInicial,self.oyInicial)
-        self.body:setLinearVelocity(0,0)
-        self.hp = self.maxHp
-        self.timerPosicionamiento = nil
-      end
-    end)
-  end
-
-  if obj.grupo == self.grupo then
-    coll:setEnabled(false)
-  else
-    for _,grupo in ipairs(self.objetivosEnemigos) do
-      if grupo == obj.grupo then
-
-        coll:setEnabled(false)
-
-        if obj.acciones and not obj.acciones.invulnerable then
-          self.entidad:dano(obj,5)
-
-          if obj.cambiarEstado then
-            obj:cambiarEstado("canon")
-          end
-
-          obj.acciones.invulnerable = true
-
-          self.entidad.timer:after(1,function()
-            if obj then
-              obj.acciones.invulnerable=false
-            end
-          end)
-
-        end
-      end
-    end
-  end
+  colisionadorObj:execute("meteorito","preSolve",coll,obj,self)
 
 end
 

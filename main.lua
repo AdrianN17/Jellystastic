@@ -23,6 +23,11 @@ require "libs.utils"
 _G.Menu = require "gamestates.menu"
 _G.Pausa = require "gamestates.pausa"
 
+_G.grupos = require "entidades.grupos"
+
+_G.colisionador = require "entidades.Colisiones.colisionador"
+_G.colisionadorObj = colisionador()
+
 function love.load()
   Gamestate.registerEvents()
   Gamestate.switch(Menu())

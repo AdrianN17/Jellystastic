@@ -22,7 +22,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.salto = properties.salto
   self.radio = radio
 
-  self.grupo = properties.grupo
+  self.tag = properties.tag
   self.hp = properties.hp
   self.maxHp = self.hp
 
@@ -196,6 +196,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   }
 
   visible.init(self)
+
+  self.fixture:setGroupIndex(grupos.player)
 
 end
 
@@ -457,31 +459,11 @@ function player:limpiarMovimiento()
 end
 
 function player:preSolve(obj,coll)
-
-  if obj.Es_pasable then
-    local x,y = coll:getNormal()
-
-    if y>-0.01 then
-      coll:setEnabled( false )
-    else
-      if self.acciones.pasarPlataformas  then
-
-        coll:setEnabled( false )
-      end
-    end
-  end
-
-  if obj.grupo == self.grupo then
-    coll:setEnabled( false )
-  end
+  colisionadorObj:execute("player","preSolve",coll,obj,self)
 end
 
 function player:endContact(obj,coll)
-  if obj.Es_pasable then
-    if self.acciones.pasarPlataformas then
-      self.acciones.pasarPlataformas=false
-    end
-  end
+  colisionadorObj:execute("player","endContact",coll,obj,self)
 end
 
 return player
