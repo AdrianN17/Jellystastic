@@ -31,6 +31,9 @@ function colisionesBaba:init()
                 {target ="tag",this = "objetivosEnemigos"}
             },
             callback = function(coll,target,this)
+
+                coll:setEnabled(false)
+
                 this.entidad:dano(target,this.dano)
                 this:remove()
 
