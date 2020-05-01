@@ -7,7 +7,9 @@ function colisionador:init()
         enemigo = require "entidades.Colisiones.colisionesEnemigo"(),
         meteorito = require "entidades.Colisiones.colisionesMeteorito"(),
         baba = require "entidades.Colisiones.colisionesBaba"(),
-        bala = require "entidades.Colisiones.colisionesBala"()
+        bala = require "entidades.Colisiones.colisionesBala"(),
+        movible = require "entidades.Colisiones.colisionesMovible"(),
+        liquido = require "entidades.Colisiones.colisionesLiquido"()
     }
 
 end
