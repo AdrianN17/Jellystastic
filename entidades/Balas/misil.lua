@@ -39,7 +39,7 @@ function misil:init(entidad,objeto,ox,oy,radio,dano,index)
 
   self.ox,self.oy = self.body:getX(),self.body:getY()
 
-  self.entidad:add("misil",self)
+  self.entidad:add("balas",self)
 
   local cx,cy = math.cos(radio), math.sin(radio)
   self.body:applyLinearImpulse( cx*self.mass*self.velocidad,cy*self.mass*self.velocidad)

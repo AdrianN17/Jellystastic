@@ -5,6 +5,7 @@ ui.img[1] = love.graphics.newImage("assets/img/UI/icono_mundo.png")
 
 
 ui.img["aliadosSalvados"] = love.graphics.newImage("assets/img/UI/Icono.png")
+ui.img["logo"] = love.graphics.newImage("assets/img/UI/logo_oficial.png")
 
 ui.dimensions = {}
 

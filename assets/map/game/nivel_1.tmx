@@ -787,13 +787,13 @@
   <properties>
    <property name="tabla" value="jugadores"/>
   </properties>
-  <object id="79" name="Player" type="dynamic" x="85.33" y="723.667" width="50" height="80">
+  <object id="79" name="Player" type="dynamic" x="4.33" y="723.667" width="50" height="80">
    <properties>
     <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_moverLiquido" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
-    <property name="armaIndex" type="int" value="1"/>
+    <property name="armaIndex" type="int" value="6"/>
     <property name="clase" value="player"/>
     <property name="hp" type="int" value="25"/>
     <property name="img" value="jugador"/>

@@ -1,6 +1,4 @@
 local mundoPrincipal = require "gamestates.mundo_principal"
-local mundoSecundario = require "gamestates.mundo_secundario"
-local mundoGenerico = require "gamestates.mundo_generico"
 
 local Menu = Class{}
 
@@ -27,9 +25,19 @@ function Menu:init()
 
   _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g"}
 
+
+  self.uiImgData = Index_img.ui
+
 end
 
 function Menu:draw()
+
+
+  local dimensions = self.uiImgData.dimensions.logo
+  local w,h = dimensions.w,dimensions.h
+  love.graphics.draw(self.uiImgData.img.logo,300,100,0,0.30,0.30,w/2,h/2)
+
+
   local player = self.playerImgData
   local scale = self.playerScale
   local viewport = player.viewport[1][1]
@@ -46,6 +54,8 @@ function Menu:draw()
 
     love.graphics.draw(accesorio.img,accesorio.quad[self.iteradorAccesorio],600,100-y,0,scale.x,scale.y,viewport.w/2,viewport.h/2)
   end
+
+  
 
   imgui.Render()
   love.graphics.setColor(1, 1, 1)
