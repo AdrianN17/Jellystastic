@@ -3,6 +3,11 @@ local mundoPrincipal = require "gamestates.mundo_principal"
 local Menu = Class{}
 
 function Menu:init()
+
+  if self.hsla then return end
+
+  self.StringText = String_index.menu[1]
+
   self.playerImgData = Index_img.jugador
   self.playerScale = {x = 0.25, y = 0.25}
 
@@ -23,10 +28,14 @@ function Menu:init()
   self.X,self.Y = love.graphics.getDimensions()
   self.X,self.Y = self.X/2,self.Y/2
 
-  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g"}
+  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g", pause ="p"}
 
 
   self.uiImgData = Index_img.ui
+
+  self.cambiarBoton = nil
+
+  self.idioma = 1
 
 end
 
@@ -65,11 +74,11 @@ function Menu:update(dt)
   imgui.NewFrame()
 
   imgui.SetNextWindowPos(self.X-250, self.Y-100)
-  imgui.SetNextWindowSize(250, 200)
+  imgui.SetNextWindowSize(250, 115)
 
-  imgui.Begin("Iniciar Juego",nil)
+  imgui.Begin(self.StringText.TituloIniciarJuego,nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
 
-  self.iteradorMapa = imgui.SliderInt("Niveles", self.iteradorMapa, 1, 4)
+  self.iteradorMapa = imgui.SliderInt(self.StringText.Niveles, self.iteradorMapa, 1, 4)
 
     for i=3,1,-1 do
       if imgui.ImageButton(Index_img.ui.img[1], 65,50) then
@@ -84,11 +93,11 @@ function Menu:update(dt)
 
   imgui.End()
 
-  imgui.SetNextWindowPos(500, 175)
+  imgui.SetNextWindowPos(self.X+100, self.Y-100)
   imgui.SetNextWindowSize(200, 200)
-  imgui.Begin("Editor de personaje",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+  imgui.Begin(self.StringText.TituloEditor,nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
 
-    imgui.Text("Colores")
+    imgui.Text(self.StringText.Colores)
 
     for i=1,2,1 do
       self.hsla.vector[i],self.hsla.status[i] = imgui.SliderFloat(self.hsla.text[i], self.hsla.vector[i], 0, 1,string.format("%0.2f", self.hsla.vector[i]))
@@ -98,11 +107,44 @@ function Menu:update(dt)
       self.shader:send("color_player",self.hsla.vector)
     end
 
-    imgui.Text("Accesorios")
+    imgui.Text(self.StringText.Accesorios)
 
     self.iteradorAccesorio = imgui.SliderInt("", self.iteradorAccesorio, 0, #self.accesoriosImgData.quad)
 
   imgui.End()
+
+  imgui.SetNextWindowPos(self.X-250, self.Y+50)
+  imgui.SetNextWindowSize(250, 150)
+
+  imgui.Begin(self.StringText.TituloControles,nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+
+  for i,texto in pairs(teclas) do
+
+    if imgui.Button(self.StringText[i],100,20) and not self.cambiarBoton then
+      self.cambiarBoton = i
+    end
+
+    imgui.SameLine(150)
+
+    imgui.Text(texto)
+
+  end
+
+  imgui.End()
+
+  imgui.SetNextWindowPos(self.X+100, self.Y+200)
+  imgui.SetNextWindowSize(200, 150)
+
+  imgui.Begin("",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+
+  self.idioma = imgui.Combo("Combo", self.idioma, { "Español/Spanish", "Ingles/English"}, 2);
+
+  if imgui.Button("Guardar/Save") then
+    self.StringText = String_index.menu[self.idioma]
+  end
+
+  imgui.End()
+
 
 end
 
@@ -112,13 +154,16 @@ end
 
 function Menu:textinput(t)
   imgui.TextInput(t)
-
+  
   if not imgui.GetWantCaptureKeyboard() then
       -- Pass event to the game
   end
 end
 
 function Menu:keypressed(key)
+
+  self:validarTecla(key)
+
   imgui.KeyPressed(key)
   if not imgui.GetWantCaptureKeyboard() then
       -- Pass event to the game
@@ -158,6 +203,29 @@ function Menu:wheelmoved(x, y)
   if not imgui.GetWantCaptureMouse() then
       -- Pass event to the game
   end
+end
+
+function Menu:validarTecla(key)
+
+  if key and self.cambiarBoton and not self:validarTeclaActuales(key) then
+
+    _G.teclas[self.cambiarBoton] = key
+    self.cambiarBoton = nil
+
+  end
+
+end
+
+function Menu:validarTeclaActuales(key)
+  local validar = false
+
+  for _,tecla in pairs(_G.teclas) do
+    if tecla == key then
+      validar = true
+    end
+  end
+
+  return validar
 end
 
 return Menu

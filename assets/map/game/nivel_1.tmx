@@ -793,7 +793,7 @@
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_moverLiquido" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
-    <property name="armaIndex" type="int" value="6"/>
+    <property name="armaIndex" type="int" value="1"/>
     <property name="clase" value="player"/>
     <property name="hp" type="int" value="25"/>
     <property name="img" value="jugador"/>

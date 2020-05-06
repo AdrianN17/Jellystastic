@@ -1865,7 +1865,7 @@ return {
             ["Es_explotaMorir"] = true,
             ["Es_moverLiquido"] = true,
             ["Es_transformarZombie"] = true,
-            ["armaIndex"] = 6,
+            ["armaIndex"] = 1,
             ["clase"] = "player",
             ["hp"] = 25,
             ["img"] = "jugador",

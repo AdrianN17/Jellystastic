@@ -132,18 +132,18 @@ function mundoGenerico:keypressed(key)
     self.gameobject.jugadores[self.indexPlayer]:keypressed(key)
   end
 
-  if key == "p" then
+  if key == _G.teclas.pause then
     Gamestate.switch(Pausa)
   end
 
-  if key == "0" then
+  --[[if key == "0" then
 
     self:limpiar()
   end
 
   if key == "9" then
     self:cambiarNivel()
-  end
+  end]]
 
 end
 

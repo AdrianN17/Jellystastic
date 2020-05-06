@@ -1,4 +1,4 @@
-local pausa = Gamestate.new()
+local pausa = {}
 
 function pausa:enter(from)
   self.from = from 
@@ -15,8 +15,8 @@ function pausa:draw()
 end
 
 function pausa:keypressed(key)
-  if key == 'p' then
-    return Gamestate.push(self.from) 
+  if key == _G.teclas.pause then
+    return Gamestate.push(self.from)
   end
 end
 

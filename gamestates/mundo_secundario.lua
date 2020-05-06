@@ -5,6 +5,7 @@ local mundoSecundario = Class{
 }
 
 function mundoSecundario:init()
+  --validar si es nil no importa
   self.mainMapa = nil
 end
 

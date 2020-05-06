@@ -6,9 +6,8 @@ local mundoPrincipal = Class{
 }
 
 function mundoPrincipal:init()
-
+  if self.mundoGuardado then return end
   self.mundoGuardado = {}
-
 end
 
 function mundoPrincipal:enter(_,data,dataExtra)

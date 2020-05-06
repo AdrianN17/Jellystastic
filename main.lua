@@ -28,9 +28,16 @@ _G.grupos = require "entidades.grupos"
 _G.colisionador = require "entidades.Colisiones.colisionador"
 _G.colisionadorObj = colisionador()
 
+_G.ftcsv = require "libs.ftcsv.ftcsv"
+
+_G.String_index = require "assets.string.index"
+
+
 function love.load()
   Gamestate.registerEvents()
+
   Gamestate.switch(Menu())
+
 end
 
 function table.empty (obj)
