@@ -37,6 +37,8 @@ function Menu:init()
 
   self.idioma = 1
 
+  self.conectarServidor = {ip = "0.0.0.0",port = "22122"}
+
 end
 
 function Menu:draw()
@@ -135,7 +137,7 @@ function Menu:update(dt)
   imgui.SetNextWindowPos(self.X+100, self.Y+200)
   imgui.SetNextWindowSize(200, 150)
 
-  imgui.Begin("",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+  imgui.Begin("",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize","ImGuiWindowFlags_NoTitleBar"})
 
   self.idioma = imgui.Combo("Combo", self.idioma, { "Español/Spanish", "Ingles/English"}, 2);
 
@@ -143,7 +145,35 @@ function Menu:update(dt)
     self.StringText = String_index.menu[self.idioma]
   end
 
+  if imgui.Button("Limpiar Data/Clear Data") then
+
+  end
+
   imgui.End()
+
+  imgui.SetNextWindowPos(self.X+100, self.Y+60)
+  imgui.SetNextWindowSize(200, 140)
+
+  imgui.Begin("Servidores/Server",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+
+
+    self.conectarServidor.ip = imgui.InputText("IP", self.conectarServidor.ip, 100);
+
+
+    self.conectarServidor.port = imgui.InputText("Port", self.conectarServidor.port, 100);
+
+    if imgui.Button("Conectar/Connect") then
+
+    end
+
+    if imgui.Button("Listado/List") then
+
+    end
+
+
+  imgui.End()
+
+
 
 
 end
@@ -162,11 +192,10 @@ end
 
 function Menu:keypressed(key)
 
-  self:validarTecla(key)
-
   imgui.KeyPressed(key)
   if not imgui.GetWantCaptureKeyboard() then
       -- Pass event to the game
+      self:validarTecla(key)
   end
 end
 
