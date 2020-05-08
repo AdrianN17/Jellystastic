@@ -12,12 +12,9 @@ function colisionesMeteorito:init()
             },
             callback = function(coll,target,this)
 
-                this.timerPosicionamiento = this.entidad.timer:after(1, function()
+                this.timerPosicionamiento = this.entidad.timer:after(0.5, function()
                     if this and this.body and not this.body:isDestroyed() then
-                        this.body:setPosition(this.oxInicial,this.oyInicial)
-                        this.body:setLinearVelocity(0,0)
-                        this.hp = this.maxHp
-                        this.timerPosicionamiento = nil
+                        this:remove()
                     end
                 end)
 

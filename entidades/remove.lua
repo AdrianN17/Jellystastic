@@ -9,6 +9,10 @@ function remove:init(entidad,tabla)
         self.timer:destroy()
       end
 
+      if self.onTriggerRemove then
+        self:onTriggerRemove()
+      end
+
       entidad:remove(tabla,self)
     end
   end

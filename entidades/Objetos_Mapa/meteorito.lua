@@ -53,6 +53,8 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
 
   self.Es_ingirableBala = false
 
+  self.tocarLiquido = false
+
   self.fixture:setGroupIndex(grupos.meteorito)
 
 end

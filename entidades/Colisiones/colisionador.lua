@@ -42,6 +42,10 @@ function colisionador:llamar(coll,target,this,tabledata)
             validador = self:check(data["check"],target,this)
         end
 
+        if data["parametroFunction"] then
+            validador = data["parametroFunction"](coll,target,this)
+        end
+
         if validador then
             data["callback"](coll,target,this)
         end

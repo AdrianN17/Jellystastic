@@ -52,9 +52,11 @@ function baba:init(entidad,objeto,ox,oy,radio)
   self.Es_danoExplosivo = true
 
   self.objetivosEnemigos = self.objeto.objetivosEnemigos
-  self.balasEnemigos = {"bala","misil"}
+  self.balasEnemigos = {"bala"}
 
   self.fixture:setGroupIndex(self.objeto.fixture:getGroupIndex())
+
+  self.tocarLiquido = false
 
 end
 

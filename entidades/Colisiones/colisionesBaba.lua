@@ -55,6 +55,15 @@ function colisionesBaba:init()
                     end
                 end
             end
+        },
+        {
+            parametroObj = {
+                {"tag","meteorito"}
+            },
+            callback = function(coll,target,this)
+                coll:setEnabled(false)
+                this:remove()
+            end
         }
 
     }

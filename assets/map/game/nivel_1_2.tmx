@@ -532,9 +532,10 @@
   <properties>
    <property name="tabla" value="movibles"/>
   </properties>
-  <object id="42" name="Caja" type="dynamic" x="98.4167" y="766.583" width="33.5" height="37.5">
+  <object id="42" name="Caja" type="dynamic" x="98.0531" y="778.583" width="33.5" height="37.5">
    <properties>
     <property name="Es_movible" type="bool" value="true"/>
+    <property name="Es_movibleFacil" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
     <property name="clase" value="movible"/>
     <property name="img" value="objetos"/>

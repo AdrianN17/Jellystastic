@@ -853,6 +853,7 @@ return {
           visible = true,
           properties = {
             ["Es_movible"] = true,
+            ["Es_movibleFacil"] = false,
             ["Es_tierra"] = true,
             ["clase"] = "movible",
             ["img"] = "objetos",

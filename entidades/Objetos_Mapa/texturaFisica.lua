@@ -15,6 +15,7 @@ function texturaFisica:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableCle
   textura.init(self,entidad,ox,oy,radio,shapeTableClear,properties,width,height)
 
   visible.init(self)
+
 end
 
 return texturaFisica

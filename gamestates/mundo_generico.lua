@@ -1,4 +1,4 @@
-local Utils = require "gamestates.utils"
+local Utils = require "utils.utils"
 
 local mundoGenerico = Class{
   __includes = {Utils}

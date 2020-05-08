@@ -10,11 +10,9 @@ function meteoritoCreador:init(entidad,ox,oy,properties)
 
   self.meteoritoCreado = false
 
-  self.entidad.timer:every(0.5, function()
+  self.entidad.timer:every(2.5, function()
 
-    if not self.meteoritoCreado then
-      self:crearMeteoro()
-    end
+    self:crearMeteoro()
   end)
 
 end
@@ -28,12 +26,6 @@ function meteoritoCreador:crearMeteoro()
   local obj = Entities_index[self.properties.subclase](self.entidad,body,shape,fixture,self.ox,self.oy,0,self.properties,50,50)
 
   fixture:setUserData({obj = obj})
-
-  obj.triggerRemove = function()
-    self.meteoritoCreado = false
-  end
-
-  self.meteoritoCreado = true
 
 end
 

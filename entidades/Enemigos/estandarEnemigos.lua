@@ -8,6 +8,8 @@ function estandarEnemigos:init(properties)
 
   self.maxHp = self.hp
 
+  self.tocandoAgua = false
+
   self.direccionAngulo = {}
   self.direccionAngulo[1] = 0
   self.direccionAngulo[-1] = -180
@@ -48,7 +50,9 @@ function estandarEnemigos:init(properties)
     self.timer:every(0.1,function()
       self.cambiarDireccion=true
 
-      self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
+      if not self.tocandoAgua then
+        self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
+      end
 
       self.entidad.world:rayCast(self.ox,self.oy,self.oxPared,self.oyPared,raycastPared)
 
@@ -72,60 +76,34 @@ function estandarEnemigos:updateEnemigo(dt)
     mover = function()
 
       self:moverEntidad()
+      self:terminarSeguimiento()
 
     end,
 
     atacar = function()
-      local ox,oy = self.objPresa.ox,self.objPresa.oy
 
-      local distancia = math.distance(self.ox,self.oy,ox,oy)
+      self:terminarSeguimiento()
 
-      local direccion = ox - self.ox
-
-      if not self.giroCompleto then
-        if distancia > self.limiteVision or ((direccion>0 and self.direccion == -1) or (direccion<0 and self.direccion == 1)) then
-          self:terminarSeguimiento()
-        end
-
-      elseif self.giroCompleto and distancia > self.limiteVision then
-        self:terminarSeguimiento()
-      end
     end,
 
     seguir = function()
-      local ox,oy = self.objPresa.ox,self.objPresa.oy
 
-      local distancia = math.distance(self.ox,self.oy,ox,oy)
+      self:terminarSeguimiento()
 
-      local direccion = ox - self.ox
+      if self.objPresa then
+        local ox,oy = self.objPresa.ox,self.objPresa.oy
 
-      if not self.giroCompleto then
-        if distancia > self.limiteVision or ((direccion>0 and self.direccion == -1) or (direccion<0 and self.direccion == 1)) then
-          self:terminarSeguimiento()
+        local dir = math.abs(self.ox - ox)
+
+        if dir>60 then
+          self:moverEntidad()
         end
-
-      elseif self.giroCompleto and distancia > self.limiteVision then
-        self:terminarSeguimiento()
-      end
-
-      local dir = math.abs(self.ox - ox)
-
-      if dir>60 then
-        self:moverEntidad()
       end
     end
   })
 
 
-  if self.objPresa then
-    if self.objPresa.body:isDestroyed() then
-      self.objPresa=nil
-
-      if self.automata.current =="seguir" or self.automata.current =="atacar" then
-        self.automata:Fmover()
-      end
-    end
-  end
+  self:checkPresaNoDestruida()
 
   visible.init(self)
 
@@ -152,8 +130,20 @@ function estandarEnemigos:moverEntidad()
 end
 
 function estandarEnemigos:terminarSeguimiento()
-  self.objpresa=nil
-  self.automata:Fmover()
+
+  if self.objPresa then
+    local ox,oy = self.objPresa.ox,self.objPresa.oy
+
+    local distancia = math.distance(self.ox,self.oy,ox,oy)
+
+    if distancia > self.limiteVision then
+      self.objPresa=nil
+      if self.automata.current ~= "mover" then
+        self.automata:Fmover()
+      end
+    end
+
+  end
 end
 
 function estandarEnemigos:cambiarDeDireccion()
@@ -173,6 +163,18 @@ end
 
 function estandarEnemigos:preSolve(obj,coll)
   colisionadorObj:execute("enemigo","preSolve",coll,obj,self)
+end
+
+function estandarEnemigos:checkPresaNoDestruida()
+  if self.objPresa then
+    if self.objPresa.body:isDestroyed() then
+      self.objPresa=nil
+
+      if self.automata.current =="seguir" or self.automata.current =="atacar" then
+        self.automata:Fmover()
+      end
+    end
+  end
 end
 
 return estandarEnemigos

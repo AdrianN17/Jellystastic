@@ -103,7 +103,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
       local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
       local liquidoObj =  self.entidad:getUserDataValue(contact,"Es_liquido")
 
-      if sueloObj then
+      if sueloObj and not sueloObj.Es_liquido then
 
         local x,y = contact:getNormal()
 
@@ -117,14 +117,14 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
           contact:setFriction( 0 )
 
         end
-      elseif liquidoObj then
+      --[[elseif liquidoObj then
         local x,y = contact:getNormal()
 
         if y<-0.1 then
           self.ground = true
           self.acciones.saltando=false
           self.acciones.cayendo = false
-        end
+        end]]
       end
     end
 
@@ -154,7 +154,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
         local x,y = contact:getPositions()
         local nx,ny = contact:getNormal()
 
-        if x and y and nx and ny and math.abs(nx)>0.89 and math.abs(ny)<0.1 then
+        if x and y and nx and ny and math.abs(ny)<0.1 then
           self.jointMovible = love.physics.newWeldJoint(self.body,movibleObj.obj.body,x,y,true)
           movibleObj.obj.pasarPlataformas = true
 

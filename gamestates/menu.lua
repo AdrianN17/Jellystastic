@@ -6,7 +6,12 @@ function Menu:init()
 
   if self.hsla then return end
 
-  self.StringText = String_index.menu[1]
+  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g", pause ="p"}
+  _G.idioma = 1
+
+  loadDataObj:leerConfiguracion()
+
+  self.StringText = String_index.menu[_G.idioma ]
 
   self.playerImgData = Index_img.jugador
   self.playerScale = {x = 0.25, y = 0.25}
@@ -28,14 +33,11 @@ function Menu:init()
   self.X,self.Y = love.graphics.getDimensions()
   self.X,self.Y = self.X/2,self.Y/2
 
-  _G.teclas = {up = "w", down = "s", left="a", right = "d", get = "e", changeWeapon = "q", getBox = "g", pause ="p"}
-
-
   self.uiImgData = Index_img.ui
 
   self.cambiarBoton = nil
 
-  self.idioma = 1
+  
 
   self.conectarServidor = {ip = "0.0.0.0",port = "22122"}
 
@@ -88,7 +90,11 @@ function Menu:update(dt)
 
         local index = self.iteradorMapa*3 - i+1
         local nuevoEscenario = mundoPrincipal()
-        Gamestate.switch(nuevoEscenario,{mapaIndex = index,accion = "crear"})
+
+        if Map_index.campana[index] then
+          loadDataObj:guardarConfiguracion()
+          Gamestate.switch(nuevoEscenario,{mapaIndex = index,accion = "crear"})
+        end
       end
       imgui.SameLine()
     end
@@ -96,7 +102,7 @@ function Menu:update(dt)
   imgui.End()
 
   imgui.SetNextWindowPos(self.X+100, self.Y-100)
-  imgui.SetNextWindowSize(200, 200)
+  imgui.SetNextWindowSize(200, 150)
   imgui.Begin(self.StringText.TituloEditor,nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
 
     imgui.Text(self.StringText.Colores)
@@ -139,14 +145,16 @@ function Menu:update(dt)
 
   imgui.Begin("",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize","ImGuiWindowFlags_NoTitleBar"})
 
-  self.idioma = imgui.Combo("Combo", self.idioma, { "Español/Spanish", "Ingles/English"}, 2);
+  _G.idioma = imgui.Combo("Combo", _G.idioma, { "Español/Spanish", "Ingles/English"}, 2);
 
-  if imgui.Button("Guardar/Save") then
-    self.StringText = String_index.menu[self.idioma]
+  if imgui.Button(self.StringText.Guardar) then
+    self:cambiarIdioma()
+    loadDataObj:guardarConfiguracion()
   end
 
-  if imgui.Button("Limpiar Data/Clear Data") then
-
+  if imgui.Button(self.StringText.LimpiarData) then
+    loadDataObj:limpiarConfiguracion()
+    self:cambiarIdioma()
   end
 
   imgui.End()
@@ -154,7 +162,7 @@ function Menu:update(dt)
   imgui.SetNextWindowPos(self.X+100, self.Y+60)
   imgui.SetNextWindowSize(200, 140)
 
-  imgui.Begin("Servidores/Server",nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
+  imgui.Begin(self.StringText.TituloServidor,nil, {"ImGuiWindowFlags_NoMove","ImGuiWindowFlags_NoResize"})
 
 
     self.conectarServidor.ip = imgui.InputText("IP", self.conectarServidor.ip, 100);
@@ -162,11 +170,11 @@ function Menu:update(dt)
 
     self.conectarServidor.port = imgui.InputText("Port", self.conectarServidor.port, 100);
 
-    if imgui.Button("Conectar/Connect") then
+    if imgui.Button(self.StringText.Conectar) then
 
     end
 
-    if imgui.Button("Listado/List") then
+    if imgui.Button(self.StringText.Listado) then
 
     end
 
@@ -255,6 +263,10 @@ function Menu:validarTeclaActuales(key)
   end
 
   return validar
+end
+
+function Menu:cambiarIdioma()
+  self.StringText = String_index.menu[_G.idioma]
 end
 
 return Menu

@@ -17,7 +17,8 @@ function colisionesBala:init()
         {
             parametroObj = {
                 {"Es_tierra",true},
-                {"Es_pasable", nil}
+                {"Es_pasable",nil},
+                {"Es_liquido",nil}
             },
             callback = function(coll,target,this)
 
@@ -72,7 +73,6 @@ function colisionesBala:init()
                 local x,y = coll:getPositions()
 
                 if not target.Es_ingirableBala and target.direccion == math.sign(x-this.ox) and not target.objPresa then
-
                     if target.cambiarDeDireccion then
                         target:cambiarDeDireccion()
                     end

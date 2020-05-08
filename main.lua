@@ -9,6 +9,7 @@ _G.Timer = require "libs.chrono.Timer"
 _G.Switch = require "libs.lua-switch.src.switch"
 _G.Camera = require "libs.cam11.cam11"
 _G.Gamera = require "libs.gamera.gamera"
+_G.serialize  = require "libs.ser.ser"
 
 require "imgui"
 
@@ -17,6 +18,7 @@ _G.Index_img = require "assets.img.index"
 _G.Gamestate = require "libs.hump.gamestate" 
 _G.Map_index = require "assets.map.index"
 _G.Entities_index = require "entidades.index"
+_G.Sound_index = require "assets.sound.index"
 
 require "libs.utils"
 
@@ -32,6 +34,8 @@ _G.ftcsv = require "libs.ftcsv.ftcsv"
 
 _G.String_index = require "assets.string.index"
 
+_G.loadData = require "utils.loadData"
+_G.loadDataObj = loadData()
 
 function love.load()
   Gamestate.registerEvents()
