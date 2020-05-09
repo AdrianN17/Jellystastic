@@ -24,7 +24,7 @@ function colisionesPlayer:init()
         },
         {
             callback = function(coll,target,this)
-                local tag = compareString(target.tag,this.tag)
+                local tag = target.tag == this.tag
 
                 if tag then
                     coll:setEnabled( false )
