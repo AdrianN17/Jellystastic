@@ -23,7 +23,8 @@ function meteoritoCreador:crearMeteoro()
   local shape = love.physics.newCircleShape(25)
   local fixture = love.physics.newFixture(body,shape)
 
-  local obj = Entities_index[self.properties.subclase](self.entidad,body,shape,fixture,self.ox,self.oy,0,self.properties,50,50)
+
+  local obj = Entities_index[self.properties.subclase](self.entidad,body,shape,fixture,self.ox,self.oy,0,nil,self.properties,50,50)
 
   fixture:setUserData({obj = obj})
 

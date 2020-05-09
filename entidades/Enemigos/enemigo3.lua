@@ -194,9 +194,11 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
 
   if properties.camper then
-    self.timerRastreo = self.timer:every(20, function()
-      self.direccion = self.direccion * -1
-      self:voltear()
+    self.timerRastreo = self.timer:every(5, function()
+      if not self.objPresa then
+        self.direccion = self.direccion * -1
+        self:voltear()
+      end
     end)
   end
 

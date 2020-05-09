@@ -4,81 +4,84 @@ function colisionesBala:init()
 
     self.preSolve = {
         {
-            parametroObj = {
-                {"Es_tierra",true},
-                {"Es_pasable", true}
-            },
             callback = function(coll,target,this)
 
-                coll:setEnabled(false)
+                local condicional1 = target["Es_tierra"]
+                local condicional2 = target["Es_pasable"]
 
+                if condicional1 and condicional2 then
+                    coll:setEnabled(false)
+                end
             end
         },
         {
-            parametroObj = {
-                {"Es_tierra",true},
-                {"Es_pasable",nil},
-                {"Es_liquido",nil}
-            },
             callback = function(coll,target,this)
 
-                coll:setEnabled(false)
+                local condicional1 = target["Es_tierra"]
+                local condicional2 = target["Es_pasable"]
 
-                if this.crearExplosion then
-                    this:crearExplosion(coll)
+                if condicional1 and not condicional2 then
+
+                    coll:setEnabled(false)
+
+                    if this.crearExplosion then
+                        this:crearExplosion(coll)
+                    end
+
+                    this:remove()
+
                 end
-
-                this:remove()
             end
         },
         {
-            check = {
-                {target ="tag",this = "balasEnemigos"}
-            },
             callback = function(coll,target,this)
 
-                if this.crearExplosion then
-                    this:crearExplosion(coll)
-                end
+                local condicional1 = checkStringInTable(target.tag,this.balasEnemigos)
 
-                target:remove()
-                this:remove()
+                if condicional1 then
+                    if this.crearExplosion then
+                        this:crearExplosion(coll)
+                    end
+
+                    target:remove()
+                    this:remove()
+                end
             end
         },
         {
-            check = {
-                {target = "tag",this = "objetivosEnemigos"}
-            },
-
             callback = function(coll,target,this)
 
-                coll:setEnabled(false)
+                local condicional1 = checkStringInTable(target.tag,this.objetivosEnemigos)
 
-                if this.crearExplosion then
-                    this:crearExplosion(coll)
+                if condicional1 then
+                    coll:setEnabled(false)
 
-                    if target.cambiarEstado then
-                        target:cambiarEstado("canon")
+                    if this.crearExplosion then
+                        this:crearExplosion(coll)
+
+                        if target.cambiarEstado then
+                            target:cambiarEstado("canon")
+                        end
+
+                    else
+                        if target.cambiarEstado then
+                            target:cambiarEstado("agujereado")
+                        end
                     end
 
-                else
-                    if target.cambiarEstado then
-                        target:cambiarEstado("agujereado")
-                    end
-                end
+                    this.entidad:dano(target,this.dano)
+                    this:remove()
 
-                this.entidad:dano(target,this.dano)
-                this:remove()
+                    local x,y = coll:getPositions()
 
-                local x,y = coll:getPositions()
+                    if not target.Es_ingirableBala and target.direccion == math.sign(x-this.ox) and not target.objPresa then
+                        if target.cambiarDeDireccion then
+                            target:cambiarDeDireccion()
+                        end
 
-                if not target.Es_ingirableBala and target.direccion == math.sign(x-this.ox) and not target.objPresa then
-                    if target.cambiarDeDireccion then
-                        target:cambiarDeDireccion()
-                    end
-
-                    if target.voltear then
-                        target:voltear()
+                        if target.voltear then
+                            target:voltear()
+                        end
                     end
                 end
             end

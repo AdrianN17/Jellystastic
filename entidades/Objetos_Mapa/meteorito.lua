@@ -5,7 +5,7 @@ local meteorito = Class{
   __includes ={remove,visible}
 }
 
-function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,height)
+function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,properties,width,height)
 
   self.body = body
   self.shape = shape
@@ -14,7 +14,7 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
   self.radio = radio
 
   self.entidad = entidad
-
+  
   entidad:add(properties.tabla,self)
 
   self.spritesheet = Index_img[properties.img]
@@ -45,17 +45,13 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,properties,width,
 
   remove.init(self,entidad,properties.tabla)
 
-  self.timerPosicionamiento = nil
-
   self.objetivosEnemigos = {"humano","humano_enemigo","infectado"}
 
   visible.init(self)
 
   self.Es_ingirableBala = false
 
-  self.tocarLiquido = false
-
-  self.fixture:setGroupIndex(grupos.meteorito)
+  --self.fixture:setGroupIndex(grupos.meteorito)
 
 end
 
@@ -64,6 +60,8 @@ function meteorito:draw()
     self.dimensionEstela.w/2,(self.dimensionEstela.h/2) + self.dimensionEstela.h/5)
 
   love.graphics.draw(self.img,self.quad,self.ox,self.oy,self.radio,self.wi,self.hi,self.dimension.w/2,self.dimension.h/2)
+
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function meteorito:update(dt)
@@ -71,11 +69,13 @@ function meteorito:update(dt)
 
   self:checkVida()
 
+  
+
 end
 
 function meteorito:preSolve(obj,coll)
 
-  colisionadorObj:execute("meteorito","preSolve",coll,obj,self)
+  --colisionadorObj:execute("meteorito","preSolve",coll,obj,self)
 
 end
 

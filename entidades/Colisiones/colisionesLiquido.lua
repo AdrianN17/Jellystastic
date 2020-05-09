@@ -2,56 +2,46 @@ local colisionesLiquido = Class{}
 
 function colisionesLiquido:init()
 
-    --[[self.preSolve = {
+    self.preSolve = {
         {
-            parametroFunction = function(coll,target,this)
-                local tag = checkStringInTable(target.tag,{"bala","baba","meteorito"})
-                return target.fixture:getBody():getType() == "dynamic" and not tag
-            end,
             callback = function(coll,target,this)
  
-                if not target.tocandoAgua then
-                    target.tocandoAgua=false
-                end
+                local condicional1 = checkStringInTable(target.tag,{"bala","baba"})
+                local condicional2 = target.fixture:getBody():getType()
 
-                this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
+                if not condicional1 and condicional2 == "dynamic" then
+                    this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
+                end
             end
         },
         {
-            parametroObj = {
-                {"tag","bala"}
-            },
+
             callback = function(coll,target,this)
-                coll:setEnabled(false)
+                local condicional1 = target.tag
+
+                if condicional1 == "bala" then
+                    coll:setEnabled(false)
+                end
             end
         },
         {
-            parametroObj = {
-                {"tag","baba"}
-            },
             callback = function(coll,target,this)
+                local condicional1 = target.tag
 
-                if not target.tocarLiquido then
-                    target.tocarLiquido = true
+                if condicional1 == "baba" then
+
+                    this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
+
+                    if not target.timerRemove and not target.body:isDestroyed() then
+                        print("a")
+                        target.timerRemove = target.entidad.timer:after(5,function()
+                            target:remove()
+                        end)
+                    end
                 end
-
-                this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
-            end
-        },
-        {
-            parametroObj = {
-                {"tag","meteorito"}
-            },
-            callback = function(coll,target,this)
-
-                if not target.tocarLiquido then
-                    target.tocarLiquido = true
-                end
-
-                this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
             end
         }
-    }]]
+    }
 
 end
 

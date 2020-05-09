@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 19,
-  nextobjectid = 227,
+  nextobjectid = 228,
   properties = {},
   tilesets = {},
   layers = {
@@ -235,27 +235,7 @@ return {
       properties = {
         ["tabla"] = "liquidoMapa"
       },
-      objects = {
-        {
-          id = 203,
-          name = "Gaseosa",
-          type = "static",
-          shape = "rectangle",
-          x = 1801.33,
-          y = 1168.67,
-          width = 596.636,
-          height = 223.333,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_liquido"] = true,
-            ["clase"] = "liquido",
-            ["densidad"] = 75,
-            ["grupo"] = "liquido",
-            ["img"] = "1"
-          }
-        }
-      }
+      objects = {}
     },
     {
       type = "objectgroup",
@@ -1672,65 +1652,14 @@ return {
       },
       objects = {
         {
-          id = 202,
-          name = "Burbujas",
-          type = "none",
-          shape = "rectangle",
-          x = 1798.67,
-          y = 1169.67,
-          width = 185,
-          height = 221,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clase"] = "animacion",
-            ["img"] = "burbujas",
-            ["tiempo"] = 0.5
-          }
-        },
-        {
-          id = 204,
-          name = "Burbujas",
-          type = "none",
-          shape = "rectangle",
-          x = 1913.5,
-          y = 1167.83,
-          width = 185,
-          height = 224,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clase"] = "animacion",
-            ["img"] = "burbujas",
-            ["tiempo"] = 0.5
-          }
-        },
-        {
           id = 205,
           name = "Burbujas",
           type = "none",
           shape = "rectangle",
-          x = 2178.83,
-          y = 1167.5,
+          x = 2282.83,
+          y = 1332.83,
           width = 221,
           height = 223,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clase"] = "animacion",
-            ["img"] = "burbujas",
-            ["tiempo"] = 0.5
-          }
-        },
-        {
-          id = 206,
-          name = "Burbujas",
-          type = "none",
-          shape = "rectangle",
-          x = 2096.83,
-          y = 1167.17,
-          width = 185,
-          height = 226,
           rotation = 0,
           visible = true,
           properties = {
@@ -1966,6 +1895,27 @@ return {
             ["quadEstela"] = "estela_1",
             ["sensor"] = true,
             ["subclase"] = "meteorito",
+            ["tag"] = "meteorito"
+          }
+        },
+        {
+          id = 227,
+          name = "meteorito",
+          type = "dynamic",
+          shape = "ellipse",
+          x = 434.667,
+          y = 1025.33,
+          width = 34.6667,
+          height = 37.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "meteorito",
+            ["direccion"] = 1,
+            ["hp"] = 5,
+            ["img"] = "meteorito",
+            ["quad"] = "1",
+            ["quadEstela"] = "estela_1",
             ["tag"] = "meteorito"
           }
         }

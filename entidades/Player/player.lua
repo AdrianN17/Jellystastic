@@ -98,81 +98,9 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 
     self.puertaValues = nil
 
+    self:buscarColisionesEspacio(contacts)
 
-    for _,contact in ipairs(contacts) do
-      local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
-      local liquidoObj =  self.entidad:getUserDataValue(contact,"Es_liquido")
-
-      if sueloObj and not sueloObj.Es_liquido then
-
-        local x,y = contact:getNormal()
-
-
-        if y<0 and math.abs(x) < 0.1 then
-          self.ground = true
-          self.acciones.saltando=false
-          self.acciones.cayendo = false
-          contact:setFriction( 1 )
-        else
-          contact:setFriction( 0 )
-
-        end
-      --[[elseif liquidoObj then
-        local x,y = contact:getNormal()
-
-        if y<-0.1 then
-          self.ground = true
-          self.acciones.saltando=false
-          self.acciones.cayendo = false
-        end]]
-      end
-    end
-
-    for _,contact in ipairs(contacts) do
-
-
-      local salvableObj = self.entidad:getUserDataValue(contact,"Es_salvable")
-      local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
-      local puertaObj = self.entidad:getUserDataValue(contact,"Es_portal")
-      local itemObj =  self.entidad:getUserDataValue(contact,"Es_usable")
-
-      if itemObj and itemObj.obj and not itemObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
-
-        itemObj.obj:usar(self)
-        self.acciones.usar= false
-
-      elseif salvableObj and salvableObj.obj and not salvableObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
-
-        self.npcsSalvados = self.npcsSalvados+1
-
-        salvableObj.obj:remove()
-
-        self.acciones.usar= false
-
-      elseif movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger and self.ground then
-
-        local x,y = contact:getPositions()
-        local nx,ny = contact:getNormal()
-
-        if x and y and nx and ny and math.abs(ny)<0.1 then
-          self.jointMovible = love.physics.newWeldJoint(self.body,movibleObj.obj.body,x,y,true)
-          movibleObj.obj.pasarPlataformas = true
-
-          self.funcionCambiarMovible = function()
-            if movibleObj and movibleObj.obj and not movibleObj.obj.body:isDestroyed() and movibleObj.obj.pasarPlataformas then
-              movibleObj.obj.pasarPlataformas = false
-            end
-          end
-
-        end
-
-      elseif puertaObj and self.acciones.usar and not self.jointMovible and self.ground then
-
-        self.acciones.usar=false
-        self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
-
-      end
-    end
+    self:buscarObjetosUtilizables(contacts)
 
   end)
 
@@ -464,6 +392,86 @@ end
 
 function player:endContact(obj,coll)
   colisionadorObj:execute("player","endContact",coll,obj,self)
+end
+
+function player:buscarObjetosUtilizables(contacts)
+  for _,contact in ipairs(contacts) do
+
+    local salvableObj = self.entidad:getUserDataValue(contact,"Es_salvable")
+    local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
+    local puertaObj = self.entidad:getUserDataValue(contact,"Es_portal")
+    local itemObj =  self.entidad:getUserDataValue(contact,"Es_usable")
+
+    if itemObj and itemObj.obj and not itemObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
+
+      itemObj.obj:usar(self)
+      self.acciones.usar= false
+
+    elseif salvableObj and salvableObj.obj and not salvableObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
+
+      self.npcsSalvados = self.npcsSalvados+1
+
+      salvableObj.obj:remove()
+
+      self.acciones.usar= false
+
+    elseif movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger and self.ground then
+
+      local x,y = contact:getPositions()
+      local nx,ny = contact:getNormal()
+
+      if x and y and nx and ny and math.abs(ny)<0.1 then
+        self.jointMovible = love.physics.newWeldJoint(self.body,movibleObj.obj.body,x,y,true)
+        movibleObj.obj.pasarPlataformas = true
+
+        self.funcionCambiarMovible = function()
+          if movibleObj and movibleObj.obj and not movibleObj.obj.body:isDestroyed() and movibleObj.obj.pasarPlataformas then
+            movibleObj.obj.pasarPlataformas = false
+          end
+        end
+
+      end
+
+    elseif puertaObj and self.acciones.usar and not self.jointMovible and self.ground then
+
+      self.acciones.usar=false
+      self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
+
+    end
+  end
+end
+
+function player:buscarColisionesEspacio(contacts)
+
+  for _,contact in ipairs(contacts) do
+    local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
+    local liquidoObj =  self.entidad:getUserDataValue(contact,"Es_liquido")
+
+    if sueloObj and not sueloObj.Es_liquido then
+
+      local x,y = contact:getNormal()
+
+
+      if y<0 and math.abs(x) < 0.1 then
+        self.ground = true
+        self.acciones.saltando=false
+        self.acciones.cayendo = false
+        contact:setFriction( 1 )
+      else
+        contact:setFriction( 0 )
+
+      end
+    --[[elseif liquidoObj then
+      local x,y = contact:getNormal()
+
+      if y<-0.1 then
+        self.ground = true
+        self.acciones.saltando=false
+        self.acciones.cayendo = false
+      end]]
+    end
+  end
+
 end
 
 return player

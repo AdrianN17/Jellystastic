@@ -7,65 +7,35 @@ local explosion = Class{
 function explosion:init(entidad,ox,oy)
   self.entidad = entidad
   self.ox,self.oy = ox,oy
+  self.radio = 76
 
-  self.body = love.physics.newBody(entidad.world,self.ox,self.oy,"dynamic")
-  self.shape = love.physics.newCircleShape(75)
-  self.fixture = love.physics.newFixture(self.body,self.shape)
-  self.fixture:setSensor(true)
+  entidad.timer:after(0.1,function()
 
-  self.body:setGravityScale(0)
+    local lista = queryObj:circle(self.entidad.world,self.ox,self.oy,self.radio)
 
-  self.objAlcanzados = {}
+    for _,fixture in ipairs(lista) do
+      local userdata = fixture:getUserData()
 
-  self.entidad:add("sueloMapa",self)
-  remove.init(self,entidad,"sueloMapa")
+      if userdata.obj then
+        local obj = userdata.obj
 
-  entidad.timer:after(0.2,function()
+        if obj.hp then
+          self.entidad:dano(obj,7.5)
 
-    local contacts = self.body:getContacts()
+          if obj.cambiarEstado then
+            obj:cambiarEstado("canon")
+          end
 
-    for _,contact in ipairs(contacts) do
-      local explosivoObj =  self.entidad:getUserDataValue(contact,"Es_danoExplosivo")
-
-
-      if explosivoObj then
-
-        local val = true
-
-        for _,obj in ipairs(self.objAlcanzados) do
-          if obj == explosivoObj.obj then
-            objetos:remove()
+        else
+          if obj.remove then
+            obj:remove()
           end
         end
-
-        if val then
-          table.insert(self.objAlcanzados,explosivoObj.obj)
-        end
       end
-
-    end
-
-    for _,obj in ipairs(self.objAlcanzados) do
-
-      if obj.hp then
-        self.entidad:dano(obj,7.5)
-
-        if obj.cambiarEstado then
-          obj:cambiarEstado("canon")
-        end
-
-      else
-        if objetos.remove then
-          objetos:remove()
-        end
-      end
-   end
-
-    if not self.body:isDestroyed() then
-      self:remove()
     end
 
   end)
+
 end
 
 return explosion

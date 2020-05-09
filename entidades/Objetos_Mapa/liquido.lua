@@ -12,12 +12,16 @@ end
 
 function liquido:buoyancy(density,a,b,coll)  --in pre
 	local bodyA,bodyB=a:getBody(),b:getBody()
+
 	coll:setEnabled(false)
+
 	if bodyB:getType()~="dynamic" then return end
+
 	local bVerts
 	local shapeA,shapeB=a:getShape(),b:getShape()
+
 	if shapeB:getType()=="circle" then
-		local x,y=shapeB:getPoint()
+		local x,y=bodyB:getWorldPoints(shapeB:getPoint())
 		local r = shapeB:getRadius()
 		local count= r/3 > 8 and r/3 or 8
 		bVerts={}
@@ -52,45 +56,45 @@ function liquido:buoyancy(density,a,b,coll)  --in pre
     local maxLift = 5
 
     for i=1, #intersection-1,2 do
-    	local p1x,p1y=intersection[i],intersection[i+1]
-    	local ii = i+2>#intersection and 1 or i+2
-    	local p2x,p2y=intersection[ii],intersection[ii+1]
-    	local pmx,pmy = (p1x+p2x)/2,(p1y+p2y)/2
+		local p1x,p1y=intersection[i],intersection[i+1]
+		local ii = i+2>#intersection and 1 or i+2
+		local p2x,p2y=intersection[ii],intersection[ii+1]
+		local pmx,pmy = (p1x+p2x)/2,(p1y+p2y)/2
 
- 		local vax,vay=bodyA:getLinearVelocityFromWorldPoint(pmx,pmy)
- 		local vbx,vby=bodyB:getLinearVelocityFromWorldPoint(pmx,pmy)
+		local vax,vay=bodyA:getLinearVelocityFromWorldPoint(pmx,pmy)
+		local vbx,vby=bodyB:getLinearVelocityFromWorldPoint(pmx,pmy)
 
- 		local vrx,vry=vbx-vax,vby-vay
- 		local vr=math.vec2.normalize(vrx,vry)
+		local vrx,vry=vbx-vax,vby-vay
+		local vr=math.vec2.normalize(vrx,vry)
 
- 		local ex,ey=p2x-p1x,p2y-p1y
- 		local elen=math.vec2.normalize(ex,ey)
- 		local enx,eny=math.vec2.cross(-1,0,ex,ey),0
- 		local dragDot=math.vec2.dot(enx,eny,vrx,vry)
+		local ex,ey=p2x-p1x,p2y-p1y
+		local elen=math.vec2.normalize(ex,ey)
+		local enx,eny=math.vec2.cross(-1,0,ex,ey),0
+		local dragDot=math.vec2.dot(enx,eny,vrx,vry)
 
- 		if dragDot>=0 then
- 			local dragMag=dragDot * dragMod * elen * density * vr * vr/ love.physics.getMeter()^3;
- 			if dragMag>0 then
- 				dragMag = math.min( dragMag, maxDrag )
- 			elseif dragMag<0 then
- 				dragMag = math.max( dragMag, -maxDrag )
- 			end
- 			local dragForceX,dragForceY=-dragMag*vrx,-dragMag*vry
+		if dragDot>=0 then
+			local dragMag=dragDot * dragMod * elen * density * vr * vr/ love.physics.getMeter()^3;
+			if dragMag>0 then
+				dragMag = math.min( dragMag, maxDrag )
+			elseif dragMag<0 then
+				dragMag = math.max( dragMag, -maxDrag )
+			end
+			local dragForceX,dragForceY=-dragMag*vrx,-dragMag*vry
 
 
- 			local liftDot=math.vec2.dot(ex,ey,vrx,vry)
- 			local liftMag =dragDot *liftDot* liftMod * elen * density * vr * vr/ love.physics.getMeter()^3
- 			liftMag = math.min(liftMag,maxLift)
- 			if liftMag>0 then
- 				liftMag = math.min( liftMag, maxLift )
- 			elseif liftMag<0 then
- 				liftMag = math.max( liftMag, -maxLift )
- 			end
- 			local lx,ly= math.vec2.cross(1,0,vrx,vry),0
- 			local liftForceX,liftForceY=-liftMag*lx,-liftMag*ly
+			local liftDot=math.vec2.dot(ex,ey,vrx,vry)
+			local liftMag =dragDot *liftDot* liftMod * elen * density * vr * vr/ love.physics.getMeter()^3
+			liftMag = math.min(liftMag,maxLift)
+			if liftMag>0 then
+				liftMag = math.min( liftMag, maxLift )
+			elseif liftMag<0 then
+				liftMag = math.max( liftMag, -maxLift )
+			end
+			local lx,ly= math.vec2.cross(1,0,vrx,vry),0
+			local liftForceX,liftForceY=-liftMag*lx,-liftMag*ly
 			bodyB:applyForce(liftForceX,liftForceY,pmx,pmy)
 
- 		end
+		end
   end
 end
 

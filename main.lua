@@ -37,6 +37,9 @@ _G.String_index = require "assets.string.index"
 _G.loadData = require "utils.loadData"
 _G.loadDataObj = loadData()
 
+_G.query = require "utils.query"
+_G.queryObj = query()
+
 function love.load()
   Gamestate.registerEvents()
 
@@ -174,6 +177,10 @@ function checkStringInTable(string,tabla)
   end
   
   return false
+end
+
+function compareString(string,string2)
+  return string == string2
 end
 
 function CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)

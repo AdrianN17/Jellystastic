@@ -165,7 +165,7 @@
    </properties>
    <polyline points="46.2535,0 161.587,0.3333"/>
   </object>
-  <object id="28" name="Chicle" type="static" x="569.974" y="717">
+  <object id="28" name="Chicle" type="static" x="562.794" y="717">
    <properties>
     <property name="Es_pasable" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
@@ -176,9 +176,9 @@
     <property name="quad" value="chicle"/>
     <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
-   <polyline points="56.2795,0 196.613,0.3333"/>
+   <polyline points="58.3348,0 203.793,0.3333"/>
   </object>
-  <object id="29" name="Chicle" type="static" x="570.375" y="540">
+  <object id="29" name="Chicle" type="static" x="565.563" y="540">
    <properties>
     <property name="Es_pasable" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
@@ -189,9 +189,9 @@
     <property name="quad" value="chicle"/>
     <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
-   <polyline points="55.8785,0 195.212,0.3333"/>
+   <polyline points="57.256,0 200.329,0.0289522"/>
   </object>
-  <object id="30" name="Chicle" type="static" x="362.108" y="381.667">
+  <object id="30" name="Chicle" type="static" x="359.306" y="381.667">
    <properties>
     <property name="Es_pasable" type="bool" value="true"/>
     <property name="Es_tierra" type="bool" value="true"/>
@@ -202,7 +202,7 @@
     <property name="quad" value="chicle"/>
     <property name="tipoCalculoDimensiones" value="linea"/>
    </properties>
-   <polyline points="56.1459,0 196.146,0.3333"/>
+   <polyline points="56.948,0 198.948,0.3333"/>
   </object>
   <object id="37" name="Chicle" type="static" x="987" y="735">
    <properties>

@@ -4,45 +4,46 @@ function colisionesMeteorito:init()
 
     self.preSolve = {
         {
-            parametroObj = {
-                {"Es_tierra",true}
-            },
-            parametroSelf = {
-                {"timerPosicionamiento",nil}
-            },
             callback = function(coll,target,this)
 
-                this.timerPosicionamiento = this.entidad.timer:after(0.5, function()
-                    if this and this.body and not this.body:isDestroyed() then
-                        this:remove()
-                    end
-                end)
+                local condicional1 = this["timerPosicionamiento"]
+                local condicional2 = target["Es_tierra"]
+
+                if not condicional1 and condicional2 then
+
+                    this.timerPosicionamiento = this.entidad.timer:after(2, function()
+                        if this and this.body and not this.body:isDestroyed() then
+                            this:remove()
+                        end
+                    end)
+                end
 
             end
         },
         {
-            check = {
-                {target = "tag",this = "objetivosEnemigos"}
-            },
             callback = function(coll,target,this)
 
-                coll:setEnabled(false)
+                local condicional1 = checkStringInTable(target.tag,this.objetivosEnemigos)
 
-                if target.acciones and not target.acciones.invulnerable then
-                    this.entidad:dano(target,5)
+                if condicional1 then
+                    coll:setEnabled(false)
 
-                    if target.cambiarEstado then
-                        target:cambiarEstado("canon")
-                    end
+                    if target.acciones and not target.acciones.invulnerable then
+                        this.entidad:dano(target,5)
 
-                    target.acciones.invulnerable = true
-
-                    this.entidad.timer:after(1,function()
-                        if target then
-                            target.acciones.invulnerable=false
+                        if target.cambiarEstado then
+                            target:cambiarEstado("canon")
                         end
-                    end)
 
+                        target.acciones.invulnerable = true
+
+                        this.entidad.timer:after(1,function()
+                            if target then
+                                target.acciones.invulnerable=false
+                            end
+                        end)
+
+                    end
                 end
             end
         }

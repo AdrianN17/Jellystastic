@@ -9,14 +9,20 @@ function visible:init()
   end
 end
 
-function visible:checkVisible(x,y,w,h)
+function visible:getBoundingBox()
   local topLeftX, topLeftY, bottomRightX, bottomRightY = 0,0,0,0
-
+  
   if self.fixture then
     topLeftX, topLeftY, bottomRightX, bottomRightY = self.fixture:getBoundingBox( 1 )
   else
     topLeftX, topLeftY, bottomRightX, bottomRightY = self.visibleAABB.x,self.visibleAABB.y,self.visibleAABB.w,self.visibleAABB.h
   end
+
+  return topLeftX, topLeftY, bottomRightX, bottomRightY
+end
+
+function visible:checkVisible(x,y,w,h)
+  local topLeftX, topLeftY, bottomRightX, bottomRightY = self:getBoundingBox()
 
   return CheckCollision(x,y,w,h, topLeftX, topLeftY, bottomRightX, bottomRightY)
 
@@ -40,21 +46,17 @@ function visible:calculateAABB(shapeTableClear)
 
 end
 
-function visible:draw_debug()
-  local topLeftX, topLeftY, bottomRightX, bottomRightY = 0,0,0,0
-
-  if self.fixture then
-    topLeftX, topLeftY, bottomRightX, bottomRightY = self.fixture:getBoundingBox( 1 )
-  else
-    topLeftX, topLeftY, bottomRightX, bottomRightY = self.visibleAABB.x,self.visibleAABB.y,self.visibleAABB.w,self.visibleAABB.h
-  end
+--[[function visible:draw_debug()
+  local topLeftX, topLeftY, bottomRightX, bottomRightY = self:getBoundingBox()
 
   love.graphics.circle("fill",topLeftX, topLeftY,10)
   love.graphics.circle("fill",bottomRightX, bottomRightY,10)
   love.graphics.circle("fill",self.ox,self.oy,10)
 
   print(topLeftX, topLeftY, bottomRightX, bottomRightY,self.ox,self.oy)
-end
+end]]
+
+
 
 
 

@@ -421,15 +421,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = 569.974,
+          x = 562.794,
           y = 717,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 56.2795, y = 0 },
-            { x = 196.613, y = 0.3333 }
+            { x = 58.3348, y = 0 },
+            { x = 203.793, y = 0.3333 }
           },
           properties = {
             ["Es_pasable"] = true,
@@ -447,15 +447,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = 570.375,
+          x = 565.563,
           y = 540,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 55.8785, y = 0 },
-            { x = 195.212, y = 0.3333 }
+            { x = 57.256, y = 0 },
+            { x = 200.329, y = 0.0289522 }
           },
           properties = {
             ["Es_pasable"] = true,
@@ -473,15 +473,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = 362.108,
+          x = 359.306,
           y = 381.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 56.1459, y = 0 },
-            { x = 196.146, y = 0.3333 }
+            { x = 56.948, y = 0 },
+            { x = 198.948, y = 0.3333 }
           },
           properties = {
             ["Es_pasable"] = true,

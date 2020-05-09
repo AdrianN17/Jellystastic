@@ -593,15 +593,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = 213.451,
+          x = 211.883,
           y = 830.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 46.053, y = 0 },
-            { x = 160.886, y = 0.3333 }
+            { x = 47.6207, y = 0 },
+            { x = 166.363, y = 0.3333 }
           },
           properties = {
             ["Es_pasable"] = true,
@@ -619,15 +619,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = 121.982,
-          y = 665,
+          x = 120.679,
+          y = 662,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 72.5219, y = 0 },
-            { x = 253.355, y = 0.3333 }
+            { x = 73.8253, y = 0 },
+            { x = 257.908, y = 0.3333 }
           },
           properties = {
             ["Es_pasable"] = true,
@@ -723,15 +723,15 @@ return {
           name = "Chicle",
           type = "static",
           shape = "polyline",
-          x = -12.3086,
+          x = -14.5324,
           y = 991.75,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 49.3616, y = 0 },
-            { x = 172.445, y = 0.3333 }
+            { x = 50.101, y = 0 },
+            { x = 175.075, y = 0.0208 }
           },
           properties = {
             ["Es_pasable"] = true,
@@ -782,9 +782,9 @@ return {
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 10.5315, y = -24.6818 },
-            { x = 221.939, y = -24.6818 },
-            { x = 231.542, y = -0.188804 }
+            { x = 10.6983, y = -24.6818 },
+            { x = 225.454, y = -24.6818 },
+            { x = 235.209, y = -0.188804 }
           },
           properties = {
             ["Es_tierra"] = true,
@@ -1024,7 +1024,7 @@ return {
           name = "Chocolate",
           type = "static",
           shape = "polygon",
-          x = 1518,
+          x = 1542,
           y = 509,
           width = 0,
           height = 0,
@@ -1032,9 +1032,9 @@ return {
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 7.31731, y = -24.6818 },
-            { x = 154.203, y = -24.6818 },
-            { x = 160.875, y = -0.188804 }
+            { x = 5.86181, y = -24.6818 },
+            { x = 123.53, y = -24.6818 },
+            { x = 128.875, y = -0.188804 }
           },
           properties = {
             ["Es_tierra"] = true,

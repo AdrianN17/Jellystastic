@@ -3,66 +3,70 @@ local colisionesBaba = Class{}
 function colisionesBaba:init()
     self.preSolve = {
         {
-            modalidad ="parametros",
-            parametroObj = {
-                {"Es_tierra",true}
-            },
             callback = function(coll,target,this)
-                if not this.timerRemove and not this.body:isDestroyed() then
-                    this.timerRemove = this.entidad.timer:after(5,function()
-                        this:remove()
-                    end)
+
+                local condicional1 = target["Es_tierra"]
+
+                if condicional1 then
+                    if not this.timerRemove and not this.body:isDestroyed() then
+                        this.timerRemove = this.entidad.timer:after(5,function()
+                            this:remove()
+                        end)
+                    end
                 end
             end,
         },
         {
-            check = {
-                {target ="tag",this = "balasEnemigos"}
-            },
             callback = function(coll,target,this)
 
-                target:remove()
-                this:remove()
+                local condicional1 = checkStringInTable(target.tag,this.balasEnemigos)
 
-            end
-        },
-        {
-            check = {
-                {target ="tag",this = "objetivosEnemigos"}
-            },
-            callback = function(coll,target,this)
-
-                coll:setEnabled(false)
-
-                this.entidad:dano(target,this.dano)
-                this:remove()
-
-                if target.cambiarEstado then
-                    target:cambiarEstado("semizombie")
-                end
-
-
-                local x,y = coll:getPositions()
-
-                if target.direccion == math.sign(x-this.ox) and not target.objPresa then
-
-                    if target.cambiarDeDireccion then
-                        target:cambiarDeDireccion()
-                    end
-
-                    if target.voltear then
-                        target:voltear()
-                    end
+                if condicional1 then
+                    target:remove()
+                    this:remove()
                 end
             end
         },
         {
-            parametroObj = {
-                {"tag","meteorito"}
-            },
             callback = function(coll,target,this)
-                coll:setEnabled(false)
-                this:remove()
+
+                local condicional1 = checkStringInTable(target.tag,this.objetivosEnemigos)
+
+                if condicional1 then
+
+                    coll:setEnabled(false)
+
+                    this.entidad:dano(target,this.dano)
+                    this:remove()
+
+                    if target.cambiarEstado then
+                        target:cambiarEstado("semizombie")
+                    end
+
+
+                    local x,y = coll:getPositions()
+
+                    if target.direccion == math.sign(x-this.ox) and not target.objPresa then
+
+                        if target.cambiarDeDireccion then
+                            target:cambiarDeDireccion()
+                        end
+
+                        if target.voltear then
+                            target:voltear()
+                        end
+                    end
+                end
+            end
+        },
+        {
+            callback = function(coll,target,this)
+                local condicional1 = target.tag
+
+                if condicional1 == "meteorito" then
+                    coll:setEnabled(false)
+                    this:remove()
+                end
             end
         }
 
