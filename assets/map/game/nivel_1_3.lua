@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 8,
-  nextobjectid = 16,
+  nextobjectid = 17,
   properties = {},
   tilesets = {},
   layers = {
@@ -138,29 +138,6 @@ return {
             ["img"] = "1",
             ["uv"] = 2
           }
-        },
-        {
-          id = 15,
-          name = "Baba",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 299.667,
-          y = 324.333,
-          width = 70,
-          height = 90,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_danoExplosivo"] = true,
-            ["Es_danoFisico"] = true,
-            ["Es_explotaMorir"] = true,
-            ["clase"] = "enemigo1",
-            ["hp"] = 15,
-            ["img"] = "baba",
-            ["limiteVision"] = 350,
-            ["tag"] = "infectado",
-            ["velocidad"] = 80
-          }
         }
       }
     },
@@ -194,6 +171,29 @@ return {
             ["densidad"] = 75,
             ["grupo"] = "liquido",
             ["img"] = "1"
+          }
+        },
+        {
+          id = 16,
+          name = "Baba",
+          type = "dynamic",
+          shape = "rectangle",
+          x = 703.667,
+          y = 327,
+          width = 70,
+          height = 90,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_danoExplosivo"] = true,
+            ["Es_danoFisico"] = true,
+            ["Es_explotaMorir"] = true,
+            ["clase"] = "enemigo1",
+            ["hp"] = 15,
+            ["img"] = "baba",
+            ["limiteVision"] = 350,
+            ["tag"] = "infectado",
+            ["velocidad"] = 80
           }
         }
       }

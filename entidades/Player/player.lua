@@ -447,7 +447,7 @@ function player:buscarColisionesEspacio(contacts)
     local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
     local liquidoObj =  self.entidad:getUserDataValue(contact,"Es_liquido")
 
-    if sueloObj and not sueloObj.Es_liquido then
+    if sueloObj then
 
       local x,y = contact:getNormal()
 

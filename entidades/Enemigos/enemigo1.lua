@@ -146,11 +146,11 @@ function enemigo1:draw()
 
   love.graphics.draw(self.img,self.quad[self.iterador],self.ox,self.oy,self.radio,wi*self.direccion,hi,dimension.w/2,dimension.h/2)
 
-  love.graphics.print(self.hp,self.ox,self.oy-100)
+  love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
 end
 
 function enemigo1:update(dt)
-
+  
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
 

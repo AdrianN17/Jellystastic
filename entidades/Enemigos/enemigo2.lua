@@ -132,7 +132,7 @@ function enemigo2:draw()
 end
 
 function enemigo2:update(dt)
-
+  
   self.radio = self.body:getAngle()
   self.ox,self.oy = self.body:getX(),self.body:getY()
 

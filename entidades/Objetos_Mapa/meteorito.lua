@@ -51,7 +51,7 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,p
 
   self.Es_ingirableBala = false
 
-  --self.fixture:setGroupIndex(grupos.meteorito)
+  self.fixture:setGroupIndex(grupos.meteorito)
 
 end
 
@@ -75,7 +75,7 @@ end
 
 function meteorito:preSolve(obj,coll)
 
-  --colisionadorObj:execute("meteorito","preSolve",coll,obj,self)
+  colisionadorObj:execute("meteorito","preSolve",coll,obj,self)
 
 end
 

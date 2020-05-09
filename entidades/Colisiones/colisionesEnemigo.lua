@@ -12,6 +12,7 @@ function colisionesEnemigo:init()
                     if this.automata.current == "seguir" then
                         coll:setEnabled(true)
                     else
+
                         coll:setEnabled(false)
                     end
 
@@ -31,6 +32,8 @@ function colisionesEnemigo:init()
                         end
 
                     end
+                elseif not condicional1 and condicional2 then
+                    coll:setEnabled(false)
                 end
             end
         },
@@ -41,7 +44,9 @@ function colisionesEnemigo:init()
                 local condicional2 = checkStringInTable(target.tag,this.objetivosEnemigos)
 
                 if condicional1 and condicional2 then
+
                     if target.acciones and not target.acciones.invulnerable then
+
                         this.entidad:dano(target,2)
 
                         if target.cambiarEstado then
@@ -56,6 +61,8 @@ function colisionesEnemigo:init()
                             end
                         end)
                     end
+
+
                 end
             end
         }

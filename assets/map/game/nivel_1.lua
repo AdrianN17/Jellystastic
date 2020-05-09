@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 19,
-  nextobjectid = 228,
+  nextobjectid = 229,
   properties = {},
   tilesets = {},
   layers = {
@@ -160,32 +160,13 @@ return {
           }
         },
         {
-          id = 215,
-          name = "Gelatina",
-          type = "static",
-          shape = "rectangle",
-          x = 2511.33,
-          y = 732,
-          width = 686.333,
-          height = 228.666,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_tierra"] = true,
-            ["clase"] = "texturaFisica",
-            ["grupo"] = "suelo",
-            ["img"] = "1",
-            ["uv"] = 2
-          }
-        },
-        {
           id = 225,
           name = "Gelatina",
           type = "static",
           shape = "rectangle",
           x = 1833.83,
           y = 732,
-          width = 677.333,
+          width = 1368,
           height = 228.666,
           rotation = 0,
           visible = true,

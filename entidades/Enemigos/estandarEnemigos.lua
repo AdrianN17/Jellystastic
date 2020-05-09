@@ -8,8 +8,6 @@ function estandarEnemigos:init(properties)
 
   self.maxHp = self.hp
 
-  self.tocandoAgua = false
-
   self.direccionAngulo = {}
   self.direccionAngulo[1] = 0
   self.direccionAngulo[-1] = -180
@@ -24,13 +22,25 @@ function estandarEnemigos:init(properties)
   self.fractionRaycast = 9999
   self.prePresa = nil
 
+  self.cambiarDireccion = {suelo = true,pared=false}
+
   if not properties.camper then
+
+    self.timer:every(0.01, function()
+      self.ground = false
+      local contacts = self.body:getContacts()
+  
+      self:buscarColisionesEspacio(contacts)
+  
+    end)
+  
+
     local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
 
       local tipoObj=fixture:getUserData()
 
-      if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
-        self.cambiarDireccion=false
+      if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra  and self.ground then
+        self.cambiarDireccion.suelo=false
       end
 
       return 1
@@ -41,22 +51,28 @@ function estandarEnemigos:init(properties)
       local tipoObj=fixture:getUserData()
 
       if tipoObj and tipoObj.obj and tipoObj.obj.Es_tierra then
-        self.cambiarDireccion=true
+        self.cambiarDireccion.pared=true
       end
 
       return 1
     end
 
     self.timer:every(0.1,function()
-      self.cambiarDireccion=true
+      self.cambiarDireccion.suelo = true
 
-      if not self.tocandoAgua then
-        self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
+      if not self.ground then
+        self.cambiarDireccion.suelo = false
       end
+
+      self.cambiarDireccion.pared=false
+
+
+      self.entidad.world:rayCast(self.ox,self.oy,self.oxSuelo,self.oySuelo,raycastSuelo)
+
 
       self.entidad.world:rayCast(self.ox,self.oy,self.oxPared,self.oyPared,raycastPared)
 
-      if self.cambiarDireccion then
+      if self.cambiarDireccion.suelo or self.cambiarDireccion.pared then
 
         self.direccion=self.direccion*-1
 
@@ -175,6 +191,28 @@ function estandarEnemigos:checkPresaNoDestruida()
       end
     end
   end
+end
+
+function estandarEnemigos:buscarColisionesEspacio(contacts)
+
+  for _,contact in ipairs(contacts) do
+    local sueloObj =  self.entidad:getUserDataValue(contact,"Es_tierra")
+
+    if sueloObj  then
+
+      local x,y = contact:getNormal()
+
+
+      if y<0 and math.abs(x) < 0.1 then
+        self.ground = true
+        contact:setFriction( 1 )
+      else
+        contact:setFriction( 0 )
+
+      end
+    end
+  end
+
 end
 
 return estandarEnemigos
