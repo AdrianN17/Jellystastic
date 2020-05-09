@@ -461,14 +461,14 @@ function player:buscarColisionesEspacio(contacts)
         contact:setFriction( 0 )
 
       end
-    --[[elseif liquidoObj then
+    elseif liquidoObj then
       local x,y = contact:getNormal()
 
       if y<-0.1 then
         self.ground = true
         self.acciones.saltando=false
         self.acciones.cayendo = false
-      end]]
+      end
     end
   end
 
