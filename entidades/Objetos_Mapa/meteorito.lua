@@ -14,7 +14,7 @@ function meteorito:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,p
   self.radio = radio
 
   self.entidad = entidad
-  
+
   entidad:add(properties.tabla,self)
 
   self.spritesheet = Index_img[properties.img]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="229">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="232">
  <editorsettings>
   <export target="nivel_1.lua" format="lua"/>
  </editorsettings>
@@ -165,6 +165,13 @@
     <property name="tipoCalculoDimensiones" value="triangular"/>
    </properties>
    <polygon points="0.0049104,0.0731211 145.764,-132.466 145.819,0.0731211"/>
+  </object>
+  <object id="229" name="Casa" type="none" x="2121.32" y="359.166" width="993.354" height="367.667">
+   <properties>
+    <property name="clase" value="textura"/>
+    <property name="grupo" value="casa"/>
+    <property name="img" value="5"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup id="4" name="Puertas">
@@ -792,7 +799,7 @@
   <properties>
    <property name="tabla" value="meteorito"/>
   </properties>
-  <object id="193" name="MeteoritoCreador" type="manager" x="774.666" y="533.333">
+  <object id="193" name="MeteoritoCreador" type="manager" x="246.666" y="1074.67">
    <properties>
     <property name="clase" value="meteoritoCreador"/>
     <property name="direccion" type="int" value="1"/>

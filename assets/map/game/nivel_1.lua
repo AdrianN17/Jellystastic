@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 19,
-  nextobjectid = 229,
+  nextobjectid = 232,
   properties = {},
   tilesets = {},
   layers = {
@@ -425,6 +425,23 @@ return {
             ["grupo"] = "casa",
             ["img"] = "4",
             ["tipoCalculoDimensiones"] = "triangular"
+          }
+        },
+        {
+          id = 229,
+          name = "Casa",
+          type = "none",
+          shape = "rectangle",
+          x = 2121.32,
+          y = 359.166,
+          width = 993.354,
+          height = 367.667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clase"] = "textura",
+            ["grupo"] = "casa",
+            ["img"] = "5"
           }
         }
       }
@@ -1861,8 +1878,8 @@ return {
           name = "MeteoritoCreador",
           type = "manager",
           shape = "point",
-          x = 774.666,
-          y = 533.333,
+          x = 246.666,
+          y = 1074.67,
           width = 0,
           height = 0,
           rotation = 0,

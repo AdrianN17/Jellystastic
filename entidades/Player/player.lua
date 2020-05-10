@@ -13,7 +13,6 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.shape = shape
   self.fixture = fixture
 
-  self.shapeTableClear = shapeTableClear
   self.properties = properties
 
   self.entidad = entidad
@@ -68,8 +67,8 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 
   tipoBala.init(self)
 
-  self.armaIndex = properties.armaIndex or 0
-  self.armaIndexRespaldo = 0
+  self.itemManoIndex = 1
+  self.itemsManos = {armaIndex= properties.armaIndex or 0, itemIndex = 0}
 
   self:recargarDoble()
 
@@ -181,7 +180,11 @@ function player:draw()
     love.graphics.draw(self.imgAccesorio,self.quadAccesorio[self.idAccesorio],ox,oy,self.radio,scaleAccesorio.x*self.direccion,scaleAccesorio.y,dimensionAccesorio.w/2,dimensionAccesorio.h/2)
   end
 
-  self:drawArma()
+  if self.itemManoIndex == 1 then
+    self:drawArma()
+  else 
+    --dibujar item
+  end
 
   love.graphics.print(self.hp,self.ox,self.oy-100)
   love.graphics.print(tostring(self.acciones.invulnerable),self.ox,self.oy-200)
@@ -219,6 +222,9 @@ function player:keypressed(key)
   end
 
   if key == _G.teclas.getBox then
+    
+    self:terminarDisparoArma()
+
     self.acciones.coger = not self.acciones.coger
 
     if not self.acciones.coger and self.jointMovible and not self.jointMovible:isDestroyed( ) then
@@ -233,17 +239,18 @@ function player:keypressed(key)
   end
 
   if key == _G.teclas.get then
+    self:terminarDisparoArma()
     self.acciones.usar = true
   end
 
 
    if key == _G.teclas.changeWeapon and not self.jointMovible then
-    if self.armaIndexRespaldo == 0 then
-      self.armaIndexRespaldo = self.armaIndex
-      self.armaIndex = 0
-    else
-      self.armaIndex = self.armaIndexRespaldo
-      self.armaIndexRespaldo = 0
+    self:terminarDisparoArma()
+
+    if self.itemManoIndex == 1 then
+      self.itemManoIndex = 2
+    else 
+      self.itemManoIndex = 1
     end
   end
 end
@@ -264,7 +271,7 @@ function player:keyreleased(key)
 end
 
 function player:mousepressed(x,y,button,istouch,presses)
-  if presses == 1 then
+  if presses == 1 and self.itemManoIndex == 1 then
       if button == 1 then
         self:dispararArma()
       elseif button == 2 then
@@ -275,7 +282,7 @@ end
 
 function player:mousemoved(x,y)
 
-  if self.armaIndex>0 then
+  if self.itemManoIndex == 1 then
     if x>self.oxBala then
       self.vistaX = 1
     else
@@ -287,8 +294,8 @@ function player:mousemoved(x,y)
 end
 
 function player:mousereleased(x,y,button)
-  if button == 1 and self.armaIndex>0 then
-    local arma = self.armasValues[self.armaIndex]
+  if button == 1 and self.itemsManos.armaIndex>0 and self.itemManoIndex == 1 then
+    local arma = self.armasValues[self.itemsManos.armaIndex]
 
     self:terminarDisparoArma()
   end
@@ -342,11 +349,12 @@ function player:get()
   local t = {}
 
   t.armasValues = self.armasValues
-  t.armaIndex = self.armaIndex
+  t.itemsManos = self.itemsManos
+  t.itemManoIndex = self.itemManoIndex
   t.hp = self.hp
   t.iteradorEstado = self.iteradorEstado
   t.cooldownIterador = self.cooldownIterador
-  t.armaIndexRespaldo = self.armaIndexRespaldo
+
   t.dataCreacion = self.dataCreacion
   t.npcsSalvados = self.npcsSalvados
 
@@ -415,7 +423,7 @@ function player:buscarObjetosUtilizables(contacts)
 
       self.acciones.usar= false
 
-    elseif movibleObj and not self.jointMovible and self.armaIndex == 0 and self.acciones.coger and self.ground then
+    elseif movibleObj and not self.jointMovible and self.itemManoIndex== 2 and self.acciones.coger and self.ground then
 
       local x,y = contact:getPositions()
       local nx,ny = contact:getNormal()

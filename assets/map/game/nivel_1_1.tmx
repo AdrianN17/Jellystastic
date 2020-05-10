@@ -374,7 +374,7 @@
   <properties>
    <property name="tabla" value="Armas"/>
   </properties>
-  <object id="35" name="Arma" type="static" x="47" y="603.5" width="55.5" height="33">
+  <object id="35" name="Arma" type="static" x="47" y="603.5" width="50" height="25">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>

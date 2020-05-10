@@ -12,9 +12,6 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.shape = shape
   self.fixture = fixture
 
-  self.shapeTableClear = shapeTableClear
-  self.properties = properties
-
   self.entidad = entidad
 
   if properties.camper then
@@ -66,7 +63,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.direccion = properties.direccion or -1
 
-  self.armaIndex = properties.arma
+  self.itemsManos = {armaIndex = properties.arma}
 
   estandarEnemigos.init(self,properties)
 
@@ -112,7 +109,7 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
         self:recargarArma()
 
-        local bala = self.armasValues[self.armaIndex]
+        local bala = self.armasValues[self.itemsManos.armaIndex]
         self.timer:after(bala.tiempo_recarga+0.25,function()
           if self.objPresa then
             self.automata:Fatacar()
@@ -134,8 +131,8 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
       end
     end
 
-    if self.armaIndex>0 then
-      local bala = self.armasValues[self.armaIndex]
+    if self.itemsManos.armaIndex>0 then
+      local bala = self.armasValues[self.itemsManos.armaIndex]
       if bala.stock<1 and bala.municion>0 then
         self.automata:Frecargar()
       end

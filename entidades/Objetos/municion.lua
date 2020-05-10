@@ -20,7 +20,7 @@ function municion:usar(obj)
     self.cantidad = obj.armasValues[self.tipo].max_stock
   end
 
-  if self.tipo == obj.armaIndex then
+  if self.tipo == obj.itemsManos.armaIndex and obj.itemManoIndex == 1 then
     self:recargar(obj.armasValues[self.tipo])
   end
 end

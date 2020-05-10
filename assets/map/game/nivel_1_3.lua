@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 8,
-  nextobjectid = 17,
+  nextobjectid = 23,
   properties = {},
   tilesets = {},
   layers = {
@@ -137,6 +137,120 @@ return {
             ["grupo"] = "suelo",
             ["img"] = "1",
             ["uv"] = 2
+          }
+        },
+        {
+          id = 17,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 99.3335,
+          y = 361.417,
+          width = 50,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "1",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 18,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 255.333,
+          y = 357.417,
+          width = 50,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "2",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 19,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 108.667,
+          y = 301.417,
+          width = 100,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "4",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 20,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 278,
+          y = 286.75,
+          width = 100,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "5",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 21,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 402,
+          y = 297.417,
+          width = 100,
+          height = 30,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "6",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 22,
+          name = "Arma",
+          type = "static",
+          shape = "rectangle",
+          x = 396.667,
+          y = 358.75,
+          width = 75,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_usable"] = true,
+            ["clase"] = "arma",
+            ["img"] = "armas",
+            ["quad"] = "3",
+            ["sensor"] = true
           }
         }
       }

@@ -12,9 +12,6 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
   self.shape = shape
   self.fixture = fixture
 
-  self.shapeTableClear = shapeTableClear
-  self.properties = properties
-
   self.entidad = entidad
 
   self.velocidad = properties.velocidad
@@ -63,7 +60,7 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   estandarEnemigos.init(self,properties)
 
-  self.timer:every(0.5,function ()
+  self.timer:every(0.25,function ()
 
 
     Switch(self.automata.current, {

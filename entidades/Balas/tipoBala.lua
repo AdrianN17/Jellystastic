@@ -8,18 +8,24 @@ function tipoBala:init()
   self.armasValues = {}
 
   --pistola normal
-  self.armasValues[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5, tiempo_recarga = 0.7,clase = Bala,tipo = 1}
+  self.armasValues[1] = {stock = 0, max_stock = 14, municion = 0, max_municion = 70, enable = false, dano = 1, tiempo = 0.5,
+   tiempo_recarga = 0.7,clase = Bala,tipo = 1,width = 50, height = 25  }
     --desert eagle
-  self.armasValues[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9, tiempo_recarga = 0.9,clase = Bala,tipo = 2}
+  self.armasValues[2] = {stock = 0, max_stock = 8, municion = 0, max_municion = 40, enable = false, dano = 2, tiempo = 0.9,
+   tiempo_recarga = 0.9,clase = Bala,tipo = 2,width = 50, height = 25 }
     --uzi
-  self.armasValues[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15, tiempo_recarga = 0.5,clase = Bala,tipo = 3}
+  self.armasValues[3] = {stock = 0, max_stock = 30, municion = 0, max_municion = 120, enable = false, dano = 0.75, tiempo = 0.15,
+   tiempo_recarga = 0.5,clase = Bala,tipo = 3,width = 75, height = 25 }
     --m4a1
-  self.armasValues[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35, tiempo_recarga = 0.8,clase = Bala,tipo = 4}
+  self.armasValues[4] = {stock = 0, max_stock = 30, municion = 0, max_municion = 90, enable = false, dano = 1.5, tiempo = 0.35,
+   tiempo_recarga = 0.8,clase = Bala,tipo = 4,width = 100, height = 25 }
     --escopeta
-  self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2, tiempo_recarga = 1.2,clase = Bala,tipo = 5, multibala = true, radios = {math.rad(-2.5),math.rad(2.5)} }
+  self.armasValues[5] = {stock = 0, max_stock = 8, municion = 0, max_municion = 56, enable = false, dano = 1.5, tiempo = 1.2,
+   tiempo_recarga = 1.2,clase = Bala,tipo = 5, multibala = true, radios = {math.rad(-2.5),math.rad(2.5)} ,width = 100, height = 25 }
 
     --lanzagranadas
-  self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 7.5, tiempo = 1 ,tiempo_recarga = 2,clase = Misil,tipo = 6}
+  self.armasValues[6] = {stock = 0, max_stock = 5, municion = 0, max_municion = 10, enable = false, dano = 7.5, tiempo = 1 ,
+  tiempo_recarga = 2,clase = Misil,tipo = 6 ,width = 100, height = 30 }
 
 
   self.spritesheetArmas = Index_img.armas
@@ -36,13 +42,13 @@ function tipoBala:init()
 end
 
 function tipoBala:drawArma()
-  if self.armaIndex > 0 and self.armasValues[self.armaIndex].enable then
-    local dimensionArmas = self.dimensionArmas[self.armaIndex]
-    local scaleArmas = self.scaleArmas[self.armaIndex]
+  if self.itemsManos.armaIndex > 0 and self.armasValues[self.itemsManos.armaIndex].enable then
+    local dimensionArmas = self.dimensionArmas[self.itemsManos.armaIndex]
+    local scaleArmas = self.scaleArmas[self.itemsManos.armaIndex]
 
     self.oxBala,self.oyBala = math.getPointAngle(self.ox,self.oy,self.radio,22,10)
 
-    love.graphics.draw(self.imgArmas,self.quadArmas[self.armaIndex],self.oxBala,self.oyBala,self.radioBala,scaleArmas.x,scaleArmas.y*self.vistaX,dimensionArmas.w/2,dimensionArmas.h/2)
+    love.graphics.draw(self.imgArmas,self.quadArmas[self.itemsManos.armaIndex],self.oxBala,self.oyBala,self.radioBala,scaleArmas.x,scaleArmas.y*self.vistaX,dimensionArmas.w/2,dimensionArmas.h/2)
   end
 end
 
@@ -64,13 +70,13 @@ end
 
 function tipoBala:recargarArma()
 
-  if self.armaIndex > 0 and not self.timerRecarga and not self.timerBalas then
-    local balas = self.armasValues[self.armaIndex]
+  if self.itemsManos.armaIndex > 0 and not self.timerRecarga and not self.timerBalas then
+    local balas = self.armasValues[self.itemsManos.armaIndex]
 
     if balas.stock<balas.max_stock and balas.municion>0 then
       self.timerRecarga = nil
       self.timerRecarga = self.timer:after(balas.tiempo_recarga, function()
-        self:recarga(self.armaIndex)
+        self:recarga(self.itemsManos.armaIndex)
         self:terminarRecargaArma()
       end)
     end
@@ -78,13 +84,13 @@ function tipoBala:recargarArma()
 end
 
 function tipoBala:dispararArma()
-  if self.armaIndex > 0 and not self.timerRecarga and not self.timerBalas then
-    self:disparo(self.armaIndex)
+  if self.itemsManos.armaIndex > 0 and not self.timerRecarga and not self.timerBalas then
+    self:disparo(self.itemsManos.armaIndex)
   end
 end
 
 function tipoBala:terminarDisparoArma()
-  if self.armaIndex > 0 and self.timerBalas then
+  if self.itemsManos.armaIndex > 0 and self.timerBalas then
     self.timer:cancel(self.timerBalas)
     self.timerBalas = nil
   end
@@ -113,11 +119,11 @@ end
 
 function tipoBala:disparoIndividual(arma)
   if arma.stock>=1 then
-    arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.armaIndex)
+    arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala,arma.dano,self.itemsManos.armaIndex)
 
     if arma.multibala and arma.radios then
       for i=1,#arma.radios,1 do
-        arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala+arma.radios[i],arma.dano,self.armaIndex)
+        arma.clase(self.entidad,self,self.oxBala,self.oyBala,self.radioBala+arma.radios[i],arma.dano,self.itemsManos.armaIndex)
       end
     end
 
@@ -127,19 +133,23 @@ function tipoBala:disparoIndividual(arma)
 end
 
 function tipoBala:recargarMax()
-  local bala = self.armasValues[self.armaIndex]
-  self.armasValues[self.armaIndex].stock = bala.max_stock
-  self.armasValues[self.armaIndex].municion = bala.max_municion
+  if self.itemsManos.armaIndex >0 then
+    local bala = self.armasValues[self.itemsManos.armaIndex]
+    self.armasValues[self.itemsManos.armaIndex].stock = bala.max_stock
+    self.armasValues[self.itemsManos.armaIndex].municion = bala.max_municion
 
-  self.armasValues[self.armaIndex].enable = true
+    self.armasValues[self.itemsManos.armaIndex].enable = true
+  end
 end
 
 function tipoBala:recargarDoble()
-  local bala = self.armasValues[self.armaIndex]
-  self.armasValues[self.armaIndex].stock = bala.max_stock
-  self.armasValues[self.armaIndex].municion = bala.max_stock
+  if self.itemsManos.armaIndex >0 then
+    local bala = self.armasValues[self.itemsManos.armaIndex]
+    self.armasValues[self.itemsManos.armaIndex].stock = bala.max_stock
+    self.armasValues[self.itemsManos.armaIndex].municion = bala.max_stock
 
-  self.armasValues[self.armaIndex].enable = true
+    self.armasValues[self.itemsManos.armaIndex].enable = true
+  end
 end
 
 return tipoBala
