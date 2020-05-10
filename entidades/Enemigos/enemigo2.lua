@@ -14,6 +14,9 @@ function enemigo2:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.entidad = entidad
 
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+
   self.velocidad = properties.velocidad
 
   self.tag = properties.tag

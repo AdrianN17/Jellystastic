@@ -14,6 +14,9 @@ function enemigo3:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.entidad = entidad
 
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+
   if properties.camper then
     self.velocidad = 0
   else

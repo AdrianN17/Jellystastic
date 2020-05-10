@@ -55,11 +55,17 @@ function colisionesEnemigo:init()
 
                         target.acciones.invulnerable = true
 
-                        this.entidad.timer:after(1,function()
-                            if target then
+                        local timer = this.entidad.timer:after(1,function()
+                            if target and target.acciones.invulnerable then
                                 target.acciones.invulnerable=false
                             end
                         end)
+
+                        if target.inmunidadTimerVariable then
+                            target.cooldownInmunidadTimer = timer
+                        end
+
+
                     end
 
 

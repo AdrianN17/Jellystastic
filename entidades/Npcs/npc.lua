@@ -13,6 +13,9 @@ function npc:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,propert
 
   self.entidad = entidad
 
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+
   self.radio = radio
 
   self.tag = properties.tag
@@ -62,6 +65,8 @@ function npc:draw()
   love.graphics.setShader(self.shaderPlayer)
     love.graphics.draw(self.img,self.quad[self.iteradorEstado][self.iterador],self.ox,self.oy,self.radio,wi,hi,dimension.w/2,dimension.h/2)
   love.graphics.setShader()
+
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function npc:update(dt)
@@ -75,13 +80,15 @@ function npc:update(dt)
 end
 
 function npc:cambiarEstado(tipo)
-  local hp = self.maxHp*0.5
+  local hp = self.maxHp/2
 
-  if self.hp<hp and self.cooldownIterador then
+
+  if self.hp<=hp and self.cooldownIterador then
 
     if tipo == "semizombie" then
       self.iteradorEstado = 4
     elseif tipo == "agujereado" then
+      print("a",self.hp)
       self.iteradorEstado = 2
     elseif tipo == "canon" then
       self.iteradorEstado = 3

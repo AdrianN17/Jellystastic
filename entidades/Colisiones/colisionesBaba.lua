@@ -37,12 +37,12 @@ function colisionesBaba:init()
                     coll:setEnabled(false)
 
                     this.entidad:dano(target,this.dano)
-                    this:remove()
-
+                    
                     if target.cambiarEstado then
                         target:cambiarEstado("semizombie")
                     end
 
+                    this:remove()
 
                     local x,y = coll:getPositions()
 

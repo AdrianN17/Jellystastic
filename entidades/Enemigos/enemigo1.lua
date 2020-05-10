@@ -14,6 +14,9 @@ function enemigo1:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,pr
 
   self.entidad = entidad
 
+  self.shapeTableClear = shapeTableClear
+  self.properties = properties
+
   self.velocidad = properties.velocidad
 
   self.radio = radio
@@ -143,7 +146,7 @@ function enemigo1:draw()
 
   love.graphics.draw(self.img,self.quad[self.iterador],self.ox,self.oy,self.radio,wi*self.direccion,hi,dimension.w/2,dimension.h/2)
 
-  love.graphics.print(tostring(self.ground),self.ox,self.oy-100)
+  love.graphics.print(self.hp,self.ox,self.oy-100)
 end
 
 function enemigo1:update(dt)

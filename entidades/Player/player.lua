@@ -13,6 +13,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   self.shape = shape
   self.fixture = fixture
 
+  self.shapeTableClear = shapeTableClear
   self.properties = properties
 
   self.entidad = entidad
@@ -125,6 +126,9 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   visible.init(self)
 
   self.fixture:setGroupIndex(grupos.player)
+
+  self.inmunidadTimerVariable = true
+  self.cooldownInmunidadTimer = nil
 
 end
 
@@ -358,6 +362,8 @@ function player:get()
   t.dataCreacion = self.dataCreacion
   t.npcsSalvados = self.npcsSalvados
 
+  t.acciones = self.acciones
+
   return t
 end
 
@@ -443,6 +449,11 @@ function player:buscarObjetosUtilizables(contacts)
     elseif puertaObj and self.acciones.usar and not self.jointMovible and self.ground then
 
       self.acciones.usar=false
+      if self.cooldownInmunidadTimer then
+        self.entidad.timer:cancel(self.cooldownInmunidadTimer)
+      end
+      self.cooldownInmunidadTimer = nil
+      self.acciones.invulnerable=false
       self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
 
     end

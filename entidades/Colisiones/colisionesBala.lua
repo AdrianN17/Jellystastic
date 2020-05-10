@@ -56,6 +56,9 @@ function colisionesBala:init()
                 if condicional1 then
                     coll:setEnabled(false)
 
+                    this.entidad:dano(target,this.dano)
+                    
+
                     if this.crearExplosion then
                         this:crearExplosion(coll)
 
@@ -69,7 +72,6 @@ function colisionesBala:init()
                         end
                     end
 
-                    this.entidad:dano(target,this.dano)
                     this:remove()
 
                     local x,y = coll:getPositions()
