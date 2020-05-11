@@ -796,7 +796,7 @@
     <property name="hp" type="int" value="25"/>
     <property name="img" value="jugador"/>
     <property name="imgAccesorio" value="accesorios"/>
-    <property name="itemIndex" type="int" value="1"/>
+    <property name="itemIndex" type="int" value="0"/>
     <property name="salto" type="int" value="30"/>
     <property name="tag" value="humano"/>
     <property name="velocidad" type="int" value="175"/>

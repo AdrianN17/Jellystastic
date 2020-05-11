@@ -1861,7 +1861,7 @@ return {
             ["hp"] = 25,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
-            ["itemIndex"] = 1,
+            ["itemIndex"] = 0,
             ["salto"] = 30,
             ["tag"] = "humano",
             ["velocidad"] = 175
