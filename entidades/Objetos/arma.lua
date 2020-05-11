@@ -14,12 +14,15 @@ function arma:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,proper
 
   self.properties = properties
 
+  self.stock = 0
+  self.municion = 0
+
 end
 
 function arma:usar(obj)
 
   if obj.itemsManos.armaIndex>0 and obj.itemsManos.armaIndex ~= self.tipo then
-
+    print("a")
     if obj.itemManoIndex==2 then
       obj.itemManoIndex=1
     end
@@ -27,20 +30,18 @@ function arma:usar(obj)
     obj:terminarDisparoArma()
     obj:terminarRecargaArma()
 
-
     local tipo = self.tipo
 
-
     self:crearNuevaArma(obj.armasValues[obj.itemsManos.armaIndex],obj.itemsManos.armaIndex)
-    self:crearNuevasBalas(obj.armasValues[obj.itemsManos.armaIndex],obj.itemsManos.armaIndex)
 
     obj.armasValues[obj.itemsManos.armaIndex].enable = false
     obj.armasValues[obj.itemsManos.armaIndex].stock = 0
     obj.armasValues[obj.itemsManos.armaIndex].municion = 0
 
-
-    obj.armasValues[tipo].enable = true
     obj.itemsManos.armaIndex = tipo
+    obj.armasValues[tipo].enable = true
+    obj.armasValues[tipo].stock = self.stock 
+    obj.armasValues[tipo].municion = self.municion
 
     self:remove()
   end
@@ -61,14 +62,17 @@ function arma:crearNuevaArma(arma,index)
   properties.quad = index
 
 
-
   local obj = Entities_index.arma(self.entidad,body,shape,fixture,self.ox,self.oy,self.radio,shapeTableClear,properties,arma.width,arma.height)
   obj.Es_usable = properties.Es_usable
 
+
+  obj.stock = arma.stock
+
+  obj.municion = arma.municion
+
+  fixture:setUserData({obj = obj})
+
 end
 
-function arma:crearNuevasBalas(arma,index)
-
-end
 
 return arma

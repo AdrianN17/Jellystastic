@@ -60,7 +60,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="18" name="Arma" type="static" x="255.333" y="357.417" width="50" height="25">
+  <object id="18" name="Arma" type="static" x="511.333" y="207.417" width="50" height="25">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
@@ -69,7 +69,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="19" name="Arma" type="static" x="108.667" y="301.417" width="100" height="25">
+  <object id="19" name="Arma" type="static" x="364.667" y="151.417" width="100" height="25">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
@@ -78,7 +78,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="20" name="Arma" type="static" x="278" y="286.75" width="100" height="25">
+  <object id="20" name="Arma" type="static" x="534" y="136.75" width="100" height="25">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
@@ -87,7 +87,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="21" name="Arma" type="static" x="402" y="297.417" width="100" height="30">
+  <object id="21" name="Arma" type="static" x="658" y="147.417" width="100" height="30">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
@@ -96,7 +96,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="22" name="Arma" type="static" x="396.667" y="358.75" width="75" height="25">
+  <object id="22" name="Arma" type="static" x="652.667" y="208.75" width="75" height="25">
    <properties>
     <property name="Es_usable" type="bool" value="true"/>
     <property name="clase" value="arma"/>
