@@ -22,7 +22,7 @@ end
 function arma:usar(obj)
 
   if obj.itemsManos.armaIndex>0 and obj.itemsManos.armaIndex ~= self.tipo then
-    print("a")
+
     if obj.itemManoIndex==2 then
       obj.itemManoIndex=1
     end

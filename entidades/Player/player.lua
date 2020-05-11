@@ -93,7 +93,9 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
     end
   end)
 
-  self.timer:every(0.01, function()
+  self.timer:every(0.05, function()
+    self.ground = false
+
     local contacts = self.body:getContacts()
 
     self.puertaValues = nil
@@ -133,7 +135,6 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 end
 
 function player:update(dt)
-  self.ground = false
 
   self.radio = self.body:getAngle()
 
@@ -409,7 +410,7 @@ function player:endContact(obj,coll)
 end
 
 function player:buscarObjetosUtilizables(contacts)
-  for _,contact in ipairs(contacts) do
+  for _,contact in pairs(contacts) do
 
     local salvableObj = self.entidad:getUserDataValue(contact,"Es_salvable")
     local movibleObj = self.entidad:getUserDataValue(contact,"Es_movible")
@@ -421,7 +422,8 @@ function player:buscarObjetosUtilizables(contacts)
       itemObj.obj:usar(self)
       self.acciones.usar= false
 
-    elseif salvableObj and salvableObj.obj and not salvableObj.obj.body:isDestroyed() and self.acciones.usar and self.ground then
+    elseif salvableObj and salvableObj.obj and not salvableObj.obj.body:isDestroyed() and self.acciones.usar
+    and self.ground then
 
       self.npcsSalvados = self.npcsSalvados+1
 

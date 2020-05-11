@@ -26,14 +26,13 @@ function estandarEnemigos:init(properties)
 
   if not properties.camper then
 
-    self.timer:every(0.01, function()
+    self.timer:every(0.05, function()
       self.ground = false
       local contacts = self.body:getContacts()
-  
+
       self:buscarColisionesEspacio(contacts)
-  
+
     end)
-  
 
     local raycastSuelo = function (fixture, x, y, xn, yn, fraction)
 
