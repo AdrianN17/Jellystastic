@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 19,
-  nextobjectid = 232,
+  nextobjectid = 233,
   properties = {},
   tilesets = {},
   layers = {
@@ -433,7 +433,7 @@ return {
           type = "none",
           shape = "rectangle",
           x = 2121.32,
-          y = 359.166,
+          y = 365.833,
           width = 993.354,
           height = 367.667,
           rotation = 0,
@@ -623,6 +623,28 @@ return {
             ["id"] = 5,
             ["img"] = "objetos",
             ["nivel"] = 2,
+            ["quad"] = "puerta",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 232,
+          name = "Puerta",
+          type = "static",
+          shape = "rectangle",
+          x = 2579.67,
+          y = 633,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_portal"] = true,
+            ["clase"] = "puerta",
+            ["id"] = 9,
+            ["img"] = "objetos",
+            ["llave"] = 1,
+            ["nivel"] = 3,
             ["quad"] = "puerta",
             ["sensor"] = true
           }
@@ -1839,6 +1861,7 @@ return {
             ["hp"] = 25,
             ["img"] = "jugador",
             ["imgAccesorio"] = "accesorios",
+            ["itemIndex"] = 1,
             ["salto"] = 30,
             ["tag"] = "humano",
             ["velocidad"] = 175

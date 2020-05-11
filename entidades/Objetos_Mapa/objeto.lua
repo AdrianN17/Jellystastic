@@ -39,6 +39,12 @@ function objeto:init(entidad,ox,oy,radio,shapeTableClear,properties,width,height
 end
 
 function objeto:draw()
+
+  if self.drawAdicional then
+    --dibujar lo que quiera
+    self:drawAdicional()
+  end
+
   love.graphics.draw(self.img,self.quad,self.ox,self.oy,self.radio,self.wi*(self.direccion_x or 1),self.hi*(self.direccion_y or 1),self.dimension.w/2 * (self.posicion_x or 1),self.dimension.h/2 * (self.posicion_y or 1))
 
 end

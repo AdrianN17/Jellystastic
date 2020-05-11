@@ -8,8 +8,8 @@ return {
   height = 20,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 8,
-  nextobjectid = 23,
+  nextlayerid = 9,
+  nextobjectid = 24,
   properties = {},
   tilesets = {},
   layers = {
@@ -144,8 +144,8 @@ return {
           name = "Arma",
           type = "static",
           shape = "rectangle",
-          x = 99.3335,
-          y = 361.417,
+          x = 147.334,
+          y = 97.417,
           width = 50,
           height = 25,
           rotation = 0,
@@ -163,8 +163,8 @@ return {
           name = "Arma",
           type = "static",
           shape = "rectangle",
-          x = 255.333,
-          y = 357.417,
+          x = 303.333,
+          y = 93.417,
           width = 50,
           height = 25,
           rotation = 0,
@@ -239,8 +239,8 @@ return {
           name = "Arma",
           type = "static",
           shape = "rectangle",
-          x = 396.667,
-          y = 358.75,
+          x = 444.667,
+          y = 94.75,
           width = 75,
           height = 25,
           rotation = 0,
@@ -314,6 +314,42 @@ return {
     },
     {
       type = "objectgroup",
+      id = 8,
+      name = "Puertas",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["tabla"] = "puertas"
+      },
+      objects = {
+        {
+          id = 23,
+          name = "Puerta",
+          type = "static",
+          shape = "rectangle",
+          x = 92,
+          y = 316,
+          width = 60,
+          height = 100,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Es_portal"] = true,
+            ["clase"] = "puerta",
+            ["id"] = 9,
+            ["img"] = "objetos",
+            ["nivel"] = 3,
+            ["quad"] = "puerta",
+            ["sensor"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       id = 6,
       name = "Jugadores",
       visible = true,
@@ -324,33 +360,7 @@ return {
       properties = {
         ["tabla"] = "jugadores"
       },
-      objects = {
-        {
-          id = 7,
-          name = "Player",
-          type = "dynamic",
-          shape = "rectangle",
-          x = 4.99997,
-          y = 338,
-          width = 50,
-          height = 80,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Es_danoExplosivo"] = true,
-            ["Es_explotaMorir"] = true,
-            ["Es_transformarZombie"] = true,
-            ["armaIndex"] = 1,
-            ["clase"] = "player",
-            ["hp"] = 25,
-            ["img"] = "jugador",
-            ["imgAccesorio"] = "accesorios",
-            ["salto"] = 30,
-            ["tag"] = "humano",
-            ["velocidad"] = 175
-          }
-        }
-      }
+      objects = {}
     },
     {
       type = "objectgroup",

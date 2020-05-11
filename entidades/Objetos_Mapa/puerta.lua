@@ -9,7 +9,7 @@ function puerta:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
 
   self.puertaValues = {id = properties.id, nivel = properties.nivel}
 
-
+  self.llave = properties.llave
 end
 
 return puerta

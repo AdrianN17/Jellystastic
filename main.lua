@@ -175,7 +175,7 @@ function checkStringInTable(string,tabla)
       return true
     end
   end
-  
+
   return false
 end
 
@@ -186,6 +186,11 @@ function CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
          y1 < y2+h2 and
          y2 < y1+h1
 end
+
+function isEmpty(s)
+  return s == nil or s == ''
+end
+
 
 function love.lowmemory()
     collectgarbage()

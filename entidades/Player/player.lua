@@ -69,7 +69,7 @@ function player:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,prop
   tipoBala.init(self)
 
   self.itemManoIndex = 1
-  self.itemsManos = {armaIndex= properties.armaIndex or 0, itemIndex = 0}
+  self.itemsManos = {armaIndex= properties.armaIndex or 0, itemIndex = properties.itemIndex or 0}
 
   self:recargarDoble()
 
@@ -451,13 +451,22 @@ function player:buscarObjetosUtilizables(contacts)
     elseif puertaObj and self.acciones.usar and not self.jointMovible and self.ground then
 
       self.acciones.usar=false
-      if self.cooldownInmunidadTimer then
-        self.entidad.timer:cancel(self.cooldownInmunidadTimer)
-      end
-      self.cooldownInmunidadTimer = nil
-      self.acciones.invulnerable=false
-      self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
 
+      if puertaObj.obj.llave then
+
+        if self.itemManoIndex == 2 and puertaObj.obj.llave>0 and puertaObj.obj.llave == self.itemsManos.itemIndex then
+          self.itemsManos.itemIndex = 0
+          puertaObj.obj.llave = nil
+        end
+
+      else
+        if self.cooldownInmunidadTimer then
+          self.entidad.timer:cancel(self.cooldownInmunidadTimer)
+        end
+        self.cooldownInmunidadTimer = nil
+        self.acciones.invulnerable=false
+        self.entidad:cambiarSubnivel(puertaObj.obj.puertaValues)
+      end
     end
   end
 end
