@@ -187,12 +187,12 @@ function player:draw()
 
   if self.itemManoIndex == 1 then
     self:drawArma()
-  else 
+  else
     --dibujar item
   end
 
   love.graphics.print(self.hp,self.ox,self.oy-100)
-  love.graphics.print(tostring(self.acciones.invulnerable),self.ox,self.oy-200)
+  --love.graphics.print(tostring(self.acciones.invulnerable),self.ox,self.oy-200)
 
 end
 
@@ -227,7 +227,7 @@ function player:keypressed(key)
   end
 
   if key == _G.teclas.getBox then
-    
+
     self:terminarDisparoArma()
 
     self.acciones.coger = not self.acciones.coger
@@ -254,7 +254,7 @@ function player:keypressed(key)
 
     if self.itemManoIndex == 1 then
       self.itemManoIndex = 2
-    else 
+    else
       self.itemManoIndex = 1
     end
   end
