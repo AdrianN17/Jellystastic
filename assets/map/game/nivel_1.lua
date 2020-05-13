@@ -1814,7 +1814,7 @@ return {
             ["Es_danoExplosivo"] = true,
             ["Es_explotaMorir"] = true,
             ["Es_transformarZombie"] = true,
-            ["arma"] = 1,
+            ["arma"] = 2,
             ["camper"] = true,
             ["clase"] = "enemigo3",
             ["hp"] = 12,

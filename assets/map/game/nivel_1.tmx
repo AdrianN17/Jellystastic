@@ -769,7 +769,7 @@
     <property name="Es_danoExplosivo" type="bool" value="true"/>
     <property name="Es_explotaMorir" type="bool" value="true"/>
     <property name="Es_transformarZombie" type="bool" value="true"/>
-    <property name="arma" type="int" value="1"/>
+    <property name="arma" type="int" value="2"/>
     <property name="camper" type="bool" value="true"/>
     <property name="clase" value="enemigo3"/>
     <property name="hp" type="int" value="12"/>
