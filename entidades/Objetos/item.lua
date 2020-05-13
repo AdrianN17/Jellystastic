@@ -15,7 +15,21 @@ function item:init(entidad,body,shape,fixture,ox,oy,radio,shapeTableClear,proper
 end
 
 function item:usar(obj)
+    obj:terminarDisparoArma()
+    obj:terminarRecargaArma()
 
+    if obj.itemManoIndex==1 then
+        obj.itemManoIndex=2
+    end
+
+
+    if obj.itemsManos.itemIndex==0 then
+
+        self:remove()
+    elseif obj.itemsManos.itemIndex ~= self.itemTipo then
+
+        self:remove()
+    end
 end
 
 return item

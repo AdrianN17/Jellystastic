@@ -21,14 +21,23 @@ end
 
 function arma:usar(obj)
 
-  if obj.itemsManos.armaIndex>0 and obj.itemsManos.armaIndex ~= self.tipo then
+  obj:terminarDisparoArma()
+  obj:terminarRecargaArma()
 
-    if obj.itemManoIndex==2 then
-      obj.itemManoIndex=1
-    end
+  if obj.itemManoIndex==2 then
+    obj.itemManoIndex=1
+  end
 
-    obj:terminarDisparoArma()
-    obj:terminarRecargaArma()
+  if obj.itemsManos.armaIndex==0 then
+
+    local tipo = self.tipo
+    obj.itemsManos.armaIndex = tipo
+    obj.armasValues[tipo].enable = true
+    obj.armasValues[tipo].stock = self.stock
+    obj.armasValues[tipo].municion = self.municion
+
+    self:remove()
+  elseif obj.itemsManos.armaIndex ~= self.tipo then
 
     local tipo = self.tipo
 
