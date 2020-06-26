@@ -1,5 +1,5 @@
 # Jellystastic
-![alt text](https://img.shields.io/badge/love-11.1-ff69b4.svg) ![alt text](https://img.shields.io/badge/status-alpha-orange.svg)
+![alt text](https://img.shields.io/badge/love-11.3-ff69b4.svg) ![alt text](https://img.shields.io/badge/status-demo-orange.svg)
 
 A original game platformer make with [Love2d](https://love2d.org/)
 
