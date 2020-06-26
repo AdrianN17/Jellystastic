@@ -24,6 +24,8 @@ At the moment only have level 1-1 and some houses
 * [Lua - Switch](https://github.com/geappliances/applcommon.lua-switch)
 * [love-imgui](https://github.com/slages/love-imgui)
 
+Some functionalities like water buoyancy is from [APE](https://love2d.org/forums/viewtopic.php?t=81976)
+
 
 ## Tools used in this game :
 
