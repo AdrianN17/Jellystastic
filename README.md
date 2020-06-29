@@ -38,3 +38,8 @@ Some functionalities like water buoyancy is from [APE](https://love2d.org/forums
 ![alt text](https://i.imgur.com/1dEWOkW.png)
 
 ![alt text](https://i.imgur.com/VRzqsx5.png)
+
+## Gameplay : 
+
+[Parte 1](https://www.youtube.com/watch?v=xGdV9Myg8_o)
+[Parte 2](https://www.youtube.com/watch?v=O5CYUtyiQnY)
