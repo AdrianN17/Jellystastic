@@ -33,7 +33,6 @@ function colisionesLiquido:init()
                     this:buoyancy(this.densidad,this.fixture,target.fixture,coll)
 
                     if not target.timerRemove and not target.body:isDestroyed() then
-                        print("a")
                         target.timerRemove = target.entidad.timer:after(5,function()
                             target:remove()
                         end)

@@ -88,7 +88,6 @@ function npc:cambiarEstado(tipo)
     if tipo == "semizombie" then
       self.iteradorEstado = 4
     elseif tipo == "agujereado" then
-      print("a",self.hp)
       self.iteradorEstado = 2
     elseif tipo == "canon" then
       self.iteradorEstado = 3
